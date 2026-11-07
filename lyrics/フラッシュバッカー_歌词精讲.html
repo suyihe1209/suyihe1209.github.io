@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>フラッシュバッカー / 結束バンド —— 逐句歌词精讲</title>
+<meta name="description" content="「フラッシュバッカー」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲 #05）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="フラッシュバッカー / 結束バンド —— 逐句歌词精讲">
+<meta property="og:description" content="「フラッシュバッカー」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲 #05）">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2308070d'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ff6fb5' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%235fe3f5'/%3E%3C/svg%3E">
+<style>
+/* ==== assets/base.css 内联 ==== */
+/* ===== base.css —— 单曲与合集共用的样式（构建时内联进 <style>） ===== */
+
+/* ---------- 设计令牌 ---------- */
+:root{
+  --bg:#08070d;
+  --bg2:#0c0a14;
+  --panel:#131020;
+  --panel2:#1a1529;
+  --line:#282040;
+  --line2:#3a2e5c;
+  --text:#ece9f7;
+  --muted:#a09ab6;
+  --muted2:#8b84a6;
+  --cyan:#5fe3f5;
+  --pink:#ff6fb5;
+  --violet:#b78cff;
+  --amber:#ffc266;
+  --green:#7ff0a8;
+  --red:#ff8080;
+  --nav-h:64px;
+  --r-md:14px;
+  --r-sm:11px;
+  --fs-body:15px;
+  --fs-sm:14px;
+  --fs-xs:13px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 14px);}
+body{
+  margin:0; background:
+    radial-gradient(1100px 560px at 12% -8%, #2a1040 0%, transparent 58%),
+    radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:var(--fs-body);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-size-adjust:100%;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 120px;}
+
+/* ---------- 页头 ---------- */
+.kicker{font-size:12px;letter-spacing:.28em;color:var(--pink);text-transform:uppercase;font-weight:700;}
+h1{font-size:clamp(28px,5vw,44px);margin:12px 0 6px;letter-spacing:.02em;line-height:1.2;}
+h1 .sub{display:block;font-size:.40em;color:var(--muted);font-weight:400;letter-spacing:.16em;margin-top:10px;}
+.byline{color:var(--muted);font-size:14.5px;margin-top:14px;}
+.byline code{background:var(--panel2);padding:2px 7px;border-radius:5px;color:var(--cyan);font-size:13px;}
+
+/* ---------- 卡片区 ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px;margin:16px 0;}
+.card h2{font-size:17.5px;margin:0 0 12px;color:var(--pink);letter-spacing:.04em;display:flex;align-items:center;gap:9px;}
+.card h2::before{content:"";width:4px;height:16px;background:var(--pink);border-radius:2px;}
+.card.cy h2{color:var(--cyan);} .card.cy h2::before{background:var(--cyan);}
+.card.ok{border-color:#1e4a30;background:linear-gradient(180deg,#0b1c13,#0e0d18);}
+.card.ok h2{color:var(--green);} .card.ok h2::before{background:var(--green);}
+.card.ok p{margin:8px 0;font-size:var(--fs-body);}
+.card.ok b{color:var(--green);}
+.card.hot{border-color:#4a2a3d;}
+.card.hot h2{color:var(--pink);}
+
+/* ---------- 工具栏（单曲 .bar / 合集 .nav 共用控件） ---------- */
+.tg{border:1px solid var(--line2);background:var(--panel2);color:var(--muted);
+    font-size:13.5px;padding:6px 13px;border-radius:20px;cursor:pointer;transition:.16s;
+    user-select:none;font-family:inherit;line-height:1.5;display:inline-flex;align-items:center;gap:6px;}
+.tg:hover{color:var(--text);border-color:var(--pink);}
+.tg.on{background:rgba(255,111,181,.15);border-color:var(--pink);color:var(--pink);font-weight:600;}
+.tg.icon{padding:6px 10px;font-size:14px;}
+.sp{flex:1;}
+.home-link{text-decoration:none;color:var(--muted);font-size:15px;padding:4px 8px;
+          transition:color .2s;}
+.home-link:hover{color:var(--cyan);}
+.count{font-size:var(--fs-xs);color:var(--muted2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+
+.search{position:relative;display:flex;align-items:center;flex:none;}
+.search input{
+  width:210px;max-width:42vw;background:var(--panel2);border:1px solid var(--line2);
+  border-radius:20px;color:var(--text);font-family:inherit;font-size:13.5px;
+  padding:6px 30px 6px 32px;transition:.16s;
+}
+.search input::placeholder{color:var(--muted2);}
+.search input:focus{border-color:var(--cyan);background:var(--panel);}
+.search::before{
+  content:"";position:absolute;left:12px;width:12px;height:12px;pointer-events:none;
+  border:2px solid var(--muted2);border-radius:50%;
+}
+.search::after{
+  content:"";position:absolute;left:21px;top:20px;width:5px;height:2px;pointer-events:none;
+  background:var(--muted2);transform:rotate(45deg);
+}
+.search input:focus ~ .search::before{border-color:var(--cyan);}
+
+/* ---------- 段落 ---------- */
+.sec{margin-top:34px;}
+.sec-h{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);
+       padding-bottom:9px;margin-bottom:4px;flex-wrap:wrap;}
+.sec-h .n{font-size:12.5px;font-weight:800;letter-spacing:.2em;color:var(--cyan);}
+.sec-h h3{margin:0;font-size:20px;}
+.sec-h .jp{color:var(--muted);font-size:14px;}
+.sec-h .sp{flex:1;min-width:0;}
+.sec-tg{border:1px solid transparent;background:transparent;color:var(--muted2);
+        font-family:inherit;font-size:12.5px;padding:4px 10px;border-radius:14px;
+        cursor:pointer;transition:.16s;white-space:nowrap;}
+.sec-tg:hover{color:var(--pink);border-color:var(--line2);background:var(--panel2);}
+.sec-cnt{font-size:12px;color:var(--muted2);font-variant-numeric:tabular-nums;white-space:nowrap;}
+/* 搜索时整段无命中的降级显示（不留空白壳） */
+.sec.nomatch{opacity:.42;}
+.sec.nomatch .sec-h::after{content:"（无匹配）";font-size:12px;color:var(--muted2);}
+
+/* ---------- 句子（阅读优先：连续流，无卡片边框） ---------- */
+.line{position:relative;padding:13px 0 13px;margin:0;border-bottom:1px solid rgba(40,32,64,.55);
+      transition:background .16s;}
+.line:hover{background:rgba(255,255,255,.022);}
+.line.hide{display:none;}
+.line.open{background:rgba(255,255,255,.045);padding-left:16px;}
+.line.open::before{content:"";position:absolute;left:2px;top:12px;bottom:12px;width:3px;
+                   background:var(--pink);border-radius:3px;}
+
+.head{cursor:pointer;position:relative;padding-right:26px;border-radius:8px;}
+.head:hover .chev{opacity:.55;color:var(--pink);}
+.head:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+.orig{font-size:21px;letter-spacing:.03em;line-height:1.55;
+      font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:600;}
+.rd{font-size:14px;color:var(--cyan);margin-top:4px;letter-spacing:.02em;display:none;}
+.ro{font-size:13px;color:var(--muted2);margin-top:3px;font-style:italic;display:none;}
+.tr{font-size:var(--fs-body);color:#c9c3dc;margin-top:9px;padding-left:12px;
+    border-left:2px solid var(--line2);display:none;}
+.foot{display:flex;align-items:center;gap:9px;margin-top:10px;min-height:20px;}
+.lv{font-size:11px;font-weight:800;padding:2.5px 9px;border-radius:20px;letter-spacing:.05em;white-space:nowrap;}
+.lv.n5{background:rgba(127,240,168,.15);color:var(--green);border:1px solid rgba(127,240,168,.35);}
+.lv.n4{background:rgba(95,227,245,.14);color:var(--cyan);border:1px solid rgba(95,227,245,.34);}
+.lv.n3{background:rgba(255,194,102,.14);color:var(--amber);border:1px solid rgba(255,194,102,.34);}
+.lv.n2{background:rgba(255,128,128,.13);color:var(--red);border:1px solid rgba(255,128,128,.32);}
+.lv.rep{background:rgba(183,140,255,.14);color:var(--violet);border:1px solid rgba(183,140,255,.34);}
+.chev{position:absolute;right:2px;top:3px;font-size:12px;color:var(--muted2);
+      opacity:.28;transition:.18s;pointer-events:none;}
+.line.open .chev{opacity:1;color:var(--pink);transform:rotate(180deg);}
+
+.detail{display:none;padding:14px 0 4px;}
+.line.open .detail{display:block;animation:fade .2s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.detail h4{font-size:12.5px;letter-spacing:.16em;color:var(--violet);margin:16px 0 8px;font-weight:700;}
+.detail h4:first-child{margin-top:4px;}
+
+/* ---------- 表格 ---------- */
+table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+th{text-align:left;color:var(--muted2);font-weight:600;font-size:12px;letter-spacing:.1em;
+   padding:6px 9px;border-bottom:1px solid var(--line2);white-space:nowrap;}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:hover td{background:rgba(255,111,181,.05);}
+td.w{font-weight:700;color:var(--text);white-space:nowrap;
+     font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:16px;}
+td.rd2{color:var(--cyan);font-size:13.5px;white-space:nowrap;}
+td.pos{color:var(--pink);font-size:12.5px;white-space:nowrap;}
+td.mn{color:#c9c3dc;}
+td.nt{color:var(--muted);font-size:13px;}
+
+.sx{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin-top:8px;}
+.sx th{font-size:12px;letter-spacing:.1em;padding:8px 10px;border-bottom:1px solid var(--line2);color:var(--muted2);}
+.sx td{padding:9px 10px;border-bottom:1px solid var(--line);}
+.sx td.a{color:var(--pink);font-weight:700;font-family:"Yu Gothic",sans-serif;font-size:15px;}
+.sx td.b{color:var(--cyan);font-family:"Yu Gothic",sans-serif;}
+.sx td.c{color:#c9c3dc;}
+.sx tr:hover td{background:rgba(95,227,245,.05);}
+/* 卡片里的表：窄屏横向滚动 */
+.card .sx{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* ---------- 语法 / 大白话 / 提示 ---------- */
+.g{margin:8px 0;padding:11px 14px;background:var(--panel2);border-radius:9px;
+   border-left:3px solid var(--violet);font-size:14.5px;}
+.g b{color:var(--violet);}
+.plain{margin-top:12px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+       background:rgba(127,240,168,.07);border-left:3px solid var(--green);color:#cdeada;}
+.plain b{color:var(--green);}
+.tip{margin-top:10px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+     background:rgba(255,194,102,.07);border-left:3px solid var(--amber);color:#eadfc7;}
+.tip b{color:var(--amber);}
+
+/* ---------- 小卡网格 ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:6px;}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;}
+.mini .t{font-size:15px;font-weight:700;color:var(--cyan);margin-bottom:6px;}
+.mini .d{font-size:13.5px;color:var(--muted);}
+.mini .d em{color:var(--text);font-style:normal;background:rgba(95,227,245,.1);padding:1px 5px;border-radius:4px;
+            font-family:"Yu Gothic",sans-serif;}
+.mini .ex{font-size:13.5px;margin-top:7px;color:#c9c3dc;padding-top:7px;border-top:1px solid var(--line);}
+.mini .ex span{color:var(--pink);}
+
+footer{text-align:center;color:var(--muted2);font-size:13px;margin-top:52px;
+       padding-top:22px;border-top:1px solid var(--line);}
+
+/* ---------- 空结果提示 ---------- */
+.empty{display:none;padding:26px 0;text-align:center;color:var(--muted2);font-size:14px;}
+.empty.on{display:block;}
+
+/* ---------- 可访问性 ---------- */
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px;}
+.skip{position:absolute;left:-9999px;top:0;background:var(--panel2);color:var(--text);
+      padding:10px 16px;border-radius:0 0 10px 0;z-index:200;}
+.skip:focus{left:0;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+
+/* ---------- 浅色主题（共用部分） ---------- */
+html.light{
+  --bg:#f5f3fb; --bg2:#eeeaf8; --panel:#ffffff; --panel2:#f4f1fc;
+  --line:#e2dcf0; --line2:#cfc6e8;
+  --text:#1c1730; --muted:#585170; --muted2:#6b6484;
+  /* 浅底上必须换一套更深的强调色：原来的青/粉在白色上只有 1.7–2.5:1 */
+  --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
+  --amber:#8a5a00; --green:#0f7a46; --red:#b3261e;
+}
+html.light body{background:
+  radial-gradient(1100px 560px at 12% -8%, #efe7fb 0%, transparent 58%),
+  radial-gradient(900px 520px at 92% 2%, #e6f4fa 0%, transparent 55%),
+  var(--bg);}
+html.light .line{border-bottom-color:var(--line);}
+html.light .line:hover{background:rgba(40,32,64,.028);}
+html.light .line.open{background:rgba(40,32,64,.05);}
+html.light .card.ok{border-color:#b9e2c8;background:linear-gradient(180deg,#f2fbf5,#ffffff);}
+html.light .card.hot{border-color:#e8c2d4;}
+html.light .tr,html.light td.mn,html.light .sx td.c,html.light .mini .ex{color:#4d4763;}
+html.light .plain{color:#1c6e40;background:rgba(23,138,76,.09);}
+html.light .tip{color:#7a5b14;background:rgba(191,138,26,.1);}
+html.light .g{background:#f7f4ff;}
+html.light .tg{background:#fff;}
+html.light .search input{background:#fff;}
+html.light footer{border-top-color:var(--line);}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:700px){
+  :root{--fs-body:15px;}
+  .wrap{padding:0 14px 90px;}
+  .orig{font-size:18.5px;}
+  .card{padding:16px 15px;border-radius:12px;}
+  .count{font-size:12.5px;}
+  .search input{width:150px;padding:6px 26px 6px 30px;font-size:13px;}
+  .sec{margin-top:28px;}
+  .sec-h h3{font-size:18px;}
+
+  /* 歌词里的逐词表：改成「一行一词」的块，避免 5 列在窄屏被裁 */
+  .line .sx{display:block;width:100%;margin-top:6px;}
+  .line .sx thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .line .sx tbody,.line .sx tr,.line .sx td{display:block;width:auto;}
+  .line .sx tr{padding:9px 0 10px;border-bottom:1px solid var(--line);}
+  .line .sx tr:hover td{background:transparent;}
+  .line .sx td{border:0;padding:0;white-space:normal;}
+  .line .sx td.w{font-size:16.5px;font-weight:700;margin-bottom:2px;}
+  .line .sx td.rd2{font-size:13.5px;}
+  .line .sx td.pos{font-size:12px;margin:3px 0 1px;}
+  .line .sx td.mn{font-size:14px;}
+  .line .sx td.nt{font-size:13px;color:var(--muted2);margin-top:4px;}
+  /* 用 data-h 给移动端补上列名标签（只留给释义/备注，词头三行靠字号和颜色区分） */
+  .line .sx td[data-h]::before{content:attr(data-h);color:var(--muted2);font-size:10.5px;
+    letter-spacing:.12em;margin-right:7px;}
+  .line .sx td.w[data-h]::before,.line .sx td.rd2[data-h]::before,
+  .line .sx td.pos[data-h]::before{display:none;}
+  .line .sx td.mn[data-h]{font-size:14.5px;}
+  .line .sx td.nt[data-h]::before{display:none;}
+  .line .sx td.nt[data-h]{padding-left:11px;border-left:2px solid var(--line2);}
+  .line{padding:12px 0;}
+  .line.open{padding-left:13px;}
+  .line.open::before{left:1px;width:3px;}
+  .detail h4{font-size:12px;}
+}
+
+/* ---------- 打印 ---------- */
+@media print{
+  html,body{background:#fff!important;color:#111!important;}
+  .nav,.bar,.search,.chev,.sec-tg,.theme,.modeSwitch,.skip{display:none!important;}
+  .wrap{max-width:none;padding:0;}
+  .card,.line,.mini,.g,.plain,.tip{background:#fff!important;border-color:#bbb!important;
+    break-inside:avoid;box-shadow:none!important;}
+  .orig,.tr,td,.sx td{color:#111!important;}
+  .rd{color:#0a6b7a!important;}
+  .lv{border-color:#999!important;}
+  .line{page-break-inside:avoid;}
+  a[href]::after{content:"";}
+}
+
+
+/* ===== 单曲页专用：工具条 / 主标题区 / 浅色覆盖 ===== */
+.bar{position:sticky;top:0;z-index:60;background:rgba(8,7,13,.94);
+     backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.bar .row{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.bar .sp{flex:1 1 auto;}
+.bar .count{font-size:12.5px;}
+
+header{padding:46px 0 26px;position:relative;overflow:hidden;}
+header .ball{position:absolute;right:-10px;top:-4px;height:112%;opacity:.55;pointer-events:none;}
+header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10px;}
+.gfoot{opacity:.78;}
+
+html.light .bar{background:rgba(250,248,255,.94);}
+
+@media (max-width:700px){
+  .bar .row{padding:8px 12px;gap:6px;}
+  .bar .sp{display:none;}
+  header{padding:28px 0 18px;}
+  header .ball{display:none;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#lyrics">跳到正文</a>
+
+<div class="bar" id="bar">
+  <div class="row">
+    <div class="sp"></div>
+    <a class="home-link" href="../index.html" title="返回博客首页">返回首页</a>
+    <button class="tg icon theme" id="themeBtn" aria-pressed="false" title="切换深浅色">🌙</button>
+  </div>
+</div>
+
+<main class="wrap" id="stage">
+<header>
+  <svg class="ball" viewBox="0 0 120 300" fill="none" aria-hidden="true">
+    <rect x="22" y="190" width="76" height="10" rx="5" fill="#7c4dcc" opacity=".55"/>
+    <rect x="36" y="214" width="48" height="9" rx="4.5" fill="#5fe3f5" opacity=".5"/>
+    <rect x="18" y="76" width="84" height="11" rx="5.5" fill="#ff6fb5" opacity=".85"/>
+    <rect x="30" y="98" width="60" height="9" rx="4.5" fill="#ff6fb5" opacity=".6"/>
+    <rect x="44" y="120" width="40" height="8" rx="4" fill="#b78cff" opacity=".55"/>
+    <rect x="26" y="146" width="66" height="9" rx="4.5" fill="#5fe3f5" opacity=".45"/>
+    <rect x="38" y="166" width="44" height="8" rx="4" fill="#7c4dcc" opacity=".45"/>
+  </svg>
+  <div class="kicker">Lyrics Breakdown · 逐句精讲 #05</div>
+  <h1>フラッシュバッカー<span class="sub">Flashbacker ／ 結束バンド《孤独摇滚！》</span></h1>
+  <div class="byline">結束バンド（Vo. 後藤ひとり／CV. 長谷川育美） ／ 作詞・作曲：<code>音羽-otoha-</code> ／ 編曲：<code>三井律郎</code> ／ 2022<br>TVアニメ『ぼっち・ざ・ろっく！』本PV挿入歌 ／ 目标水平：<code>JLPT N5–N4</code></div>
+</header>
+
+
+<div id="lyrics"></div>
+<div class="empty">没有匹配的句子，换个关键词试试。</div>
+
+<footer>
+  <div class="gfoot">歌词原文核对：<code>utaten</code>（含振假名）＋ <code>Shazam</code> 双源比对，分歧处采信 utaten ／ 中文译文为本页自译，仅供学习参考<br>「フラッシュバッカー」© 音羽-otoha- / Aniplex・芳文社，版权归原作者所有。本页仅用于语言学习与作品评论，不含音源</div>
+</footer>
+</main>
+
+<script>
+/*==DATA-START==*/
+const S = [
+ {
+  "n": "A",
+  "h": "主歌",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "転換点 いつかノートに",
+    "r": "てんかんてん いつかノートに",
+    "ro": "tenkanten itsuka nooto ni",
+    "tr": "转换点——曾经在笔记本上",
+    "lv": "n3",
+    "w": [
+     [
+      "転換点",
+      "てんかんてん",
+      "名词",
+      "转折点、转换点",
+      "汉语词，抽象度偏高；歌里指人生的岔口"
+     ],
+     [
+      "いつか",
+      "いつか",
+      "副词",
+      "不知何时／曾经",
+      "<b>看后面动词时态定意思</b>：后接过去式＝曾经"
+     ],
+     [
+      "ノート",
+      "ノート",
+      "名词",
+      "笔记本",
+      "外来语 note，日语里指纸质笔记本"
+     ],
+     [
+      "に",
+      "に",
+      "格助词",
+      "在…上（书写场所）",
+      "书写、记录的地点用「に」，不用「で」"
+     ]
+    ],
+    "g": [
+     [
+      "名词单独甩出来",
+      "「転換点」后面没有助词，是歌词常见的呼名式——先把关键词像标题一样甩出来，真正的句子从下一行的「書いた」开始。"
+     ],
+     [
+      "に 表着落点",
+      "「ノートに書く」＝写在笔记本上。「に」是书写的着落点；如果是「ノートで書く」，就变成「用笔记本这个工具写」了。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>那个人生的转折点——我以前写在笔记本上的</b>。",
+    "tip": "「いつか」是个双面词：接过去式＝曾经，接现在/将来＝总有一天。这歌里出现了两次，一次过去一次未来，正好对照。"
+   },
+   {
+    "t": "書いたあの言葉たちは",
+    "r": "かいたあのことばたちは",
+    "ro": "kaita ano kotoba tachi wa",
+    "tr": "写下的那些话语",
+    "lv": "n4",
+    "w": [
+     [
+      "書いた",
+      "かいた",
+      "动词过去式",
+      "写了",
+      "書く（五段）→ 書いた。注意不是「書いた」以外的读音"
+     ],
+     [
+      "あの",
+      "あの",
+      "连体词",
+      "那个",
+      "指说话人心里有距离、有怀念感的东西；比「その」远"
+     ],
+     [
+      "言葉",
+      "ことば",
+      "名词",
+      "话语、语言",
+      "可指「词」也可指「一整句话」"
+     ],
+     [
+      "たち",
+      "たち",
+      "接尾辞",
+      "…们",
+      "<b>本来是给人用的复数</b>，加在「言葉」上是拟人"
+     ],
+     [
+      "は",
+      "は",
+      "提示助词",
+      "主题标记",
+      "把整个「書いたあの言葉たち」提为话题"
+     ]
+    ],
+    "g": [
+     [
+      "跨行的句子",
+      "这句的主语是「言葉たちは」，谓语要到下一行「消えた」才出现。歌词为了断气，常把一个句子砍成两行——<b>读的时候别急着找谓语</b>。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>那些写下来的话</b>（后面才是它们的下场）。",
+    "tip": "「たち」这个细节很关键：给「言葉」加人的复数后缀，等于把这一堆话当成一群会自己走掉的小人。整首歌的基调就藏在这一个字里。"
+   },
+   {
+    "t": "きっと 泡になって消えた",
+    "r": "きっと あわになってきえた",
+    "ro": "kitto awa ni natte kieta",
+    "tr": "一定都变成泡沫，消失了",
+    "lv": "n5",
+    "w": [
+     [
+      "きっと",
+      "きっと",
+      "副词",
+      "一定、肯定",
+      "表说话人的强确信，比「たぶん」硬"
+     ],
+     [
+      "泡",
+      "あわ",
+      "名词",
+      "泡沫、气泡",
+      "「バブル」是经济泡沫，「泡」是水泡"
+     ],
+     [
+      "に",
+      "に",
+      "格助词",
+      "变成（变化结果）",
+      "<b>「名词＋になる」的核心助词</b>"
+     ],
+     [
+      "なって",
+      "なって",
+      "动词て形",
+      "变成",
+      "なる（五段）→ なって"
+     ],
+     [
+      "消えた",
+      "きえた",
+      "自动词过去式",
+      "消失了",
+      "消える（一段）→ 消えた。<b>自动词，没有凶手</b>"
+     ]
+    ],
+    "g": [
+     [
+      "になる 表变化",
+      "「泡になる」＝变成泡沫。变化的结果用「に」标记，这是 N5 但全曲最高频的句型。"
+     ],
+     [
+      "て形连接两个动作",
+      "「泡になって消えた」＝先变成泡沫，然后消失。て形在这里表动作的先后顺序。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>全都变成泡泡，没了</b>。",
+    "tip": "千万别写成「泡をなった」。<b>「なる」前面永远用「に」或「く」</b>（ナ形容词用「に」、イ形容词用「く」）：泡になる、静かになる、明るくなる。"
+   },
+   {
+    "t": "行方なんて知らない",
+    "r": "ゆくえなんてしらない",
+    "ro": "yukue nante shiranai",
+    "tr": "去了哪里，我根本不知道",
+    "lv": "n3",
+    "w": [
+     [
+      "行方",
+      "ゆくえ",
+      "名词",
+      "去向、下落",
+      "<b>难读汉字</b>：不是「いきかた」，也不是「ぎょうほう」"
+     ],
+     [
+      "なんて",
+      "なんて",
+      "副助词",
+      "…什么的、…之类",
+      "带轻视/无所谓的语气，比「は」情绪重得多"
+     ],
+     [
+      "知らない",
+      "しらない",
+      "动词否定",
+      "不知道",
+      "知る（五段）→ 知らない"
+     ]
+    ],
+    "g": [
+     [
+      "なんて 的语气",
+      "「行方なんて」把「去向」贬成「那种东西」，再配「知らない」，整句就成了「我才懒得管」。这是语气问题，不是语法问题。"
+     ],
+     [
+      "省略主语",
+      "谁不知道？唱歌的人自己。日语第一人称在口语里几乎不出现，靠语境补。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>去哪儿了？我根本懒得知道</b>。",
+    "tip": "「なんて」不是疑问词「什么」（那是「なに」）。它的功能是<b>把前面的名词降级</b>：行方なんて＝「去向那种东西」。N3 高频，听懂它才算听懂日本人的阴阳怪气。"
+   },
+   {
+    "t": "擦り切った白いチョークが",
+    "r": "すりきったしろいチョークが",
+    "ro": "surikitta shiroi chooku ga",
+    "tr": "磨短了的白粉笔",
+    "lv": "n4",
+    "w": [
+     [
+      "擦り切った",
+      "すりきった",
+      "复合动词过去式",
+      "磨断了、用到短了",
+      "擦り切れる（一段）→ 擦り切った。<b>不是「擦る＋切る」两个他动词</b>"
+     ],
+     [
+      "白い",
+      "しろい",
+      "イ形容词",
+      "白色的",
+      "イ形容词直接接名词，不加「の」"
+     ],
+     [
+      "チョーク",
+      "チョーク",
+      "名词",
+      "粉笔",
+      "chalk。注意别和「チョーク（choke， choke valve）」混"
+     ],
+     [
+      "が",
+      "が",
+      "格助词",
+      "主语标记",
+      "标记「チョーク」是下一行「落ちていった」的主语"
+     ]
+    ],
+    "g": [
+     [
+      "定语顺序",
+      "「擦り切った（动词）＋白い（形容词）＋チョーク（名词）」，所有修饰语都在名词前，顺序比中文自由，但名词一定在最后。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>那根磨短了的白粉笔</b>（后面接它掉下来的动作）。",
+    "tip": "复合动词先看整体，别拆开硬拼。「擦り切れる」是「磨损到断裂」的自动词；如果写成「擦り切る」，就变成人主动去磨断它了。"
+   },
+   {
+    "t": "はらはらと落ちていった",
+    "r": "はらはらとおちていった",
+    "ro": "harahara to ochite itta",
+    "tr": "簌簌地一直往下掉",
+    "lv": "n4",
+    "w": [
+     [
+      "はらはら",
+      "はらはら",
+      "拟态词",
+      "簌簌地（碎片、花瓣、眼泪轻飘落下）",
+      "同形还有「捏一把汗」的意思，靠语境区分"
+     ],
+     [
+      "と",
+      "と",
+      "助词",
+      "拟态词后接的引用助词",
+      "<b>拟态词＋と＋动词</b>是固定搭配，不能省"
+     ],
+     [
+      "落ちて",
+      "おちて",
+      "自动词て形",
+      "落下",
+      "落ちる（一段）→ 落ちて"
+     ],
+     [
+      "いった",
+      "いった",
+      "补助动词过去式",
+      "…下去",
+      "〜ていく 的过去式，表动作朝远处持续"
+     ]
+    ],
+    "g": [
+     [
+      "〜ていく 的方向感",
+      "「落ちていく」＝一边落一边远去。日语用「ていく／てくる」标方向：ていく 朝未来/远处，てくる 朝说话人。"
+     ],
+     [
+      "拟态词＋と",
+      "はらはらと落ちる、きらきらと光る、ぐるぐると回る。少了「と」，句子就散了。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>粉笔灰簌簌地一直往下掉</b>。",
+    "tip": "「はらはら」有两个意思：① 轻的东西簌簌落下 ② 看得心惊胆战（ハラハラする）。这歌是第①种——粉笔屑像花瓣一样飘。"
+   },
+   {
+    "t": "まるで 星屑みたいだと",
+    "r": "まるで ほしくずみたいだと",
+    "ro": "marude hoshikuzu mitai da to",
+    "tr": "「简直就像星尘一样」——",
+    "lv": "n4",
+    "w": [
+     [
+      "まるで",
+      "まるで",
+      "副词",
+      "简直、宛如",
+      "几乎只与「みたいだ／ようだ」呼应使用"
+     ],
+     [
+      "星屑",
+      "ほしくず",
+      "名词",
+      "星尘、碎星",
+      "文学词。「星」＋「屑（碎屑）」"
+     ],
+     [
+      "みたいだ",
+      "みたいだ",
+      "助动词",
+      "像…一样",
+      "口语比喻，直接接名词：星屑みたい"
+     ],
+     [
+      "と",
+      "と",
+      "引用助词",
+      "（想着/说着）…",
+      "把前面整个比喻打包，交给后面的「見とれていた」"
+     ]
+    ],
+    "g": [
+     [
+      "比喻的两种说法",
+      "「名词＋みたいだ」（口语）／「名词＋のようだ」（书面）。这歌两种都用了：A7 是 みたい、E3 是 ように。"
+     ],
+     [
+      "と 引用思考内容",
+      "「〜みたいだと見とれていた」＝「想着『简直像星尘』就看呆了」。这里省略了「思って」，只剩「と」。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>「简直像星尘一样」——我当时这么想着</b>。",
+    "tip": "看到「まるで」就去找句尾的「みたい／よう」，这是一对。<b>不要把 まるで 单独理解成「完全」</b>——那是另一个用法（まるで分からない）。"
+   },
+   {
+    "t": "見とれていたんだ 嗚呼",
+    "r": "みとれていたんだ ああ",
+    "ro": "mitorete ita n da aa",
+    "tr": "我看得入了迷。啊啊——",
+    "lv": "n3",
+    "w": [
+     [
+      "見とれる",
+      "みとれる",
+      "一段动词",
+      "看得入迷、看呆",
+      "「見る」＋「とれる」（浑然忘我）。<b>不是「看透」</b>"
+     ],
+     [
+      "〜ていた",
+      "〜ていた",
+      "过去进行",
+      "当时正…着",
+      "表过去某段时间持续的状态"
+     ],
+     [
+      "んだ",
+      "んだ",
+      "语气助词",
+      "（解释、强调）",
+      "「の＋だ」的口语缩略，带「事情是这样的」的味道"
+     ],
+     [
+      "嗚呼",
+      "ああ",
+      "感叹词",
+      "啊啊",
+      "歌词里常写成汉字，读法仍是「ああ」"
+     ]
+    ],
+    "g": [
+     [
+      "んだ ＝ の＋だ",
+      "用于补充说明、自我确认。加不加「んだ」，事实不变，但语气从「陈述」变成「跟你解释一下」。"
+     ],
+     [
+      "ていた 的持续感",
+      "「見とれていた」不是「看了一眼」，而是「那一段时间一直看呆着」。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>我当时就看呆了。唉——</b>",
+    "tip": "「見とれる」是看得入迷，「見抜く」才是看透，「見送る」是目送。三个都带「見」，意思差很远。「んだ」在歌词里几乎都是「の＋だ」，不是疑问。"
+   }
+  ]
+ },
+ {
+  "n": "B",
+  "h": "预副歌",
+  "jp": "Bメロ",
+  "lines": [
+   {
+    "t": "いつかは消えてしまうけど",
+    "r": "いつかはきえてしまうけど",
+    "ro": "itsuka wa kiete shimau kedo",
+    "tr": "虽然总有一天会消失",
+    "lv": "n4",
+    "w": [
+     [
+      "いつか",
+      "いつか",
+      "副词",
+      "总有一天",
+      "这里配「は」强调，指未来"
+     ],
+     [
+      "は",
+      "は",
+      "提示助词",
+      "强调、对比",
+      "与句尾「けど」配合，形成让步"
+     ],
+     [
+      "消えて",
+      "きえて",
+      "自动词て形",
+      "消失",
+      "消える → 消えて"
+     ],
+     [
+      "しまう",
+      "しまう",
+      "补助动词",
+      "…掉、…了",
+      "表无可挽回的完了，带惋惜"
+     ],
+     [
+      "けど",
+      "けど",
+      "接续助词",
+      "虽然…但是",
+      "「けれども」的口语版，句尾可单独用"
+     ]
+    ],
+    "g": [
+     [
+      "〜てしまう 的两个面孔",
+      "① 不小心做错（財布を落としてしまった）② 遗憾地完成（消えてしまう）。这里配「いつか」，是第②种。"
+     ],
+     [
+      "けど 的软化作用",
+      "「けど」放在句尾时，不是真的「但是」，而是把话说软、留个尾巴，等下一句接。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>虽然这些东西早晚都会没</b>。",
+    "tip": "「〜てしまう」口语缩成「〜ちゃう」（这歌末段就有「信じちゃう」）。听到「ちゃう」不要以为是别的词，它就是「てしまう」。"
+   },
+   {
+    "t": "誰かの記憶には残れるかな",
+    "r": "だれかのきおくにはのこれるかな",
+    "ro": "dareka no kioku ni wa nokoreru kana",
+    "tr": "能不能留在某个人的记忆里呢",
+    "lv": "n3",
+    "w": [
+     [
+      "誰か",
+      "だれか",
+      "代词",
+      "某人",
+      "疑问词＋か＝不确定，不是疑问"
+     ],
+     [
+      "の",
+      "の",
+      "格助词",
+      "的",
+      "所属：谁的记忆"
+     ],
+     [
+      "記憶",
+      "きおく",
+      "名词",
+      "记忆",
+      "比「思い出」冷静、偏书面"
+     ],
+     [
+      "に",
+      "に",
+      "格助词",
+      "在…里（归着点）",
+      "「残る」的落点用「に」"
+     ],
+     [
+      "は",
+      "は",
+      "提示助词",
+      "强调",
+      "与「に」叠成「には」，把地点提为主题"
+     ],
+     [
+      "残れる",
+      "のこれる",
+      "可能形",
+      "能留下",
+      "残る（五段）→ 残れる。<b>可能形，不是另一个动词</b>"
+     ],
+     [
+      "かな",
+      "かな",
+      "终助词",
+      "…吧、…呢",
+      "自言自语式疑问，不需要人回答"
+     ]
+    ],
+    "g": [
+     [
+      "五段动词的可能形",
+      "把词尾从「う段」改成「え段」再加「る」：残る→残れる、書く→書ける、走る→走れる。一段动词则去掉「る」加「られる」。"
+     ],
+     [
+      "には 的双重标记",
+      "「に」标落点，「は」把它提为主题。日语允许助词叠加，语气更强调。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>我能不能留在谁的记忆里呢</b>。",
+    "tip": "这句是全曲的主题句——想「留下点什么」的愿望，后面所有的「眩しい」「離れない」都是它的回音。语法上记住：<b>可能形＋かな ＝ 自问自答</b>。"
+   },
+   {
+    "t": "この瞬間を切り取ってさ",
+    "r": "このしゅんかんをきりとってさ",
+    "ro": "kono shunkan o kiritotte sa",
+    "tr": "把这个瞬间剪下来吧",
+    "lv": "n4",
+    "w": [
+     [
+      "この",
+      "この",
+      "连体词",
+      "这个",
+      "指眼前、当下"
+     ],
+     [
+      "瞬間",
+      "しゅんかん",
+      "名词",
+      "瞬间",
+      "汉语词，比「一瞬」更客观"
+     ],
+     [
+      "を",
+      "を",
+      "格助词",
+      "宾语标记",
+      "标记「瞬間」是「切り取る」的对象"
+     ],
+     [
+      "切り取って",
+      "きりとって",
+      "复合动词て形",
+      "剪下、截取",
+      "切り取る（五段）→ 切り取って。「切る」＋「取る」"
+     ],
+     [
+      "さ",
+      "さ",
+      "终助词",
+      "…嘛、…啊",
+      "语气填充，把主张说得随意"
+     ]
+    ],
+    "g": [
+     [
+      "省略的半句话",
+      "「〜てさ」结尾，句子其实没完——后面本该接「残しておく」（留着）之类。歌词常用这种「话说到一半」的写法。"
+     ],
+     [
+      "复合动词",
+      "切る（切）＋取る（拿）＝剪下来并拿走。摄影、剪辑语境里就是「截取一帧」。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>那就把这个瞬间剪下来（留住）啊</b>。",
+    "tip": "「切り取る」是这首全曲的「摄影隐喻」起点：后面还有フォーカス（对焦）、写せない（拍不出）。三个词串起来，整首歌其实是在讲「拍照/留影」。"
+   }
+  ]
+ },
+ {
+  "n": "C",
+  "h": "副歌",
+  "jp": "サビ",
+  "lines": [
+   {
+    "t": "光る朝が 朝が",
+    "r": "ひかるあさが あさが",
+    "ro": "hikaru asa ga asa ga",
+    "tr": "发光的早晨——早晨啊",
+    "lv": "n5",
+    "w": [
+     [
+      "光る",
+      "ひかる",
+      "自动词",
+      "发光、闪耀",
+      "五段。主语是「朝」，朝自己发光"
+     ],
+     [
+      "朝",
+      "あさ",
+      "名词",
+      "早晨",
+      "「あさ」；注意「明日（あした）」不是它"
+     ],
+     [
+      "が",
+      "が",
+      "格助词",
+      "主语标记",
+      "第一次出现，标记主语"
+     ],
+     [
+      "朝",
+      "あさ",
+      "名词",
+      "早晨",
+      "重复——歌词的叠词强调"
+     ],
+     [
+      "が",
+      "が",
+      "格助词",
+      "主语标记",
+      "重复主语，语气上扬，等下一句的谓语"
+     ]
+    ],
+    "g": [
+     [
+      "重复不是笔误",
+      "主语「朝」连着说两遍，是为了踩旋律的重音。日语歌词里主语、词尾的重复极常见，照念即可。"
+     ],
+     [
+      "谓语在下一行",
+      "「光る朝が朝が」只是主语，谓语「眩しい」在下一句。又是跨行断句。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>那个发亮的早晨，早晨——</b>",
+    "tip": "这是全曲最好记的一句，也是你 KTV 想跟唱时第一个能咬住的点。<b>「光る」修饰「朝」时用辞书形</b>，不要写成「光ってる朝」。"
+   },
+   {
+    "t": "あまりに眩しい 眩しいからさ",
+    "r": "あまりにまぶしい まぶしいからさ",
+    "ro": "amari ni mabushii mabushii kara sa",
+    "tr": "太耀眼了，耀眼得受不了",
+    "lv": "n4",
+    "w": [
+     [
+      "あまりに",
+      "あまりに",
+      "副词",
+      "太、过于",
+      "比「とても」书面，强调「过度」"
+     ],
+     [
+      "眩しい",
+      "まぶしい",
+      "イ形容词",
+      "耀眼的、刺眼的",
+      "读 まぶしい，<b>不是 げんしい</b>"
+     ],
+     [
+      "から",
+      "から",
+      "接续助词",
+      "因为",
+      "接形容词终止形：眩しい＋から"
+     ],
+     [
+      "さ",
+      "さ",
+      "终助词",
+      "…嘛",
+      "把理由说得轻描淡写，像在撒娇"
+     ]
+    ],
+    "g": [
+     [
+      "からさ 的语气",
+      "「〜からさ」＝因为…嘛。加上「さ」之后，语气从「解释原因」变成「我先说好，别怪我」，更随意。"
+     ],
+     [
+      "形容词＋から",
+      "イ形容词直接接「から」，中间不用加「だ」。名词和ナ形容词才要：静かだから。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>因为它太亮了，亮得我受不了啊</b>。",
+    "tip": "「から」在口语句尾经常不是真的「因为」，只是一个缓冲垫。你听日本人讲话，句尾一堆「から」「けど」「し」，多半都没实质意思。"
+   },
+   {
+    "t": "なんかもう それだけで",
+    "r": "なんかもう それだけで",
+    "ro": "nanka mou sore dake de",
+    "tr": "总觉得，光是这样就",
+    "lv": "n4",
+    "w": [
+     [
+      "なんか",
+      "なんか",
+      "副词",
+      "总觉得、不知怎么",
+      "「何か」的口语形，<b>多数时候不表疑问</b>"
+     ],
+     [
+      "もう",
+      "もう",
+      "副词",
+      "已经、就",
+      "加强语气，表「话都说到这份上了」"
+     ],
+     [
+      "それ",
+      "それ",
+      "代词",
+      "那个",
+      "指前面「眩しい」这件事"
+     ],
+     [
+      "だけ",
+      "だけ",
+      "副助词",
+      "只、仅",
+      "限定范围"
+     ],
+     [
+      "で",
+      "で",
+      "格助词",
+      "凭…、用…",
+      "「だけで」＝仅凭这个"
+     ]
+    ],
+    "g": [
+     [
+      "だけで 的条件性",
+      "「それだけで」＝光是那一点（就够了/就这样了）。后面接结果，但结果被省略，留给下一句。"
+     ],
+     [
+      "なんか 的填充功能",
+      "口语里的「なんか」九成是填充词，作用是给自己争取思考时间，不翻译也不影响句意。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>不知怎么，光是这一点就——</b>",
+    "tip": "听力里听到「なんか」先当噪音处理，别硬翻成「什么」。<b>它和「何か」的区别是：なんか 常带主观、模糊的语气。</b>"
+   },
+   {
+    "t": "心が宙に舞う",
+    "r": "こころがちゅうにまう",
+    "ro": "kokoro ga chuu ni mau",
+    "tr": "心就在半空中飞舞起来",
+    "lv": "n5",
+    "w": [
+     [
+      "心",
+      "こころ",
+      "名词",
+      "心、心情",
+      "「心臓」是器官，「心」是情感"
+     ],
+     [
+      "が",
+      "が",
+      "格助词",
+      "主语标记",
+      "「心」是「舞う」的主语"
+     ],
+     [
+      "宙",
+      "ちゅう",
+      "名词",
+      "半空、空中",
+      "<b>读 ちゅう</b>，不是「そら」（那是「空」）"
+     ],
+     [
+      "に",
+      "に",
+      "格助词",
+      "在…（场所）",
+      "舞う 的发生场所"
+     ],
+     [
+      "舞う",
+      "まう",
+      "五段动词",
+      "飞舞、飘舞",
+      "自动词。「踊る」是跳舞，舞う 更轻、更飘"
+     ]
+    ],
+    "g": [
+     [
+      "宙に舞う 是惯用搭配",
+      "字面「在半空飞舞」，实际形容心情飘飘然、魂都飞了。同类还有「宙に浮く」（悬空、悬而未决）。"
+     ],
+     [
+      "场所用 に",
+      "「宙に舞う」「空を飛ぶ」——舞う 用「に」，飛ぶ 用「を」。动词决定助词，这是日语的老规矩。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>我的心就飘到天上去了</b>。",
+    "tip": "「宙」和「空」都指天上，但「宙」是「空间、半空中」（ちゅう），「空」是「天空」（そら）。写歌词时选「宙」是为了那点悬空感。"
+   },
+   {
+    "t": "君の言葉がずっと",
+    "r": "きみのことばがずっと",
+    "ro": "kimi no kotoba ga zutto",
+    "tr": "你的话一直",
+    "lv": "n5",
+    "w": [
+     [
+      "君",
+      "きみ",
+      "代词",
+      "你",
+      "比「あなた」亲近，男女都用"
+     ],
+     [
+      "の",
+      "の",
+      "格助词",
+      "的",
+      "所属"
+     ],
+     [
+      "言葉",
+      "ことば",
+      "名词",
+      "话语",
+      "与 A2 的「言葉たち」同一个词，首尾呼应"
+     ],
+     [
+      "が",
+      "が",
+      "格助词",
+      "主语标记",
+      "标记「言葉」是「離れない」的主语"
+     ],
+     [
+      "ずっと",
+      "ずっと",
+      "副词",
+      "一直、始终",
+      "表时间上的不间断"
+     ]
+    ],
+    "g": [
+     [
+      "が 与 は 的分工",
+      "A2 用「言葉たちは」（提主题），这里用「言葉が」（提主语）。は 是「至于这个嘛」，が 是「就是它在…」。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>你说过的话，一直——</b>",
+    "tip": "把这句和 A2 的「書いたあの言葉たちは」放一起看：<b>开头是「我写下的话」，副歌是「你说的话」</b>。全曲其实是在做这个交接。"
+   },
+   {
+    "t": "離れない 離れない",
+    "r": "はなれない はなれない",
+    "ro": "hanarenai hanarenai",
+    "tr": "离不开，离不开",
+    "lv": "n4",
+    "w": [
+     [
+      "離れない",
+      "はなれない",
+      "自动词否定",
+      "离不开、不离开",
+      "離れる（一段）→ 離れない。<b>自动词</b>"
+     ],
+     [
+      "離れない",
+      "はなれない",
+      "自动词否定",
+      "同上",
+      "重复＝强调，不是两件事"
+     ]
+    ],
+    "g": [
+     [
+      "自动词的含义",
+      "「言葉が離れない」＝话自己不肯离开（我）。主语是「言葉」，我是被动的那一方。"
+     ],
+     [
+      "重复的强调",
+      "同一动词连说两遍，是日语歌词最省力的强调手段。翻译时不必译两遍，译「怎么也甩不掉」即可。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>甩不掉，甩不掉</b>。",
+    "tip": "<b>记住这一对，全曲的机关就在这儿</b>：離れる（自）＝它离不开我；離す（他）＝我不放开它。末段副歌会换成「離さない」，那不是笔误，是主语换边了。"
+   },
+   {
+    "t": "フラッシュバッカー",
+    "r": "フラッシュバッカー",
+    "ro": "furasshubakkaa",
+    "tr": "闪回者／活在回忆里的人",
+    "lv": "n3",
+    "w": [
+     [
+      "フラッシュバック",
+      "フラッシュバック",
+      "名词",
+      "闪回、往事突然涌现",
+      "flashback。日语里既指心理闪回，也指影视倒叙"
+     ],
+     [
+      "〜アー",
+      "〜アー",
+      "接尾辞",
+      "…的人",
+      "英语 -er 的日语音译，如 サラリーマン、プレイヤー"
+     ]
+    ],
+    "g": [
+     [
+      "和製英語的造词法",
+      "英语里没有 flashbacker 这个词。作者把「フラッシュバック」直接加 -er，造出「专门做闪回的人」——日语允许这种粗糙但有效的造词。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>「闪回者」——那个不断回放过去的人</b>。",
+    "tip": "查不到的词别慌。日语歌词里的片假名长词，七成是「英语词＋日语后缀」拼的，拆开看就懂了。"
+   },
+   {
+    "t": "今も 思い出してる",
+    "r": "いまも おもいだしてる",
+    "ro": "ima mo omoidashiteru",
+    "tr": "现在也还在回想",
+    "lv": "n5",
+    "w": [
+     [
+      "今",
+      "いま",
+      "名词",
+      "现在",
+      "「今も」＝直到现在也"
+     ],
+     [
+      "も",
+      "も",
+      "提示助词",
+      "也",
+      "表「过了这么久还是」"
+     ],
+     [
+      "思い出して",
+      "おもいだして",
+      "复合动词て形",
+      "想起、回忆起",
+      "思い出す（五段）→ 思い出して"
+     ],
+     [
+      "る",
+      "る",
+      "口语缩略",
+      "正在…",
+      "「〜ている」缩成「〜てる」"
+     ]
+    ],
+    "g": [
+     [
+      "ている → てる",
+      "口语里「ている」几乎都缩成「てる」：思い出してる、食べてる、待ってる。书面语才写全。"
+     ],
+     [
+      "今も 的时间感",
+      "比「今でも」更口语，语气是「都到现在了，还在…」，带点无奈。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>到现在我还在想那件事</b>。",
+    "tip": "「今も〜てる」是日本人日常最常用的「还在…」句式。想表达「我还在等你」，说「今も待ってる」就够了，别硬套「まだ待っています」。"
+   }
+  ]
+ },
+ {
+  "n": "D",
+  "h": "主歌 2",
+  "jp": "Aメロ（2番）",
+  "lines": [
+   {
+    "t": "薄明に染まる空が",
+    "r": "はくめいにそまるそらが",
+    "ro": "hakumei ni somaru sora ga",
+    "tr": "染上微光的天空",
+    "lv": "n3",
+    "w": [
+     [
+      "薄明",
+      "はくめい",
+      "名词",
+      "微明、曙光",
+      "<b>难读</b>：日出前/日落后的那层微光"
+     ],
+     [
+      "に",
+      "に",
+      "格助词",
+      "被…（变化来源）",
+      "「染まる」的补语用「に」"
+     ],
+     [
+      "染まる",
+      "そまる",
+      "自动词",
+      "被染色、染上",
+      "<b>自动词</b>，他动词是「染める」"
+     ],
+     [
+      "空",
+      "そら",
+      "名词",
+      "天空",
+      "与 C4 的「宙（ちゅう）」区分"
+     ],
+     [
+      "が",
+      "が",
+      "格助词",
+      "主语标记",
+      "「空」是下一行「こぼして」的主语"
+     ]
+    ],
+    "g": [
+     [
+      "Aに染まる",
+      "「薄明に染まる」＝被微光染上色。自动词，主语是「被染的东西」（天空）。若用「染める」，就变成「天把别的东西染色」。"
+     ],
+     [
+      "又是跨行",
+      "这句的主语「空が」，谓语在下一行「こぼして」。连续第三次跨行断句——这歌的固定写法。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>天被晨光染了一层色</b>。",
+    "tip": "「薄明」读 はくめい，N1 级难读词。同类：「薄暮（はくぼ）」「薄氷（うすごおり）」「薄化粧（うすげしょう）」。"
+   },
+   {
+    "t": "淡い彩りこぼして",
+    "r": "あわいいろどりこぼして",
+    "ro": "awai irodori koboshite",
+    "tr": "洒下淡淡的色彩",
+    "lv": "n3",
+    "w": [
+     [
+      "淡い",
+      "あわい",
+      "イ形容词",
+      "淡的、浅的",
+      "<b>不是「あさい」（浅い）</b>"
+     ],
+     [
+      "彩り",
+      "いろどり",
+      "名词",
+      "色彩、配色",
+      "动词「彩る」的名词形，比「色」更有装饰感"
+     ],
+     [
+      "こぼして",
+      "こぼして",
+      "他动词て形",
+      "洒出、漏出",
+      "こぼす（五段）→ こぼして。<b>他动词</b>"
+     ]
+    ],
+    "g": [
+     [
+      "他动词的主动性",
+      "「空が彩りをこぼす」——天主动把颜色洒下来。这里选他动词，是为了让天空变成一个「有意志的人」。"
+     ],
+     [
+      "を 的宾语标记",
+      "「彩りを」标记洒出的东西。整句：空が（主）彩りを（宾）こぼして（谓）。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>（天空）把淡淡的颜色洒了下来</b>。",
+    "tip": "「こぼす」（他）vs「こぼれる」（自）：眼泪「こぼれる」是自己掉下来，人「こぼす」是把东西弄洒。天在这里是主动方，所以用他动词。"
+   },
+   {
+    "t": "こんなちっぽけな僕の",
+    "r": "こんなちっぽけなぼくの",
+    "ro": "konna chippoke na boku no",
+    "tr": "把这么渺小的我",
+    "lv": "n4",
+    "w": [
+     [
+      "こんな",
+      "こんな",
+      "连体词",
+      "这样的、这么",
+      "程度＋感叹，带情绪"
+     ],
+     [
+      "ちっぽけな",
+      "ちっぽけな",
+      "ナ形容词",
+      "渺小的、微不足道的",
+      "口语词，几乎只用于自嘲"
+     ],
+     [
+      "僕",
+      "ぼく",
+      "代词",
+      "我",
+      "男性自称，比「私」柔软、比「俺」客气"
+     ],
+     [
+      "の",
+      "の",
+      "格助词",
+      "的",
+      "连接「僕」和下一行的「背中」"
+     ]
+    ],
+    "g": [
+     [
+      "こんな＋形容词",
+      "「こんな＋形容词＋名词」是感叹式定语，自我贬低的力度比单说「ちっぽけな僕」更强。"
+     ],
+     [
+      "跨行拆名词",
+      "「僕の」和「背中」被拆到两行——这是最极端的一种跨行：连「AのB」都能砍断。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>这么渺小的我——</b>（后面接「背中」）",
+    "tip": "「ちっぽけ」这个词自带怜惜感，只能说自己或可怜的东西，不能用来夸人。想夸人小可爱，用「小さくてかわいい」。"
+   },
+   {
+    "t": "背中を包んでく",
+    "r": "せなかをつつんでく",
+    "ro": "senaka o tsutsunde ku",
+    "tr": "（把我的）后背裹起来",
+    "lv": "n4",
+    "w": [
+     [
+      "背中",
+      "せなか",
+      "名词",
+      "背、后背",
+      "「背（せ）」＋「中（なか）」"
+     ],
+     [
+      "を",
+      "を",
+      "格助词",
+      "宾语标记",
+      "标记「背中」是「包む」的对象"
+     ],
+     [
+      "包んで",
+      "つつんで",
+      "他动词て形",
+      "包住、围住",
+      "包む（五段）→ 包んで"
+     ],
+     [
+      "く",
+      "く",
+      "口语缩略",
+      "…下去",
+      "「〜ていく」缩成「〜てく」，表方向"
+     ]
+    ],
+    "g": [
+     [
+      "主语延续",
+      "这句没有主语，主语从 D1 的「空が」一路延续下来：「空が…僕の背中を包んでく」。"
+     ],
+     [
+      "てく 与 てる",
+      "「包んでく」＝包んでいく（朝未来持续）；「包んでる」＝包んでいる（正在进行）。<b>一个表方向，一个表状态。</b>"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>（天）一路裹住我的后背</b>。",
+    "tip": "「〜てく」是「〜ていく」的口语缩略，和「〜てる」（ている）完全是两回事。前者指方向，后者指进行——听力里最容易混的一对。"
+   }
+  ]
+ },
+ {
+  "n": "E",
+  "h": "预副歌 2",
+  "jp": "Bメロ（2番）",
+  "lines": [
+   {
+    "t": "透明なこの体は",
+    "r": "とうめいなこのからだは",
+    "ro": "toumei na kono karada wa",
+    "tr": "这具透明的身体",
+    "lv": "n4",
+    "w": [
+     [
+      "透明",
+      "とうめい",
+      "ナ形容词",
+      "透明的",
+      "汉语词。ナ形容词接名词要加「な」"
+     ],
+     [
+      "な",
+      "な",
+      "助动词",
+      "ナ形容词连体形",
+      "透明＋な＋体"
+     ],
+     [
+      "この",
+      "この",
+      "连体词",
+      "这个",
+      "指自己这副身体"
+     ],
+     [
+      "体",
+      "からだ",
+      "名词",
+      "身体",
+      "「身体（しんたい）」是书面/医学说法"
+     ],
+     [
+      "は",
+      "は",
+      "提示助词",
+      "主题标记",
+      "把「透明なこの体」提为主题"
+     ]
+    ],
+    "g": [
+     [
+      "词序与中文相反",
+      "中文「这具透明的身体」，日语「透明なこの体」——形容词在外、指示词在内。日语形容词必须紧贴名词。"
+     ],
+     [
+      "ナ形容词＋な",
+      "透明な、静かな、元気な。イ形容词则直接接：白い体（不用「な」）。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>我这副透明的身体</b>。",
+    "tip": "「透明」是ナ形容词，不是名词。所以是「透明な体」，不能说「透明の体」——中文思维最容易在这里翻车。"
+   },
+   {
+    "t": "何色に成れるの?",
+    "r": "なにいろになれるの",
+    "ro": "naniiro ni nareru no",
+    "tr": "能变成什么颜色呢？",
+    "lv": "n3",
+    "w": [
+     [
+      "何色",
+      "なにいろ",
+      "名词",
+      "什么颜色",
+      "疑问词＋色。也可读「なんしょく」表「几种颜色」"
+     ],
+     [
+      "に",
+      "に",
+      "格助词",
+      "变成（结果）",
+      "なる 的补语，与 A3 的「泡になって」同一个用法"
+     ],
+     [
+      "成れる",
+      "なれる",
+      "可能形",
+      "能变成",
+      "成る（五段）→ 成れる。<b>故意写成汉字「成」</b>"
+     ],
+     [
+      "の",
+      "の",
+      "终助词",
+      "（疑问）",
+      "口语疑问，上升语调，比「か」柔软"
+     ]
+    ],
+    "g": [
+     [
+      "成れる 的写法",
+      "作者特意用汉字「成」而不是「な」，把「成为某种存在」这个意思顶出来。这是文学性选择，不是错字。"
+     ],
+     [
+      "の 表疑问",
+      "「〜の？」是口语疑问句尾，语气比「〜か」柔和，常带寻求解释的意味。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>我这副透明身子，能染上什么颜色呢？</b>",
+    "tip": "这句和 B2 的「残れるかな」是同一个语法点（可能形），一个是「能留下吗」，一个是「能变成吗」。<b>两个问句，就是全曲的两个焦虑。</b>"
+   },
+   {
+    "t": "ただ 水のように流れ",
+    "r": "ただ みずのようにながれ",
+    "ro": "tada mizu no you ni nagare",
+    "tr": "只是像水一样流走",
+    "lv": "n4",
+    "w": [
+     [
+      "ただ",
+      "ただ",
+      "副词",
+      "只是、仅仅",
+      "汉字可写「唯」，表限定"
+     ],
+     [
+      "水",
+      "みず",
+      "名词",
+      "水",
+      "「お湯」是热水，别混"
+     ],
+     [
+      "の",
+      "の",
+      "格助词",
+      "的",
+      "「〜のよう」固定搭配的一部分"
+     ],
+     [
+      "ように",
+      "ように",
+      "助动词",
+      "像…一样",
+      "书面版；口语版是「みたいに」"
+     ],
+     [
+      "流れ",
+      "ながれ",
+      "自动词中止形",
+      "流走",
+      "流れる（一段）→ 流れ。这里是「ます形去ます」的中止用法"
+     ]
+    ],
+    "g": [
+     [
+      "动词中止形",
+      "「流れ」不是命令形，是「ます形去掉ます」的中止形，等于「流れて、そして…」。歌词里用它来断句、留白。"
+     ],
+     [
+      "ように vs みたいに",
+      "两者都表比喻，ように 更书面、更常用于歌词；みたいに 更口语。这歌两种都用了。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>只是像水一样流走</b>。",
+    "tip": "「〜のように」后面接动词（流れる）、「〜のような」后面接名词（水のような音）。一个修饰动作，一个修饰东西。"
+   },
+   {
+    "t": "消えてゆくだけ? ねぇ",
+    "r": "きえてゆくだけ ねえ",
+    "ro": "kiete yuku dake nee",
+    "tr": "就只是消失掉而已吗？呐——",
+    "lv": "n4",
+    "w": [
+     [
+      "消えて",
+      "きえて",
+      "自动词て形",
+      "消失",
+      "消える → 消えて"
+     ],
+     [
+      "ゆく",
+      "ゆく",
+      "补助动词",
+      "…下去",
+      "＝ていく 的书面形，歌词里更常见"
+     ],
+     [
+      "だけ",
+      "だけ",
+      "副助词",
+      "只、仅",
+      "「〜だけ？」＝就只是…吗"
+     ],
+     [
+      "ねぇ",
+      "ねえ",
+      "感叹词",
+      "呐、喂",
+      "拉长音，寻求对方回应；不是「姉（姐姐）」"
+     ]
+    ],
+    "g": [
+     [
+      "省略疑问框架",
+      "完整说法是「ただ水のように流れて消えてゆくだけなの？」。歌词省掉了「なの」，只留「だけ？」，语气更冲。"
+     ],
+     [
+      "だけ 的落差感",
+      "「だけ」把整件事压缩成「仅此而已」，所以后面那个「?」才显得不甘心。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>难道我就只是这样消失掉？呐，你说呢</b>。",
+    "tip": "「ねぇ」是招呼语，不是「姐姐」。听歌时听到长音的「ねー」，九成是在叫人。"
+   }
+  ]
+ },
+ {
+  "n": "F",
+  "h": "桥段",
+  "jp": "Cメロ",
+  "lines": [
+   {
+    "t": "「ぼやけたままのフォーカスじゃ",
+    "r": "ぼやけたままのフォーカスじゃ",
+    "ro": "boyaketa mama no fookasu ja",
+    "tr": "「焦点一直这么糊着的话",
+    "lv": "n3",
+    "w": [
+     [
+      "ぼやけた",
+      "ぼやけた",
+      "自动词过去式",
+      "模糊的、虚的",
+      "ぼやける（一段）→ ぼやけた。这里作定语"
+     ],
+     [
+      "まま",
+      "まま",
+      "形式名词",
+      "就那样、一直保持…状态",
+      "「〜たまま」＝保持着某状态没变"
+     ],
+     [
+      "の",
+      "の",
+      "格助词",
+      "的",
+      "连接「まま」和「フォーカス」"
+     ],
+     [
+      "フォーカス",
+      "フォーカス",
+      "名词",
+      "焦点、对焦",
+      "focus。摄影术语"
+     ],
+     [
+      "じゃ",
+      "じゃ",
+      "助词",
+      "的话",
+      "＝では 的口语缩略，表假定条件"
+     ]
+    ],
+    "g": [
+     [
+      "〜たままの＋名词",
+      "「保持…状态的…」。ぼやけたままのフォーカス＝一直糊着没调准的焦点。"
+     ],
+     [
+      "じゃ ＝ では",
+      "「じゃ」在口语里既是「では」的缩略（条件），也是「ではない」的缩略（否定）。这里看后面接「写せない」，是条件。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>「焦点一直这么糊着的话——</b>",
+    "tip": "「〜たまま」是 N3 高频句型：窓を開けたまま寝た（开着窗睡的）、靴を履いたまま入る（穿着鞋进）。<b>核心是「该变的状态没变」</b>。"
+   },
+   {
+    "t": "君のホンモノは写せないよ」",
+    "r": "きみのホンモノはうつせないよ",
+    "ro": "kimi no honmono wa utsusenai yo",
+    "tr": "就拍不出真正的你哦」",
+    "lv": "n3",
+    "w": [
+     [
+      "ホンモノ",
+      "ほんもの",
+      "名词",
+      "真货、真正的样子",
+      "故意写片假名，强调语气，像加重音"
+     ],
+     [
+      "は",
+      "は",
+      "提示助词",
+      "主题／宾语提示",
+      "<b>否定句里常代替「を」</b>，带对比语气"
+     ],
+     [
+      "写せない",
+      "うつせない",
+      "可能形否定",
+      "拍不出、照不出",
+      "写す（五段）→ 写せる → 写せない"
+     ],
+     [
+      "よ",
+      "よ",
+      "终助词",
+      "告知、提醒",
+      "柔和的主张，不是强硬命令"
+     ]
+    ],
+    "g": [
+     [
+      "否定句用 は",
+      "「ホンモノは写せない」——否定句里宾语常用「は」，隐含「别人也许能拍，你不行」的对比。"
+     ],
+     [
+      "写す 的三个同音词",
+      "写す（拍照/抄写）、映す（映出/投影）、撮す（摄影）。读音都是 うつす，汉字不同、语感不同。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>「这么糊的焦点，可拍不出真实的你哦」</b>。",
+    "tip": "这句是「你」说的话，引号从 F1 开到 F2 才关。日语歌词用「」标台词，看到引号就知道换人了——<b>这是全曲唯一一句别人说的话</b>。"
+   },
+   {
+    "t": "寂しげな顔で 君が笑う",
+    "r": "さびしげなかおで きみがわらう",
+    "ro": "sabishige na kao de kimi ga warau",
+    "tr": "你带着寂寞的表情笑了",
+    "lv": "n3",
+    "w": [
+     [
+      "寂しげ",
+      "さびしげ",
+      "ナ形容词",
+      "显得有些寂寞的",
+      "形容词词干＋げ＝「看起来…」"
+     ],
+     [
+      "な",
+      "な",
+      "助动词",
+      "ナ形容词连体形",
+      "寂しげ＋な＋顔"
+     ],
+     [
+      "顔",
+      "かお",
+      "名词",
+      "脸、表情",
+      "「顔で笑う」＝用表情笑，即「脸上带笑」"
+     ],
+     [
+      "で",
+      "で",
+      "格助词",
+      "用…（状态）",
+      "表动作进行时的状态"
+     ],
+     [
+      "君",
+      "きみ",
+      "代词",
+      "你",
+      "指刚才说话的那个人"
+     ],
+     [
+      "が",
+      "が",
+      "格助词",
+      "主语标记",
+      "「君」是「笑う」的主语"
+     ],
+     [
+      "笑う",
+      "わらう",
+      "五段动词",
+      "笑",
+      "「微笑む」是微笑，「笑う」范围更广"
+     ]
+    ],
+    "g": [
+     [
+      "形容词词干 ＋ げ",
+      "寂しい→寂しげ、楽しげ、不安げ。表「看上去有那种感觉」，比「〜そう」更书面、更有旁观的距离感。"
+     ],
+     [
+      "顔で 表状态",
+      "「〜な顔で笑う」＝带着…的表情笑。这里的「で」是状态，不是地点。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>你脸上带着点落寞，笑了</b>。",
+    "tip": "「〜げ」是 N3 语法，比「〜そう」更文学。这歌用「寂しげ」而不是「寂しそう」，是为了配合整首的书面语气质。"
+   }
+  ]
+ },
+ {
+  "n": "G",
+  "h": "副歌 2",
+  "jp": "サビ（2回目）",
+  "lines": [
+   {
+    "t": "光る朝が 朝が",
+    "r": "ひかるあさが あさが",
+    "ro": "hikaru asa ga asa ga",
+    "tr": "发光的早晨——早晨啊",
+    "lv": "rep",
+    "w": [
+     [
+      "光る",
+      "ひかる",
+      "自动词",
+      "发光",
+      "重复句，与第一段副歌完全一致"
+     ],
+     [
+      "朝",
+      "あさ",
+      "名词",
+      "早晨",
+      "重复句，可直接跳过"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "这一段与第一段副歌相同，只在后半换了内容。重复部分快速扫过即可。"
+     ]
+    ],
+    "p": "同一句重复，语气上比第一段更用力——因为后面接的是「连未来都信了」。",
+    "tip": "重复句不用逐词重读，省下的精力留给下面两句新的。"
+   },
+   {
+    "t": "あまりに眩しい 眩しいからさ",
+    "r": "あまりにまぶしい まぶしいからさ",
+    "ro": "amari ni mabushii mabushii kara sa",
+    "tr": "太耀眼了，耀眼得受不了",
+    "lv": "rep",
+    "w": [
+     [
+      "あまりに",
+      "あまりに",
+      "副词",
+      "太、过于",
+      "重复句"
+     ],
+     [
+      "眩しい",
+      "まぶしい",
+      "イ形容词",
+      "耀眼的",
+      "重复句"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C2 相同。"
+     ]
+    ],
+    "p": "还是那句「太亮了」。这次亮到让人做了不像自己的事。",
+    "tip": "注意：这一句是后面「らしくはない」的原因，两句要连起来理解。"
+   },
+   {
+    "t": "ちょっとさ らしくはない",
+    "r": "ちょっとさ らしくはない",
+    "ro": "chotto sa rashiku wa nai",
+    "tr": "说真的，有点不像我",
+    "lv": "n3",
+    "w": [
+     [
+      "ちょっと",
+      "ちょっと",
+      "副词",
+      "有点、稍微",
+      "程度轻，语气软"
+     ],
+     [
+      "さ",
+      "さ",
+      "终助词",
+      "…嘛（插入语）",
+      "<b>插在句中的「さ」</b>，只拖拍子，不参与结构"
+     ],
+     [
+      "らしい",
+      "らしい",
+      "助动词",
+      "像…的样子、符合…",
+      "「僕らしくない」＝不像我"
+     ],
+     [
+      "は",
+      "は",
+      "提示助词",
+      "强调否定",
+      "与「ない」呼应，加强对比：别的都像，这个不像"
+     ],
+     [
+      "ない",
+      "ない",
+      "助动词",
+      "不",
+      "否定"
+     ]
+    ],
+    "g": [
+     [
+      "さ 的插入功能",
+      "「ちょっとさ、らしくはない」——「さ」是插在句中的语气词，等于中文的「说真的啊」。它不属于任何句子成分。"
+     ],
+     [
+      "らしくない",
+      "「名词＋らしい」表「符合该身份的样子」：子供らしい（像个孩子）、自分らしく（像自己）。否定就是「不像自己」。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>说真的，这有点不像我</b>。",
+    "tip": "<b>这是全网最容易抄错的一句。</b>Shazam 等站点写作「ちょっとさらしくはない」，把「さ」粘进了「さらに」。正确切分是「ちょっとさ／らしくはない」——utaten 的振假名标得很清楚：「ちょっとさ らしくはない」。"
+   },
+   {
+    "t": "未来も信じちゃうよ",
+    "r": "みらいもしんじちゃうよ",
+    "ro": "mirai mo shinjichau yo",
+    "tr": "连未来都忍不住相信了",
+    "lv": "n4",
+    "w": [
+     [
+      "未来",
+      "みらい",
+      "名词",
+      "未来",
+      "与「将来（しょうらい）」近义，未来 更宏大"
+     ],
+     [
+      "も",
+      "も",
+      "提示助词",
+      "也、连…都",
+      "表「连这个都」，超出预期"
+     ],
+     [
+      "信じちゃう",
+      "しんじちゃう",
+      "口语缩略",
+      "忍不住相信",
+      "信じてしまう → 信じちゃう"
+     ],
+     [
+      "よ",
+      "よ",
+      "终助词",
+      "主张、告知",
+      "带点自嘲的坦白"
+     ]
+    ],
+    "g": [
+     [
+      "〜ちゃう ＝ 〜てしまう",
+      "「信じてしまう」→「信じちゃう」。这里表「不由自主」，不是「糟糕了」。"
+     ],
+     [
+      "も 的递进",
+      "「未来も」＝连未来（这种看不见的东西）都信了。も 把程度往上推了一层。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>连未来我都敢相信了</b>。",
+    "tip": "这是全曲唯一一句「往前看」的句子。前面全是消失、透明、流走，到这里第一次出现「未来」——而且是被「眩しさ」逼出来的。"
+   },
+   {
+    "t": "君の言葉がずっと",
+    "r": "きみのことばがずっと",
+    "ro": "kimi no kotoba ga zutto",
+    "tr": "你的话一直",
+    "lv": "rep",
+    "w": [
+     [
+      "言葉",
+      "ことば",
+      "名词",
+      "话语",
+      "重复句，与 C5 相同"
+     ],
+     [
+      "ずっと",
+      "ずっと",
+      "副词",
+      "一直",
+      "重复句"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C5 相同。"
+     ]
+    ],
+    "p": "同一句，第二次说，分量更重了。",
+    "tip": "跳过即可。"
+   },
+   {
+    "t": "離れない 離れない",
+    "r": "はなれない はなれない",
+    "ro": "hanarenai hanarenai",
+    "tr": "离不开，离不开",
+    "lv": "rep",
+    "w": [
+     [
+      "離れない",
+      "はなれない",
+      "自动词否定",
+      "离不开",
+      "重复句。注意这是自动词，与末段的「離さない」对照"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C6 相同。这里仍是自动词——转折还没发生。"
+     ]
+    ],
+    "p": "还是「甩不掉」。注意：这里主角仍是被动的。",
+    "tip": "记住这个位置：<b>第二段副歌还没变，第三段才变。</b>"
+   },
+   {
+    "t": "フラッシュバッカー",
+    "r": "フラッシュバッカー",
+    "ro": "furasshubakkaa",
+    "tr": "闪回者",
+    "lv": "rep",
+    "w": [
+     [
+      "フラッシュバッカー",
+      "フラッシュバッカー",
+      "名词",
+      "闪回者",
+      "重复句。自造词：flashback ＋ -er"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C7 相同。"
+     ]
+    ],
+    "p": "标题第二次出现，位置还是副歌正中间。",
+    "tip": "跳过即可。"
+   },
+   {
+    "t": "今も 思い出してる",
+    "r": "いまも おもいだしてる",
+    "ro": "ima mo omoidashiteru",
+    "tr": "现在也还在回想",
+    "lv": "rep",
+    "w": [
+     [
+      "今も",
+      "いまも",
+      "副词",
+      "现在也",
+      "重复句"
+     ],
+     [
+      "思い出してる",
+      "おもいだしてる",
+      "复合动词",
+      "正在回想",
+      "重复句。「ている」缩成「てる」"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C8 相同。"
+     ]
+    ],
+    "p": "还是「到现在还在想」。",
+    "tip": "跳过即可。"
+   }
+  ]
+ },
+ {
+  "n": "H",
+  "h": "副歌 3（终段）",
+  "jp": "サビ（ラスト）",
+  "lines": [
+   {
+    "t": "光る朝が 朝が",
+    "r": "ひかるあさが あさが",
+    "ro": "hikaru asa ga asa ga",
+    "tr": "发光的早晨——早晨啊",
+    "lv": "rep",
+    "w": [
+     [
+      "光る",
+      "ひかる",
+      "自动词",
+      "发光",
+      "重复句，第三次出现"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与第一段相同，是全曲的固定框架。"
+     ]
+    ],
+    "p": "第三次说同一句。同一个早晨，人已经不一样了。",
+    "tip": "跳过即可。"
+   },
+   {
+    "t": "あまりに眩しい 眩しいからさ",
+    "r": "あまりにまぶしい まぶしいからさ",
+    "ro": "amari ni mabushii mabushii kara sa",
+    "tr": "太耀眼了，耀眼得受不了",
+    "lv": "rep",
+    "w": [
+     [
+      "眩しい",
+      "まぶしい",
+      "イ形容词",
+      "耀眼的",
+      "重复句"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C2 相同。"
+     ]
+    ],
+    "p": "还是那个亮法。",
+    "tip": "跳过即可。"
+   },
+   {
+    "t": "なんかもう それだけで",
+    "r": "なんかもう それだけで",
+    "ro": "nanka mou sore dake de",
+    "tr": "总觉得，光是这样就",
+    "lv": "rep",
+    "w": [
+     [
+      "なんか",
+      "なんか",
+      "副词",
+      "总觉得",
+      "重复句，与 C3 相同"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C3 相同。第三段回到了第一段的写法，把第二段的「未来」收了回来。"
+     ]
+    ],
+    "p": "又回到「光是这一点就」。像是把刚才那个「相信未来」的念头悄悄收了回去。",
+    "tip": "跳过即可。"
+   },
+   {
+    "t": "心が宙に舞う",
+    "r": "こころがちゅうにまう",
+    "ro": "kokoro ga chuu ni mau",
+    "tr": "心就在半空中飞舞起来",
+    "lv": "rep",
+    "w": [
+     [
+      "宙",
+      "ちゅう",
+      "名词",
+      "半空",
+      "重复句。读 ちゅう，不是 そら"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C4 相同。"
+     ]
+    ],
+    "p": "心又一次飘起来——但这次是因为手里攥着东西。",
+    "tip": "跳过即可。"
+   },
+   {
+    "t": "君の言葉をぎゅっと",
+    "r": "きみのことばをぎゅっと",
+    "ro": "kimi no kotoba o gyutto",
+    "tr": "把你的话，紧紧地——",
+    "lv": "n3",
+    "w": [
+     [
+      "君",
+      "きみ",
+      "代词",
+      "你",
+      "同一句，第三次出现"
+     ],
+     [
+      "の",
+      "の",
+      "格助词",
+      "的",
+      "所属"
+     ],
+     [
+      "言葉",
+      "ことば",
+      "名词",
+      "话语",
+      "全曲的核心名词"
+     ],
+     [
+      "を",
+      "を",
+      "格助词",
+      "宾语标记",
+      "<b>从「が」换成了「を」</b>——动词变了"
+     ],
+     [
+      "ぎゅっと",
+      "ぎゅっと",
+      "拟态词",
+      "紧紧地（握、抱）",
+      "拟态词＋と。也可单独用「ぎゅっとする」"
+     ]
+    ],
+    "g": [
+     [
+      "が → を 的转换",
+      "第一段是「言葉がずっと」（主语），这里变成「言葉をぎゅっと」（宾语）。助词换了一个字，因为谓语从自动词「離れない」换成了他动词「離さない」。"
+     ],
+     [
+      "ぎゅっと 的力度",
+      "比「強く」更有身体感：手握紧、抱住、抱住不放。全曲唯一一个「用力」的词。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>把你说过的话，紧紧攥在手里</b>。",
+    "tip": "<b>が→を 不是笔误，是全曲的转折点。</b>从「话甩不掉我」变成「我不放开话」——主角从被动变成主动，就靠这一个助词。"
+   },
+   {
+    "t": "離さない 離さない",
+    "r": "はなさない はなさない",
+    "ro": "hanasanai hanasanai",
+    "tr": "不放，不放",
+    "lv": "n3",
+    "w": [
+     [
+      "離さない",
+      "はなさない",
+      "他动词否定",
+      "不放开、不松手",
+      "離す（五段）→ 離さない。<b>他动词</b>"
+     ],
+     [
+      "離さない",
+      "はなさない",
+      "他动词否定",
+      "同上",
+      "重复＝强调"
+     ]
+    ],
+    "g": [
+     [
+      "自他动词的立场反转",
+      "第一段「離れない」＝它离不开（我被动）；这里「離さない」＝我不放（我主动）。日语只换一个词，就把整个态度掉了个头。"
+     ],
+     [
+      "を＋離さない",
+      "「言葉を離さない」——宾语用「を」，因为动作是我发出的。若写「言葉が離さない」就变成「话不放我」，意思完全变了。"
+     ]
+    ],
+    "p": "这句其实就是在说：<b>我不松手，绝不松手</b>。",
+    "tip": "这是全曲情绪的落点。中文要写一整句「我不再任由它消失，我要抓住它」，日语只用一个「離さない」。这就是自他动词的威力，也是日语最值得学的地方。"
+   },
+   {
+    "t": "フラッシュバッカー",
+    "r": "フラッシュバッカー",
+    "ro": "furasshubakkaa",
+    "tr": "闪回者",
+    "lv": "rep",
+    "w": [
+     [
+      "フラッシュバッカー",
+      "フラッシュバッカー",
+      "名词",
+      "闪回者",
+      "重复句，全曲第三次出现"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C7 相同。"
+     ]
+    ],
+    "p": "标题最后一次出现。这时候「闪回者」不再是困在过去的人，而是把过去握住的人。",
+    "tip": "跳过即可。"
+   },
+   {
+    "t": "今も 思い出してる",
+    "r": "いまも おもいだしてる",
+    "ro": "ima mo omoidashiteru",
+    "tr": "现在也还在回想",
+    "lv": "rep",
+    "w": [
+     [
+      "今も",
+      "いまも",
+      "副词",
+      "现在也",
+      "重复句，全曲最后一句"
+     ]
+    ],
+    "g": [
+     [
+      "重复段",
+      "与 C8 相同。全曲以「回想」开头（ノートに書いた），也以「回想」收尾。"
+     ]
+    ],
+    "p": "最后一个字落在「还在想」。全曲就是这样：从写下，到消失，到抓住，最后还是「还在想」。",
+    "tip": "注意：整首歌没有一句「我难过」或「我开心」，全靠意象和自他动词完成叙事。这就是日语歌词的写法。"
+   }
+  ]
+ }
+];
+/*==DATA-END==*/
+
+/*==ENGINE-START==*/
+const lvName = {n5:"N5", n4:"N4", n3:"N3", n2:"N2+", lit:"文語", rep:"重复"};
+const box = document.getElementById("lyrics");
+const emptyEl = document.querySelector(".empty");
+const bar = document.getElementById("bar");
+const state = {rd:true, ro:true, tr:true};
+const SECS = Array.isArray(S) ? S : (S.sections || []);
+let all = 0;
+
+try { Object.assign(state, JSON.parse(localStorage.getItem("wbState") || "{}")); } catch (e) {}
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function stripTags(s){return String(s == null ? "" : s).replace(/<[^>]*>/g, " ");}
+
+(SECS).forEach(sec => {
+  const wrap = document.createElement("section");
+  wrap.className = "sec";
+  const nLines = (sec.lines || []).length;
+  wrap.innerHTML = '<div class="sec-h"><span class="n">' + esc(sec.n) +
+    "</span><h3>" + esc(sec.h) + '</h3><span class="jp">' + esc(sec.jp) +
+    '</span><span class="sp"></span><span class="sec-cnt">' + nLines + " 句</span>" +
+    '<button class="sec-tg" type="button">展开本节</button></div>';
+
+  const secTg = wrap.querySelector(".sec-tg");
+  secTg.addEventListener("click", () => {
+    const lines = [...wrap.querySelectorAll(".line")];
+    const anyClosed = lines.some(l => !l.classList.contains("open"));
+    lines.forEach(l => setOpen(l, anyClosed));
+    secTg.textContent = anyClosed ? "收起本节" : "展开本节";
+  });
+
+  (sec.lines || []).forEach(L => {
+    all++;
+    const d = document.createElement("div");
+    d.className = "line" + (L.lv === "rep" ? " repcard" : "");
+
+    let words = "";
+    if (L.w && L.w.length) {
+      words = '<h4>逐词拆解</h4><table class="sx"><thead><tr>' +
+        "<th>词 / 表达</th><th>读音</th><th>词性</th><th>释义</th><th>备注</th></tr></thead><tbody>" +
+        L.w.map(w => '<tr><td class="w" data-h="词">' + esc(w[0]) + '</td><td class="rd2" data-h="读音">' + esc(w[1]) +
+          '</td><td class="pos" data-h="词性">' + esc(w[2]) + '</td><td class="mn" data-h="释义">' + esc(w[3]) +
+          '</td><td class="nt" data-h="备注">' + esc(w[4] || "") + "</td></tr>").join("") +
+        "</tbody></table>";
+    }
+    const gram = (L.g && L.g.length)
+      ? "<h4>句法结构</h4>" + L.g.map(g => '<div class="g"><b>' + g[0] + "</b><br>" + g[1] + "</div>").join("")
+      : "";
+    const plain = L.p ? '<div class="plain"><b>大白话：</b>' + L.p + "</div>" : "";
+    const tip = L.tip ? '<div class="tip"><b>提示：</b>' + L.tip + "</div>" : "";
+
+    d.innerHTML =
+      '<div class="head" role="button" tabindex="0" aria-expanded="false">' +
+        '<div class="orig">' + esc(L.t) + "</div>" +
+        '<div class="rd">' + esc(L.r) + "</div>" +
+        '<div class="ro">' + esc(L.ro) + "</div>" +
+        '<div class="tr">' + L.tr + "</div>" +
+        '<div class="foot"><span class="lv ' + L.lv + '">' + (lvName[L.lv] || L.lv) + "</span></div>" +
+        '<span class="chev" aria-hidden="true">▾</span>' +
+      "</div>" +
+      '<div class="detail">' + words + gram + plain + tip + "</div>";
+
+    d.dataset.search = stripTags([L.t, L.r, L.ro, L.tr, L.p, L.tip]
+      .concat((L.w || []).map(w => w.join(" ")))
+      .concat((L.g || []).map(g => g.join(" ")))
+      .join(" ")).toLowerCase();
+
+    const head = d.querySelector(".head");
+    head.addEventListener("click", () => setOpen(d, !d.classList.contains("open")));
+    head.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(d, !d.classList.contains("open")); }
+    });
+
+    wrap.appendChild(d);
+  });
+  box.appendChild(wrap);
+});
+
+function setOpen(line, open) {
+  line.classList.toggle("open", !!open);
+  const h = line.querySelector(".head");
+  if (h) h.setAttribute("aria-expanded", open ? "true" : "false");
+  const sec = line.closest(".sec");
+  if (sec) syncSecTg(sec);
+}
+function syncSecTg(sec) {
+  const tg = sec.querySelector(".sec-tg");
+  if (!tg) return;
+  const lines = [...sec.querySelectorAll(".line")];
+  tg.textContent = lines.some(l => !l.classList.contains("open")) ? "展开本节" : "收起本节";
+}
+
+function apply() {
+  box.querySelectorAll(".line").forEach(l => {
+    l.querySelector(".rd").style.display = state.rd ? "block" : "none";
+    l.querySelector(".ro").style.display = state.ro ? "block" : "none";
+    l.querySelector(".tr").style.display = state.tr ? "block" : "none";
+  });
+}
+
+
+/* 导航高度写进 --nav-h，供锚点与深读版目录使用 */
+function syncNavH() {
+  const h = bar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-h", Math.round(h) + "px");
+}
+if (window.ResizeObserver) new ResizeObserver(syncNavH).observe(bar);
+else window.addEventListener("resize", syncNavH);
+window.addEventListener("load", syncNavH);
+
+/* 默认全部收起：进来先看到歌词本身，想看解析再点 */
+apply();
+
+/* ---------- 主题 ---------- */
+try { if (localStorage.getItem("wbTheme") === "light") document.documentElement.classList.add("light"); } catch (e) {}
+const themeBtn = document.getElementById("themeBtn");
+function syncThemeBtn() {
+  const light = document.documentElement.classList.contains("light");
+  themeBtn.textContent = light ? "☀️" : "🌙";
+  themeBtn.setAttribute("aria-pressed", light ? "true" : "false");
+  themeBtn.title = light ? "当前：浅色（点击切深色）" : "当前：深色（点击切浅色）";
+}
+themeBtn.addEventListener("click", function () {
+  const light = document.documentElement.classList.toggle("light");
+  try { localStorage.setItem("wbTheme", light ? "light" : "dark"); } catch (e) {}
+  syncThemeBtn();
+  syncNavH();
+});
+syncThemeBtn();
+syncNavH();
+/*==ENGINE-END==*/
+</script>
+</body>
+</html>

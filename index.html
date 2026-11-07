@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>紫荆情怀 · 个人博客</title>
+<meta name="description" content="紫荆情怀的个人博客：技术笔记、作品记录，以及一个日语歌词逐句精讲专栏。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">紫荆情怀<span class="dot">.</span></a>
+    <nav class="nav">
+      <a href="index.html" class="active">首页</a>
+      <a href="#posts">文章</a>
+      <a href="#lyrics">歌词精讲</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero hero-with-image">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-brand">
+      <img class="brand-avatar" src="avatar.jpg" alt="紫荆情怀的头像">
+      <h1 class="hero-title">紫荆情怀</h1>
+    </div>
+  </div>
+  <div class="hero-quote">永远为自己和他人，做正确的事<span class="hero-quote-src">——《Tomorrow I'm Dead》Būn Yom</span></div>
+</section>
+
+<main class="container">
+  <section id="lyrics" class="section">
+    <div class="section-head">
+      <h2 class="section-title">歌词精讲</h2>
+    </div>
+    <div class="post-list" id="songList">
+      <!-- 由 home.js 从 lyrics_data.js 渲染 -->
+    </div>
+  </section>
+
+  <section id="posts" class="section">
+    <div class="section-head">
+      <h2 class="section-title">文章</h2>
+    </div>
+    <div class="post-list" id="postList">
+      <!-- 由 posts.js 渲染 -->
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section-head">
+      <h2 class="section-title">关于</h2>
+    </div>
+    <div class="post-list">
+      <a class="post-card card" href="about.html">
+        <span class="post-date">紫荆情怀</span>
+        <h3>关于我</h3>
+        <p class="post-excerpt">一个喜欢折腾的普通人。这里是我的网上自留地，用来放文章、作品，以及那些没地方放的碎碎念。</p>
+        <span class="post-tag">关于</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 紫荆情怀 · 用爱发电</p>
+  </div>
+</footer>
+
+<script src="lyrics/lyrics_data.js"></script>
+<script src="posts.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

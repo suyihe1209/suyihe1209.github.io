@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你好，我的个人博客上线了 · 紫荆情怀</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../index.html">紫荆情怀<span class="dot">.</span></a>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../index.html#posts">文章</a>
+      <a href="../index.html#lyrics">歌词精讲</a>
+      <a href="../index.html#about">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <a class="back-link" href="../index.html">← 返回首页</a>
+
+  <div class="article-header">
+    <span class="post-date">2026-11-04</span>
+    <h1>你好，我的个人博客上线了</h1>
+    <span class="post-tag">随记</span>
+  </div>
+
+  <article class="article-body">
+    <p>折腾了很久，终于把这块网上自留地支起来了。</p>
+
+    <h2>为什么想写博客</h2>
+    <p>理由其实很朴素：社交媒体太吵了，发什么都会被淹没在信息流里，过两天就找不着了。而一个自己的博客，写下的东西安静地待在那里，随时能翻回来。</p>
+    <p>说白了，就是想有个能让自己「认真写点东西」的地方。</p>
+
+    <h2>打算写什么</h2>
+    <ul>
+      <li>技术笔记——踩过的坑、调通的配置、学到的东西</li>
+      <li>作品记录——音 MAD、设计、小工具这些折腾过的玩意儿</li>
+      <li>日语歌词精讲——最认真的一件事，一句一句拆给你看</li>
+    </ul>
+
+    <h2>怎么搭起来的</h2>
+    <p>目前是个纯静态站点，用最简单的 HTML + CSS + JS，零依赖、零构建。好处是够轻、够快、好维护。</p>
+
+    <pre><code>// 写新文章：在 posts.js 里加一条，再建对应 html
+const POSTS = [
+  { slug: "hello-world", title: "...", date: "...", tag: "...", excerpt: "..." }
+];</code></pre>
+
+    <blockquote>
+      种一棵树最好的时间是十年前，其次是现在。
+    </blockquote>
+
+    <p>所以，就从这一篇开始吧。</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 紫荆情怀 · 用爱发电</p>
+  </div>
+</footer>
+</body>
+</html>

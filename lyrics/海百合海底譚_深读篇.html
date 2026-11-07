@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ウミユリ海底譚 · 深读篇 —— 结构 / 音韵 / 语法</title>
+<style>
+  :root{
+    --bg:#08070d; --bg2:#0c0a14;
+    --panel:#131020; --panel2:#1a1529;
+    --line:#282040; --line2:#3a2e5c;
+    --text:#ece9f7; --muted:#918aa8; --muted2:#6f6889;
+    --cyan:#5fe3f5; --pink:#ff6fb5; --violet:#b78cff;
+    --amber:#ffc266; --green:#7ff0a8; --red:#ff8080;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:
+      radial-gradient(1100px 560px at 12% -8%, #2a1040 0%, transparent 58%),
+      radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
+      var(--bg);
+    color:var(--text); line-height:1.78;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 110px;}
+
+  header{padding:52px 0 22px;}
+  .kicker{font-size:12px;letter-spacing:.3em;color:var(--pink);font-weight:700;text-transform:uppercase;}
+  h1{font-size:clamp(30px,5.4vw,46px);margin:12px 0 4px;line-height:1.18;letter-spacing:.02em;
+     font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;}
+  h1 .sub{display:block;font-size:.36em;color:var(--muted);font-weight:400;letter-spacing:.18em;margin-top:12px;
+          font-family:-apple-system,"Noto Sans SC",sans-serif;}
+  .byline{color:var(--muted);font-size:13.5px;margin-top:16px;}
+  .byline em{color:var(--cyan);font-style:normal;}
+
+  nav.toc{position:sticky;top:0;z-index:60;background:rgba(8,7,13,.9);backdrop-filter:blur(14px);
+          border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -22px 26px;padding:9px 22px;}
+  nav.toc .in{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;}
+  nav.toc a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:5px 10px;border-radius:16px;
+            border:1px solid transparent;white-space:nowrap;transition:.15s;}
+  nav.toc a:hover{color:var(--pink);border-color:var(--line2);background:var(--panel2);}
+  nav.toc .num{color:var(--muted2);font-size:10.5px;margin-right:4px;font-weight:700;}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:16px 0;}
+  .card h2{font-size:17px;margin:0 0 12px;color:var(--pink);letter-spacing:.03em;display:flex;align-items:center;gap:9px;}
+  .card h2::before{content:"";width:4px;height:16px;background:var(--pink);border-radius:2px;flex:none;}
+  .card.cy h2{color:var(--cyan);} .card.cy h2::before{background:var(--cyan);}
+  .card.vi h2{color:var(--violet);} .card.vi h2::before{background:var(--violet);}
+  .card.ok{border-color:#1e4a30;background:linear-gradient(180deg,#0b1c13,#0e0d18);}
+  .card.ok h2{color:var(--green);} .card.ok h2::before{background:var(--green);}
+  .card p{margin:9px 0;font-size:14.5px;color:#cfc9e2;}
+  .card p b{color:var(--text);}
+  .card p em{color:var(--cyan);font-style:normal;}
+
+  .sec{margin-top:44px;scroll-margin-top:64px;}
+  .sec-h{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px;}
+  .sec-h .n{font-size:11.5px;font-weight:800;letter-spacing:.2em;color:var(--cyan);flex:none;}
+  .sec-h h3{margin:0;font-size:21px;letter-spacing:.02em;}
+  .sec-h .jp{color:var(--muted);font-size:13px;margin-left:auto;flex:none;}
+
+  /* 摘要 */
+  .tldr{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0 4px;}
+  .tldr .it{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:13px 15px;}
+  .tldr .it .k{font-size:11px;letter-spacing:.16em;color:var(--muted2);font-weight:700;}
+  .tldr .it .v{font-size:14.5px;margin-top:6px;color:var(--text);}
+  .tldr .it .v b{color:var(--pink);}
+
+  /* 骨架图 */
+  .skwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;
+          background:linear-gradient(180deg,#0d0b17,#100c1c);padding:6px 4px;}
+  svg.sk{display:block;min-width:660px;width:100%;height:auto;}
+
+  /* 表格 */
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{text-align:left;color:var(--muted2);font-weight:600;font-size:11.5px;letter-spacing:.08em;
+     padding:8px 10px;border-bottom:1px solid var(--line2);white-space:nowrap;}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:#cfc9e2;}
+  tr:hover td{background:rgba(255,111,181,.045);}
+  .jp{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;}
+  td.jp{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+        font-size:14.5px;color:var(--text);line-height:1.65;}
+  td.k{color:var(--muted2);font-size:12px;white-space:nowrap;}
+  mark{background:rgba(255,111,181,.2);color:#ffd3e8;padding:0 4px;border-radius:4px;font-weight:600;}
+  mark.b{background:rgba(95,227,245,.18);color:#c8f6ff;}
+  .df td:first-child{color:var(--muted2);font-size:12px;white-space:nowrap;width:34px;}
+
+  /* 统计条 */
+  .stats{margin-top:10px;}
+  .st{display:grid;grid-template-columns:118px 1fr 42px;gap:10px;align-items:center;margin:9px 0;}
+  .st .lb{font-size:13px;color:var(--text);font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
+  .st .lb span{color:var(--muted2);font-size:11.5px;margin-left:5px;font-family:inherit;}
+  .st .track{height:9px;background:var(--panel2);border-radius:6px;overflow:hidden;border:1px solid var(--line);}
+  .st .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--violet),var(--pink));}
+  .st .fill.c{background:linear-gradient(90deg,#2c7f96,var(--cyan));}
+  .st .num{font-size:12.5px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums;}
+
+  /* 语法卡 */
+  .gcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:13px 0;}
+  .gcard .hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .gcard .pat{font-size:16px;font-weight:700;color:var(--cyan);font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
+  .gcard .lab{font-size:11px;letter-spacing:.1em;color:var(--muted2);border:1px solid var(--line2);
+              padding:1px 7px;border-radius:10px;}
+  .gcard .ex{margin:11px 0 0;font-size:14px;color:#d9d3ea;font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
+  .gcard .ex i{color:var(--muted2);font-style:normal;font-size:12.5px;font-family:-apple-system,"Noto Sans SC",sans-serif;margin-left:8px;}
+  .gcard .bd{margin-top:10px;padding:10px 13px;background:rgba(95,227,245,.055);border-left:3px solid var(--cyan);
+             border-radius:0 8px 8px 0;font-size:13.5px;color:#c3dde4;}
+  .gcard .bd b{color:var(--cyan);}
+  .gcard .me{margin-top:8px;font-size:13px;color:var(--muted);}
+  .gcard .me em{color:var(--green);font-style:normal;font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
+
+  .note{margin:12px 0;padding:11px 14px;border-radius:9px;font-size:13.5px;
+        background:rgba(255,194,102,.07);border-left:3px solid var(--amber);color:#eadfc7;}
+  .note b{color:var(--amber);}
+  .warn{margin:12px 0;padding:11px 14px;border-radius:9px;font-size:13.5px;
+        background:rgba(255,128,128,.07);border-left:3px solid var(--red);color:#eccaca;}
+  .warn b{color:var(--red);}
+  .good{margin:12px 0;padding:11px 14px;border-radius:9px;font-size:13.5px;
+        background:rgba(127,240,168,.07);border-left:3px solid var(--green);color:#cdeada;}
+  .good b{color:var(--green);}
+
+  /* 折叠 */
+  details.fold{margin:9px 0;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:0 14px;}
+  details.fold summary{cursor:pointer;padding:11px 0;font-size:13.5px;color:var(--pink);list-style:none;font-weight:600;}
+  details.fold summary::-webkit-details-marker{display:none;}
+  details.fold summary::before{content:"▸ ";color:var(--muted2);}
+  details.fold[open] summary::before{content:"▾ ";}
+  details.fold .bd{padding:2px 0 13px;font-size:13.5px;color:#cfc9e2;border-top:1px dashed var(--line2);margin-top:2px;}
+  details.fold .bd p{margin:8px 0;}
+
+  .q{margin:14px 0;padding:13px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:11px;}
+  .q .no{font-size:11px;color:var(--muted2);letter-spacing:.1em;font-weight:700;}
+  .q .ask{font-size:14px;margin-top:4px;}
+  .q .stem{font-size:14.5px;color:var(--cyan);margin-top:7px;font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
+
+  footer{text-align:center;color:var(--muted2);font-size:12.5px;margin-top:56px;padding-top:22px;
+         border-top:1px solid var(--line);line-height:2;}
+  footer a{color:var(--muted);}
+
+  @media(max-width:640px){
+    .wrap{padding:0 14px 80px;}
+    nav.toc{margin:0 -14px 20px;padding:8px 12px;}
+    nav.toc a{font-size:12px;padding:4px 8px;}
+    header{padding:34px 0 14px;}
+    .sec-h h3{font-size:18px;}
+    .sec-h .jp{display:none;}
+    .card{padding:16px 15px;}
+    td.jp{font-size:13.5px;}
+    th,td{padding:7px 7px;}
+    .st{grid-template-columns:92px 1fr 34px;gap:7px;}
+    .st .lb{font-size:12px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker"><a href="../index.html" style="color:inherit;text-decoration:none;">⌂ 返回首页</a> ／ Deep Read ／ 深读篇</div>
+  <h1>ウミユリ海底譚<span class="sub">结构 · 音韵 · 语法 —— 与「逐句精讲」配套的第二层</span></h1>
+  <div class="byline">n-buna ／ VOCALOID · 全曲 <em>6 段 / 57 句</em> · 本篇不逐句释义，只看「为什么整首这样写」</div>
+</header>
+
+<nav class="toc">
+  <div class="in">
+    <a href="#s1"><span class="num">01</span>骨架</a>
+    <a href="#s2"><span class="num">02</span>改词表</a>
+    <a href="#s3"><span class="num">03</span>音韵</a>
+    <a href="#s4"><span class="num">04</span>语法</a>
+    <a href="#s5"><span class="num">05</span>语气</a>
+    <a href="#s6"><span class="num">06</span>主题</a>
+    <a href="#s7"><span class="num">07</span>跟读</a>
+    <a href="#s8"><span class="num">08</span>练习</a>
+    <a href="#s9"><span class="num">09</span>清单</a>
+  </div>
+</nav>
+
+<div class="card ok">
+  <h2>先给结论：三分钟版</h2>
+  <p>逐句篇回答「这句在说什么」，这一篇回答「<b>为什么整首这样写</b>」。三个结论，你先拿走：</p>
+  <div class="tldr">
+    <div class="it">
+      <div class="k">结构</div>
+      <div class="v">57 句其实只有 <b>3 副骨架</b>。A 与 A′ 同骨、B 与 D 同骨、A 与 F 同骨。全曲是同一股水来回冲刷，不是六段新内容。</div>
+    </div>
+    <div class="it">
+      <div class="k">音韵</div>
+      <div class="v">三个词只差一个辅音：<b>灰（はい）→ 藍（あい）→ 愛（あい）</b>。这条音链就是全曲的脊椎。</div>
+    </div>
+    <div class="it">
+      <div class="k">语气</div>
+      <div class="v">日语表达沉重感情，靠的是<b>把它说小</b>（だけ）和<b>把它推开</b>（なんて），不是加重语气。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 01 ============ -->
+<section class="sec" id="s1">
+  <div class="sec-h"><span class="n">01</span><h3>骨架：六段，三副骨</h3><span class="jp">構成</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 14px;">
+    A → B → A′ → D → C → F。乍看是六段新内容，实际是 <b>三对镜像</b>：A 与 A′、B 与 D、A 与 F。
+    真正「只有一次」的段落只有 C（桥段），而它恰好是全曲最短、最狠的地方。
+  </p>
+
+  <div class="skwrap">
+    <svg class="sk" viewBox="0 0 900 400" role="img" aria-label="六段结构与深度走向">
+      <defs>
+        <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#5fe3f5"/><stop offset=".55" stop-color="#b78cff"/><stop offset="1" stop-color="#ff6fb5"/>
+        </linearGradient>
+      </defs>
+      <!-- 水面 -->
+      <line x1="30" y1="204" x2="872" y2="204" stroke="#3a2e5c" stroke-dasharray="6 7" stroke-width="1.2"/>
+      <text x="34" y="194" fill="#7ff0a8" font-size="11.5" font-family="sans-serif" letter-spacing="1">↑ 空 ／ 生 ／ 对方所在</text>
+      <text x="34" y="226" fill="#918aa8" font-size="11.5" font-family="sans-serif" letter-spacing="1">↓ 海 ／ 梦 ／ 我所在</text>
+
+      <!-- 主线 -->
+      <path d="M100,258 C150,300 185,312 232,312 C300,312 322,244 364,244
+               C430,244 455,278 500,278 C560,278 580,330 632,330
+               C700,330 720,168 790,158"
+            fill="none" stroke="url(#ln)" stroke-width="2.6" stroke-linecap="round" opacity=".92"/>
+
+      <!-- 节点 -->
+      <g font-family="sans-serif">
+        <circle cx="100" cy="258" r="7.5" fill="#5fe3f5"/>
+        <text x="100" y="238" fill="#5fe3f5" font-size="15" font-weight="700" text-anchor="middle">A</text>
+        <text x="100" y="288" fill="#918aa8" font-size="11" text-anchor="middle">主歌</text>
+
+        <circle cx="232" cy="312" r="7.5" fill="#6fd8ea"/>
+        <text x="232" y="342" fill="#6fd8ea" font-size="15" font-weight="700" text-anchor="middle">B</text>
+        <text x="232" y="360" fill="#918aa8" font-size="11" text-anchor="middle">副歌 1</text>
+
+        <circle cx="364" cy="244" r="7.5" fill="#9fb6ff"/>
+        <text x="364" y="226" fill="#9fb6ff" font-size="15" font-weight="700" text-anchor="middle">A′</text>
+        <text x="364" y="266" fill="#918aa8" font-size="11" text-anchor="middle">主歌 2</text>
+
+        <circle cx="500" cy="278" r="7.5" fill="#b78cff"/>
+        <text x="500" y="261" fill="#b78cff" font-size="15" font-weight="700" text-anchor="middle">D</text>
+        <text x="500" y="300" fill="#918aa8" font-size="11" text-anchor="middle">副歌 2</text>
+
+        <circle cx="632" cy="330" r="7.5" fill="#d98cd8"/>
+        <text x="632" y="360" fill="#d98cd8" font-size="15" font-weight="700" text-anchor="middle">C</text>
+        <text x="632" y="378" fill="#918aa8" font-size="11" text-anchor="middle">桥段（最深）</text>
+
+        <circle cx="790" cy="158" r="7.5" fill="#ff6fb5"/>
+        <text x="790" y="140" fill="#ff6fb5" font-size="15" font-weight="700" text-anchor="middle">F</text>
+        <text x="790" y="182" fill="#918aa8" font-size="11" text-anchor="middle">末段</text>
+      </g>
+
+      <!-- 注释 -->
+      <text x="700" y="112" fill="#ff6fb5" font-size="11.5" font-family="sans-serif" text-anchor="end">
+        あの空に溺れていく ——「上浮」也是溺
+      </text>
+      <path d="M700,118 L772,146" stroke="#ff6fb5" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
+
+      <text x="164" y="330" fill="#6f6889" font-size="10.5" font-family="sans-serif">被藍吞没</text>
+      <text x="560" y="350" fill="#6f6889" font-size="10.5" font-family="sans-serif">被期待的话杀死</text>
+    </svg>
+  </div>
+
+  <div class="note">
+    <b>看这条线的形状。</b>它不是 U 形（先沉后浮），也不是单纯的下降。它沉到 C 段最低点，然后在 F 段<b>冲到水面之上</b>——
+    而最后一句偏偏是「在那片天空里溺下去」。作者用整首歌把你带到「上面」，再告诉你上面也是水。
+    这条曲线本身就是全曲的论点。
+  </div>
+
+  <h4 style="font-size:13px;letter-spacing:.14em;color:var(--violet);margin:22px 0 8px;">对仗矩阵</h4>
+  <table>
+    <tr><th>组</th><th>对应段</th><th>关系</th><th>唯一的实质差别</th></tr>
+    <tr><td class="k">①</td><td class="jp">A ↔ A′</td><td>同骨架，换四面镜子</td><td>「海の底」→「空の底」；「夢を見た」→「夢を描いた」</td></tr>
+    <tr><td class="k">②</td><td class="jp">B ↔ D</td><td>同骨架，语气反转</td><td>「縋ってよ（求你缠着我）」→「塞いでよ（堵上吧）」</td></tr>
+    <tr><td class="k">③</td><td class="jp">A ↔ F</td><td>同骨架，几乎原样复现</td><td>「僕の歌」→「僕の夢」；「空中散歩のSOS」→「泣いて笑ってよSOS」</td></tr>
+    <tr><td class="k">④</td><td class="jp">B ↔ F</td><td>局部借用</td><td>「取り去って」→「消え去って」</td></tr>
+    <tr><td class="k">⑤</td><td class="jp">C</td><td>孤本，无镜像</td><td>全曲唯一直接说「你杀了我」的段落</td></tr>
+  </table>
+
+  <div class="good">
+    <b>学习上的用处：</b>你不用记 57 句。记住 A、B、C 三段的词，等于掌握了 40 句以上。剩下的全是「改了哪几个词」。
+    这也是最省力的背词法——<b>用差异记忆，而不是用重复记忆</b>。
+  </div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="sec" id="s2">
+  <div class="sec-h"><span class="n">02</span><h3>改词表：作者动手的地方</h3><span class="jp">差し替え</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 6px;">
+    三张表，把重复段落逐位对齐。左边是第一次，右边是第二次。<mark>粉色</mark>是被换掉的部分。
+    这一节是全篇的核心——<b>作者在哪动手，就是他想说什么</b>。
+  </p>
+
+  <div class="card cy">
+    <h2>表一　A → A′：「你只是远去了」改写成「你对我挥了挥手」</h2>
+    <table class="df">
+      <tr><th>#</th><th>A メロ（第一次）</th><th>A′ メロ（第二次）</th><th>换了什么</th></tr>
+      <tr>
+        <td>1</td>
+        <td class="jp">海の底 息を飲み干す夢を見た</td>
+        <td class="jp"><mark>空</mark>の底 <mark>灰の中で</mark>夢を<mark>描いた</mark></td>
+        <td>介质从「海」翻到「空」，但两边都是「底」；「做梦」变成「画梦」</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="jp">光の泳ぐ空にさざめく</td>
+        <td class="jp">光<mark>に届く</mark> 波に<mark>揺らめく</mark> 夜の奥</td>
+        <td>「光在远处游」变成「够得到光了」——但只是「够到」，不是「抓住」</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="jp">君が遠のいただけ</td>
+        <td class="jp"><mark>僕の心に</mark> 君が<mark>手を振った</mark>だけ</td>
+        <td>同一个「だけ」，事实从「你走远了」变成「你朝我挥手了」</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="jp">僕の手を遮った</td>
+        <td class="jp"><mark>君の背を掻き消した</mark>（主语换成「消える光」）</td>
+        <td>主动的「挡」变成被动的「抹掉」，动作的主语悄悄换成了光</td>
+      </tr>
+    </table>
+    <div class="note" style="margin-top:14px;">
+      <b>手筋：改叙述，不改事实。</b>第 3 行最典型。对方做的事没变（离开），但说法从「远去」换成「挥手」。
+      一字之差，被抛弃就成了告别。这是全曲最痛的一处改写——<b>他没有否认失去，他只是换了个说法让自己受得住</b>。
+      「だけ」在这里不是「只有」，是「我不敢再多说」。
+    </div>
+  </div>
+
+  <div class="card cy">
+    <h2>表二　B → D：「求你」变成「我不要」</h2>
+    <table class="df">
+      <tr><th>#</th><th>サビ 1</th><th>サビ 2</th><th>换了什么</th></tr>
+      <tr>
+        <td>1</td>
+        <td class="jp"><mark>もっと</mark>縋ってよ</td>
+        <td class="jp"><mark>そっと</mark>塞いでよ</td>
+        <td><b>も→そ</b>：一个假名。「再多缠着我」变成「轻轻堵上」</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="jp">知ってしまうから</td>
+        <td class="jp">もういらないから</td>
+        <td>理由从「因为我会知道（真相）」换成「因为已经不需要了」</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="jp">僕の歌を笑わないで</td>
+        <td class="jp"><mark>そんな嘘を歌わないで</mark></td>
+        <td>请求对象反转：别笑我 → 你别唱（把「谎」的标签贴回去）</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="jp">君はここ<mark>に</mark>戻らないで</td>
+        <td class="jp">君はここ<mark>で</mark>止まらないで</td>
+        <td>助词 に→で；动词 戻る→止まる。回来 vs 停下</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="jp">泣いて笑ってよ <mark>一等星</mark></td>
+        <td class="jp">泣いて笑ってよ <mark>SOS</mark></td>
+        <td>呼语从「最亮的星」降级成「求救信号」</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="jp"><mark>僕は 僕は 僕は</mark></td>
+        <td class="jp"><mark>愛は 愛は 愛は</mark></td>
+        <td>三连排比的主语，从「我」换成「爱」</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="jp">ただ藍に呑まれてく</td>
+        <td class="jp"><mark>消えない君を描いた</mark> 僕にもっと</td>
+        <td>全曲第一次出现「我做了什么」——从被吞，变成描画</td>
+      </tr>
+    </table>
+    <div class="note" style="margin-top:14px;">
+      <b>手筋：一个假名的转身。</b>もっと（mo-tto）／そっと（so-tto）。辅音 m 换成 s，音量立刻从「喊」降到「耳语」。
+      这是全曲最省力、也最见功力的一次改笔。<b>日语的抒情经常不靠换词，靠换一个音。</b>
+    </div>
+  </div>
+
+  <div class="card cy">
+    <h2>表三　A → F：结尾不是解决，是回到开头</h2>
+    <table class="df">
+      <tr><th>#</th><th>A メロ（开篇）</th><th>ラスサビ（收尾）</th><th>换了什么</th></tr>
+      <tr><td>1</td><td class="jp">待って わかってよ</td><td class="jp">待って わかってよ</td><td><b>完全没改</b></td></tr>
+      <tr><td>2</td><td class="jp">僕の<mark>歌</mark>を笑わないで</td><td class="jp">僕の<mark>夢</mark>を笑わないで</td><td>歌 → 梦</td></tr>
+      <tr><td>3</td><td class="jp">空中散歩<mark>の SOS</mark></td><td class="jp">泣いて笑ってよ <mark>SOS</mark></td><td>SOS 从「贴纸」变成「喊出来的动作」</td></tr>
+      <tr><td>4</td><td class="jp">空を<mark>眺める</mark></td><td class="jp">あの空<mark>に溺れていく</mark></td><td>を→に；眺める→溺れる</td></tr>
+      <tr><td>5</td><td class="jp">僕の手を遮った</td><td class="jp">（删除）</td><td>没人再挡了——因为已经沉下去了</td></tr>
+      <tr><td>6</td><td class="jp">君はここに戻らないで</td><td class="jp"><mark>僕は</mark>ここで止まらないで</td><td>主语从「你」换成「我」</td></tr>
+    </table>
+    <div class="warn" style="margin-top:14px;">
+      <b>最后一处最狠。</b>第 6 行：第二段是「<b>你</b>别回到这里」，末段变成「<b>我</b>不要停在这里」。
+      但「止まらないで」的对象是自己——这句话在语法上是「请别人别停」，主语却写成了「僕は」。
+      <b>他既在说「我不要停」，也在说「谁来叫我别停」。</b>一句话两个说话对象，这是全曲最漂亮的一处语法裂缝。
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="sec" id="s3">
+  <div class="sec-h"><span class="n">03</span><h3>音韵：只差一个辅音</h3><span class="jp">音の仕掛け</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 14px;">
+    日语的谐音不是文字游戏，是<b>听觉上的滑动</b>。这首歌最核心的一条音链只有三个词，全部出现在段落的最后一句、同一个句型里：
+  </p>
+
+  <table>
+    <tr><th>段</th><th>原句</th><th>读音</th><th>词义</th></tr>
+    <tr><td class="k">A</td><td class="jp">今 灰に塗れてく</td><td class="jp">はい に まみれてく</td><td>此刻，被<b>灰</b>一点点糊满</td></tr>
+    <tr><td class="k">B</td><td class="jp">ただ藍に呑まれてく</td><td class="jp">あい に のまれてく</td><td>只是被<b>深蓝</b>一点点吞掉</td></tr>
+    <tr><td class="k">D</td><td class="jp">愛は 愛は 愛は</td><td class="jp">あい は あい は あい は</td><td><b>爱</b>啊，爱啊，爱啊</td></tr>
+  </table>
+
+  <div class="good">
+    <b>ha-i → a-i → a-i。</b>h 掉了，词就从「灰烬」滑到「海的颜色」，再滑到「爱」。
+    中间那个「藍」是枢纽：它既是颜色（海），又只差一个字母就是「愛」。
+    所以「被蓝吞没」和「被爱吞没」在听觉上是同一件事——<b>这首歌不用解释这个，它让你听见</b>。
+  </div>
+
+  <h4 style="font-size:13px;letter-spacing:.14em;color:var(--violet);margin:24px 0 6px;">另外四组</h4>
+  <table>
+    <tr><th>原句</th><th>双关</th><th>说得通在哪</th></tr>
+    <tr>
+      <td class="jp">海の底 息を飲み干す</td>
+      <td class="jp">息（いき）＝ 生き（いき）</td>
+      <td>「把呼吸喝干」＝「把活命喝干」。惯用「息を飲む」是倒吸一口气，加个「干す」就变成喝到一滴不剩——海底溺死的另一种说法。</td>
+    </tr>
+    <tr>
+      <td class="jp">最終列車と泣き止んだ</td>
+      <td class="jp">泣く ＝ 鳴く（なく）</td>
+      <td>「我不哭了」的同时也是「（列车）不响了」。末班车开走＝最后一班也不再鸣笛＝真的回不去了。一个「泣き止む」写了两件事。</td>
+    </tr>
+    <tr>
+      <td class="jp">もっと縋ってよ ／ そっと塞いでよ</td>
+      <td class="jp">mo-tto ／ so-tto</td>
+      <td>只换首辅音，「更多」变「轻轻」。整段语气从乞求翻成安抚，没有换任何语法。</td>
+    </tr>
+    <tr>
+      <td class="jp">海の底 ／ 空の底</td>
+      <td class="jp">そこ ／ そら</td>
+      <td>都是「そ」开头、两个假名。两个「底」读音几乎重叠：海的最深处和天的最远处，在耳朵里是同一个地方。</td>
+    </tr>
+  </table>
+
+  <div class="note">
+    <b>怎么判断一个「双关」是真的？</b>三条标准，中三条才算硬证据：<br>
+    ① <b>同位置</b>——出现在对应段落、对应句位；<br>
+    ② <b>同句型</b>——用同一个语法框架（这里是「〜に〜れてく」）；<br>
+    ③ <b>语义接得上</b>——两个意思都要能放进上下文，不能只靠读音硬凑。<br>
+    上面「灰→藍→愛」三条全中，是真双关；「海（うみ）／産み（うみ）」只中读音一条，那叫联想，不能当结论。
+    <b>学会分清这两类，比多背十个谐音词有用。</b>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="sec" id="s4">
+  <div class="sec-h"><span class="n">04</span><h3>语法：六组能直接搬走的</h3><span class="jp">文法の骨</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 4px;">
+    这一节按「用得上」排序。每组给：曲中原句 → 结构拆解 → 你自己能造的一句。
+    这些句型在 N4–N3 阅读里出现率极高，学会就能反查。
+  </p>
+
+  <div class="gcard">
+    <div class="hd"><span class="pat">て形 ＋ よ ／ ないで</span><span class="lab">请求 · 禁止</span></div>
+    <div class="ex">わかってよ ／ 縋ってよ ／ 塞いでよ ／ 泣いて笑ってよ</div>
+    <div class="ex">笑わないで ／ 戻らないで ／ 止まらないで<i>全曲 7 次</i></div>
+    <div class="bd">
+      て形单独收句＝<b>亲密关系里的请求或催促</b>，语气比「〜てください」软、比命令形暖。「ないで」＝「别…」。
+      两者都<b>只能对平辈或更亲近的人用</b>，对上司说「わかってよ」会非常失礼。
+      这首歌通篇用这一组，等于把整首歌的音量定在「对一个人说话」，而不是「对世界喊话」。
+    </div>
+    <div class="me">自造：<em>ちょっと待ってよ、まだ話してないでしょ。</em>（等一下啊，我还没说完呢。）</div>
+  </div>
+
+  <div class="gcard">
+    <div class="hd"><span class="pat">てしまう ／ ちゃう</span><span class="lab">无可挽回 · 了断</span></div>
+    <div class="ex">取り去ってしまってよ ／ 逆らってしまってよ ／ 消え去ってしまってよ<i>3 次</i></div>
+    <div class="ex">僕を殺しちゃった<i>ちゃう＝てしまう 的口语</i></div>
+    <div class="bd">
+      「てしまう」本义是「做完」，但感情色彩是<b>「回不去了」</b>——要么遗憾，要么干脆。
+      这首歌用的是第二种：<b>「〜てしまってよ」＝「干脆…吧」</b>。
+      自己下不了手，所以求对方动手。三个「てしまってよ」连着出现，是把自己的东西一件件往外推。
+    </div>
+    <div class="me">自造：<em>もう忘れてしまいたい。</em>（真想干脆忘掉。）／ <em>捨てちゃってよ。</em>（扔了吧。）</div>
+  </div>
+
+  <div class="gcard">
+    <div class="hd"><span class="pat">てく ／ ていく</span><span class="lab">朝未来变化</span></div>
+    <div class="ex">灰に塗れてく ／ 藍に呑まれてく<i>缩约形</i></div>
+    <div class="ex">あの空に溺れていく<i>最后一句恢复完整形</i></div>
+    <div class="bd">
+      「ていく」＝某个变化<b>朝未来持续下去</b>，和「てくる」（从过去累积到现在）相对。
+      口语里常缩成「てく」，唱起来少一拍，正好卡在四拍子的缝里。
+      注意：<b>全曲只有最后一句用了完整的「ていく」</b>——前面都在赶，最后一句放慢了，因为那是全曲的落点。
+      <b>语法形式的快慢，本身就是编曲。</b>
+    </div>
+    <div class="me">自造：<em>だんだん寒くなっていく。</em>（会一点点冷下去。）</div>
+  </div>
+
+  <div class="gcard">
+    <div class="hd"><span class="pat">なら</span><span class="lab">既然 · 如果是</span></div>
+    <div class="ex">行ってしまうなら ／ こんな世界なら</div>
+    <div class="bd">
+      名词或普通形 ＋ なら＝<b>承接对方（或假设）的前提，然后给出自己的判断</b>。
+      中文常译「既然…那就…」，但它比「から」少一点因果、多一点<b>「既然是那样，我也只好…」</b>的让步感。
+      两句都是「既然如此，那我就把话说绝」——这是全曲唯一在「谈条件」的地方。
+    </div>
+    <div class="me">自造：<em>行くなら早く言ってよ。</em>（要去就早点说啊。）</div>
+  </div>
+
+  <div class="gcard">
+    <div class="hd"><span class="pat">动词普通形 ＋ 名词</span><span class="lab">关系从句（重点）</span></div>
+    <div class="ex">光の<b>泳ぐ</b>空 ／ 波に<b>揺らめく</b>夜の奥 ／ <b>消えない</b>君</div>
+    <div class="ex">知らない人の<b>吸った</b>愛 ／ 信じてたって<b>笑う</b>ようなハッピーエンド</div>
+    <div class="bd">
+      这是中文母语者最容易卡的一处：<b>日语可以把一整句塞到名词前面</b>，动词放最后。
+      「光の泳ぐ空」不是「光、游泳的天空」，而是「（其中）光在游动的天空」。
+      读法：<b>先跳到最后一个名词，再回头补前面的修饰</b>。
+      这首歌有 5 处这种长定语，密度很高——能拆开这 5 处，N3 阅读理解基本就通了。
+    </div>
+    <div class="me">自造：<em>君のくれた手紙</em>（你给我的信）／ <em>雨の降る日に読む本</em>（下雨天读的书）</div>
+  </div>
+
+  <div class="gcard">
+    <div class="hd"><span class="pat">のに</span><span class="lab">逆接 · 不甘</span></div>
+    <div class="ex">始まらない 僕はまだ忘れないのに</div>
+    <div class="bd">
+      「のに」＝明明…却…，带<b>不满、遗憾、撒娇</b>。全曲只用了一次，位置在 A′ 段末尾——
+      这是整首歌唯一一次<b>直接对命运提出异议</b>。前面都在退让（だけ）、假装（なんて），到这里绷不住了。
+      <b>找一首歌的「唯一一次」，往往就找到了它的心脏。</b>
+    </div>
+    <div class="me">自造：<em>頑張ったのに、間に合わなかった。</em>（明明努力了，却没赶上。）</div>
+  </div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="sec" id="s5">
+  <div class="sec-h"><span class="n">05</span><h3>语气：把大事说小，把它推开</h3><span class="jp">語気</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 10px;">
+    中文表达重感情靠「加重」：太痛了、真的受不了。日语相反，靠<b>缩小</b>和<b>推开</b>。
+    这首歌把这两招用到了极致，看统计：
+  </p>
+
+  <div class="stats">
+    <div class="st"><div class="lb">ないで<span>别…</span></div><div class="track"><div class="fill c" style="width:100%"></div></div><div class="num">7</div></div>
+    <div class="st"><div class="lb">なんて<span>什么的</span></div><div class="track"><div class="fill" style="width:72%"></div></div><div class="num">5</div></div>
+    <div class="st"><div class="lb">てしまう<span>干脆…了</span></div><div class="track"><div class="fill" style="width:58%"></div></div><div class="num">4</div></div>
+    <div class="st"><div class="lb">てく<span>…下去</span></div><div class="track"><div class="fill c" style="width:43%"></div></div><div class="num">3</div></div>
+    <div class="st"><div class="lb">だけ<span>只是</span></div><div class="track"><div class="fill" style="width:29%"></div></div><div class="num">2</div></div>
+    <div class="st"><div class="lb">のに<span>明明</span></div><div class="track"><div class="fill" style="width:14%"></div></div><div class="num">1</div></div>
+  </div>
+
+  <div class="note">
+    <b>看那根最短的条。</b>「のに」只有一次。一首歌里出现频率最低的那个词，往往是最真的那句。
+    前面 6 次「别…」、5 次「什么的」都是防御，只有这 1 次「明明」是漏出来的。
+  </div>
+
+  <h4 style="font-size:13px;letter-spacing:.14em;color:var(--violet);margin:24px 0 8px;">だけ：不是「只有」，是「我不敢多说」</h4>
+  <table>
+    <tr><th>原句</th><th>直译</th><th>实际在说</th></tr>
+    <tr><td class="jp">君が遠のいただけ</td><td>你只是走远了而已</td><td>你抛下了我——但我不敢这么讲</td></tr>
+    <tr><td class="jp">君が手を振っただけ</td><td>你只是挥了挥手而已</td><td>那是永别——但我把它降级成「挥手」</td></tr>
+  </table>
+  <p style="font-size:14px;color:#cfc9e2;">
+    两次「だけ」都出现在同一句位、同一个结构「君が＋动词＋だけ」。这不是巧合，是<b>同一种自我保护反复使用</b>。
+    学日语时值得记住：<b>「だけ」除了限定数量，还能限定「事情的严重程度」</b>，这是教科书很少讲、但歌里到处都是的用法。
+  </p>
+
+  <h4 style="font-size:13px;letter-spacing:.14em;color:var(--violet);margin:24px 0 8px;">なんて：把不想面对的东西推开</h4>
+  <p style="font-size:14px;color:#cfc9e2;margin-top:0;">
+    「涙なんて」「ハッピーエンドなんて」——「なんて」跟在名词后，等于说「那种东西」。
+    它同时做两件事：<b>引用对方的说法</b>（把话摆出来），<b>再表示轻蔑或自嘲</b>（把它推到一边）。
+    所以「涙なんて」不是「眼泪这种东西」，是「你跟我说眼泪？眼泪算什么」。
+    全曲还有 5 次单独成句的「なんて」，那是把这一整套动作压缩成一个词，直接甩在段尾。
+  </p>
+
+  <h4 style="font-size:13px;letter-spacing:.14em;color:var(--violet);margin:24px 0 8px;">一个语法歧义：信じてたって笑うような</h4>
+  <div class="card vi" style="margin:10px 0;">
+    <p class="jp" style="font-size:17px;color:var(--text);">信じてたって笑うような ハッピーエンドなんて</p>
+    <table style="margin-top:10px;">
+      <tr><th>解析</th><th>拆法</th><th>意思</th></tr>
+      <tr>
+        <td class="k">A</td>
+        <td class="jp">信じてた ＋ って（引用）＋ 笑う</td>
+        <td>（别人）会笑着说「你还真信了」的那种幸福结局</td>
+      </tr>
+      <tr>
+        <td class="k">B</td>
+        <td class="jp">信じてたって ＝ 信じていても（ても 的口语缩约）</td>
+        <td>就算你信，也会被笑的那种幸福结局</td>
+      </tr>
+    </table>
+    <div class="bd" style="margin-top:12px;">
+      <b>两种都成立，而且意思几乎一样。</b>「〜たって」在口语里就是「〜ても」（例：今さら謝ったって遅い／现在道歉也晚了）。
+      日语里「って」既是引用助词、又是「ても」的缩约，只能靠上下文判断。
+      <b>这种地方不必选一个「正确答案」——能同时看出两种读法，说明你真的读懂了日语。</b>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="sec" id="s6">
+  <div class="sec-h"><span class="n">06</span><h3>主题：三个不可能的空间</h3><span class="jp">主題</span></div>
+
+  <table>
+    <tr><th>意象</th><th>原句</th><th>它在做什么</th></tr>
+    <tr><td class="jp">海中列車</td><td class="jp">海中列車に遠のいた</td><td>海底跑火车——物理上不可能。它在提示：这不是写实场景，是梦或死后的世界。</td></tr>
+    <tr><td class="jp">泡沫の庭</td><td class="jp">泡沫の庭の隅</td><td>用泡沫做的庭院——一碰就没。整首歌的「家」是这个材质。</td></tr>
+    <tr><td class="jp">空中散歩</td><td class="jp">空中散歩の SOS</td><td>在空中走路——同样不可能。与「海中」正好上下对称。</td></tr>
+  </table>
+  <p style="font-size:14px;color:#cfc9e2;">
+    三个空间都「不成立」。这不是作者偷懒，是<b>明确告诉你：不要把这首歌当故事读</b>。
+    一旦你不再追问「他到底在哪儿」，剩下的就只有两件事——<b>谁走了，谁还留着</b>。
+  </p>
+
+  <div class="card">
+    <h2>三层，由外到内</h2>
+    <p><b>第一层·场景：</b>海底、列车、泡沫庭院、天空。全是「留不住」的材质。</p>
+    <p><b>第二层·关系：</b>一个留下的人，一个离开的人。全曲最狠的话是「你别回来」——
+    但「戻らないで」和「戻ってこないで」不同，前者是「别回来（这里）」，后者才是「别回来（找我）」。
+    作者用的是前者：<b>他把她推开，推的却是「这里」这个地点，不是「我」这个人</b>。留了一条极细的缝。</p>
+    <p><b>第三层·自指：</b>看这三个词在同一位置的轮换——
+    <span class="jp" style="color:var(--pink);">僕の<mark>歌</mark>を笑わないで</span> →
+    <span class="jp" style="color:var(--pink);">僕の<mark>夢</mark>を笑わないで</span> →
+    <span class="jp" style="color:var(--pink);">そんな<mark>嘘</mark>を歌わないで</span>。
+    歌＝梦＝谎。到第三句，他自己把前两句请求过的东西，亲手叫作「谎」。
+    <b>这才是全曲真正的转折：不是她走了，是他不再为自己的歌辩护了。</b></p>
+  </div>
+
+  <div class="good">
+    <b>标题就是方法论。</b>ウミユリ（海百合）不是花，是<b>棘皮动物</b>——和海星、海胆同门，
+    深海固着，长得像花，会动，会捕食。<b>它是一株「伪装成花的动物」。</b><br>
+    于是「海底譚」这个标题本身就是说明书：<b>看着像情歌，其实不是情歌</b>；
+    看着像在写她，其实在写「写歌这件事」。你若只当情歌听，听到的是失恋；
+    知道海百合是动物之后，听到的是一个人对着自己的作品说「别笑我」。
+  </div>
+
+  <div class="note">
+    <b>「譚」这个字值得单独记。</b>音読み「たん」，意思是「物语、谈」——怪談（かいだん）、
+    新選組異聞（しんせんぐみいぶん）之类。用「譚」而不是「唄」「歌」，作者一开始就把它定位成「一个被讲出来的故事」，
+    而不是「一首唱出来的心情」。<b>标题选字，是日本流行歌词里最容易被忽略的一层信息。</b>
+  </div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="sec" id="s7">
+  <div class="sec-h"><span class="n">07</span><h3>跟读：它自己说了是四拍子</h3><span class="jp">読み方</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;">
+    第 21 句「空中散歩と<b>四拍子</b>」不只是歌词，是作者给的节奏提示。全曲基本可以按 4 拍一组切开。
+  </p>
+
+  <table>
+    <tr><th>要点</th><th>例子</th><th>做法</th></tr>
+    <tr><td class="k">促音</td><td class="jp">まって／わかって／もっと／そっと</td><td>小「っ」占一整拍，必须停住。中文母语者最容易吞掉它，一吞句子就散了。</td></tr>
+    <tr><td class="k">长音</td><td class="jp">エスオーエス／一等星（いっとうせい）</td><td>「エスオーエス」是 6 拍，SOS 三个字母要一个个念出来，不能连成「sos」。</td></tr>
+    <tr><td class="k">缩约</td><td class="jp">塗れてく＝塗れていく</td><td>少一拍，正好塞进拍缝。唱的时候不要补回去。</td></tr>
+    <tr><td class="k">跨行</td><td class="jp">吐き出せない／泡沫の庭の隅を／光の泳ぐ空にさざめく</td><td>这是一整句被切成三行（日语叫「跨行」）。念的时候三行连成一口气，别在行末停。</td></tr>
+  </table>
+
+  <div class="note">
+    <b>练法（三步，每步 3 遍）：</b><br>
+    ① 只念假名（r 行），不管意思，先把促音和长音念准；<br>
+    ② 边念边看汉字，确认每个汉字的读音对得上；<br>
+    ③ 跟唱，但只跟 A 段和 F 段——它们几乎一样，跟会一段等于会两段。
+  </div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="sec" id="s8">
+  <div class="sec-h"><span class="n">08</span><h3>改词练习：把骨架换成你自己的</h3><span class="jp">練習</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;">
+    最有效的记忆方式不是背原句，是<b>用同一个骨架造自己的句子</b>。十题，先自己写，再看答案。
+    写不出来就回去看第 04 节对应的卡片。
+  </p>
+
+  <div class="q">
+    <div class="no">Q1 ／ 请求</div>
+    <div class="ask">「别笑我的发音。」用「〜を笑わないで」。</div>
+    <div class="stem">僕の（　　　）を笑わないで</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>僕の発音を笑わないで。</b>（ぼくのはつおんをわらわないで）</p>
+      <p>「発音」はつおん。注意不是「はついん」。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q2 ／ 被吞没</div>
+    <div class="ask">「被工作吞没了。」用「〜に呑まれてく」。</div>
+    <div class="stem">仕事に（　　　）</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>仕事に呑まれてく。</b>（しごとにのまれてく）</p>
+      <p>「呑まれる」是「飲まれる」的表记变体，意思一样：被吞掉、被淹没。日常也可以说「仕事に追われる」，但「呑まれる」更重。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q3 ／ 干脆</div>
+    <div class="ask">「干脆忘掉吧。」用「〜てしまってよ」。</div>
+    <div class="stem">もう（　　　）</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>もう忘れてしまってよ。</b>（もうわすれてしまってよ）</p>
+      <p>「てしまってよ」＝求对方「干脆…」。自己说不出口，所以让别人动手——这个语感是这首歌教的最实用的一条。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q4 ／ 条件</div>
+    <div class="ask">「既然要走，那就把我的照片也带走。」前半用「〜なら」。</div>
+    <div class="stem">行ってしまう（　　）、写真も持って行って</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>行ってしまうなら、写真も持って行って。</b></p>
+      <p>「なら」承接前提。「持って行って」也是て形请求，和全曲的语气一致。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q5 ／ 只是</div>
+    <div class="ask">「他只是睡着了而已。」用「〜だけ」，注意「だけ」放在句末。</div>
+    <div class="stem">彼は（　　　）だけ</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>彼は寝ていただけ。</b>（かれはねていただけ）</p>
+      <p>「寝ている」的过去形「寝ていた」＋だけ。和「遠のいただけ」同一个结构：把一件大事降级成「只是」。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q6 ／ 不甘</div>
+    <div class="ask">「明明约好了，却没来。」用「〜のに」。</div>
+    <div class="stem">約束した（　　）、来なかった</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>約束したのに、来なかった。</b></p>
+      <p>「のに」前面接普通形（过去式「した」）。语气带不满，不能对上级用。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q7 ／ 目的</div>
+    <div class="ask">「为了不被听见，小声笑了。」用「〜ないように」。</div>
+    <div class="stem">聞こえない（　　）笑ってた</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>聞こえないように笑ってた。</b></p>
+      <p>「〜ように」表目的：「为了达到某状态」。原曲是「聞こえないように笑ってんの」，「んの」＝「の」的口语。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q8 ／ 关系从句</div>
+    <div class="ask">「会唱歌的鱼」。把整句塞到「魚」前面。</div>
+    <div class="stem">（　　　）魚</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>歌を歌う魚。</b>（うたをうたうさかな）</p>
+      <p>动词普通形直接贴名词，中间不加「の」。这是本曲最密集的语法，也是 N3 阅读的分水岭。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q9 ／ 推开</div>
+    <div class="ask">「考试什么的，无所谓。」用「なんて」。</div>
+    <div class="stem">試験（　　）、どうでもいい</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>試験なんて、どうでもいい。</b></p>
+      <p>「なんて」＝把话题推开并带轻蔑。「どうでもいい」是「随便、无所谓」。</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="no">Q10 ／ 变化趋向</div>
+    <div class="ask">「会一点点冷下去。」用「〜ていく」。</div>
+    <div class="stem">だんだん寒く（　　　）</div>
+    <details class="fold"><summary>参考答案</summary><div class="bd">
+      <p><b>だんだん寒くなっていく。</b></p>
+      <p>い形容词→「寒くなる」＋ていく。口语可缩成「寒くなってく」，和原曲的「塗れてく」同一个操作。</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="sec" id="s9">
+  <div class="sec-h"><span class="n">09</span><h3>可迁移清单：二十条，直接背</h3><span class="jp">持ち帰り</span></div>
+
+  <p style="font-size:14.5px;color:#cfc9e2;">
+    全部出自本曲。左边是句型，中间是你以后能套的场景，右边是曲中原句（方便回去对）。
+  </p>
+
+  <table>
+    <tr><th>#</th><th>句型</th><th>意思 / 能用在</th><th>曲中出处</th></tr>
+    <tr><td class="k">01</td><td class="jp">〜てよ</td><td>（亲近的人之间）求你…</td><td class="jp">わかってよ</td></tr>
+    <tr><td class="k">02</td><td class="jp">〜ないで</td><td>别…</td><td class="jp">笑わないで</td></tr>
+    <tr><td class="k">03</td><td class="jp">〜てしまってよ</td><td>干脆…吧（让别人动手）</td><td class="jp">取り去ってしまってよ</td></tr>
+    <tr><td class="k">04</td><td class="jp">〜てく／ていく</td><td>朝未来一点点…下去</td><td class="jp">藍に呑まれてく</td></tr>
+    <tr><td class="k">05</td><td class="jp">〜なら</td><td>既然…／如果是…</td><td class="jp">行ってしまうなら</td></tr>
+    <tr><td class="k">06</td><td class="jp">〜のに</td><td>明明…却（不满）</td><td class="jp">忘れないのに</td></tr>
+    <tr><td class="k">07</td><td class="jp">〜だけ</td><td>只是…（也可降级严重程度）</td><td class="jp">遠のいただけ</td></tr>
+    <tr><td class="k">08</td><td class="jp">〜なんて</td><td>…什么的（轻蔑 / 自嘲）</td><td class="jp">涙なんて</td></tr>
+    <tr><td class="k">09</td><td class="jp">〜ように</td><td>为了…（达到某状态）</td><td class="jp">聞こえないように</td></tr>
+    <tr><td class="k">10</td><td class="jp">〜てしまう／ちゃう</td><td>（无可挽回地）…了</td><td class="jp">殺しちゃった</td></tr>
+    <tr><td class="k">11</td><td class="jp">动词普通形＋名</td><td>关系从句（长定语）</td><td class="jp">光の泳ぐ空</td></tr>
+    <tr><td class="k">12</td><td class="jp">〜てんの</td><td>＝〜ているの（口语）</td><td class="jp">笑ってんの</td></tr>
+    <tr><td class="k">13</td><td class="jp">〜たって</td><td>＝〜ても（口语）</td><td class="jp">信じてたって</td></tr>
+    <tr><td class="k">14</td><td class="jp">縋る（すがる）</td><td>缠着、依赖（N2）</td><td class="jp">もっと縋ってよ</td></tr>
+    <tr><td class="k">15</td><td class="jp">塞ぐ（ふさぐ）</td><td>堵住、捂住</td><td class="jp">そっと塞いでよ</td></tr>
+    <tr><td class="k">16</td><td class="jp">逆らう（さからう）</td><td>反抗</td><td class="jp">逆らってしまってよ</td></tr>
+    <tr><td class="k">17</td><td class="jp">遠のく（とおのく）</td><td>远去、渐渐疏远</td><td class="jp">遠のいた</td></tr>
+    <tr><td class="k">18</td><td class="jp">塗れる（まみれる）</td><td>沾满（血、泥、灰）</td><td class="jp">灰に塗れてく</td></tr>
+    <tr><td class="k">19</td><td class="jp">泡沫（うたかた）</td><td>泡影、虚幻（文学语）</td><td class="jp">泡沫の庭</td></tr>
+    <tr><td class="k">20</td><td class="jp">嗚咽（おえつ）</td><td>呜咽（书面语）</td><td class="jp">君の嗚咽</td></tr>
+  </table>
+
+  <div class="warn">
+    <b>三个最容易读错的，单独盯住：</b><br>
+    塗れる → <b>まみれる</b>（不是「ぬれる」，ぬれる 是「濡れる」＝淋湿）<br>
+    泡沫 → <b>うたかた</b>（不是「ほうまつ」，ほうまつ 是物理上的泡沫）<br>
+    縋る → <b>すがる</b>（不是「たぐる」）<br>
+    这三个词都是「汉字看着眼熟、读音完全不同」的类型，考试爱考，歌里出现是白送的分。
+  </div>
+</section>
+
+<div class="card ok">
+  <h2>最后一句：这首歌到底在讲什么</h2>
+  <p>不是「她走了我很痛」。是——</p>
+  <p><b>一个人把自己的歌交出去，先求别人别笑，再改口说「别唱那种谎」，最后承认自己是在灰里画梦。</b></p>
+  <p>她走只是背景。<b>真正的情节是他对自己作品的态度，从辩护，到怀疑，到亲手作废。</b></p>
+  <p>所以最后一句才是「あの空に溺れていく」——他不是沉进海里，是沉进自己画的那片天空。
+  <b>淹死他的不是失恋，是他自己造的那个梦。</b>海百合长得像花，可它是动物；这首歌听着像情歌，可它在讲创作。</p>
+</div>
+
+<footer>
+  ウミユリ海底譚 · 深读篇 ／ 与《逐句精讲》配套使用<br>
+  <a href="海百合海底譚_歌词精讲.html">← 回到逐句精讲（57 句全标注）</a>　·　
+  <a href="合集.html">合集（六首）</a><br>
+  歌词版权归原作者 n-buna 所有，本页仅作语言学习之分析与引用。
+</footer>
+
+</div>
+</body>
+</html>

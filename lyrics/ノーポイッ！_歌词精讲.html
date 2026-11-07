@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ノーポイッ！/ Petit Rabbit's —— 逐句歌词精讲</title>
+<meta name="description" content="「ノーポイッ！」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲 #03）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ノーポイッ！/ Petit Rabbit's —— 逐句歌词精讲">
+<meta property="og:description" content="「ノーポイッ！」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲 #03）">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2308070d'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ff6fb5' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%235fe3f5'/%3E%3C/svg%3E">
+<style>
+/* ==== assets/base.css 内联 ==== */
+/* ===== base.css —— 单曲与合集共用的样式（构建时内联进 <style>） ===== */
+
+/* ---------- 设计令牌 ---------- */
+:root{
+  --bg:#08070d;
+  --bg2:#0c0a14;
+  --panel:#131020;
+  --panel2:#1a1529;
+  --line:#282040;
+  --line2:#3a2e5c;
+  --text:#ece9f7;
+  --muted:#a09ab6;
+  --muted2:#8b84a6;
+  --cyan:#5fe3f5;
+  --pink:#ff6fb5;
+  --violet:#b78cff;
+  --amber:#ffc266;
+  --green:#7ff0a8;
+  --red:#ff8080;
+  --nav-h:64px;
+  --r-md:14px;
+  --r-sm:11px;
+  --fs-body:15px;
+  --fs-sm:14px;
+  --fs-xs:13px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 14px);}
+body{
+  margin:0; background:
+    radial-gradient(1100px 560px at 12% -8%, #2a1040 0%, transparent 58%),
+    radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:var(--fs-body);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-size-adjust:100%;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 120px;}
+
+/* ---------- 页头 ---------- */
+.kicker{font-size:12px;letter-spacing:.28em;color:var(--pink);text-transform:uppercase;font-weight:700;}
+h1{font-size:clamp(28px,5vw,44px);margin:12px 0 6px;letter-spacing:.02em;line-height:1.2;}
+h1 .sub{display:block;font-size:.40em;color:var(--muted);font-weight:400;letter-spacing:.16em;margin-top:10px;}
+.byline{color:var(--muted);font-size:14.5px;margin-top:14px;}
+.byline code{background:var(--panel2);padding:2px 7px;border-radius:5px;color:var(--cyan);font-size:13px;}
+
+/* ---------- 卡片区 ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px;margin:16px 0;}
+.card h2{font-size:17.5px;margin:0 0 12px;color:var(--pink);letter-spacing:.04em;display:flex;align-items:center;gap:9px;}
+.card h2::before{content:"";width:4px;height:16px;background:var(--pink);border-radius:2px;}
+.card.cy h2{color:var(--cyan);} .card.cy h2::before{background:var(--cyan);}
+.card.ok{border-color:#1e4a30;background:linear-gradient(180deg,#0b1c13,#0e0d18);}
+.card.ok h2{color:var(--green);} .card.ok h2::before{background:var(--green);}
+.card.ok p{margin:8px 0;font-size:var(--fs-body);}
+.card.ok b{color:var(--green);}
+.card.hot{border-color:#4a2a3d;}
+.card.hot h2{color:var(--pink);}
+
+/* ---------- 工具栏（单曲 .bar / 合集 .nav 共用控件） ---------- */
+.tg{border:1px solid var(--line2);background:var(--panel2);color:var(--muted);
+    font-size:13.5px;padding:6px 13px;border-radius:20px;cursor:pointer;transition:.16s;
+    user-select:none;font-family:inherit;line-height:1.5;display:inline-flex;align-items:center;gap:6px;}
+.tg:hover{color:var(--text);border-color:var(--pink);}
+.tg.on{background:rgba(255,111,181,.15);border-color:var(--pink);color:var(--pink);font-weight:600;}
+.tg.icon{padding:6px 10px;font-size:14px;}
+.sp{flex:1;}
+.home-link{text-decoration:none;color:var(--muted);font-size:15px;padding:4px 8px;
+          transition:color .2s;}
+.home-link:hover{color:var(--cyan);}
+.count{font-size:var(--fs-xs);color:var(--muted2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+
+.search{position:relative;display:flex;align-items:center;flex:none;}
+.search input{
+  width:210px;max-width:42vw;background:var(--panel2);border:1px solid var(--line2);
+  border-radius:20px;color:var(--text);font-family:inherit;font-size:13.5px;
+  padding:6px 30px 6px 32px;transition:.16s;
+}
+.search input::placeholder{color:var(--muted2);}
+.search input:focus{border-color:var(--cyan);background:var(--panel);}
+.search::before{
+  content:"";position:absolute;left:12px;width:12px;height:12px;pointer-events:none;
+  border:2px solid var(--muted2);border-radius:50%;
+}
+.search::after{
+  content:"";position:absolute;left:21px;top:20px;width:5px;height:2px;pointer-events:none;
+  background:var(--muted2);transform:rotate(45deg);
+}
+.search input:focus ~ .search::before{border-color:var(--cyan);}
+
+/* ---------- 段落 ---------- */
+.sec{margin-top:34px;}
+.sec-h{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);
+       padding-bottom:9px;margin-bottom:4px;flex-wrap:wrap;}
+.sec-h .n{font-size:12.5px;font-weight:800;letter-spacing:.2em;color:var(--cyan);}
+.sec-h h3{margin:0;font-size:20px;}
+.sec-h .jp{color:var(--muted);font-size:14px;}
+.sec-h .sp{flex:1;min-width:0;}
+.sec-tg{border:1px solid transparent;background:transparent;color:var(--muted2);
+        font-family:inherit;font-size:12.5px;padding:4px 10px;border-radius:14px;
+        cursor:pointer;transition:.16s;white-space:nowrap;}
+.sec-tg:hover{color:var(--pink);border-color:var(--line2);background:var(--panel2);}
+.sec-cnt{font-size:12px;color:var(--muted2);font-variant-numeric:tabular-nums;white-space:nowrap;}
+/* 搜索时整段无命中的降级显示（不留空白壳） */
+.sec.nomatch{opacity:.42;}
+.sec.nomatch .sec-h::after{content:"（无匹配）";font-size:12px;color:var(--muted2);}
+
+/* ---------- 句子（阅读优先：连续流，无卡片边框） ---------- */
+.line{position:relative;padding:13px 0 13px;margin:0;border-bottom:1px solid rgba(40,32,64,.55);
+      transition:background .16s;}
+.line:hover{background:rgba(255,255,255,.022);}
+.line.hide{display:none;}
+.line.open{background:rgba(255,255,255,.045);padding-left:16px;}
+.line.open::before{content:"";position:absolute;left:2px;top:12px;bottom:12px;width:3px;
+                   background:var(--pink);border-radius:3px;}
+
+.head{cursor:pointer;position:relative;padding-right:26px;border-radius:8px;}
+.head:hover .chev{opacity:.55;color:var(--pink);}
+.head:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+.orig{font-size:21px;letter-spacing:.03em;line-height:1.55;
+      font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:600;}
+.rd{font-size:14px;color:var(--cyan);margin-top:4px;letter-spacing:.02em;display:none;}
+.ro{font-size:13px;color:var(--muted2);margin-top:3px;font-style:italic;display:none;}
+.tr{font-size:var(--fs-body);color:#c9c3dc;margin-top:9px;padding-left:12px;
+    border-left:2px solid var(--line2);display:none;}
+.foot{display:flex;align-items:center;gap:9px;margin-top:10px;min-height:20px;}
+.lv{font-size:11px;font-weight:800;padding:2.5px 9px;border-radius:20px;letter-spacing:.05em;white-space:nowrap;}
+.lv.n5{background:rgba(127,240,168,.15);color:var(--green);border:1px solid rgba(127,240,168,.35);}
+.lv.n4{background:rgba(95,227,245,.14);color:var(--cyan);border:1px solid rgba(95,227,245,.34);}
+.lv.n3{background:rgba(255,194,102,.14);color:var(--amber);border:1px solid rgba(255,194,102,.34);}
+.lv.n2{background:rgba(255,128,128,.13);color:var(--red);border:1px solid rgba(255,128,128,.32);}
+.lv.rep{background:rgba(183,140,255,.14);color:var(--violet);border:1px solid rgba(183,140,255,.34);}
+.chev{position:absolute;right:2px;top:3px;font-size:12px;color:var(--muted2);
+      opacity:.28;transition:.18s;pointer-events:none;}
+.line.open .chev{opacity:1;color:var(--pink);transform:rotate(180deg);}
+
+.detail{display:none;padding:14px 0 4px;}
+.line.open .detail{display:block;animation:fade .2s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.detail h4{font-size:12.5px;letter-spacing:.16em;color:var(--violet);margin:16px 0 8px;font-weight:700;}
+.detail h4:first-child{margin-top:4px;}
+
+/* ---------- 表格 ---------- */
+table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+th{text-align:left;color:var(--muted2);font-weight:600;font-size:12px;letter-spacing:.1em;
+   padding:6px 9px;border-bottom:1px solid var(--line2);white-space:nowrap;}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:hover td{background:rgba(255,111,181,.05);}
+td.w{font-weight:700;color:var(--text);white-space:nowrap;
+     font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:16px;}
+td.rd2{color:var(--cyan);font-size:13.5px;white-space:nowrap;}
+td.pos{color:var(--pink);font-size:12.5px;white-space:nowrap;}
+td.mn{color:#c9c3dc;}
+td.nt{color:var(--muted);font-size:13px;}
+
+.sx{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin-top:8px;}
+.sx th{font-size:12px;letter-spacing:.1em;padding:8px 10px;border-bottom:1px solid var(--line2);color:var(--muted2);}
+.sx td{padding:9px 10px;border-bottom:1px solid var(--line);}
+.sx td.a{color:var(--pink);font-weight:700;font-family:"Yu Gothic",sans-serif;font-size:15px;}
+.sx td.b{color:var(--cyan);font-family:"Yu Gothic",sans-serif;}
+.sx td.c{color:#c9c3dc;}
+.sx tr:hover td{background:rgba(95,227,245,.05);}
+/* 卡片里的表：窄屏横向滚动 */
+.card .sx{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* ---------- 语法 / 大白话 / 提示 ---------- */
+.g{margin:8px 0;padding:11px 14px;background:var(--panel2);border-radius:9px;
+   border-left:3px solid var(--violet);font-size:14.5px;}
+.g b{color:var(--violet);}
+.plain{margin-top:12px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+       background:rgba(127,240,168,.07);border-left:3px solid var(--green);color:#cdeada;}
+.plain b{color:var(--green);}
+.tip{margin-top:10px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+     background:rgba(255,194,102,.07);border-left:3px solid var(--amber);color:#eadfc7;}
+.tip b{color:var(--amber);}
+
+/* ---------- 小卡网格 ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:6px;}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;}
+.mini .t{font-size:15px;font-weight:700;color:var(--cyan);margin-bottom:6px;}
+.mini .d{font-size:13.5px;color:var(--muted);}
+.mini .d em{color:var(--text);font-style:normal;background:rgba(95,227,245,.1);padding:1px 5px;border-radius:4px;
+            font-family:"Yu Gothic",sans-serif;}
+.mini .ex{font-size:13.5px;margin-top:7px;color:#c9c3dc;padding-top:7px;border-top:1px solid var(--line);}
+.mini .ex span{color:var(--pink);}
+
+footer{text-align:center;color:var(--muted2);font-size:13px;margin-top:52px;
+       padding-top:22px;border-top:1px solid var(--line);}
+
+/* ---------- 空结果提示 ---------- */
+.empty{display:none;padding:26px 0;text-align:center;color:var(--muted2);font-size:14px;}
+.empty.on{display:block;}
+
+/* ---------- 可访问性 ---------- */
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px;}
+.skip{position:absolute;left:-9999px;top:0;background:var(--panel2);color:var(--text);
+      padding:10px 16px;border-radius:0 0 10px 0;z-index:200;}
+.skip:focus{left:0;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+
+/* ---------- 浅色主题（共用部分） ---------- */
+html.light{
+  --bg:#f5f3fb; --bg2:#eeeaf8; --panel:#ffffff; --panel2:#f4f1fc;
+  --line:#e2dcf0; --line2:#cfc6e8;
+  --text:#1c1730; --muted:#585170; --muted2:#6b6484;
+  /* 浅底上必须换一套更深的强调色：原来的青/粉在白色上只有 1.7–2.5:1 */
+  --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
+  --amber:#8a5a00; --green:#0f7a46; --red:#b3261e;
+}
+html.light body{background:
+  radial-gradient(1100px 560px at 12% -8%, #efe7fb 0%, transparent 58%),
+  radial-gradient(900px 520px at 92% 2%, #e6f4fa 0%, transparent 55%),
+  var(--bg);}
+html.light .line{border-bottom-color:var(--line);}
+html.light .line:hover{background:rgba(40,32,64,.028);}
+html.light .line.open{background:rgba(40,32,64,.05);}
+html.light .card.ok{border-color:#b9e2c8;background:linear-gradient(180deg,#f2fbf5,#ffffff);}
+html.light .card.hot{border-color:#e8c2d4;}
+html.light .tr,html.light td.mn,html.light .sx td.c,html.light .mini .ex{color:#4d4763;}
+html.light .plain{color:#1c6e40;background:rgba(23,138,76,.09);}
+html.light .tip{color:#7a5b14;background:rgba(191,138,26,.1);}
+html.light .g{background:#f7f4ff;}
+html.light .tg{background:#fff;}
+html.light .search input{background:#fff;}
+html.light footer{border-top-color:var(--line);}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:700px){
+  :root{--fs-body:15px;}
+  .wrap{padding:0 14px 90px;}
+  .orig{font-size:18.5px;}
+  .card{padding:16px 15px;border-radius:12px;}
+  .count{font-size:12.5px;}
+  .search input{width:150px;padding:6px 26px 6px 30px;font-size:13px;}
+  .sec{margin-top:28px;}
+  .sec-h h3{font-size:18px;}
+
+  /* 歌词里的逐词表：改成「一行一词」的块，避免 5 列在窄屏被裁 */
+  .line .sx{display:block;width:100%;margin-top:6px;}
+  .line .sx thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .line .sx tbody,.line .sx tr,.line .sx td{display:block;width:auto;}
+  .line .sx tr{padding:9px 0 10px;border-bottom:1px solid var(--line);}
+  .line .sx tr:hover td{background:transparent;}
+  .line .sx td{border:0;padding:0;white-space:normal;}
+  .line .sx td.w{font-size:16.5px;font-weight:700;margin-bottom:2px;}
+  .line .sx td.rd2{font-size:13.5px;}
+  .line .sx td.pos{font-size:12px;margin:3px 0 1px;}
+  .line .sx td.mn{font-size:14px;}
+  .line .sx td.nt{font-size:13px;color:var(--muted2);margin-top:4px;}
+  /* 用 data-h 给移动端补上列名标签（只留给释义/备注，词头三行靠字号和颜色区分） */
+  .line .sx td[data-h]::before{content:attr(data-h);color:var(--muted2);font-size:10.5px;
+    letter-spacing:.12em;margin-right:7px;}
+  .line .sx td.w[data-h]::before,.line .sx td.rd2[data-h]::before,
+  .line .sx td.pos[data-h]::before{display:none;}
+  .line .sx td.mn[data-h]{font-size:14.5px;}
+  .line .sx td.nt[data-h]::before{display:none;}
+  .line .sx td.nt[data-h]{padding-left:11px;border-left:2px solid var(--line2);}
+  .line{padding:12px 0;}
+  .line.open{padding-left:13px;}
+  .line.open::before{left:1px;width:3px;}
+  .detail h4{font-size:12px;}
+}
+
+/* ---------- 打印 ---------- */
+@media print{
+  html,body{background:#fff!important;color:#111!important;}
+  .nav,.bar,.search,.chev,.sec-tg,.theme,.modeSwitch,.skip{display:none!important;}
+  .wrap{max-width:none;padding:0;}
+  .card,.line,.mini,.g,.plain,.tip{background:#fff!important;border-color:#bbb!important;
+    break-inside:avoid;box-shadow:none!important;}
+  .orig,.tr,td,.sx td{color:#111!important;}
+  .rd{color:#0a6b7a!important;}
+  .lv{border-color:#999!important;}
+  .line{page-break-inside:avoid;}
+  a[href]::after{content:"";}
+}
+
+
+/* ===== 单曲页专用：工具条 / 主标题区 / 浅色覆盖 ===== */
+.bar{position:sticky;top:0;z-index:60;background:rgba(8,7,13,.94);
+     backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.bar .row{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.bar .sp{flex:1 1 auto;}
+.bar .count{font-size:12.5px;}
+
+header{padding:46px 0 26px;position:relative;overflow:hidden;}
+header .ball{position:absolute;right:-10px;top:-4px;height:112%;opacity:.55;pointer-events:none;}
+header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10px;}
+.gfoot{opacity:.78;}
+
+html.light .bar{background:rgba(250,248,255,.94);}
+
+@media (max-width:700px){
+  .bar .row{padding:8px 12px;gap:6px;}
+  .bar .sp{display:none;}
+  header{padding:28px 0 18px;}
+  header .ball{display:none;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#lyrics">跳到正文</a>
+
+<div class="bar" id="bar">
+  <div class="row">
+    <div class="sp"></div>
+    <a class="home-link" href="../index.html" title="返回博客首页">返回首页</a>
+    <button class="tg icon theme" id="themeBtn" aria-pressed="false" title="切换深浅色">🌙</button>
+  </div>
+</div>
+
+<main class="wrap" id="stage">
+<header>
+  <svg class="ball" viewBox="0 0 120 300" fill="none" aria-hidden="true">
+    <rect x="22" y="190" width="76" height="10" rx="5" fill="#7c4dcc" opacity=".55"/>
+    <rect x="36" y="214" width="48" height="9" rx="4.5" fill="#5fe3f5" opacity=".5"/>
+    <rect x="18" y="76" width="84" height="11" rx="5.5" fill="#ff6fb5" opacity=".85"/>
+    <rect x="30" y="98" width="60" height="9" rx="4.5" fill="#ff6fb5" opacity=".6"/>
+    <rect x="44" y="120" width="40" height="8" rx="4" fill="#b78cff" opacity=".55"/>
+    <rect x="26" y="146" width="66" height="9" rx="4.5" fill="#5fe3f5" opacity=".45"/>
+    <rect x="38" y="166" width="44" height="8" rx="4" fill="#7c4dcc" opacity=".45"/>
+  </svg>
+  <div class="kicker">Lyrics Breakdown · 逐句精讲 #03</div>
+  <h1>ノーポイッ！<span class="sub">No Poi! ／ 别扔啊</span></h1>
+  <div class="byline">Petit Rabbit's（佐倉綾音・水瀬いのり・種田梨沙・佐藤聡美・内田真礼）／
+    作詞：<code>畑亜貴</code> ／ 作曲・編曲：<code>大久保薫</code> ／ 2015-05-11<br>
+    アニメ「ご注文はうさぎですか??」オープニングテーマ ／
+    目标水平：<code>JLPT N4–N5</code></div>
+</header>
+
+
+<div id="lyrics"></div>
+<div class="empty">没有匹配的句子，换个关键词试试。</div>
+
+<footer>
+  <div class="gfoot">逐句拆解仅供日语学习参考 · 歌词著作权归 畑亜貴 / 大久保薫 / Petit Rabbit's 及原权利人所有<br>
+  中文译文为学习用直译，非官方译本 ／ 歌词原文交叉核对：kashinavi・Animelyrics・アニソン歌詞<br>
+  生成于 2026-10-13 · 伊莉雅</div>
+</footer>
+</main>
+
+<script>
+/*==DATA-START==*/
+const S = [
+ {
+  "n": "01",
+  "h": "サビ①",
+  "jp": "Chorus A — 开场副歌",
+  "lines": [
+   {
+    "t": "ポイッて今日を投げださない約束しましょう？",
+    "r": "ポイッてきょうをなげださないやくそくしましょう？",
+    "ro": "poitte kyou wo nagedasanai yakusoku shimashou?",
+    "tr": "说好了哦，不许把今天随手扔掉？",
+    "lv": "n3",
+    "w": [
+     [
+      "ポイッ",
+      "ぽいっ",
+      "副詞（拟态）",
+      "随手一扔、丢掉",
+      "拟声词；后接「て」被当成一个动作引用"
+     ],
+     [
+      "今日",
+      "きょう",
+      "名詞",
+      "今天",
+      "这里指「今天这一天」，不是「今日（こんにち）」"
+     ],
+     [
+      "投げだす",
+      "なげだす",
+      "動詞",
+      "扔掉、甩手不管",
+      "投げる＋出す 复合动词；否定＝投げださない"
+     ],
+     [
+      "約束",
+      "やくそく",
+      "名詞",
+      "约定",
+      "する型名词"
+     ],
+     [
+      "しましょう",
+      "しましょう",
+      "助動詞",
+      "我们来……吧",
+      "する 的意向形＋ます，语气软"
+     ],
+     [
+      "〜ましょう？",
+      "ましょう",
+      "助動詞",
+      "……好吗？",
+      "句尾问号让它变成征求同意的提议，不是断定"
+     ]
+    ],
+    "g": [
+     [
+      "「ポイッて」＝「ポイッ」＋て",
+      "这个「て」不表接续，而是把前面那一下动作当成被引用的东西提出来，相当于「〜って／〜と言って」。所以「ポイッて今日を投げださない」＝不要做出「ポイッ」这个动作、把今天扔掉。"
+     ],
+     [
+      "双重结构：否定＋提议",
+      "句子里有「投げださない（不扔）」和「しましょう？（好吗？）」，所以整句是「不许扔，说好了哦？」，不是「扔掉吧」。日语把请求包装成提议时，句尾一定带疑问。"
+     ]
+    ],
+    "p": "直译：不要「啪」一下把今天扔掉，我们约好哦？",
+    "tip": "全曲第一个词就是「ポイッ」，它是这首歌的骨架。先把这个词钉死：ポイッ＝随手一扔。"
+   },
+   {
+    "t": "わくわくてくてく　どこへ行くの",
+    "r": "わくわくてくてく　どこへいくの",
+    "ro": "wakuwaku tekuteku doko e iku no",
+    "tr": "兴奋得蹦蹦跳跳，这是要去哪儿呀？",
+    "lv": "n5",
+    "w": [
+     [
+      "わくわく",
+      "わくわく",
+      "副詞（拟态）",
+      "兴奋、期待得心痒痒",
+      "日语最高频的拟态词之一"
+     ],
+     [
+      "てくてく",
+      "てくてく",
+      "副詞（拟态）",
+      "一步一步走的样子",
+      "走路声的拟态，带可爱感；全曲出现 3 次"
+     ],
+     [
+      "どこへ",
+      "どこへ",
+      "疑問詞＋助詞",
+      "去哪儿",
+      "へ 表方向，口语里常和 に 混用"
+     ],
+     [
+      "行く",
+      "いく",
+      "動詞",
+      "去",
+      "五段动词"
+     ],
+     [
+      "の",
+      "の",
+      "終助詞",
+      "（疑问）呢",
+      "句尾的 の＝口语疑问，语气软、亲昵"
+     ]
+    ],
+    "g": [
+     [
+      "拟态词直接当状语，不加助词",
+      "「わくわく」「てくてく」都是副词，直接修饰后面的动作，不需要「に」或「と」。日语拟态词数量极大，N5–N4 阶段先认脸，不用全背。"
+     ],
+     [
+      "句尾「の」＝口语疑问",
+      "「どこへ行くの？」＝「どこへ行きますか？」的口语版。语气软，小孩、女生、亲近的人之间用得多。同型还有「どうするの？」「食べるの？」。"
+     ]
+    ],
+    "p": "就是「开开心心一步一步走着，咱们这是要去哪儿呀？」",
+    "tip": "这句是白送的，N5 水平能秒懂。注意「の」在句尾要读升调，是问句。"
+   },
+   {
+    "t": "なんとかなるさと上向いて",
+    "r": "なんとかなるさとうえむいて",
+    "ro": "nantoka naru sa to ue muite",
+    "tr": "嘴上念着「总会有办法的」，把头抬起来",
+    "lv": "n4",
+    "w": [
+     [
+      "なんとかなる",
+      "なんとかなる",
+      "慣用句",
+      "总会有办法的",
+      "何とかなる；日本人自我安慰的万能句"
+     ],
+     [
+      "さ",
+      "さ",
+      "終助詞",
+      "（语气）嘛",
+      "让句子变松垮、随意，男性口吻偏多"
+     ],
+     [
+      "と",
+      "と",
+      "助詞",
+      "（引用）说……",
+      "引用助词，引出心里想／嘴里说的内容"
+     ],
+     [
+      "上向いて",
+      "うえむいて",
+      "動詞",
+      "抬起头",
+      "「上を向く」的口语省略形；て形表附带"
+     ]
+    ],
+    "g": [
+     [
+      "「と」在这里是引用，不是并列",
+      "「なんとかなるさ」是内容，「と」把它引起来，再接「上向いて（抬起头）」。完整＝「（心の中で）なんとかなるさ、と上を向いて」。"
+     ],
+     [
+      "「上向いて」＝「上を向いて」",
+      "口语里「〜を向く」的「を」经常被省掉，变成「上向く」。注意「上向く」本身还能表示「行情看涨」，靠上下文分辨。"
+     ]
+    ],
+    "p": "就是「心里念着『没事，总会有办法』，然后抬头往前走」。",
+    "tip": "「なんとかなる」这四个音，日本人一天能说八遍。直接抄走，日常能救命。"
+   },
+   {
+    "t": "できるよきっとね　キミとなら",
+    "r": "できるよきっとね　きみとなら",
+    "ro": "dekiru yo kitto ne kimi to nara",
+    "tr": "一定做得到的，只要是和你一起的话",
+    "lv": "n5",
+    "w": [
+     [
+      "できる",
+      "できる",
+      "動詞",
+      "能做到、会",
+      "する 的可能形"
+     ],
+     [
+      "よ",
+      "よ",
+      "終助詞",
+      "（告知）哦",
+      "把信息推给对方"
+     ],
+     [
+      "きっと",
+      "きっと",
+      "副詞",
+      "一定、肯定",
+      "表强烈推测，比「たぶん」有把握得多"
+     ],
+     [
+      "ね",
+      "ね",
+      "終助詞",
+      "（求同感）吧",
+      "寻求对方认同"
+     ],
+     [
+      "キミ",
+      "きみ",
+      "代名詞",
+      "你",
+      "片假名写法，显得轻快，像在喊昵称"
+     ],
+     [
+      "〜となら",
+      "と＋なら",
+      "助詞",
+      "如果是和……的话",
+      "と 表共同动作的对象，なら 表条件"
+     ]
+    ],
+    "g": [
+     [
+      "「Aとなら」＝若对象是A的话",
+      "「キミとなら」后面其实省略了「できる」——上一句刚说过，所以不重复。日语里这种省略是常态，听到「なら」结尾要自动补谓语。"
+     ],
+     [
+      "句尾双助词「よ＋ね」",
+      "「よ」＝告诉你，「ね」＝你也这么觉得吧。两个叠在一起＝「我跟你说哦，你也这么想吧」，这是日语最柔软的打气方式。"
+     ]
+    ],
+    "p": "就是「只要跟你在一块儿，肯定行。」",
+    "tip": "「きっと」是 N4 高频副词。它常和「たぶん（大概）」「もしかしたら（说不定）」放在一起记，注意「たぶん」偏推测，不能像中文「大概」那样随便用在肯定句。"
+   },
+   {
+    "t": "できる？　できない？　できる！　やっちゃおう！",
+    "r": "できる？　できない？　できる！　やっちゃおう！",
+    "ro": "dekiru? dekinai? dekiru! yacchaou!",
+    "tr": "做得到？做不到？做得到！那就干吧！",
+    "lv": "n4",
+    "w": [
+     [
+      "できない",
+      "できない",
+      "動詞",
+      "做不到",
+      "できる 的否定"
+     ],
+     [
+      "やっちゃおう",
+      "やっちゃおう",
+      "動詞",
+      "干脆干吧",
+      "やる＋てしまう（→ちゃう）＋意向形 おう，三重压缩"
+     ],
+     [
+      "〜ちゃおう",
+      "ちゃおう",
+      "助動詞",
+      "干脆……吧",
+      "てしまおう 的口语缩略，日常超高频"
+     ]
+    ],
+    "g": [
+     [
+      "「やっちゃおう」拆开看",
+      "やる → やってしまう → やっちゃう → やっちゃおう。意思是「干脆做掉吧」。一个词里塞了三个语法点，这就是日语口语的真实密度。"
+     ],
+     [
+      "自问自答的节奏",
+      "「できる？できない？できる！」连续提问再自答，是动画歌词常见的打气句型。读的时候要在脑子里加速，别一字一顿。"
+     ]
+    ],
+    "p": "就是「行不行？不行？行！那就干！」",
+    "tip": "「〜ちゃおう」＝「〜てしまおう」，日常口语出现率极高。记住这一个词，等于一次拿下三条语法。"
+   }
+  ]
+ },
+ {
+  "n": "02",
+  "h": "A メロ①",
+  "jp": "Verse A — 从自我怀疑到打气",
+  "lines": [
+   {
+    "t": "自分のちから小さい？　ノーノー！",
+    "r": "じぶんのちからちいさい？　ノーノー！",
+    "ro": "jibun no chikara chiisai? noo noo!",
+    "tr": "觉得自己的力量太小？No No！",
+    "lv": "n4",
+    "w": [
+     [
+      "自分",
+      "じぶん",
+      "名詞",
+      "自己",
+      "反身代词"
+     ],
+     [
+      "ちから",
+      "ちから",
+      "名詞",
+      "力量",
+      "通常写「力」，这里写假名降低正式感"
+     ],
+     [
+      "小さい",
+      "ちいさい",
+      "形容詞",
+      "小",
+      "い形容词"
+     ],
+     [
+      "ノーノー",
+      "ノーノー",
+      "間投詞",
+      "No No！",
+      "直接搬英语；本曲还用 イエスイエス、ゴー"
+     ]
+    ],
+    "g": [
+     [
+      "「〜は？」式的省略疑问",
+      "完整应是「自分のちからの小さいと思う？（觉得自己力量小吗？）」，主语和「と思う」全被省掉，只剩名词短语＋问号。日语口语靠这种省略制造轻快感。"
+     ],
+     [
+      "汉字写成假名＝降低正式度",
+      "「力」写成「ちから」，句子立刻变口语、变轻。这不是错字，是风格（本曲第三次出现）。"
+     ]
+    ],
+    "p": "就是「嫌自己力气小？不存在的！」",
+    "tip": "日语歌词里「汉字写假名」很常见，往往为了软化语气或凑音节，不影响意思。看到别慌。"
+   },
+   {
+    "t": "チリ積モですよ　あきらめなければ",
+    "r": "チリつもですよ　あきらめなければ",
+    "ro": "chiritsumo desu yo akirame nakereba",
+    "tr": "这叫「积少成多」哦——前提是你别放弃",
+    "lv": "n4",
+    "w": [
+     [
+      "チリ積モ",
+      "チリつも",
+      "名詞（造語）",
+      "积少成多",
+      "谚语「塵も積もれば山となる」的缩略，故意写成片假名＋汉字＋片假名"
+     ],
+     [
+      "あきらめる",
+      "あきらめる",
+      "動詞",
+      "放弃",
+      "他动词；否定形 あきらめない"
+     ],
+     [
+      "〜なければ",
+      "なければ",
+      "助動詞",
+      "如果不……的话",
+      "ない 的条件形，后面常省略主句"
+     ],
+     [
+      "ですよ",
+      "です＋よ",
+      "助動詞",
+      "是……哦",
+      "礼貌体＋告知，像在温柔地纠正对方"
+     ]
+    ],
+    "g": [
+     [
+      "「〜なければ」后面没有主句",
+      "完整应是「あきらめなければ（山になる）」，结论留给听众自己补。日语极爱这种条件句不带主句的写法，中文里少见，所以最容易读懵。"
+     ],
+     [
+      "谚语缩略成三个音",
+      "「塵も積もれば山となる」→「チリツモ」。日本人口语里真的这么说，属于听得懂就显老练的词。"
+     ]
+    ],
+    "p": "就是「这叫积少成多哦——只要你没放弃。」",
+    "tip": "チリツモ 是日本网络与日常的高频缩略语，背下来能直接用。"
+   },
+   {
+    "t": "努力はそんなに実らない",
+    "r": "どりょくはそんなにみのらない",
+    "ro": "doryoku wa sonna ni minoranai",
+    "tr": "努力这东西，不会那么快结果的",
+    "lv": "n3",
+    "w": [
+     [
+      "努力",
+      "どりょく",
+      "名詞",
+      "努力",
+      "する型名词"
+     ],
+     [
+      "そんなに",
+      "そんなに",
+      "副詞",
+      "那么、那样地",
+      "与否定呼应＝并没有那么"
+     ],
+     [
+      "実る",
+      "みのる",
+      "動詞",
+      "结果实、有成果",
+      "自动词；否定＝実らない"
+     ],
+     [
+      "は",
+      "は",
+      "助詞",
+      "（主题）",
+      "这里带一点对比语气"
+     ]
+    ],
+    "g": [
+     [
+      "「そんなに＋否定」",
+      "副词「そんなに」常和否定连用，表示「没那么……」。同族还有「あまり〜ない」「それほど〜ない」「たいして〜ない」，这一族在 N4–N3 反复考。"
+     ],
+     [
+      "自动词「実る」的比喻用法",
+      "本义是果树结果，引申为努力有了回报。这个比喻义在国内教材里出现得很晚，但歌里到处都是。"
+     ]
+    ],
+    "p": "就是「努力这事儿吧，没那么快见效果。」",
+    "tip": "「実る」读 みのる 要记住。听到 みのらない 别听成「看不出来」——它对应的是「没结果」。"
+   },
+   {
+    "t": "でもちょっぴりいいことありそう (あるよ)",
+    "r": "でもちょっぴりいいことありそう (あるよ)",
+    "ro": "demo choppiri ii koto arisou (aru yo)",
+    "tr": "不过好像还是会有那么一点点好事 (会有的啦)",
+    "lv": "n4",
+    "w": [
+     [
+      "でも",
+      "でも",
+      "接続詞",
+      "但是",
+      "转折"
+     ],
+     [
+      "ちょっぴり",
+      "ちょっぴり",
+      "副詞",
+      "一点点",
+      "「ちょっと」的可爱版，语气软"
+     ],
+     [
+      "いいこと",
+      "いいこと",
+      "名詞句",
+      "好事",
+      "いい＋こと"
+     ],
+     [
+      "ありそう",
+      "ありそう",
+      "動詞＋助動詞",
+      "好像有",
+      "ある＋そう（样态）"
+     ],
+     [
+      "(あるよ)",
+      "あるよ",
+      "括弧内応答",
+      "（会有的啦）",
+      "括号里是同伴的接话"
+     ]
+    ],
+    "g": [
+     [
+      "「〜そう」＝样态（看起来）",
+      "「ありそう」＝看起来会有。要和传闻的「〜そうだ（听说）」区分：样态接动词词干／形容词词干，传闻接完整句＋だそう。"
+     ],
+     [
+      "括号里的呼应词是一个声部",
+      "这不是注释，是另一个角色在回答。全曲出现十几次，是畑亜貴的招牌写法：主唱＋合唱的对话结构。读的时候要当成两个人在轮流说话。"
+     ]
+    ],
+    "p": "就是「不过感觉还是能碰上点好事 (会的啦)」。",
+    "tip": "看到括号就想象另一个角色在回话，这首歌的画面感立刻出来。"
+   },
+   {
+    "t": "世界へいわだご近所訪問",
+    "r": "せかいへいわだごきんじょほうもん",
+    "ro": "sekai heiwa da gokinjo houmon",
+    "tr": "世界和平，就从拜访邻居开始",
+    "lv": "n3",
+    "w": [
+     [
+      "世界",
+      "せかい",
+      "名詞",
+      "世界",
+      ""
+     ],
+     [
+      "へいわ",
+      "へいわ",
+      "名詞",
+      "和平",
+      "本该写「平和」，故意写假名，为轻快和韵脚"
+     ],
+     [
+      "だ",
+      "だ",
+      "助動詞",
+      "是",
+      "断定"
+     ],
+     [
+      "ご近所",
+      "ごきんじょ",
+      "名詞",
+      "街坊、附近邻居",
+      "ご 是美化语接头辞"
+     ],
+     [
+      "訪問",
+      "ほうもん",
+      "名詞",
+      "拜访",
+      "する型名词"
+     ]
+    ],
+    "g": [
+     [
+      "名词句并列，中间不加助词",
+      "「世界平和だ」与「ご近所訪問（だ）」两个名词句直接摞在一起，靠语序制造因果关系：世界和平＝从拜访邻居开始。日语歌词常用并列代替因为所以。"
+     ],
+     [
+      "汉字改假名的意图",
+      "「平和」→「へいわ」让词变轻、变口语。同类还有本曲的「科学しんぽ」「だいじ」。这是本曲最典型、也最容易被当成错字的书写风格。"
+     ]
+    ],
+    "p": "就是「世界和平？那不就是挨家挨户串门嘛。」",
+    "tip": "「ご近所」的「ご」不是敬语，是熟悉化接头辞。日常说「ご近所さん」＝街坊邻居。"
+   },
+   {
+    "t": "友だち規模がじりじり広くなる",
+    "r": "ともだちきぼがじりじりひろくなる",
+    "ro": "tomodachi kibo ga jirijiri hiroku naru",
+    "tr": "朋友圈的规模，正一点点变大",
+    "lv": "n3",
+    "w": [
+     [
+      "友だち",
+      "ともだち",
+      "名詞",
+      "朋友",
+      ""
+     ],
+     [
+      "規模",
+      "きぼ",
+      "名詞",
+      "规模",
+      "原本是商务／灾害用词，被挪用来说朋友圈，这是笑点"
+     ],
+     [
+      "じりじり",
+      "じりじり",
+      "副詞（拟态）",
+      "一点一点地、慢慢地",
+      "也用于火辣辣地晒或焦躁，靠上下文判断"
+     ],
+     [
+      "広くなる",
+      "ひろくなる",
+      "形容詞＋動詞",
+      "变宽、变大",
+      "広い＋なる"
+     ],
+     [
+      "が",
+      "が",
+      "助詞",
+      "（主语）",
+      ""
+     ]
+    ],
+    "g": [
+     [
+      "「い形容词＋なる」＝变得……",
+      "広い → 広くなる。同类：大きくなる、強くなる、早くなる。这是 N4 必考的变形，也是本曲唯一必须掌握的形态变化。"
+     ],
+     [
+      "用大词写小事＝幽默",
+      "「規模」一般配「事業規模」「被害規模」。拿来形容朋友圈，就产生了反差萌。日语幽默很爱这种词级错位。"
+     ]
+    ],
+    "p": "就是「朋友圈正在以肉眼可见的速度变大。」",
+    "tip": "「じりじり」有两个常用义：①慢慢推进 ②太阳晒得火辣辣。这里取①。"
+   },
+   {
+    "t": "毎日あいさつだいじです",
+    "r": "まいにちあいさつだいじです",
+    "ro": "mainichi aisatsu daiji desu",
+    "tr": "每天打招呼，是很重要的",
+    "lv": "n4",
+    "w": [
+     [
+      "毎日",
+      "まいにち",
+      "名詞",
+      "每天",
+      ""
+     ],
+     [
+      "あいさつ",
+      "あいさつ",
+      "名詞",
+      "打招呼、寒暄",
+      "汉字写「挨拶」，这里写假名"
+     ],
+     [
+      "だいじ",
+      "だいじ",
+      "形容動詞",
+      "重要",
+      "正经写法是「大事」，这里写假名"
+     ],
+     [
+      "です",
+      "です",
+      "助動詞",
+      "是",
+      "礼貌体"
+     ]
+    ],
+    "g": [
+     [
+      "「〜は大事です」的「は」被吞掉",
+      "完整是「毎日あいさつするのは大事です」。主语部分被整个压缩，只剩名词＋だいじです。日语里「动词短语＋の＋は」这套结构一念快就整个消失。"
+     ],
+     [
+      "连续三处汉字改假名",
+      "あいさつ、だいじ 都写假名。一首歌里连续出现，说明这是刻意的风格统一，不是录入错误。"
+     ]
+    ],
+    "p": "就是「每天跟人打招呼，很重要。」",
+    "tip": "这句结构简单、用词实用，可以整句背下来直接用——是礼貌句式＋假名风格的活模板。"
+   },
+   {
+    "t": "またわいわい元気になれそう (なるね)",
+    "r": "またわいわいげんきになれそう (なるね)",
+    "ro": "mata waiwai genki ni naresou (naru ne)",
+    "tr": "感觉又能热热闹闹地活蹦乱跳了 (会的吧)",
+    "lv": "n4",
+    "w": [
+     [
+      "また",
+      "また",
+      "副詞",
+      "又、再次",
+      ""
+     ],
+     [
+      "わいわい",
+      "わいわい",
+      "副詞（拟态）",
+      "热闹喧哗",
+      "一群人叽叽喳喳的样子"
+     ],
+     [
+      "元気になる",
+      "げんきになる",
+      "慣用句",
+      "变有精神、变活泼",
+      "形容動詞＋なる"
+     ],
+     [
+      "なれそう",
+      "なれそう",
+      "動詞＋助動詞",
+      "好像能变得",
+      "なる → なれる（可能形）＋そう（样态）"
+     ]
+    ],
+    "g": [
+     [
+      "可能形＋そう 的层层叠加",
+      "なる → なれる（能） → なれそう（看起来能）。日语动词可以这样一层层往上叠，这是黏着语最典型的特点，中文译者最容易在这里丢掉一层意思。"
+     ],
+     [
+      "括号「(なるね)」＝附和",
+      "主唱说感觉能行，同伴补一句能行吧。一唱一和是本曲织体的核心。注意和第 9 句的「(あるよ)」对比：这里多了一个「ね」。"
+     ]
+    ],
+    "p": "就是「感觉又能嗨起来了 (能吧)」。",
+    "tip": "「なれそう」里的「そう」是样态（看起来），不是传闻（听说）。区别就一点：样态接词干，传闻接整句＋だそう。"
+   }
+  ]
+ },
+ {
+  "n": "03",
+  "h": "A メロ① 后段",
+  "jp": "Verse A′ — 别吵架，要好好相处",
+  "lines": [
+   {
+    "t": "何人たりと　わたしのまえで　ケンカしちゃやだやだ",
+    "r": "なんびとたりと　わたしのまえで　ケンカしちゃやだやだ",
+    "ro": "nanbito tari to watashi no mae de kenka shicha yada yada",
+    "tr": "不管是谁，都不许在我面前吵架，不行不行",
+    "lv": "n2",
+    "w": [
+     [
+      "何人たりと",
+      "なんびとたりと",
+      "慣用表現",
+      "任何人（都）",
+      "文言残留，后面必须跟否定"
+     ],
+     [
+      "わたし",
+      "わたし",
+      "代名詞",
+      "我",
+      "汉字写「私」，这里写假名"
+     ],
+     [
+      "まえで",
+      "まえで",
+      "名詞＋助詞",
+      "在前面",
+      "まえ＝前面；で＝场所"
+     ],
+     [
+      "ケンカ",
+      "けんか",
+      "名詞",
+      "吵架",
+      "本写「喧嘩」，这里片假名"
+     ],
+     [
+      "しちゃ",
+      "しちゃ",
+      "動詞",
+      "（做了可不行）",
+      "する＋ては → しちゃ"
+     ],
+     [
+      "やだやだ",
+      "やだやだ",
+      "形容動詞",
+      "不要不要",
+      "「いやだ」的口语缩略，重复表强调"
+     ]
+    ],
+    "g": [
+     [
+      "「何人たりと〜ない」＝文言句型",
+      "「たりと」是文语助词，强调无论何人，后面必须跟否定。同族：「誰一人として〜ない」「何事たりと〜ない」。这是本曲唯一一句 N2 级语法，也是全曲最难的一句。"
+     ],
+     [
+      "「〜しちゃ」＝「〜しては」",
+      "「喧嘩しては嫌だ」→「ケンカしちゃやだ」。口语里 ては → ちゃ 是常规操作，本曲重复出现（后面还有「なだめちゃう」）。"
+     ]
+    ],
+    "p": "就是「谁都不许在我面前吵架，讨厌讨厌。」",
+    "tip": "这句是整首歌词里语法最重的一句。看不懂也别慌——记住「たりと＋否定＝任何人都（不）」这个公式就够用。"
+   },
+   {
+    "t": "なかよく (ほらこっち来て)　たのしく (ほらこっち来て)",
+    "r": "なかよく (ほらこっちきて)　たのしく (ほらこっちきて)",
+    "ro": "nakayoku (hora kocchi kite) tanoshiku (hora kocchi kite)",
+    "tr": "要好好相处 (喂，过来这边)　要开开心心 (喂，过来这边)",
+    "lv": "n5",
+    "w": [
+     [
+      "なかよく",
+      "なかよく",
+      "副詞",
+      "好好地、和睦地",
+      "仲良い → 仲良く"
+     ],
+     [
+      "たのしく",
+      "たのしく",
+      "副詞",
+      "开心地",
+      "楽しい → 楽しく"
+     ],
+     [
+      "ほら",
+      "ほら",
+      "間投詞",
+      "喂、你看",
+      "引起注意"
+     ],
+     [
+      "こっち",
+      "こっち",
+      "代名詞",
+      "这边",
+      "「こちら」的口语形"
+     ],
+     [
+      "来て",
+      "きて",
+      "動詞",
+      "来",
+      "来る 的て形，这里表请求"
+     ]
+    ],
+    "g": [
+     [
+      "い形容词→副词：〜く",
+      "仲良い → 仲良く、楽しい → 楽しく。副词形直接修饰动词，是 N5 就要求会的变形，本曲反复出现（なかよく／たのしく／大きく）。"
+     ],
+     [
+      "「ほら」＋「こっち来て」",
+      "「ほら」是招呼语，「こっち来て」＝「こっちに来て（ください）」省略了「に」和「ください」。这是最口语、最亲昵的邀请。"
+     ]
+    ],
+    "p": "就是「要好好相处啊 (来来来，过来这边)」。",
+    "tip": "两个「(ほらこっち来て)」一字不差——不是排版失误，是和声反复。听的时候试着听出同一个声音出现两次。"
+   },
+   {
+    "t": "趣味はちがうけれど (ちがう？)　気が合いそう",
+    "r": "しゅみはちがうけれど (ちがう？)　きがあいそう",
+    "ro": "shumi wa chigau keredo (chigau?) ki ga aisou",
+    "tr": "虽然兴趣不一样 (不一样吗？)　但好像挺合得来",
+    "lv": "n3",
+    "w": [
+     [
+      "趣味",
+      "しゅみ",
+      "名詞",
+      "爱好",
+      ""
+     ],
+     [
+      "ちがう",
+      "ちがう",
+      "動詞",
+      "不同、不一样",
+      "五段动词；单独成句时＝不对"
+     ],
+     [
+      "けれど",
+      "けれど",
+      "接続助詞",
+      "虽然……但是",
+      "「けど」的稍正式形"
+     ],
+     [
+      "気が合う",
+      "きがあう",
+      "慣用句",
+      "合得来、投缘",
+      "固定搭配，主角是「気」"
+     ],
+     [
+      "〜そう",
+      "そう",
+      "助動詞",
+      "好像",
+      "样态"
+     ]
+    ],
+    "g": [
+     [
+      "「AけれどB」＝虽然A但B",
+      "这里 B 是省略了主语的「気が合いそう（だ）」。日语转折句的后半段经常只剩一个词，听话的人自己补主谓。"
+     ],
+     [
+      "括号「(ちがう？)」是反问",
+      "同伴插嘴反问真的不一样吗——制造对话感。这类括号句是本曲的呼吸节奏，读的时候要当成两个人在抬杠。"
+     ]
+    ],
+    "p": "就是「兴趣虽然不一样 (咦，不一样吗？)，不过感觉挺合得来的。」",
+    "tip": "「気が合う」别直译成气对上了，它的意思就是合得来、投缘。固定搭配，整块背下来。"
+   }
+  ]
+ },
+ {
+  "n": "04",
+  "h": "サビ②",
+  "jp": "Chorus B — 本曲的主题句",
+  "lines": [
+   {
+    "t": "だからポイッて　ポイッてしないでよ (おねがいです)",
+    "r": "だからポイッて　ポイッてしないでよ (おねがいです)",
+    "ro": "dakara poitte poitte shinaide yo (onegai desu)",
+    "tr": "所以说，别「啪」一下扔了啊 (拜托你了)",
+    "lv": "n4",
+    "w": [
+     [
+      "だから",
+      "だから",
+      "接続詞",
+      "所以、所以说",
+      ""
+     ],
+     [
+      "ポイッて",
+      "ぽいって",
+      "副詞＋助詞",
+      "「扔」这个动作",
+      "同第 1 句：拟声词＋て，被当成动作引用"
+     ],
+     [
+      "しないで",
+      "しないで",
+      "動詞",
+      "请不要做",
+      "する 的否定て形，表请求"
+     ],
+     [
+      "よ",
+      "よ",
+      "終助詞",
+      "哦",
+      ""
+     ],
+     [
+      "おねがいです",
+      "おねがいです",
+      "名詞句",
+      "拜托你了",
+      "括号内的呼应词"
+     ]
+    ],
+    "g": [
+     [
+      "拟声词直接当动作名词用",
+      "「ポイッてしない」＝不要做「ポイッ」这个动作。日语可以把拟声词直接当成一个动作来说，不用动词，非常省事——这是中文没有的用法。"
+     ],
+     [
+      "「〜しないで（ください）」的软化",
+      "省略「ください」，只留「しないでよ」，语气从命令变成撒娇式的请求。日语的礼貌度是靠省略多少来调的，省得越多越亲近。"
+     ]
+    ],
+    "p": "就是「所以说，别随手扔啊 (拜托了)」。",
+    "tip": "这句和第 1 句完全同义。副歌的作用就是把同一个意思反复唱——第 1 句是约定，这里变成请求。"
+   },
+   {
+    "t": "今日をポイッてしないでよ (だめです)",
+    "r": "きょうをポイッてしないでよ (だめです)",
+    "ro": "kyou wo poitte shinaide yo (dame desu)",
+    "tr": "别把今天扔掉啊 (不行的哦)",
+    "lv": "n4",
+    "w": [
+     [
+      "今日を",
+      "きょうを",
+      "名詞＋助詞",
+      "把今天",
+      "を 标出被扔的对象"
+     ],
+     [
+      "だめです",
+      "だめです",
+      "形容動詞＋助動詞",
+      "不行",
+      "括号内呼应词"
+     ],
+     [
+      "〜しないでよ",
+      "しないでよ",
+      "動詞",
+      "请别做",
+      "同第 17 句"
+     ]
+    ],
+    "g": [
+     [
+      "「Aを〜しないで」＝请不要对A做某事",
+      "「今日をポイッてしないで」＝不要对今天做扔这个动作。助词 を 明确指出扔的是今天，这是这句的语法骨架。"
+     ],
+     [
+      "括号词的推进：おねがいです → だめです",
+      "上一句是请求（拜托了），这一句是禁止（不行）。虽然都只是括号里的一句话，语气却在升级：先求，再禁。"
+     ]
+    ],
+    "p": "就是「今天不许扔 (不可以哦)」。",
+    "tip": "「だめ」在日语里比中文不行更硬，但加了「です」就软化成家长式口吻。日常对亲近的人说「だめだよ」也很常见。"
+   },
+   {
+    "t": "明日へとあせらないでね　ゆっくり遊ぼう (よろしくね)",
+    "r": "あすへとあせらないでね　ゆっくりあそぼう (よろしくね)",
+    "ro": "ashita e to aseranaide ne yukkuri asobou (yoroshiku ne)",
+    "tr": "别急着往明天赶，我们慢慢玩吧 (请多指教哦)",
+    "lv": "n3",
+    "w": [
+     [
+      "明日へと",
+      "あすへと",
+      "名詞＋助詞",
+      "朝着明天",
+      "へ 表方向；と 加强语气"
+     ],
+     [
+      "あせる",
+      "あせる",
+      "動詞",
+      "着急、焦躁",
+      "汉字写「焦る」，这里写假名"
+     ],
+     [
+      "〜ないでね",
+      "ないでね",
+      "助動詞＋終助詞",
+      "请不要……哦",
+      "ないで＋ね"
+     ],
+     [
+      "ゆっくり",
+      "ゆっくり",
+      "副詞",
+      "慢慢地、从容地",
+      ""
+     ],
+     [
+      "遊ぼう",
+      "あそぼう",
+      "動詞",
+      "玩吧",
+      "遊ぶ 的意向形"
+     ],
+     [
+      "よろしくね",
+      "よろしくね",
+      "慣用句",
+      "请多指教",
+      "括号内呼应词"
+     ]
+    ],
+    "g": [
+     [
+      "「〜ないで」＝请不要",
+      "和「〜ないでください」同源，省略ください后变成轻请求，再加「ね」添一层求同感。这个公式在本曲出现 3 次。"
+     ],
+     [
+      "「〜（よ）う」＝意志／劝诱形",
+      "「遊ぼう」＝（我们一起）玩吧。五段动词把词尾变 お 段＋う，一段动词去る＋よう。本曲的「やっちゃおう」「なんとかしよう」都是这一族。"
+     ]
+    ],
+    "p": "就是「别急着奔明天，慢慢玩 (多关照哦)」。",
+    "tip": "「あせる」汉字写「焦る」。歌里写成假名，是为了软化语气——又一次的风格统一。"
+   },
+   {
+    "t": "夢見るこころは　一歩、二歩、三歩、四歩…",
+    "r": "ゆめみるこころは　いっぽ、にほ、さんぽ、よんほ…",
+    "ro": "yumemiru kokoro wa ippo, niho, sanpo, yonho...",
+    "tr": "怀着梦想的心，一步、两步、三步、四步……",
+    "lv": "n4",
+    "w": [
+     [
+      "夢見る",
+      "ゆめみる",
+      "動詞",
+      "做梦、怀有梦想",
+      "夢を見る 的复合动词形式，可直接修饰名词"
+     ],
+     [
+      "こころ",
+      "こころ",
+      "名詞",
+      "心",
+      "汉字写「心」，这里写假名"
+     ],
+     [
+      "一歩、二歩、三歩、四歩",
+      "いっぽ、にほ、さんぽ、よんほ",
+      "名詞",
+      "一步、两步、三步、四步",
+      "数脚步的量词是「歩（ほ）」"
+     ]
+    ],
+    "g": [
+     [
+      "数词＋量词「歩（ほ）」的读法",
+      "一歩＝いっぽ、二歩＝にほ、三歩＝さんぽ、四歩＝よんほ。注意「三歩（さんぽ）」和「散歩（さんぽ）」完全同音——后面接「ごくろうさま（辛苦了）」，暗藏散步辛苦了这一层。"
+     ],
+     [
+      "句子到「…」就停",
+      "「夢見るこころは（一歩、二歩…）」，谓语被省略号吞掉。日语歌词常把动作留白，让听众自己续。这是本曲和后面「一羽、二羽」形成对仗的关键句。"
+     ]
+    ],
+    "p": "就是「那颗做梦的心，一步一步、两步三步地往前挪……」",
+    "tip": "把这四个读音背下来：いっぽ・にほ・さんぽ・よんほ。三歩＝さんぽ 和散步同音，是作者埋的双关。"
+   },
+   {
+    "t": "ごくろうさま (もっともっと)",
+    "r": "ごくろうさま (もっともっと)",
+    "ro": "gokurou sama (motto motto)",
+    "tr": "辛苦你啦 (还要更多更多哦)",
+    "lv": "n5",
+    "w": [
+     [
+      "ごくろうさま",
+      "ごくろうさま",
+      "慣用句",
+      "辛苦了",
+      "汉字写「ご苦労様」，本来用于对同辈／下属"
+     ],
+     [
+      "もっと",
+      "もっと",
+      "副詞",
+      "更加、再多一些",
+      "重复＝强调"
+     ],
+     [
+      "(もっともっと)",
+      "もっともっと",
+      "括弧内応答",
+      "（更多更多）",
+      "两个 もっと 叠在一起"
+     ]
+    ],
+    "g": [
+     [
+      "「ご苦労様」和「お疲れ様」的区别",
+      "「ご苦労様」原本是上级对下级说的，语气带点居高临下；「お疲れ様」更通用，对谁都能说。歌里用「ご苦労様」是角色在给自己的心打气，反而显得好笑。"
+     ],
+     [
+      "括号内的重复＝加码",
+      "「(もっともっと)」两个「もっと」叠在一起，表示还要、还要。日语里副词重复表强调很常见。"
+     ]
+    ],
+    "p": "就是「辛苦啦 (还得再加把劲哦)」。",
+    "tip": "现实中对长辈、上司别说「ご苦労様」，要用「お疲れ様です」。这是日本人很在意的一条礼貌线。"
+   },
+   {
+    "t": "いっしょにね　てくてく進むの",
+    "r": "いっしょにね　てくてくすすむの",
+    "ro": "issho ni ne tekuteku susumu no",
+    "tr": "一起哦，一步一步地往前走",
+    "lv": "n4",
+    "w": [
+     [
+      "いっしょに",
+      "いっしょに",
+      "副詞",
+      "一起",
+      "「一緒に」的假名写法"
+     ],
+     [
+      "ね",
+      "ね",
+      "終助詞",
+      "（求同感）哦",
+      "插在句中做语气缓冲"
+     ],
+     [
+      "てくてく",
+      "てくてく",
+      "副詞（拟态）",
+      "一步一步走",
+      "和开头呼应"
+     ],
+     [
+      "進む",
+      "すすむ",
+      "動詞",
+      "前进",
+      "五段动词"
+     ],
+     [
+      "の",
+      "の",
+      "終助詞",
+      "（说明）呢",
+      "句尾的 の＝柔和的说明语气"
+     ]
+    ],
+    "g": [
+     [
+      "「の」在陈述句尾＝柔软的说明",
+      "和疑问的「の」同源：女性、小孩口吻，把断定说得软。「進むの」≈「進むんだよ」的软化版。本曲出现 2 次（行くの／進むの），一个问、一个陈述。"
+     ],
+     [
+      "拟态词「てくてく」的复用",
+      "开头出现过一次，这里再出现，形成主题回环。日语歌很爱用词的回环代替副歌的重复。"
+     ]
+    ],
+    "p": "就是「一起哟，一步一步往前走。」",
+    "tip": "「てくてく」全曲出现 3 次，是这首歌的脚步声。听到它就等于听到主题。"
+   }
+  ]
+ },
+ {
+  "n": "05",
+  "h": "サビ① 重复",
+  "jp": "Chorus A repeat — 第二次",
+  "lines": [
+   {
+    "t": "（サビ① 完整重复）",
+    "r": "わくわくてくてく　どこへ行くの／なんとかなるさと上向いて／できるよきっとね　キミとなら／できる？できない？できる！やっちゃおう！",
+    "ro": "（同第 2–5 句）",
+    "tr": "第二遍副歌与第一遍逐字相同，不再重复拆解。",
+    "lv": "rep",
+    "w": [],
+    "g": [
+     [
+      "为什么这里不改词",
+      "日本动画 OP 的标准结构是「首尾同型」——把副歌原样复制一遍，只用演唱力度区分。所以这不是作者偷懒，是格式要求。"
+     ],
+     [
+      "听的时候该注意什么",
+      "同一段词第二遍，编曲通常加了一层和声或鼓点。练听力时可以拿这两遍做对比：同样是「なんとかなるさ」，第二遍往往更快、更高，这就是你把音节听清的机会。"
+     ]
+    ],
+    "p": "本段与第 2–5 句一字不差，回去对照即可。",
+    "tip": "遇到重复段不要跳过——它是练听力的免费素材：同一句话，你听第二遍会比第一遍清楚一倍。"
+   }
+  ]
+ },
+ {
+  "n": "06",
+  "h": "A メロ②",
+  "jp": "Verse B — 从朋友到世界",
+  "lines": [
+   {
+    "t": "みんなの想い大きく　イエスイエス！",
+    "r": "みんなのおもいおおきく　イエスイエス！",
+    "ro": "minna no omoi ookiku iesu iesu!",
+    "tr": "大家的这份心意越来越大，Yes Yes！",
+    "lv": "n3",
+    "w": [
+     [
+      "みんな",
+      "みんな",
+      "名詞",
+      "大家",
+      ""
+     ],
+     [
+      "想い",
+      "おもい",
+      "名詞",
+      "想法、心意",
+      "通常写「思い」；写成「想い」多用于歌词、诗，强调情感"
+     ],
+     [
+      "大きく",
+      "おおきく",
+      "形容詞",
+      "大（地）",
+      "大きい→大きく，副词形"
+     ],
+     [
+      "イエスイエス",
+      "イエスイエス",
+      "間投詞",
+      "Yes Yes",
+      "英语借词"
+     ]
+    ],
+    "g": [
+     [
+      "「大きく」后面没有动词",
+      "完整是「みんなの想い（が）大きく（なる）」。形容词副词形＋句尾停顿，等于把变大这个动作留白。"
+     ],
+     [
+      "「想い」和「思い」的差别",
+      "「思い」最普通；写成「想い」多见于歌词、诗，强调情感、愿望的深层含义。这是作者在选字，不是错字。"
+     ]
+    ],
+    "p": "就是「大家的这份心意越来越大，Yes Yes！」",
+    "tip": "「想い（おもい）」和「重い（おもい）」同音。听歌时靠上下文分辨，别听成沉重的想法。"
+   },
+   {
+    "t": "棚ボタだって　期待できますよ",
+    "r": "たなぼただって　きたいできますよ",
+    "ro": "tanabota datte kitai dekimasu yo",
+    "tr": "就算是天上掉馅饼，也可以期待一下哦",
+    "lv": "n3",
+    "w": [
+     [
+      "棚ボタ",
+      "たなぼた",
+      "名詞（造語）",
+      "天上掉馅饼",
+      "谚语「棚から牡丹餅」的缩略，写片假名＝口语化"
+     ],
+     [
+      "だって",
+      "だって",
+      "助詞",
+      "就算是……也",
+      "「でも」的口语版"
+     ],
+     [
+      "期待",
+      "きたい",
+      "名詞",
+      "期待",
+      "する型名词"
+     ],
+     [
+      "できます",
+      "できます",
+      "動詞",
+      "能做",
+      "する 的可能形 できる 的礼貌体"
+     ]
+    ],
+    "g": [
+     [
+      "「〜だって」＝「〜でも」",
+      "表即使……也。「棚ボタだって期待できる」＝就算是白捡的好事，也可以期待。"
+     ],
+     [
+      "谚语缩略成两拍",
+      "「棚から牡丹餅」→「棚ボタ」。日本人口语里真的这么说，是意外收获的代名词。"
+     ]
+    ],
+    "p": "就是「就算是天上掉馅饼这种事，也可以盼一盼嘛。」",
+    "tip": "「棚ボタ」写全了是「棚から牡丹餅」＝架子上的牡丹饼掉嘴里。记住这个画面就忘不掉。"
+   },
+   {
+    "t": "一途なきもちが近道！",
+    "r": "いちずなきもちがちかみち！",
+    "ro": "ichizu na kimochi ga chikamichi!",
+    "tr": "一门心思的心意，才是捷径！",
+    "lv": "n3",
+    "w": [
+     [
+      "一途な",
+      "いちずな",
+      "形容動詞",
+      "一心一意的、专一的",
+      "な形容词"
+     ],
+     [
+      "きもち",
+      "きもち",
+      "名詞",
+      "心情、心意",
+      "汉字写「気持ち」，这里写假名"
+     ],
+     [
+      "が",
+      "が",
+      "助詞",
+      "（主语）",
+      ""
+     ],
+     [
+      "近道",
+      "ちかみち",
+      "名詞",
+      "近路、捷径",
+      ""
+     ]
+    ],
+    "g": [
+     [
+      "「AがBだ」＝A是B",
+      "主语用 が 强调，「一途なきもちが近道だ」＝专一的心意就是捷径。"
+     ],
+     [
+      "な形容词修饰名词：〜な＋名詞",
+      "一途＋な＋きもち。注意「な」只在修饰名词时出现，做谓语时是「一途だ」。"
+     ]
+    ],
+    "p": "就是「专心致志，才是最短的路！」",
+    "tip": "「一途」读 いちず，不是 いっと。这条单独记，容易错。"
+   },
+   {
+    "t": "そうやっぱりいいことありそう (あるね)",
+    "r": "そうやっぱりいいことありそう (あるね)",
+    "ro": "sou yappari ii koto arisou (aru ne)",
+    "tr": "果然还是会有好事发生的样子 (有的吧)",
+    "lv": "n3",
+    "w": [
+     [
+      "そう",
+      "そう",
+      "間投詞",
+      "对、是啊",
+      "表示认同"
+     ],
+     [
+      "やっぱり",
+      "やっぱり",
+      "副詞",
+      "果然、还是",
+      "「やはり」的口语形"
+     ],
+     [
+      "ありそう",
+      "ありそう",
+      "動詞＋助動詞",
+      "好像有",
+      "同第 9 句"
+     ],
+     [
+      "(あるね)",
+      "あるね",
+      "括弧内応答",
+      "（会有的吧）",
+      "注意第一段是「(あるよ)」，这里是「(あるね)」"
+     ]
+    ],
+    "g": [
+     [
+      "「(あるよ)」→「(あるね)」的细微变化",
+      "第一段同伴说「(あるよ)（有的啦）」是主动告知；第二段说「(あるね)（有的吧）」变成求同感。同一句话、两个语气，说明这两段是同型不同情。"
+     ],
+     [
+      "副词「やっぱり」的位置",
+      "放句首或句中都可以，日常更常听到缩略形「やっぱ」。"
+     ]
+    ],
+    "p": "就是「你看，果然还是会有好事 (会的吧)」。",
+    "tip": "注意对比：第 9 句是「(あるよ)」，这句是「(あるね)」。这种一字之差是畑亜貴的典型手法，值得留意。"
+   },
+   {
+    "t": "科学しんぽで会わなくたって",
+    "r": "かがくしんぽであわなくたって",
+    "ro": "kagaku shinpo de awanakutatte",
+    "tr": "就算不靠科学进步（不能见面），也没关系",
+    "lv": "n3",
+    "w": [
+     [
+      "科学",
+      "かがく",
+      "名詞",
+      "科学",
+      ""
+     ],
+     [
+      "しんぽ",
+      "しんぽ",
+      "名詞",
+      "进步",
+      "本该写「進歩」，这里写假名（风格统一）"
+     ],
+     [
+      "で",
+      "で",
+      "助詞",
+      "靠、凭借",
+      "手段"
+     ],
+     [
+      "会わなくたって",
+      "あわなくたって",
+      "動詞",
+      "就算不见面",
+      "会う 的否定 なく＋たって"
+     ]
+    ],
+    "g": [
+     [
+      "「〜なくたって」＝「〜なくても」",
+      "口语里「〜ない」的连用形「なく」＋「たって」。意思是即使不……也没关系。注意这个「で」在句中是手段，不是否定的一部分。"
+     ],
+     [
+      "「たって」家族的三种形态",
+      "「言ったって」（言っても）、「みたって」（みても）、「会わなくたって」（会わなくても）——同一个「ても」，前面接续不同。本曲把这个家族用了个遍。"
+     ]
+    ],
+    "p": "就是「就算不用见面，也照样能——」",
+    "tip": "「〜なくたって」和「〜たって」是同一套口语语法。掌握「たって＝ても」，这一族全通。"
+   },
+   {
+    "t": "お話しできるべんりな世の中で",
+    "r": "おはなしできるべんりなよのなかで",
+    "ro": "ohanashi dekiru benri na yo no naka de",
+    "tr": "在这样一个能聊天、很方便的世界里",
+    "lv": "n3",
+    "w": [
+     [
+      "お話し",
+      "おはなし",
+      "名詞",
+      "聊天、说话",
+      "お 是美化语；話す 的名词形"
+     ],
+     [
+      "できる",
+      "できる",
+      "動詞",
+      "能",
+      "する 的可能形"
+     ],
+     [
+      "べんりな",
+      "べんりな",
+      "形容動詞",
+      "方便的",
+      "「便利」的假名写法"
+     ],
+     [
+      "世の中",
+      "よのなか",
+      "名詞",
+      "世间、世界",
+      "惯用名词，读 よのなか"
+     ]
+    ],
+    "g": [
+     [
+      "「お話しできる」＝「お話しすることができる」",
+      "名词＋できる，把做某事压缩成一个动词。日常超常用：「運転できる」「料理できる」「日本語できる」。"
+     ],
+     [
+      "和上一句连读才完整",
+      "上一句是「会わなくたって」（就算不见面），这一句是在能聊天的便利世界里——中间省掉了所以。日语的因果常常不存在，靠上下文意会。"
+     ]
+    ],
+    "p": "就是「在一个不用见面也能聊天的方便世界里嘛。」",
+    "tip": "「世の中」读 よのなか，不是 せかい。区别：世界＝整个地球／领域；世の中＝社会、人间。"
+   },
+   {
+    "t": "顔見てあいさつだいじです",
+    "r": "かおみてあいさつだいじです",
+    "ro": "kao mite aisatsu daiji desu",
+    "tr": "见面打招呼，是很重要的",
+    "lv": "n4",
+    "w": [
+     [
+      "顔",
+      "かお",
+      "名詞",
+      "脸",
+      ""
+     ],
+     [
+      "見て",
+      "みて",
+      "動詞",
+      "看着",
+      "見る 的て形，表手段／附带状况"
+     ],
+     [
+      "あいさつ",
+      "あいさつ",
+      "名詞",
+      "打招呼",
+      "同第 12 句"
+     ],
+     [
+      "だいじです",
+      "だいじです",
+      "形容動詞＋助動詞",
+      "重要",
+      "同第 12 句"
+     ]
+    ],
+    "g": [
+     [
+      "て形表手段／附带状况",
+      "「顔を見てあいさつする」＝看着对方的脸打招呼。て形不只表顺序，也表方式，这是 N4 的关键用法。"
+     ],
+     [
+      "和第 12 句形成对句",
+      "第 12 句说每天打招呼重要，这里升级成看着脸打招呼重要。第二段是把第一段的话往前推一步——这是本曲的结构手法。"
+     ]
+    ],
+    "p": "就是「见面打招呼，很重要。」",
+    "tip": "句型与第 12 句完全同构。把两句对照着看，能看清同一句式换词的写法。"
+   },
+   {
+    "t": "うむだんだん元気になれそう (なるね)",
+    "r": "うむだんだんげんきになれそう (なるね)",
+    "ro": "umu dandan genki ni naresou (naru ne)",
+    "tr": "嗯，感觉会一点点变得有精神 (会的吧)",
+    "lv": "n4",
+    "w": [
+     [
+      "うむ",
+      "うむ",
+      "間投詞",
+      "嗯",
+      "老成、有点装深沉的应答"
+     ],
+     [
+      "だんだん",
+      "だんだん",
+      "副詞",
+      "渐渐",
+      "汉字写「段々」，这里写假名"
+     ],
+     [
+      "元気になれそう",
+      "げんきになれそう",
+      "動詞句",
+      "好像能变精神",
+      "同第 13 句"
+     ]
+    ],
+    "g": [
+     [
+      "「うむ」的角色感",
+      "这不是普通的「うん（嗯）」，而是带点大叔味／装深沉的「うむ」。用在可爱少女台词里＝反差萌。"
+     ],
+     [
+      "和第 13 句同型",
+      "「またわいわい元気になれそう」vs「うむ だんだん元気になれそう」，同一句型换开头词。这就是本曲第二段和第一段的关系。"
+     ]
+    ],
+    "p": "就是「嗯，看样子会一点点精神起来 (会吧)」。",
+    "tip": "「うん」和「うむ」只差一个音，气质差十倍。前者日常，后者老成／幽默。"
+   }
+  ]
+ },
+ {
+  "n": "07",
+  "h": "A メロ② 后段",
+  "jp": "Verse B′ — 别哭，说给我听",
+  "lines": [
+   {
+    "t": "何人たりと　わたしのまえで　泣き虫はやだやだ",
+    "r": "なんびとたりと　わたしのまえで　なきむしはやだやだ",
+    "ro": "nanbito tari to watashi no mae de nakimushi wa yada yada",
+    "tr": "不管是谁，在我面前当爱哭鬼都不行",
+    "lv": "n2",
+    "w": [
+     [
+      "何人たりと",
+      "なんびとたりと",
+      "慣用表現",
+      "任何人",
+      "同第 14 句"
+     ],
+     [
+      "泣き虫",
+      "なきむし",
+      "名詞",
+      "爱哭鬼",
+      "泣く＋虫（表示有某种习性的人）"
+     ],
+     [
+      "は",
+      "は",
+      "助詞",
+      "（主题）",
+      ""
+     ],
+     [
+      "やだやだ",
+      "やだやだ",
+      "形容動詞",
+      "不要不要",
+      "同第 14 句"
+     ]
+    ],
+    "g": [
+     [
+      "「〜虫」＝有某种习性的人",
+      "泣き虫（爱哭鬼）、本の虫（书虫）、恥ずかしがり屋（害羞的人）。这是很好用的构词法，一次记一串。"
+     ],
+     [
+      "与第 14 句对句",
+      "第 14 句是不许吵架，这句是不许哭。同一句式，换掉一个名词，第二段就往前推了一步。"
+     ]
+    ],
+    "p": "就是「谁都不许在我面前哭鼻子。」",
+    "tip": "「泣き虫」是 N4 常用词，直接能用。它的伙伴「甘えん坊（爱撒娇的）」「恥ずかしがり屋（害羞的）」一起记。"
+   },
+   {
+    "t": "なかよく (ほら笑ってよ)　たのしく (ほら笑ってよ)",
+    "r": "なかよく (ほらわらってよ)　たのしく (ほらわらってよ)",
+    "ro": "nakayoku (hora waratte yo) tanoshiku (hora waratte yo)",
+    "tr": "要好好相处 (喂，笑一个嘛)　要开开心心 (喂，笑一个嘛)",
+    "lv": "n5",
+    "w": [
+     [
+      "なかよく",
+      "なかよく",
+      "副詞",
+      "好好相处",
+      "同第 15 句"
+     ],
+     [
+      "ほら",
+      "ほら",
+      "間投詞",
+      "喂",
+      ""
+     ],
+     [
+      "笑って",
+      "わらって",
+      "動詞",
+      "笑",
+      "笑う 的て形"
+     ],
+     [
+      "よ",
+      "よ",
+      "終助詞",
+      "嘛",
+      "请求的软化"
+     ]
+    ],
+    "g": [
+     [
+      "「笑ってよ」＝「笑ってくださいよ」",
+      "て形＋よ 是口语请求的标准公式。比「〜てください」轻，带一点撒娇。"
+     ],
+     [
+      "与第 15 句对句",
+      "第 15 句括号是「(ほらこっち来て)」，这里是「(ほら笑ってよ)」。同一句式，括号内容升级：从过来到笑一个。"
+     ]
+    ],
+    "p": "就是「要好好相处 (喂，笑一下嘛)」。",
+    "tip": "「笑って」是 わらって；「咲いて」是 さいて（花开）。同汉字不同音，别混。"
+   },
+   {
+    "t": "悩みごとおしえて (ぜったい)　なんとかしよう",
+    "r": "なやみごとおしえて (ぜったい)　なんとかしよう",
+    "ro": "nayamigoto oshiete (zettai) nantoka shiyou",
+    "tr": "有烦恼就告诉我 (一定哦)，一起想办法",
+    "lv": "n4",
+    "w": [
+     [
+      "悩みごと",
+      "なやみごと",
+      "名詞",
+      "烦恼的事",
+      "悩む＋こと（＝ごと）"
+     ],
+     [
+      "おしえて",
+      "おしえて",
+      "動詞",
+      "告诉我",
+      "教える 的て形＝请求"
+     ],
+     [
+      "(ぜったい)",
+      "ぜったい",
+      "副詞",
+      "一定哦",
+      "括号内呼应词"
+     ],
+     [
+      "なんとかしよう",
+      "なんとかしよう",
+      "動詞",
+      "想办法解决吧",
+      "何とかする 的意向形"
+     ]
+    ],
+    "g": [
+     [
+      "「〜しよう」＝意志形",
+      "表我来／我们一起做吧。何とかする → 何とかしよう。和开头的「やっちゃおう」是同一族。"
+     ],
+     [
+      "「(ぜったい)」＝单字呼应",
+      "括号里只有一个词一定，是同伴的用力点头。本曲括号词从「(あるよ)」到「(もっともっと)」到「(ぜったい)」，长度不一，都是节奏点。"
+     ]
+    ],
+    "p": "就是「有烦恼就说出来 (一定哦)，咱们一起想办法。」",
+    "tip": "「悩みごと」的「ごと」写作「事」，读 ごと 不读 こと。类似的还有「仕事（しごと）」。"
+   }
+  ]
+ },
+ {
+  "n": "08",
+  "h": "サビ③",
+  "jp": "Chorus C — プイッ的傲娇段落",
+  "lines": [
+   {
+    "t": "キミがプイッて　プイッておこっても (それでもいいよ)",
+    "r": "キミがプイッて　プイッておこっても (それでもいいよ)",
+    "ro": "kimi ga puitte puitte okotte mo (sore demo ii yo)",
+    "tr": "就算你「哼」地扭过头、闹脾气 (那也没关系哦)",
+    "lv": "n3",
+    "w": [
+     [
+      "プイッて",
+      "ぷいって",
+      "副詞＋助詞",
+      "扭头不理这个动作",
+      "注意：プイッ ≠ ポイッ，只差一个元音"
+     ],
+     [
+      "おこっても",
+      "おこっても",
+      "動詞",
+      "就算生气",
+      "怒る → 怒って（て形）＋も"
+     ],
+     [
+      "それでも",
+      "それでも",
+      "接続詞",
+      "即使那样",
+      ""
+     ],
+     [
+      "いいよ",
+      "いいよ",
+      "形容詞＋終助詞",
+      "没关系哦",
+      ""
+     ],
+     [
+      "キミが",
+      "きみが",
+      "代名詞＋助詞",
+      "你（主语）",
+      "が 标出动作主体"
+     ]
+    ],
+    "g": [
+     [
+      "全曲最关键的对比：プイッ vs ポイッ",
+      "「ポイッ」＝随手把东西扔掉（对物）；「プイッ」＝扭头不理、闹别扭（对人）。整首歌就是拿这一对最小对立做文章：你可以对我闹脾气，但不可以把今天扔掉。"
+     ],
+     [
+      "「〜おこっても」＝就算你生气",
+      "怒る 的て形＋も。和「たって」同义（＝ても），本曲两套都出现了。"
+     ]
+    ],
+    "p": "就是「就算你哼一声扭过头去生气 (那也行哦)」。",
+    "tip": "这是全曲最重要的一句。把 ポイッ（扔东西）和 プイッ（扭头不理）分清楚，整首歌的逻辑立刻通。"
+   },
+   {
+    "t": "大丈夫ってなだめちゃう (すきです)",
+    "r": "だいじょうぶってなだめちゃう (すきです)",
+    "ro": "daijoubu tte nadamechau (suki desu)",
+    "tr": "我会说着「没事的」把你哄回来 (喜欢你)",
+    "lv": "n3",
+    "w": [
+     [
+      "大丈夫",
+      "だいじょうぶ",
+      "名詞",
+      "没事",
+      ""
+     ],
+     [
+      "って",
+      "って",
+      "助詞",
+      "说……",
+      "口语引用助词，相当于「と」"
+     ],
+     [
+      "なだめちゃう",
+      "なだめちゃう",
+      "動詞",
+      "忍不住去哄",
+      "宥める＋てしまう（→ちゃう）"
+     ],
+     [
+      "(すきです)",
+      "すきです",
+      "括弧内応答",
+      "（喜欢）",
+      "括号内呼应词，全曲唯一直接表白"
+     ]
+    ],
+    "g": [
+     [
+      "「〜ちゃう」＝「〜てしまう」",
+      "表示不由自主地做了、索性做掉。这里带忍不住要去哄你的宠溺感。和第 5 句的「やっちゃおう」同源。"
+     ],
+     [
+      "「って」＝口语引用助词",
+      "「大丈夫って（言って）なだめる」＝说着没事去哄。这个「って」全曲高频，等于书面语的「と」。"
+     ]
+    ],
+    "p": "就是「我会念着『没事没事』把你哄好 (喜欢啦)」。",
+    "tip": "「って」是口语的万能引用词。听到「〜って」先想「＝と」，八成没错。"
+   },
+   {
+    "t": "明日にはなおるはずだよ　嫌いになれない (おたがいね)",
+    "r": "あしたにはなおるはずだよ　きらいになれない (おたがいね)",
+    "ro": "ashita ni wa naoru hazu da yo kirai ni narenai (otagai ne)",
+    "tr": "到了明天应该就好了，没法讨厌你 (彼此彼此啦)",
+    "lv": "n2",
+    "w": [
+     [
+      "明日には",
+      "あしたには",
+      "名詞＋助詞",
+      "到了明天",
+      "に＋は 表时间界限"
+     ],
+     [
+      "なおる",
+      "なおる",
+      "動詞",
+      "好转、恢复",
+      "汉字「直る」，这里写假名"
+     ],
+     [
+      "はずだ",
+      "はずだ",
+      "名詞＋助動詞",
+      "应该、按理说",
+      "表有根据的推测"
+     ],
+     [
+      "嫌いになれない",
+      "きらいになれない",
+      "形容動詞＋動詞",
+      "没法变讨厌",
+      "嫌いになる 的可能形否定"
+     ],
+     [
+      "(おたがいね)",
+      "おたがいね",
+      "括弧内応答",
+      "（彼此彼此）",
+      "括号内呼应词"
+     ]
+    ],
+    "g": [
+     [
+      "「〜はずだ」＝按理应该",
+      "表有根据的推测。「明日には直るはずだよ」＝按道理明天就好了。比「〜だろう」更有把握。"
+     ],
+     [
+      "「〜になれない」＝想变也变不了",
+      "なる 的可能形否定。「嫌いになろうとしても、なれない」＝讨厌不起来。这是全曲最温柔的一句。"
+     ]
+    ],
+    "p": "就是「明天肯定就好了——我也没法真的讨厌你啦 (彼此彼此)」。",
+    "tip": "「はず」是 N3 高频语法。和「べき」（应该做）区分：はず＝推测，べき＝义务。"
+   },
+   {
+    "t": "飛びたいこころは　一羽、二羽、三羽、四羽…",
+    "r": "とびたいこころは　いちわ、にわ、さんわ、よんわ…",
+    "ro": "tobitai kokoro wa ichiwa, niwa, sanwa, yonwa...",
+    "tr": "想飞的那颗心，一只、两只、三只、四只……",
+    "lv": "n3",
+    "w": [
+     [
+      "飛びたい",
+      "とびたい",
+      "動詞",
+      "想飞",
+      "飛ぶ 的愿望形（たい）"
+     ],
+     [
+      "こころ",
+      "こころ",
+      "名詞",
+      "心",
+      "同第 20 句"
+     ],
+     [
+      "一羽、二羽、三羽、四羽",
+      "いちわ、にわ、さんわ、よんわ",
+      "名詞",
+      "一只、两只、三只、四只",
+      "数鸟（及兔）的量词是「羽（わ）」"
+     ]
+    ],
+    "g": [
+     [
+      "全曲最妙的一处双关",
+      "第 20 句是「一歩、二歩、三歩、四歩（いっぽ・にほ・さんぽ・よんほ）」数脚步；这里换成「一羽、二羽、三羽、四羽（いちわ・にわ・さんわ・よんわ）」数鸟。读音几乎押韵，字面从走路变成飞——脚步长出了翅膀。"
+     ],
+     [
+      "为什么偏偏是「羽」",
+      "日语里兔子在传统上也按鸟来数（用「羽」），而点兔正好是兔子，所以这个量词不是随便选的。一层是押韵，一层是角色梗。"
+     ]
+    ],
+    "p": "就是「那颗想飞起来的心，一只、两只、三只、四只……」",
+    "tip": "记住羽的数法：いちわ・にわ・さんわ・よんわ。和第 20 句的 いっぽ・にほ・さんぽ・よんほ 对照着念，能听出作者的押韵设计。"
+   },
+   {
+    "t": "ゴー！なこころ (冒険だね)",
+    "r": "ゴー！なこころ (ぼうけんだね)",
+    "ro": "goo! na kokoro (bouken da ne)",
+    "tr": "一颗「Go！」的心 (是冒险呢)",
+    "lv": "n4",
+    "w": [
+     [
+      "ゴー！",
+      "ゴー",
+      "間投詞",
+      "Go！",
+      "英语借词"
+     ],
+     [
+      "な",
+      "な",
+      "助動詞",
+      "的（形容动词用法）",
+      "「ゴー！なこころ」＝Go 一样的心，英文词直接接 な"
+     ],
+     [
+      "こころ",
+      "こころ",
+      "名詞",
+      "心",
+      ""
+     ],
+     [
+      "(冒険だね)",
+      "ぼうけんだね",
+      "括弧内応答",
+      "（是冒险呢）",
+      "括号内呼应词"
+     ]
+    ],
+    "g": [
+     [
+      "外来语＋「な」的破格接续",
+      "日语里只有な形容词才能接「な」，但歌词常把英文、拟声词直接接「な」当形容词用。「ゴー！なこころ」＝充满 Go 的那颗心。这种破格在歌词里是常态，日常日语不这么说。"
+     ],
+     [
+      "首字被上一句吃掉",
+      "上句结尾是「…四羽」，这句开头是「ゴー！」，连读成「よんわ、ゴー！なこころ」。这是刻意的跨句切分，听的时候要连着唱。"
+     ]
+    ],
+    "p": "就是「一颗喊着『Go！』的心 (这是场冒险呢)」。",
+    "tip": "「ゴー！な」这种写法只在歌词里合理。日常日语不会这么说，见到当风格处理即可。"
+   },
+   {
+    "t": "いっしょだし　わくわく進むよ",
+    "r": "いっしょだし　わくわくすすむよ",
+    "ro": "issho dashi wakuwaku susumu yo",
+    "tr": "因为在一起嘛，兴奋地往前走吧",
+    "lv": "n3",
+    "w": [
+     [
+      "いっしょだし",
+      "いっしょだし",
+      "名詞＋助詞",
+      "又在一起",
+      "「し」表并列理由"
+     ],
+     [
+      "わくわく",
+      "わくわく",
+      "副詞（拟态）",
+      "兴奋地",
+      "同第 2 句"
+     ],
+     [
+      "進むよ",
+      "すすむよ",
+      "動詞＋終助詞",
+      "前进哦",
+      ""
+     ]
+    ],
+    "g": [
+     [
+      "「〜し」＝并列＋理由",
+      "「一緒だし」＝因为是伙伴嘛。这个「し」暗示还有别的原因、只说了这一个，语气随意。日常口语出现率极高。"
+     ],
+     [
+      "与第 22 句对句",
+      "第 22 句是「いっしょにね てくてく進むの」，这里是「いっしょだし わくわく進むよ」。同一动作，副词从「てくてく」换成「わくわく」——从慢慢走升级到兴奋地走。这是本曲最后一次升调。"
+     ]
+    ],
+    "p": "就是「反正咱俩是一起的，兴奋地往前走呗。」",
+    "tip": "「〜し」是 N4 高频接续。表并列或理由，日常口语里几乎每三句就出现一次。"
+   }
+  ]
+ },
+ {
+  "n": "09",
+  "h": "结尾",
+  "jp": "Outro — 收紧收尾",
+  "lines": [
+   {
+    "t": "（サビ② 四句完整重复）",
+    "r": "だからポイッて…／今日をポイッて…／明日へと…／だからポイッて…",
+    "ro": "（同第 17–20 句）",
+    "tr": "结尾把整个副歌②再唱一遍，一字不差。",
+    "lv": "rep",
+    "w": [],
+    "g": [
+     [
+      "和サビ①重复不一样",
+      "サビ①是原样复制；结尾这段虽然也不改词，但紧跟其后的是全新的收束段（てくてくと→一羽二羽→ゴー！），所以它是过渡，不是单纯重复。"
+     ],
+     [
+      "听的时候注意配器",
+      "结尾这两遍「ポイッて」，伴奏通常会撤掉一部分，只留人声＋简单和弦，把最后三句顶出来。这是 J-POP 最常用的「收尾留白」。"
+     ]
+    ],
+    "p": "本段与第 17–20 句一字不差，回去对照即可。",
+    "tip": "注意它后面接的是全新的三段，所以这段重复是「起跳前的下蹲」，不是终点。"
+   },
+   {
+    "t": "夢見るこころは一歩、二歩、三歩、四歩…（同第 20 句）",
+    "r": "ゆめみるこころは一歩、二歩、三歩、四歩…",
+    "ro": "yumemiru kokoro wa ippo, niho, sanpo, yonho...",
+    "tr": "怀着梦想的心，一步、两步、三步、四步……",
+    "lv": "rep",
+    "w": [],
+    "g": [
+     [
+      "词一样，但停顿没了",
+      "第 20 句后面接的是「ごくろうさま」，所以那个省略号是真的停顿；这里后面直接连「いっしょにねてくてくと」，省略号被吃掉了——句子开始往前冲。"
+     ],
+     [
+      "这是全曲的结构支点",
+      "从这里开始，歌词把「一歩二歩」和「一羽二羽」拆开放到两头（中間插一句「てくてくと」），于是「脚步」和「翅膀」被分到了句子的两端。听懂这个切分，就听懂了结尾。"
+     ]
+    ],
+    "p": "同第 20 句，但这次不停顿，直接冲进下一句。",
+    "tip": "对照第 20 句听：同样的词，一次停、一次不停。这种「同词不同处理」是练听力的绝佳材料。"
+   },
+   {
+    "t": "いっしょにねてくてくと",
+    "r": "いっしょにねてくてくと",
+    "ro": "issho ni ne tekuteku to",
+    "tr": "一起哦，一步一步地……",
+    "lv": "n4",
+    "w": [
+     [
+      "いっしょに",
+      "いっしょに",
+      "副詞",
+      "一起",
+      "同第 22 句"
+     ],
+     [
+      "ね",
+      "ね",
+      "終助詞",
+      "哦",
+      ""
+     ],
+     [
+      "てくてく",
+      "てくてく",
+      "副詞（拟态）",
+      "一步一步",
+      "同第 2、22 句"
+     ],
+     [
+      "と",
+      "と",
+      "助詞",
+      "（引用／停顿）",
+      "这里的「と」后面没了——被切掉了"
+     ]
+    ],
+    "g": [
+     [
+      "句尾「と」＋突然中断",
+      "「てくてくと（歩いて）」的谓语被切掉，紧接下一句「一羽、二羽…」。日语歌词常用「と」制造悬停感，像一句话说到一半被下一句顶掉。"
+     ],
+     [
+      "结尾处把「ね」插在中间",
+      "「いっしょにね、てくてくと」＝刻意打乱节奏，让最后一遍副歌显得更碎、更快。"
+     ]
+    ],
+    "p": "就是「一起哦，一步一步地……（话没说完）」",
+    "tip": "这个「と」后面没有动词是刻意的。听歌时注意它是悬停，不是结束。"
+   },
+   {
+    "t": "一羽、二羽、三羽、四羽…",
+    "r": "いちわ、にわ、さんわ、よんわ…",
+    "ro": "ichiwa, niwa, sanwa, yonwa...",
+    "tr": "一只、两只、三只、四只……",
+    "lv": "n3",
+    "w": [
+     [
+      "一羽、二羽、三羽、四羽",
+      "いちわ、にわ、さんわ、よんわ",
+      "名詞",
+      "计数（鸟／兔）",
+      "同第 37 句"
+     ]
+    ],
+    "g": [
+     [
+      "与第 37 句完全重复，但位置变了",
+      "第 37 句前面是「飛びたいこころは」（有主语），这里前面是「てくてくと」（有悬停）。同一句，两次的功能不同：前者是展开，后者是收束。"
+     ],
+     [
+      "紧接着接「ゴー！なこころ」",
+      "重复出现的数数句把最后一句「ゴー！」顶出来，是 J-POP 标准的收尾加速手法。"
+     ]
+    ],
+    "p": "就是「一只、两只、三只、四只……」",
+    "tip": "注意它和前一句的「と」连读，形成「てくてくと、いちわ、にわ…」的节奏。"
+   },
+   {
+    "t": "ゴー！なこころ (冒険だね)　いっしょだし　わくわく進むよ",
+    "r": "ゴー！なこころ (ぼうけんだね)　いっしょだし　わくわくすすむよ",
+    "ro": "goo! na kokoro (bouken da ne) issho dashi wakuwaku susumu yo",
+    "tr": "一颗「Go！」的心 (是冒险呢)，因为在一起，兴奋地往前走",
+    "lv": "n4",
+    "w": [
+     [
+      "ゴー！なこころ",
+      "ゴーなこころ",
+      "名詞句",
+      "一颗 Go 的心",
+      "同第 38 句"
+     ],
+     [
+      "(冒険だね)",
+      "ぼうけんだね",
+      "括弧内応答",
+      "（是冒险呢）",
+      "同第 38 句"
+     ],
+     [
+      "いっしょだし",
+      "いっしょだし",
+      "名詞＋助詞",
+      "因为在一起",
+      "同第 39 句"
+     ],
+     [
+      "わくわく進むよ",
+      "わくわくすすむよ",
+      "動詞句",
+      "兴奋地前进",
+      "同第 39 句"
+     ]
+    ],
+    "g": [
+     [
+      "结尾把第 38、39 句合并重唱",
+      "结构上等于把サビ③的最后两行再唱一次，但去掉了中间的停顿，节奏更紧。这是 J-POP 标准的收尾加快手法。"
+     ],
+     [
+      "全曲的最后一击",
+      "曲子停在「進むよ」，不是「進むの」。一个「よ」（告知）收尾，比开头的「の」（疑问）更笃定——首尾呼应，语气从疑问走向肯定。"
+     ]
+    ],
+    "p": "就是「一颗『Go！』的心 (冒险呢)，在一起，兴奋地往前走。」",
+    "tip": "结尾这一句是全曲唯一两句合一的地方，听的时候注意速度比前面快。这也是全曲唯一用「よ」而不是「の」收尾的地方。"
+   }
+  ]
+ }
+];
+/*==DATA-END==*/
+
+/*==ENGINE-START==*/
+const lvName = {n5:"N5", n4:"N4", n3:"N3", n2:"N2+", lit:"文語", rep:"重复"};
+const box = document.getElementById("lyrics");
+const emptyEl = document.querySelector(".empty");
+const bar = document.getElementById("bar");
+const state = {rd:true, ro:true, tr:true};
+const SECS = Array.isArray(S) ? S : (S.sections || []);
+let all = 0;
+
+try { Object.assign(state, JSON.parse(localStorage.getItem("wbState") || "{}")); } catch (e) {}
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function stripTags(s){return String(s == null ? "" : s).replace(/<[^>]*>/g, " ");}
+
+(SECS).forEach(sec => {
+  const wrap = document.createElement("section");
+  wrap.className = "sec";
+  const nLines = (sec.lines || []).length;
+  wrap.innerHTML = '<div class="sec-h"><span class="n">' + esc(sec.n) +
+    "</span><h3>" + esc(sec.h) + '</h3><span class="jp">' + esc(sec.jp) +
+    '</span><span class="sp"></span><span class="sec-cnt">' + nLines + " 句</span>" +
+    '<button class="sec-tg" type="button">展开本节</button></div>';
+
+  const secTg = wrap.querySelector(".sec-tg");
+  secTg.addEventListener("click", () => {
+    const lines = [...wrap.querySelectorAll(".line")];
+    const anyClosed = lines.some(l => !l.classList.contains("open"));
+    lines.forEach(l => setOpen(l, anyClosed));
+    secTg.textContent = anyClosed ? "收起本节" : "展开本节";
+  });
+
+  (sec.lines || []).forEach(L => {
+    all++;
+    const d = document.createElement("div");
+    d.className = "line" + (L.lv === "rep" ? " repcard" : "");
+
+    let words = "";
+    if (L.w && L.w.length) {
+      words = '<h4>逐词拆解</h4><table class="sx"><thead><tr>' +
+        "<th>词 / 表达</th><th>读音</th><th>词性</th><th>释义</th><th>备注</th></tr></thead><tbody>" +
+        L.w.map(w => '<tr><td class="w" data-h="词">' + esc(w[0]) + '</td><td class="rd2" data-h="读音">' + esc(w[1]) +
+          '</td><td class="pos" data-h="词性">' + esc(w[2]) + '</td><td class="mn" data-h="释义">' + esc(w[3]) +
+          '</td><td class="nt" data-h="备注">' + esc(w[4] || "") + "</td></tr>").join("") +
+        "</tbody></table>";
+    }
+    const gram = (L.g && L.g.length)
+      ? "<h4>句法结构</h4>" + L.g.map(g => '<div class="g"><b>' + g[0] + "</b><br>" + g[1] + "</div>").join("")
+      : "";
+    const plain = L.p ? '<div class="plain"><b>大白话：</b>' + L.p + "</div>" : "";
+    const tip = L.tip ? '<div class="tip"><b>提示：</b>' + L.tip + "</div>" : "";
+
+    d.innerHTML =
+      '<div class="head" role="button" tabindex="0" aria-expanded="false">' +
+        '<div class="orig">' + esc(L.t) + "</div>" +
+        '<div class="rd">' + esc(L.r) + "</div>" +
+        '<div class="ro">' + esc(L.ro) + "</div>" +
+        '<div class="tr">' + L.tr + "</div>" +
+        '<div class="foot"><span class="lv ' + L.lv + '">' + (lvName[L.lv] || L.lv) + "</span></div>" +
+        '<span class="chev" aria-hidden="true">▾</span>' +
+      "</div>" +
+      '<div class="detail">' + words + gram + plain + tip + "</div>";
+
+    d.dataset.search = stripTags([L.t, L.r, L.ro, L.tr, L.p, L.tip]
+      .concat((L.w || []).map(w => w.join(" ")))
+      .concat((L.g || []).map(g => g.join(" ")))
+      .join(" ")).toLowerCase();
+
+    const head = d.querySelector(".head");
+    head.addEventListener("click", () => setOpen(d, !d.classList.contains("open")));
+    head.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(d, !d.classList.contains("open")); }
+    });
+
+    wrap.appendChild(d);
+  });
+  box.appendChild(wrap);
+});
+
+function setOpen(line, open) {
+  line.classList.toggle("open", !!open);
+  const h = line.querySelector(".head");
+  if (h) h.setAttribute("aria-expanded", open ? "true" : "false");
+  const sec = line.closest(".sec");
+  if (sec) syncSecTg(sec);
+}
+function syncSecTg(sec) {
+  const tg = sec.querySelector(".sec-tg");
+  if (!tg) return;
+  const lines = [...sec.querySelectorAll(".line")];
+  tg.textContent = lines.some(l => !l.classList.contains("open")) ? "展开本节" : "收起本节";
+}
+
+function apply() {
+  box.querySelectorAll(".line").forEach(l => {
+    l.querySelector(".rd").style.display = state.rd ? "block" : "none";
+    l.querySelector(".ro").style.display = state.ro ? "block" : "none";
+    l.querySelector(".tr").style.display = state.tr ? "block" : "none";
+  });
+}
+
+
+/* 导航高度写进 --nav-h，供锚点与深读版目录使用 */
+function syncNavH() {
+  const h = bar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-h", Math.round(h) + "px");
+}
+if (window.ResizeObserver) new ResizeObserver(syncNavH).observe(bar);
+else window.addEventListener("resize", syncNavH);
+window.addEventListener("load", syncNavH);
+
+/* 默认全部收起：进来先看到歌词本身，想看解析再点 */
+apply();
+
+/* ---------- 主题 ---------- */
+try { if (localStorage.getItem("wbTheme") === "light") document.documentElement.classList.add("light"); } catch (e) {}
+const themeBtn = document.getElementById("themeBtn");
+function syncThemeBtn() {
+  const light = document.documentElement.classList.contains("light");
+  themeBtn.textContent = light ? "☀️" : "🌙";
+  themeBtn.setAttribute("aria-pressed", light ? "true" : "false");
+  themeBtn.title = light ? "当前：浅色（点击切深色）" : "当前：深色（点击切浅色）";
+}
+themeBtn.addEventListener("click", function () {
+  const light = document.documentElement.classList.toggle("light");
+  try { localStorage.setItem("wbTheme", light ? "light" : "dark"); } catch (e) {}
+  syncThemeBtn();
+  syncNavH();
+});
+syncThemeBtn();
+syncNavH();
+/*==ENGINE-END==*/
+</script>
+</body>
+</html>

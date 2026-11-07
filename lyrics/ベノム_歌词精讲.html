@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ベノム / かいりきベア —— 逐句歌词精讲</title>
+<meta name="description" content="「ベノム」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ベノム / かいりきベア —— 逐句歌词精讲">
+<meta property="og:description" content="「ベノム」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲）">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2308070d'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ff6fb5' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%235fe3f5'/%3E%3C/svg%3E">
+<style>
+/* ==== assets/base.css 内联 ==== */
+/* ===== base.css —— 单曲与合集共用的样式（构建时内联进 <style>） ===== */
+
+/* ---------- 设计令牌 ---------- */
+:root{
+  --bg:#08070d;
+  --bg2:#0c0a14;
+  --panel:#131020;
+  --panel2:#1a1529;
+  --line:#282040;
+  --line2:#3a2e5c;
+  --text:#ece9f7;
+  --muted:#a09ab6;
+  --muted2:#8b84a6;
+  --cyan:#5fe3f5;
+  --pink:#ff6fb5;
+  --violet:#b78cff;
+  --amber:#ffc266;
+  --green:#7ff0a8;
+  --red:#ff8080;
+  --nav-h:64px;
+  --r-md:14px;
+  --r-sm:11px;
+  --fs-body:15px;
+  --fs-sm:14px;
+  --fs-xs:13px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 14px);}
+body{
+  margin:0; background:
+    radial-gradient(1100px 560px at 12% -8%, #2a1040 0%, transparent 58%),
+    radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:var(--fs-body);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-size-adjust:100%;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 120px;}
+
+/* ---------- 页头 ---------- */
+.kicker{font-size:12px;letter-spacing:.28em;color:var(--pink);text-transform:uppercase;font-weight:700;}
+h1{font-size:clamp(28px,5vw,44px);margin:12px 0 6px;letter-spacing:.02em;line-height:1.2;}
+h1 .sub{display:block;font-size:.40em;color:var(--muted);font-weight:400;letter-spacing:.16em;margin-top:10px;}
+.byline{color:var(--muted);font-size:14.5px;margin-top:14px;}
+.byline code{background:var(--panel2);padding:2px 7px;border-radius:5px;color:var(--cyan);font-size:13px;}
+
+/* ---------- 卡片区 ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px;margin:16px 0;}
+.card h2{font-size:17.5px;margin:0 0 12px;color:var(--pink);letter-spacing:.04em;display:flex;align-items:center;gap:9px;}
+.card h2::before{content:"";width:4px;height:16px;background:var(--pink);border-radius:2px;}
+.card.cy h2{color:var(--cyan);} .card.cy h2::before{background:var(--cyan);}
+.card.ok{border-color:#1e4a30;background:linear-gradient(180deg,#0b1c13,#0e0d18);}
+.card.ok h2{color:var(--green);} .card.ok h2::before{background:var(--green);}
+.card.ok p{margin:8px 0;font-size:var(--fs-body);}
+.card.ok b{color:var(--green);}
+.card.hot{border-color:#4a2a3d;}
+.card.hot h2{color:var(--pink);}
+
+/* ---------- 工具栏（单曲 .bar / 合集 .nav 共用控件） ---------- */
+.tg{border:1px solid var(--line2);background:var(--panel2);color:var(--muted);
+    font-size:13.5px;padding:6px 13px;border-radius:20px;cursor:pointer;transition:.16s;
+    user-select:none;font-family:inherit;line-height:1.5;display:inline-flex;align-items:center;gap:6px;}
+.tg:hover{color:var(--text);border-color:var(--pink);}
+.tg.on{background:rgba(255,111,181,.15);border-color:var(--pink);color:var(--pink);font-weight:600;}
+.tg.icon{padding:6px 10px;font-size:14px;}
+.sp{flex:1;}
+.home-link{text-decoration:none;color:var(--muted);font-size:15px;padding:4px 8px;
+          transition:color .2s;}
+.home-link:hover{color:var(--cyan);}
+.count{font-size:var(--fs-xs);color:var(--muted2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+
+.search{position:relative;display:flex;align-items:center;flex:none;}
+.search input{
+  width:210px;max-width:42vw;background:var(--panel2);border:1px solid var(--line2);
+  border-radius:20px;color:var(--text);font-family:inherit;font-size:13.5px;
+  padding:6px 30px 6px 32px;transition:.16s;
+}
+.search input::placeholder{color:var(--muted2);}
+.search input:focus{border-color:var(--cyan);background:var(--panel);}
+.search::before{
+  content:"";position:absolute;left:12px;width:12px;height:12px;pointer-events:none;
+  border:2px solid var(--muted2);border-radius:50%;
+}
+.search::after{
+  content:"";position:absolute;left:21px;top:20px;width:5px;height:2px;pointer-events:none;
+  background:var(--muted2);transform:rotate(45deg);
+}
+.search input:focus ~ .search::before{border-color:var(--cyan);}
+
+/* ---------- 段落 ---------- */
+.sec{margin-top:34px;}
+.sec-h{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);
+       padding-bottom:9px;margin-bottom:4px;flex-wrap:wrap;}
+.sec-h .n{font-size:12.5px;font-weight:800;letter-spacing:.2em;color:var(--cyan);}
+.sec-h h3{margin:0;font-size:20px;}
+.sec-h .jp{color:var(--muted);font-size:14px;}
+.sec-h .sp{flex:1;min-width:0;}
+.sec-tg{border:1px solid transparent;background:transparent;color:var(--muted2);
+        font-family:inherit;font-size:12.5px;padding:4px 10px;border-radius:14px;
+        cursor:pointer;transition:.16s;white-space:nowrap;}
+.sec-tg:hover{color:var(--pink);border-color:var(--line2);background:var(--panel2);}
+.sec-cnt{font-size:12px;color:var(--muted2);font-variant-numeric:tabular-nums;white-space:nowrap;}
+/* 搜索时整段无命中的降级显示（不留空白壳） */
+.sec.nomatch{opacity:.42;}
+.sec.nomatch .sec-h::after{content:"（无匹配）";font-size:12px;color:var(--muted2);}
+
+/* ---------- 句子（阅读优先：连续流，无卡片边框） ---------- */
+.line{position:relative;padding:13px 0 13px;margin:0;border-bottom:1px solid rgba(40,32,64,.55);
+      transition:background .16s;}
+.line:hover{background:rgba(255,255,255,.022);}
+.line.hide{display:none;}
+.line.open{background:rgba(255,255,255,.045);padding-left:16px;}
+.line.open::before{content:"";position:absolute;left:2px;top:12px;bottom:12px;width:3px;
+                   background:var(--pink);border-radius:3px;}
+
+.head{cursor:pointer;position:relative;padding-right:26px;border-radius:8px;}
+.head:hover .chev{opacity:.55;color:var(--pink);}
+.head:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+.orig{font-size:21px;letter-spacing:.03em;line-height:1.55;
+      font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:600;}
+.rd{font-size:14px;color:var(--cyan);margin-top:4px;letter-spacing:.02em;display:none;}
+.ro{font-size:13px;color:var(--muted2);margin-top:3px;font-style:italic;display:none;}
+.tr{font-size:var(--fs-body);color:#c9c3dc;margin-top:9px;padding-left:12px;
+    border-left:2px solid var(--line2);display:none;}
+.foot{display:flex;align-items:center;gap:9px;margin-top:10px;min-height:20px;}
+.lv{font-size:11px;font-weight:800;padding:2.5px 9px;border-radius:20px;letter-spacing:.05em;white-space:nowrap;}
+.lv.n5{background:rgba(127,240,168,.15);color:var(--green);border:1px solid rgba(127,240,168,.35);}
+.lv.n4{background:rgba(95,227,245,.14);color:var(--cyan);border:1px solid rgba(95,227,245,.34);}
+.lv.n3{background:rgba(255,194,102,.14);color:var(--amber);border:1px solid rgba(255,194,102,.34);}
+.lv.n2{background:rgba(255,128,128,.13);color:var(--red);border:1px solid rgba(255,128,128,.32);}
+.lv.rep{background:rgba(183,140,255,.14);color:var(--violet);border:1px solid rgba(183,140,255,.34);}
+.chev{position:absolute;right:2px;top:3px;font-size:12px;color:var(--muted2);
+      opacity:.28;transition:.18s;pointer-events:none;}
+.line.open .chev{opacity:1;color:var(--pink);transform:rotate(180deg);}
+
+.detail{display:none;padding:14px 0 4px;}
+.line.open .detail{display:block;animation:fade .2s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.detail h4{font-size:12.5px;letter-spacing:.16em;color:var(--violet);margin:16px 0 8px;font-weight:700;}
+.detail h4:first-child{margin-top:4px;}
+
+/* ---------- 表格 ---------- */
+table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+th{text-align:left;color:var(--muted2);font-weight:600;font-size:12px;letter-spacing:.1em;
+   padding:6px 9px;border-bottom:1px solid var(--line2);white-space:nowrap;}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:hover td{background:rgba(255,111,181,.05);}
+td.w{font-weight:700;color:var(--text);white-space:nowrap;
+     font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:16px;}
+td.rd2{color:var(--cyan);font-size:13.5px;white-space:nowrap;}
+td.pos{color:var(--pink);font-size:12.5px;white-space:nowrap;}
+td.mn{color:#c9c3dc;}
+td.nt{color:var(--muted);font-size:13px;}
+
+.sx{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin-top:8px;}
+.sx th{font-size:12px;letter-spacing:.1em;padding:8px 10px;border-bottom:1px solid var(--line2);color:var(--muted2);}
+.sx td{padding:9px 10px;border-bottom:1px solid var(--line);}
+.sx td.a{color:var(--pink);font-weight:700;font-family:"Yu Gothic",sans-serif;font-size:15px;}
+.sx td.b{color:var(--cyan);font-family:"Yu Gothic",sans-serif;}
+.sx td.c{color:#c9c3dc;}
+.sx tr:hover td{background:rgba(95,227,245,.05);}
+/* 卡片里的表：窄屏横向滚动 */
+.card .sx{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* ---------- 语法 / 大白话 / 提示 ---------- */
+.g{margin:8px 0;padding:11px 14px;background:var(--panel2);border-radius:9px;
+   border-left:3px solid var(--violet);font-size:14.5px;}
+.g b{color:var(--violet);}
+.plain{margin-top:12px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+       background:rgba(127,240,168,.07);border-left:3px solid var(--green);color:#cdeada;}
+.plain b{color:var(--green);}
+.tip{margin-top:10px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+     background:rgba(255,194,102,.07);border-left:3px solid var(--amber);color:#eadfc7;}
+.tip b{color:var(--amber);}
+
+/* ---------- 小卡网格 ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:6px;}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;}
+.mini .t{font-size:15px;font-weight:700;color:var(--cyan);margin-bottom:6px;}
+.mini .d{font-size:13.5px;color:var(--muted);}
+.mini .d em{color:var(--text);font-style:normal;background:rgba(95,227,245,.1);padding:1px 5px;border-radius:4px;
+            font-family:"Yu Gothic",sans-serif;}
+.mini .ex{font-size:13.5px;margin-top:7px;color:#c9c3dc;padding-top:7px;border-top:1px solid var(--line);}
+.mini .ex span{color:var(--pink);}
+
+footer{text-align:center;color:var(--muted2);font-size:13px;margin-top:52px;
+       padding-top:22px;border-top:1px solid var(--line);}
+
+/* ---------- 空结果提示 ---------- */
+.empty{display:none;padding:26px 0;text-align:center;color:var(--muted2);font-size:14px;}
+.empty.on{display:block;}
+
+/* ---------- 可访问性 ---------- */
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px;}
+.skip{position:absolute;left:-9999px;top:0;background:var(--panel2);color:var(--text);
+      padding:10px 16px;border-radius:0 0 10px 0;z-index:200;}
+.skip:focus{left:0;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+
+/* ---------- 浅色主题（共用部分） ---------- */
+html.light{
+  --bg:#f5f3fb; --bg2:#eeeaf8; --panel:#ffffff; --panel2:#f4f1fc;
+  --line:#e2dcf0; --line2:#cfc6e8;
+  --text:#1c1730; --muted:#585170; --muted2:#6b6484;
+  /* 浅底上必须换一套更深的强调色：原来的青/粉在白色上只有 1.7–2.5:1 */
+  --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
+  --amber:#8a5a00; --green:#0f7a46; --red:#b3261e;
+}
+html.light body{background:
+  radial-gradient(1100px 560px at 12% -8%, #efe7fb 0%, transparent 58%),
+  radial-gradient(900px 520px at 92% 2%, #e6f4fa 0%, transparent 55%),
+  var(--bg);}
+html.light .line{border-bottom-color:var(--line);}
+html.light .line:hover{background:rgba(40,32,64,.028);}
+html.light .line.open{background:rgba(40,32,64,.05);}
+html.light .card.ok{border-color:#b9e2c8;background:linear-gradient(180deg,#f2fbf5,#ffffff);}
+html.light .card.hot{border-color:#e8c2d4;}
+html.light .tr,html.light td.mn,html.light .sx td.c,html.light .mini .ex{color:#4d4763;}
+html.light .plain{color:#1c6e40;background:rgba(23,138,76,.09);}
+html.light .tip{color:#7a5b14;background:rgba(191,138,26,.1);}
+html.light .g{background:#f7f4ff;}
+html.light .tg{background:#fff;}
+html.light .search input{background:#fff;}
+html.light footer{border-top-color:var(--line);}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:700px){
+  :root{--fs-body:15px;}
+  .wrap{padding:0 14px 90px;}
+  .orig{font-size:18.5px;}
+  .card{padding:16px 15px;border-radius:12px;}
+  .count{font-size:12.5px;}
+  .search input{width:150px;padding:6px 26px 6px 30px;font-size:13px;}
+  .sec{margin-top:28px;}
+  .sec-h h3{font-size:18px;}
+
+  /* 歌词里的逐词表：改成「一行一词」的块，避免 5 列在窄屏被裁 */
+  .line .sx{display:block;width:100%;margin-top:6px;}
+  .line .sx thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .line .sx tbody,.line .sx tr,.line .sx td{display:block;width:auto;}
+  .line .sx tr{padding:9px 0 10px;border-bottom:1px solid var(--line);}
+  .line .sx tr:hover td{background:transparent;}
+  .line .sx td{border:0;padding:0;white-space:normal;}
+  .line .sx td.w{font-size:16.5px;font-weight:700;margin-bottom:2px;}
+  .line .sx td.rd2{font-size:13.5px;}
+  .line .sx td.pos{font-size:12px;margin:3px 0 1px;}
+  .line .sx td.mn{font-size:14px;}
+  .line .sx td.nt{font-size:13px;color:var(--muted2);margin-top:4px;}
+  /* 用 data-h 给移动端补上列名标签（只留给释义/备注，词头三行靠字号和颜色区分） */
+  .line .sx td[data-h]::before{content:attr(data-h);color:var(--muted2);font-size:10.5px;
+    letter-spacing:.12em;margin-right:7px;}
+  .line .sx td.w[data-h]::before,.line .sx td.rd2[data-h]::before,
+  .line .sx td.pos[data-h]::before{display:none;}
+  .line .sx td.mn[data-h]{font-size:14.5px;}
+  .line .sx td.nt[data-h]::before{display:none;}
+  .line .sx td.nt[data-h]{padding-left:11px;border-left:2px solid var(--line2);}
+  .line{padding:12px 0;}
+  .line.open{padding-left:13px;}
+  .line.open::before{left:1px;width:3px;}
+  .detail h4{font-size:12px;}
+}
+
+/* ---------- 打印 ---------- */
+@media print{
+  html,body{background:#fff!important;color:#111!important;}
+  .nav,.bar,.search,.chev,.sec-tg,.theme,.modeSwitch,.skip{display:none!important;}
+  .wrap{max-width:none;padding:0;}
+  .card,.line,.mini,.g,.plain,.tip{background:#fff!important;border-color:#bbb!important;
+    break-inside:avoid;box-shadow:none!important;}
+  .orig,.tr,td,.sx td{color:#111!important;}
+  .rd{color:#0a6b7a!important;}
+  .lv{border-color:#999!important;}
+  .line{page-break-inside:avoid;}
+  a[href]::after{content:"";}
+}
+
+
+/* ===== 单曲页专用：工具条 / 主标题区 / 浅色覆盖 ===== */
+.bar{position:sticky;top:0;z-index:60;background:rgba(8,7,13,.94);
+     backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.bar .row{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.bar .sp{flex:1 1 auto;}
+.bar .count{font-size:12.5px;}
+
+header{padding:46px 0 26px;position:relative;overflow:hidden;}
+header .ball{position:absolute;right:-10px;top:-4px;height:112%;opacity:.55;pointer-events:none;}
+header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10px;}
+.gfoot{opacity:.78;}
+
+html.light .bar{background:rgba(250,248,255,.94);}
+
+@media (max-width:700px){
+  .bar .row{padding:8px 12px;gap:6px;}
+  .bar .sp{display:none;}
+  header{padding:28px 0 18px;}
+  header .ball{display:none;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#lyrics">跳到正文</a>
+
+<div class="bar" id="bar">
+  <div class="row">
+    <div class="sp"></div>
+    <a class="home-link" href="../index.html" title="返回博客首页">返回首页</a>
+    <button class="tg icon theme" id="themeBtn" aria-pressed="false" title="切换深浅色">🌙</button>
+  </div>
+</div>
+
+<main class="wrap" id="stage">
+<header>
+  <svg class="ball" viewBox="0 0 120 300" fill="none" aria-hidden="true">
+    <rect x="22" y="190" width="76" height="10" rx="5" fill="#7c4dcc" opacity=".55"/>
+    <rect x="36" y="214" width="48" height="9" rx="4.5" fill="#5fe3f5" opacity=".5"/>
+    <rect x="18" y="76" width="84" height="11" rx="5.5" fill="#ff6fb5" opacity=".85"/>
+    <rect x="30" y="98" width="60" height="9" rx="4.5" fill="#ff6fb5" opacity=".6"/>
+    <rect x="44" y="120" width="40" height="8" rx="4" fill="#b78cff" opacity=".55"/>
+    <rect x="26" y="146" width="66" height="9" rx="4.5" fill="#5fe3f5" opacity=".45"/>
+    <rect x="38" y="166" width="44" height="8" rx="4" fill="#7c4dcc" opacity=".45"/>
+  </svg>
+  <div class="kicker">Lyrics Breakdown · 逐句精讲</div>
+  <h1>ベノム<span class="sub">べのむ / Venom</span></h1>
+  <div class="byline">かいりきベア feat. v flower ／ 作詞・作曲：<code>かいりきベア</code> ／ 2018-08-02 投稿<br>目标水平：<code>JLPT N3–N2</code> ／ 全曲逐句拆词 + 句法结构 + 谐音与表记（中文翻不出来的那些）</div>
+</header>
+
+<div class="card hot">
+<h2>先说清楚：这不是中二病发作，这是一整首歌用谐音把「毒」藏进每一个词</h2>
+<p>表面上是「中二病少女暴走」，其实是一首歌<b>用谐音把「毒」藏在每一个字里</b>：孤独（こどく）里藏着毒，既読（きどく）也是毒，零下（れいか）等于劣化（れっか）。听不出来就只剩吵闹，听出来才发现整首歌都在说同一件事。</p><p>36 行歌词里有五个坑，排掉再读会顺很多：</p><p>① <b>同一个音，两种汉字</b>。愛／哀（都是 あい）、零下／劣化（れいか／れっか）、二進も三進も（算盘口诀）、成敗（不是成败，是处决）——全曲的表记游戏，中文翻不出来，只能标出来。</p><p>② <b>一波副歌只换一个词</b>。第一遍「血流不止」，第二遍换成「已读」；第一遍「吐き出せない（吐不出）」，第二遍「逃げ出せない（逃不掉）」；第一遍「喊」，最后一遍「灭」，最后又回到「喊」。</p><p>③ <b>括号行是第二个声音</b>。六行在括号里的不是主唱，是背景音或系统音，音量压得很低——它们是这首歌真正在说的事，只是不让你听清。</p><p>④ <b>命令形满天飞</b>。探せ／屈め／笑え／アガれ——全曲十几处命令，但说话人从没请求过任何东西，只下指令。被命令的「你」其实就是她自己。</p><p>⑤ <b>「めっ！」打断一切</b>。每次爆发都被一声训斥按住，包括最后一句——这首歌从头到尾没被允许说完。</p><p>建议用法：先读副歌那两句（第 14、16 句），把「あい」和「どく」两个音记住；再回头看主歌，你会发现每一行都在偷偷放这两个音。</p>
+</div>
+
+<div class="card">
+<h2>先把这 8 个套路拿下：这首歌真正的语言骨架</h2>
+<div class="grid">
+<div class="mini"><div class="t">① 同音双关：あい＝愛／哀</div><div class="d">副歌的括号里写着「愛(愛)哀(哀)」——先唱一个「あい」，再标两种汉字。日语能做到这一点：<b>声音一样，意思相反</b>。第 16 句是「愛・哀」，第 28 句改成「愛・愛」——只在表记上把「哀」换成了「爱」，听感完全不变。</div><div class="ex">愛(愛)哀(哀) ／ 愛(愛)愛(愛)</div></div>
+<div class="mini"><div class="t">② どく＝毒／独／既読</div><div class="d">「孤独（こどく）」里藏着「どく」，「既読（きどく）」里也有「どく」。作者用这些词把「毒」铺满全曲——<b>不是出现很多次「毒」字，而是很多词里都带这个音</b>。</div><div class="ex">孤独 ／ 既読 ／ ドクドク</div></div>
+<div class="mini"><div class="t">③ 文语动词＋ルル：造语的公式</div><div class="d">流る（文语「流れる」）＋ルル、零る（こぼれる 的文语）＋ルル、欲しがる＋ルル、回る＋ルル、消える＋ルル。公式＝<b>文语／动词的终止形 ＋ ルル（结巴的重复）</b>。同一个公式造出五个词，全曲的「中毒感」就从这里来。</div><div class="ex">流るルル ／ 零るルル ／ 欲しがルル ／ 回るルル ／ 消えるルル</div></div>
+<div class="mini"><div class="t">④ 命令形：日语最硬的句式</div><div class="d">探せ／屈め／笑え／アガれ／叫べ／滅べ。命令形（〜え／〜ろ）在日语里很粗，对上级不能用。全曲命令形十几处，说明<b>说话人和听话人已经不在乎礼貌了</b>——而这两个人其实是同一个。</div><div class="ex">探せよ探せ ／ 屈めよ屈め ／ 笑えよ笑え ／ アガれよアガれ</div></div>
+<div class="mini"><div class="t">⑤ 名词句：不用动词也能下判断</div><div class="d">「校内猛毒だ」「クソゲーだ」「オーバードーズ刑だ」——A は B だ 的句型，把两样东西直接画等号。<b>省掉动词＝省掉过程</b>，所以听起来像判决，不像叙述。</div><div class="ex">校内猛毒だ ／ 正味クソゲーだ ／ オーバードーズ刑だ</div></div>
+<div class="mini"><div class="t">⑥ て形：把三件事压成一句</div><div class="d">ドクドク呑み込んで／苦しんで／泣いて／吐き出せない。「〜て」可以一直往下接，等于<b>把一整串经历串成一句话</b>，中间不给句号。日语歌词特别爱用这一招拉长呼吸。</div><div class="ex">呑み込んで 苦しんで 泣いて 吐き出せない</div></div>
+<div class="mini"><div class="t">⑦ 可能形否定：できない 的两种意思</div><div class="d">吐き出せない（身体上吐不出）／逃げ出せない（处境上逃不掉）。同样是「做不到」，<b>一个怪自己，一个怪环境</b>——第 11 句和第 24 句就差这一个动词。</div><div class="ex">吐き出せないの ／ 逃げ出せないの</div></div>
+<div class="mini"><div class="t">⑧ 括号行：音量也是语法</div><div class="d">六行歌词在括号里：(例外ない…)／(盛大KNIGHT…)／(ロンリィNIGHT…)／(愛をもっと)…括号内要么是背景和声，要么是系统音。<b>它们不太参与叙事，只负责泄漏真相。</b></div><div class="ex">(愛をもっと) ／ (ロンリィNIGHT テッペン回って…)</div></div>
+</div>
+</div>
+<div id="lyrics"></div>
+<div class="empty">没有匹配的句子，换个关键词试试。</div>
+<div class="card cy">
+<h2>读音陷阱：这些词别读错</h2>
+<table class="sx"><thead><tr><th>词</th><th>读音</th><th>易错点</th></tr></thead><tbody>
+<tr><td class="a">正味</td><td class="b">しょうみ</td><td class="c">不是「まさみ」；口语里＝「说实话」</td></tr>
+<tr><td class="a">倦怠</td><td class="b">けんたい</td><td class="c">不是「けんがい」；书面词，日常多说「だるい」</td></tr>
+<tr><td class="a">二進も三進も</td><td class="b">にっちもさっちも</td><td class="c">汉字看着像「二进制」，其实是算盘口诀</td></tr>
+<tr><td class="a">零下</td><td class="b">れいか</td><td class="c">与「劣化（れっか）」只差促音，双关</td></tr>
+<tr><td class="a">劣化</td><td class="b">れっか</td><td class="c">促音别漏：「れいか」会变成零下</td></tr>
+<tr><td class="a">成敗</td><td class="b">せいばい</td><td class="c">在日语里常指「处决」，不是「成功失败」</td></tr>
+<tr><td class="a">屈め</td><td class="b">かがめ</td><td class="c">不是「くつがえせ」；屈む＝弯腰</td></tr>
+<tr><td class="a">かまちょ</td><td class="b">かまちょ</td><td class="c">「かまってちょうだい」的缩略，网络语</td></tr>
+<tr><td class="a">寂</td><td class="b">みじゃく</td><td class="c">这里读「みじゃく」，取「寂しい」的词干</td></tr>
+<tr><td class="a">狼狽</td><td class="b">ろうばい</td><td class="c">不是「ろうがい」；意思是被打乱阵脚</td></tr>
+<tr><td class="a">零る</td><td class="b">こぼる</td><td class="c">文语的「こぼれる」，现代读「こぼれる」</td></tr>
+<tr><td class="a">アガる</td><td class="b">あがる</td><td class="c">口语里＝情绪高涨，不是「上升」</td></tr>
+<tr><td class="a">傷害</td><td class="b">しょうがい</td><td class="c">与「障害」同音，别混淆</td></tr>
+<tr><td class="a">悪性</td><td class="b">あくせい</td><td class="c">医学用语「恶性」，不是「性格不好」</td></tr>
+</tbody></table>
+</div>
+<footer>
+  <div class="gfoot">逐句拆解仅供日语学习参考 · 歌词著作权归 かいりきベア 及原权利人所有<br>歌词据 <a href="https://www.uta-net.com/song/303827/">歌ネット</a> 与 <a href="https://utaten.com/lyric/iz19011617/">うたてん</a> 两站交叉核对 · 中文译文与解析为本站原创</div>
+</footer>
+</main>
+
+<script>
+/*==DATA-START==*/
+const S = [
+ {
+  "n": "01",
+  "h": "主歌 1a · 缺的那一样",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "アアア…足りないもの　なーんだ　僕らの人生",
+    "r": "アアア たりないもの なーんだ ぼくらのじんせい",
+    "ro": "aaa tarinai mono naanda bokura no jinsei",
+    "tr": "啊啊啊…不够的那一样是什么呀 我们的人生",
+    "lv": "n4",
+    "w": [
+     [
+      "足りない",
+      "たりない",
+      "イ形",
+      "不够、缺",
+      "足りる（足够）的否定形"
+     ],
+     [
+      "もの",
+      "もの",
+      "名詞",
+      "东西、事物",
+      "这里指「人生里缺的那块」"
+     ],
+     [
+      "なーんだ",
+      "なーんだ",
+      "連語",
+      "是什么呢",
+      "「なんだ」拉长音，装可爱也装傻"
+     ],
+     [
+      "僕ら",
+      "ぼくら",
+      "代名詞",
+      "我们",
+      "「僕」＋复数「ら」，比「私たち」随意"
+     ],
+     [
+      "人生",
+      "じんせい",
+      "名詞",
+      "人生",
+      "全曲出现 4 次，每次前面挂一个形容词"
+     ]
+    ],
+    "p": "啊啊啊…缺的那一样到底是什么呢，我们的人生。",
+    "g": [
+     [
+      "なーんだ＝「なんだ」的拖长音",
+      "「何だ」→「なーんだ」。长音一拉，语气就从「疑问」变成「装傻」——像小孩在出谜语。这是全曲的基本腔调：<b>用最可爱的声音问最不好回答的问题</b>。"
+     ],
+     [
+      "「足りない」的否定在哪",
+      "足りる（够）→ 足りない（不够）。日语形容词否定就是「〜ない」，不需要动词。注意它不是「少ない」（数量少），而是<b>「该有的没有」</b>——差一块，而不是差一点。"
+     ]
+    ],
+    "tip": "第一句就把全曲的问题摆出来了：不是「我有多惨」，而是「我缺的那一块叫什么名字」。"
+   },
+   {
+    "t": "正解どこなんだ　探せよ探せ",
+    "r": "せいかい どこなんだ さがせよ さがせ",
+    "ro": "seikai doko nanda sagase yo sagase",
+    "tr": "正确答案在哪儿啊 找啊找啊",
+    "lv": "n3",
+    "w": [
+     [
+      "正解",
+      "せいかい",
+      "名詞",
+      "正确答案",
+      "对应上一句的「谜语」"
+     ],
+     [
+      "どこ",
+      "どこ",
+      "代名詞",
+      "哪里",
+      "疑问词"
+     ],
+     [
+      "探せ",
+      "さがせ",
+      "動詞",
+      "找（命令形）",
+      "探す的命令形，粗鲁、像在催"
+     ],
+     [
+      "よ",
+      "よ",
+      "助詞",
+      "啊（催促）",
+      "命令形＋よ，把命令推给对方"
+     ]
+    ],
+    "p": "正确答案到底在哪儿啊，找啊，快找啊。",
+    "g": [
+     [
+      "命令形＋よ＝把责任丢出去",
+      "「探せよ」不是「我在找」，是「你去找」。日语命令形（探せ／行け／やめろ）本身很硬，加「よ」后变成<b>焦躁的催促</b>。第二句就把矛头从「我」转向了听的人。"
+     ]
+    ],
+    "tip": "注意：问句是自己问的，命令却是对别人下的——这首歌一直在这样转移。"
+   },
+   {
+    "t": "(例外ない　二進も三進も　零下以内なら　劣化以外ない)",
+    "r": "れいがいない にっちもさっちも れいかいないなら れっか いがいない",
+    "ro": "reigai nai nicchi mo sacchi mo reika inai nara rekka igai nai",
+    "tr": "（没有例外　进退两难　只要在零度以下　除了劣化没别的）",
+    "lv": "n2",
+    "w": [
+     [
+      "例外ない",
+      "れいがいない",
+      "連語",
+      "没有例外",
+      "「例外がない」的省略"
+     ],
+     [
+      "二進も三進も",
+      "にっちもさっちも",
+      "連語",
+      "进退两难",
+      "来自算盘口诀「二進も三進も行かない」，见备注"
+     ],
+     [
+      "零下",
+      "れいか",
+      "名詞",
+      "零度以下",
+      "与下一句的「劣化（れっか）」同音"
+     ],
+     [
+      "劣化",
+      "れっか",
+      "名詞",
+      "劣化、变差",
+      "同音双关：零下＝劣化"
+     ]
+    ],
+    "p": "（没有例外，怎么算都算不通，只要温度在零下，剩下的就只有变坏。）",
+    "g": [
+     [
+      "括号＝另一个声音",
+      "全曲有六行在<b>括号里</b>。括号内不是主唱在说话，是背景音／旁白／系统提示。唱的时候音量会压低——这是分辨「谁在说话」的记号。"
+     ],
+     [
+      "二進も三進も：算盘上的死局",
+      "算盘拨珠「二進（にしん）」进位不成，「三進（さんしん）」也不成，就是<b>怎么算都走不通</b>。现在只留「にっちもさっちも（いかない）」这个固定说法，意思是进退维谷。"
+     ],
+     [
+      "零下／劣化：同音置换",
+      "れいか（零下）与 れっか（劣化）只差一个促音。作者把「温度降到零下」和「人变差」压成同一串音——<b>冷下去＝烂下去</b>。"
+     ]
+    ],
+    "tip": "这一行是这首歌的骨架：算不通、冷下去、坏掉——三个意思用一串音说完。"
+   },
+   {
+    "t": "ああ正味クソゲーだ　カラ空回れ",
+    "r": "ああ しょうみ くそげーだ からまわれ",
+    "ro": "aa shoumi kusogee da kara maware",
+    "tr": "唉，说真的就是个垃圾游戏 空转吧你",
+    "lv": "n3",
+    "w": [
+     [
+      "正味",
+      "しょうみ",
+      "副詞",
+      "说实话、净算下来",
+      "口语「正味」＝老实说"
+     ],
+     [
+      "クソゲー",
+      "くそげー",
+      "名詞",
+      "垃圾游戏",
+      "クソ（屎）＋ゲー（game），网络俚语"
+     ],
+     [
+      "カラ",
+      "から",
+      "接頭辞",
+      "空、干",
+      "「空回り」的强调前缀"
+     ],
+     [
+      "空回れ",
+      "からまわれ",
+      "動詞",
+      "空转（命令形）",
+      "空回る＝轮子转但不前进"
+     ]
+    ],
+    "p": "唉，说白了这个人生就是个垃圾游戏——你就空转吧。",
+    "g": [
+     [
+      "クソゲー：把人生降格成游戏",
+      "日语骂人常用的构词法：クソ＋名词（クソ野郎／クソ上司）。这里接的是「ゲー（game）」，一句话把人生从「命运」降成<b>一个设计得很烂的产品</b>。"
+     ],
+     [
+      "空回れ：又一个命令形",
+      "空回る＝空转。命令形「空回れ」＝「你就空转吧」。全曲的命令形极多（探せ／屈め／笑え／アガれ），说话人<b>从不请求，只下指令</b>。"
+     ]
+    ],
+    "tip": "第一段结束在「你就空转吧」——她不打算解决，只打算继续转。"
+   }
+  ]
+ },
+ {
+  "n": "02",
+  "h": "主歌 1b · 换个说法重来一遍",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "アアア…倦怠モード「苦」だ　僕らの人生",
+    "r": "アアア けんたいもーど く だ ぼくらのじんせい",
+    "ro": "aaa kentai moodo ku da bokura no jinsei",
+    "tr": "啊啊啊…倦怠模式「苦」啊 我们的人生",
+    "lv": "n3",
+    "w": [
+     [
+      "倦怠",
+      "けんたい",
+      "名詞",
+      "倦怠、腻烦",
+      "书面词，比「だるい」正式"
+     ],
+     [
+      "モード",
+      "もーど",
+      "名詞",
+      "模式",
+      "机械／电器的说法，把情绪说成设定"
+     ],
+     [
+      "苦",
+      "く",
+      "名詞",
+      "苦",
+      "一个字，读「く」，与「九」「句」同音"
+     ]
+    ],
+    "p": "啊啊啊…现在切到倦怠模式，读作「苦」——我们的人生。",
+    "g": [
+     [
+      "「苦」＝く：一个字撑起一句话",
+      "「モード『苦』だ」＝模式叫「苦」。作者用<b>引号把单个汉字变成产品型号</b>。这和下一段的「独（どく）」是同一手法：情绪被做成标签。"
+     ],
+     [
+      "モード：把心情说成设定",
+      "モード（mode）是机器用语。说「倦怠モード」等于说<b>我的状态是被人设好的</b>，不是我自己选的——全曲的无力感都从这类词里来。"
+     ]
+    ],
+    "tip": "第一段说「垃圾游戏」，这一段说「倦怠模式」——同一个意思，换成机器说明书的口吻。"
+   },
+   {
+    "t": "校内猛毒だ　屈めよ屈め",
+    "r": "こうないもうどく だ かがめよ かがめ",
+    "ro": "kounai moudoku da kagame yo kagame",
+    "tr": "校内剧毒啊 给我低头 低头",
+    "lv": "n3",
+    "w": [
+     [
+      "校内",
+      "こうない",
+      "名詞",
+      "校内",
+      "校园场景，和「猛毒」拼在一起很怪"
+     ],
+     [
+      "猛毒",
+      "もうどく",
+      "名詞",
+      "剧毒",
+      "游戏／漫画用词"
+     ],
+     [
+      "屈め",
+      "かがめ",
+      "動詞",
+      "弯腰、低头（命令形）",
+      "屈む的命令形"
+     ]
+    ],
+    "p": "校内到处是剧毒——低头，快低头。",
+    "g": [
+     [
+      "「校内」＋「猛毒」：学校的怪物化",
+      "把「学校」和「剧毒」直接拼在一起，不需要动词就成立了<b>一个恐怖场景</b>。日语名词句（A は B だ）天生适合干这个：不说「学校里有毒」，说「学校＝剧毒」。"
+     ],
+     [
+      "屈めよ：命令形的叠加",
+      "「屈めよ屈め」——命令一次不够，再来一次。这种<b>同一命令连喊</b>在歌词里表示「压迫感」，不是真的叫谁弯腰。"
+     ]
+    ],
+    "tip": "第一节是游戏，第二节是学校——场景换了，压迫没换。"
+   },
+   {
+    "t": "(盛大KNIGHT　和気あいゴッコは成敗DIE by　生産性ない)",
+    "r": "せいだいないと わけあいごっこは せいばいだい ばい せいさんせいない",
+    "ro": "seidai naito wakeai gokko wa seibai dai bai seisansei nai",
+    "tr": "（盛大的骑士　和和气气过家家要被处决　DIE by　毫无生产力）",
+    "lv": "n2",
+    "w": [
+     [
+      "盛大",
+      "せいだい",
+      "ナ形",
+      "盛大",
+      "与 KNIGHT／ないと 谐音"
+     ],
+     [
+      "KNIGHT",
+      "ないと",
+      "名詞",
+      "骑士",
+      "与「night（夜）」同音，双关"
+     ],
+     [
+      "和気あい",
+      "わけあい",
+      "名詞",
+      "和睦、和气",
+      "「和気あいあい」的一半"
+     ],
+     [
+      "ゴッコ",
+      "ごっこ",
+      "名詞",
+      "过家家",
+      "子供の遊び；「〜ごっこ」＝假装"
+     ],
+     [
+      "成敗",
+      "せいばい",
+      "名詞",
+      "处决、惩罚",
+      "不是「成功失败」，是「惩罚」"
+     ],
+     [
+      "生産性",
+      "せいさんせい",
+      "名詞",
+      "生产力",
+      "现代职场词，被塞进中世场景"
+     ]
+    ],
+    "p": "（摆出一副盛大的骑士派头，玩着和和气气的过家家，结果被处决——DIE by 毫无生产力。）",
+    "g": [
+     [
+      "这一行是谐音拼贴，不是句子",
+      "盛大(せいだい)／KNIGHT(ないと)／night(ないと)／内部(ないぶ)——四个音在打架。括号行本来就是<b>声音的实验场</b>：先让耳朵听到，再让脑子去解码。"
+     ],
+     [
+      "成敗＝惩罚，不是成败",
+      "日语「成敗（せいばい）」在现代多指「処罰」。写成汉字像「成功与失败」，读出来却是「处决」——<b>汉字骗人，读音才是真的</b>，这是全曲的核心玩法。"
+     ]
+    ],
+    "tip": "括号里的这一行几乎无法直译，它要的是「听起来像一堆东西在同时说」。"
+   },
+   {
+    "t": "ああ後悔もう「独」だ　笑えよ笑え",
+    "r": "ああ こうかいもう どく だ わらえよ わらえ",
+    "ro": "aa koukai mou doku da warae yo warae",
+    "tr": "唉，后悔都成「独」了 笑吧 笑吧",
+    "lv": "n3",
+    "w": [
+     [
+      "後悔",
+      "こうかい",
+      "名詞",
+      "后悔",
+      "与「公開」同音"
+     ],
+     [
+      "独",
+      "どく",
+      "名詞",
+      "独、独自",
+      "一个字，读「どく」，与「毒」同音"
+     ],
+     [
+      "笑え",
+      "わらえ",
+      "動詞",
+      "笑（命令形）",
+      "笑う的命令形"
+     ]
+    ],
+    "p": "唉，后悔到这里就只剩一个「独」字——笑吧，笑吧。",
+    "g": [
+     [
+      "「独」＝どく＝毒",
+      "上一段的「苦」读く，这一段的「独」读どく——<b>毒</b>。作者用单个汉字当密码：看着是「孤独」的独，听着是「毒」。歌名「ベノム（venom＝毒）」在这里被拆成汉字。"
+     ],
+     [
+      "笑えよ：第三个命令形",
+      "探せよ／屈めよ／笑えよ——三个命令全是<b>对「你」说的</b>，而「你」其实就是她自己。全曲的对峙发生在一个人内部。"
+     ]
+    ],
+    "tip": "「后悔成了毒」＋「你笑吧」——这是把自己逼到墙角的标准句式。"
+   }
+  ]
+ },
+ {
+  "n": "03",
+  "h": "主歌 1c · 配方",
+  "jp": "Bメロ",
+  "lines": [
+   {
+    "t": "心のレシピは　かまちょ味寂ジャンキー",
+    "r": "こころのれしぴは かまちょあじ みじゃくじゃんきー",
+    "ro": "kokoro no reshipi wa kamacho aji mijaku jankii",
+    "tr": "心的配方是「求关注味·寂寞成瘾」",
+    "lv": "n2",
+    "w": [
+     [
+      "レシピ",
+      "れしぴ",
+      "名詞",
+      "配方、食谱",
+      "把心当成一道菜"
+     ],
+     [
+      "かまちょ",
+      "かまちょ",
+      "名詞",
+      "求关注",
+      "「かまってちょうだい」的缩略，网络语"
+     ],
+     [
+      "味",
+      "あじ",
+      "名詞",
+      "味道",
+      "接在名词后＝「〜味」"
+     ],
+     [
+      "寂",
+      "みじゃく",
+      "名詞",
+      "寂",
+      "「寂しい」的词干，故意写成单字"
+     ],
+     [
+      "ジャンキー",
+      "じゃんきー",
+      "名詞",
+      "成瘾者",
+      "junkie；也指爱吃垃圾食品的人"
+     ]
+    ],
+    "p": "心的配方是「求关注」味，寂寞成瘾。",
+    "g": [
+     [
+      "名词罗列＝配方",
+      "「心のレシピは A 味 B ジャンキー」——把心写成<b>一包配料表</b>。日语名词句的好处是不用动词就能把两样东西黏在一起，读到「味」自然会接「是什么味」。"
+     ],
+     [
+      "かまちょ：网络缩略语",
+      "かまって（理我一下）＋ちょうだい → かまちょ。平成末的网络用语，<b>用撒娇的语气说出很痛的需求</b>。这类缩略语全曲很多（クソゲー／テンションLOW／オーバードーズ），构成「现代病」的语感层。"
+     ]
+    ],
+    "tip": "「求关注味·寂寞成瘾」——把孤独写成一个食品口味，这是这首歌最刻薄的一笔。"
+   },
+   {
+    "t": "だんだん強がって　ドロドロに伏す",
+    "r": "だんだんつよがって どろどろにふす",
+    "ro": "dandan tsuyogatte dorodoro ni fusu",
+    "tr": "越来越逞强　然后泥一样趴下",
+    "lv": "n3",
+    "w": [
+     [
+      "だんだん",
+      "だんだん",
+      "副詞",
+      "渐渐",
+      "叠词副词"
+     ],
+     [
+      "強がって",
+      "つよがって",
+      "動詞",
+      "逞强（て形）",
+      "強がる＝装强"
+     ],
+     [
+      "ドロドロ",
+      "どろどろ",
+      "副詞",
+      "黏糊糊、稀烂",
+      "拟态词"
+     ],
+     [
+      "伏す",
+      "ふす",
+      "動詞",
+      "趴、伏",
+      "书面语，比「寝る」更没力气"
+     ]
+    ],
+    "p": "一点点硬撑起来，又烂泥一样趴下去。",
+    "g": [
+     [
+      "て形＝先后顺序",
+      "「強がって、伏す」——先逞强，然后垮掉。て形在这里表<b>动作的先后</b>，不是并列。日语的て形最常干这个活：把两件事按时间排好。"
+     ],
+     [
+      "ドロドロに伏す：拟态词＋に",
+      "「ドロドロ」是黏稠状。拟态词＋「に」修饰动词，等于<b>用声音画出动作的样子</b>。后半段「バラバラに伏す」是同一句型的替换。"
+     ]
+    ],
+    "tip": "这一句是全曲的力学：撑起来，垮下去，再撑起来。"
+   },
+   {
+    "t": "ドクドク呑み込んで　苦しんで泣いて吐き出せないの　ベノベノム",
+    "r": "どくどくのみこんで くるしんでないてはきだせないの べのべのむ",
+    "ro": "dokudoku nomikonde kurushinde naite hakidasenai no benobenomu",
+    "tr": "咕嘟咕嘟吞下去　痛苦着哭着却吐不出来 毒毒毒",
+    "lv": "n3",
+    "w": [
+     [
+      "ドクドク",
+      "どくどく",
+      "副詞",
+      "咕嘟咕嘟",
+      "液体流动声；也是「毒（どく）」的叠音"
+     ],
+     [
+      "呑み込んで",
+      "のみこんで",
+      "動詞",
+      "吞下（て形）",
+      "呑む＝喝、吞"
+     ],
+     [
+      "苦しんで",
+      "くるしんで",
+      "動詞",
+      "痛苦（て形）",
+      "苦しい的动词形"
+     ],
+     [
+      "泣いて",
+      "ないて",
+      "動詞",
+      "哭（て形）",
+      "泣く的て形"
+     ],
+     [
+      "吐き出せない",
+      "はきだせない",
+      "動詞",
+      "吐不出来",
+      "可能形否定"
+     ],
+     [
+      "ベノベノム",
+      "べのべのむ",
+      "名詞",
+      "毒毒毒（造语）",
+      "venom 的结巴化"
+     ]
+    ],
+    "p": "咕嘟咕嘟全咽下去，疼着、哭着，就是吐不出来——毒、毒、毒。",
+    "g": [
+     [
+      "三个て形连成一条线",
+      "呑み込んで／苦しんで／泣いて——三个「〜て」串起来，等于<b>一件事接一件事地发生</b>，中间没有句号。日语靠て形可以把一整段经历压成一句。"
+     ],
+     [
+      "吐き出せないの：可能形＋の",
+      "吐く→吐き出す→吐き出せる（能吐）→吐き出せない（吐不出）。句尾「の」是<b>轻微的解释／撒娇</b>，把「吐不出来」说得像在跟人诉苦。"
+     ],
+     [
+      "ベノベノム：结巴造语",
+      "venom（毒）→ ベノム → 贝ノ贝ノム。作者把「ベノム」切碎重复，模拟<b>中毒后说话打结</b>。这类造语全曲共三种：叫ベ／滅ベ／叫べ。"
+     ]
+    ],
+    "tip": "这句是这首歌的发动机：吞下去的东西吐不出来，于是变成毒。"
+   }
+  ]
+ },
+ {
+  "n": "04",
+  "h": "間奏 · 两句话",
+  "jp": "間奏",
+  "lines": [
+   {
+    "t": "さよなラ",
+    "r": "さよなら",
+    "ro": "sayonara",
+    "tr": "再见啦",
+    "lv": "n4",
+    "w": [
+     [
+      "さよなラ",
+      "さよなら",
+      "連語",
+      "再见",
+      "「ら」故意写成片假名"
+     ]
+    ],
+    "p": "再见啦。",
+    "g": [
+     [
+      "「ら」为什么是片假名",
+      "さよなら 的最后一个音被单独拎出来写成片假名「ラ」——<b>一个音单独亮了一下</b>。全曲到处是这种「把假名当音符用」的手法。"
+     ]
+    ],
+    "tip": "两个字的告别，被拆成一个音一个音。"
+   },
+   {
+    "t": "あらま",
+    "r": "あらま",
+    "ro": "arama",
+    "tr": "哎呀",
+    "lv": "n3",
+    "w": [
+     [
+      "あらま",
+      "あらま",
+      "感動詞",
+      "哎呀",
+      "「あら」＋「まあ」的合成，老派女性用语"
+     ]
+    ],
+    "p": "哎呀。",
+    "g": [
+     [
+      "あらま＝情绪被抽干",
+      "「あらま」本来是很轻的感叹（哎呀呀）。放在两段之间，等于<b>用最轻的语气接最重的场面</b>——不是不在乎，是已经麻了。"
+     ]
+    ],
+    "tip": "「再见啦」后面接一句「哎呀」——告别被降级成一句口头禅。"
+   }
+  ]
+ },
+ {
+  "n": "05",
+  "h": "副歌 1 · 求愛性",
+  "jp": "サビ",
+  "lines": [
+   {
+    "t": "求愛性　孤独　ドク　流るルル(愛をもっと)頂戴な　ねえ",
+    "r": "きゅうあいせい こどく どく ながるるる あいをもっと ちょうだいな ねえ",
+    "ro": "kyuuai sei kodoku doku nagarururu ai o motto choudai na nee",
+    "tr": "求爱性 孤独 毒 流啊流啊（爱再多给点）给我嘛 喂",
+    "lv": "n2",
+    "w": [
+     [
+      "求愛性",
+      "きゅうあいせい",
+      "名詞",
+      "求爱性",
+      "造语；仿「酸性／中毒性」的词尾"
+     ],
+     [
+      "孤独",
+      "こどく",
+      "名詞",
+      "孤独",
+      "「どく」藏在里面，与毒同音"
+     ],
+     [
+      "ドク",
+      "どく",
+      "名詞",
+      "毒",
+      "片假名写法，只当声音听"
+     ],
+     [
+      "流るルル",
+      "ながるるる",
+      "動詞",
+      "流啊流（造语）",
+      "文语「流る」＋重复的ル"
+     ],
+     [
+      "頂戴な",
+      "ちょうだいな",
+      "連語",
+      "给我嘛",
+      "「頂戴」＝得到，撒娇说法"
+     ],
+     [
+      "ねえ",
+      "ねえ",
+      "感動詞",
+      "喂、呐",
+      "句尾求回应"
+     ]
+    ],
+    "p": "求爱性、孤独、毒——全都流啊流啊。（爱再多给我一点嘛）喂。",
+    "g": [
+     [
+      "文语「流る」＋ルル",
+      "「流る」是古典日语的下二段动词（现代是「流れる」）。作者把它接上「ルル」重复——<b>文语骨架＋口语结巴</b>，正是这首歌的语言配方。同型还有 零るルル／欲しがルル／回るルル／消えるルル。"
+     ],
+     [
+      "頂戴な：撒娇式索取",
+      "「頂戴」原是「得到」的谦让语，现代口语「〜頂戴」＝「给我」。加「な」变成软软的请求（＝给我嘛）。<b>用最撒娇的语气，要最根本的东西（爱）</b>。"
+     ],
+     [
+      "括号「(愛をもっと)」＝第二声部",
+      "括号里的词不是主唱唱的，是<b>叠在后面的耳语</b>。全曲几乎每个副歌都有这样一层「说真心话的小声音」。"
+     ]
+    ],
+    "tip": "副歌把三个词并排：求爱性／孤独／毒——三个词里两个含「どく／こどく」，声音上是同一个字。"
+   },
+   {
+    "t": "痛い痛いのとんでけ",
+    "r": "いたいいたいのとんでけ",
+    "ro": "itai itai no tondeke",
+    "tr": "痛痛飞走吧",
+    "lv": "n4",
+    "w": [
+     [
+      "痛い",
+      "いたい",
+      "イ形",
+      "疼、痛",
+      "受伤时的基本词"
+     ],
+     [
+      "とんでけ",
+      "とんでけ",
+      "動詞",
+      "飞走吧（命令形）",
+      "飛んで行け 的缩略，念咒语时才用"
+     ]
+    ],
+    "p": "痛痛——飞走吧。",
+    "g": [
+     [
+      "「痛いの痛いの飛んでけ」：日本小孩的咒语",
+      "小孩磕到膝盖哭的时候，大人一边揉一边念「痛いの痛いの飛んでけ」——<b>把痛当成一只可以赶走的小虫</b>。全曲三次念它，第一次是真的在哄自己。"
+     ],
+     [
+      "とんでけ：命令形＋缩略",
+      "飛んで行け → とんでけ。命令形被压成一个软软的词尾，<b>语法上是指令，听起来是撒娇</b>——这正是全曲命令形的典型用法。"
+     ]
+    ],
+    "tip": "这句是全曲的基准线：后面每一次再念它，都是在跟这一遍比。一个 N4 的童谣句型，念三次就变成了主题。"
+   },
+   {
+    "t": "存在感　血ドクドク　零るルル(無いの？もっと)愛(愛)哀(哀)",
+    "r": "そんざいかん ちどくどく こぼるるる ないの もっと あい あい",
+    "ro": "sonzaikan chi dokudoku koborururu nai no motto ai ai",
+    "tr": "存在感 血咕嘟咕嘟地流（没有吗？再多点）爱 哀",
+    "lv": "n2",
+    "w": [
+     [
+      "存在感",
+      "そんざいかん",
+      "名詞",
+      "存在感",
+      "社会性词汇"
+     ],
+     [
+      "血ドクドク",
+      "ちどくどく",
+      "名詞",
+      "血咕嘟咕嘟",
+      "血＋拟声"
+     ],
+     [
+      "零るルル",
+      "こぼるるる",
+      "動詞",
+      "溢出、洒（造语）",
+      "零る＝こぼれる 的文语化"
+     ],
+     [
+      "無いの",
+      "ないの",
+      "連語",
+      "没有吗",
+      "「ない」＋疑问「の」"
+     ],
+     [
+      "愛",
+      "あい",
+      "名詞",
+      "爱",
+      "与「哀（あい）」同音"
+     ],
+     [
+      "哀",
+      "あい",
+      "名詞",
+      "哀",
+      "同音汉字并置"
+     ]
+    ],
+    "p": "存在感——血咕嘟咕嘟往外洒。（没有吗？再多点）爱，哀。",
+    "g": [
+     [
+      "愛／哀：同音并置",
+      "「愛(愛)哀(哀)」＝先唱「あい」，再在括号里标「愛」「哀」。<b>同一个音，两种汉字</b>——日语能这样玩，中文不能。这是全曲最锋利的一处表记游戏。"
+     ],
+     [
+      "零る：こぼれる的文语形",
+      "现代「零れる（こぼれる）」→ 文语「零る（こぼる）」。作者保留文语形再加「ルル」，形成<b>古典＋故障感</b>。"
+     ],
+     [
+      "血ドクドク＝毒ドクドク",
+      "「ドクドク」本是血流声，也是「毒（どく）」的叠音。上一句的「ドク（毒）」到了这一句变成血的声音——<b>毒流出来就是血</b>。"
+     ]
+    ],
+    "tip": "存在感要靠流血来证明——这一句把「我想被看见」说到最难听的程度。"
+   },
+   {
+    "t": "叫ベベノム　(めっ！)",
+    "r": "さけべべのむ めっ",
+    "ro": "sakebebe nomu me",
+    "tr": "叫吧 毒毒毒（惩罚！）",
+    "lv": "n3",
+    "w": [
+     [
+      "叫ベ",
+      "さけべ",
+      "動詞",
+      "叫、喊（命令形）",
+      "叫ぶ的命令形，汉字与假名混写"
+     ],
+     [
+      "ベノム",
+      "べのむ",
+      "名詞",
+      "毒",
+      "venom 的音译"
+     ],
+     [
+      "めっ",
+      "めっ",
+      "感動詞",
+      "惩罚！不行！",
+      "训小孩时说的「めっ」"
+     ]
+    ],
+    "p": "叫吧——毒、毒毒毒！（不行哦！）",
+    "g": [
+     [
+      "叫ベベノム：汉字＋片假名的拼接",
+      "「叫ベ」＝叫ぶ的命令形，「ベノム」＝毒。中间多出的「ベ」让两个词黏成<b>一个怪词</b>。同型：滅べベベノム／叫べベベノム——重复次数不同，情绪不同。"
+     ],
+     [
+      "めっ！＝训斥的语气",
+      "大人对小孩说「めっ！」是「不可以哦」。放在咆哮之后，<b>像被人当场制止</b>——一句撒娇式的训斥，把前面的爆发全按回去。"
+     ]
+    ],
+    "tip": "喊完之后被一句「めっ！」打断。这首歌每次爆发都被打断。"
+   }
+  ]
+ },
+ {
+  "n": "06",
+  "h": "主歌 2a · 换一遍词，问题不动",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "アアア…最高点ゼロだ　僕らの人生",
+    "r": "アアア さいこうてん ぜろだ ぼくらのじんせい",
+    "ro": "aaa saikouten zero da bokura no jinsei",
+    "tr": "啊啊啊…最高分是零啊 我们的人生",
+    "lv": "n3",
+    "w": [
+     [
+      "最高点",
+      "さいこうてん",
+      "名詞",
+      "最高分",
+      "考试的「最高分」"
+     ],
+     [
+      "ゼロ",
+      "ぜろ",
+      "名詞",
+      "零",
+      "与第一段的「足りない」呼应"
+     ],
+     [
+      "僕ら",
+      "ぼくら",
+      "代名詞",
+      "我们",
+      "与第一段同一主语"
+     ],
+     [
+      "人生",
+      "じんせい",
+      "名詞",
+      "人生",
+      "第四次出现"
+     ]
+    ],
+    "p": "啊啊啊…我们的人生的最高分是零。",
+    "g": [
+     [
+      "「最高点ゼロ」＝自相矛盾的分数",
+      "最高点（最高分）本该是好事，接上「ゼロ」就变成<b>「上限就是零」</b>。日语这种「好词＋坏数字」的搭配不需要连接词，靠语序就能让两个词互相打脸。"
+     ],
+     [
+      "与第一段的镜像",
+      "第一段问「缺的是什么」，这一段宣布「最高分是零」——<b>同样的句式，从疑问变成判决</b>。全曲的结构就是这样一段一段把话说死。"
+     ]
+    ],
+    "tip": "第一段在问，这一段直接判了：顶格就是零。"
+   },
+   {
+    "t": "断然テンションLOWだ　屈めよ屈め",
+    "r": "だんぜん てんしょん ろーだ かがめよ かがめ",
+    "ro": "danzen tenshon roo da kagame yo kagame",
+    "tr": "绝对地情绪低落 给我低头 低头",
+    "lv": "n3",
+    "w": [
+     [
+      "断然",
+      "だんぜん",
+      "副詞",
+      "绝对、断然",
+      "比「とても」强，带断言味"
+     ],
+     [
+      "テンション",
+      "てんしょん",
+      "名詞",
+      "情绪、兴致",
+      "和英语 tension 不同，日语指「兴奋度」"
+     ],
+     [
+      "LOW",
+      "ろー",
+      "ナ形",
+      "低",
+      "直接塞英文"
+     ],
+     [
+      "屈め",
+      "かがめ",
+      "動詞",
+      "低头（命令形）",
+      "与第 6 句完全同一句"
+     ]
+    ],
+    "p": "情绪绝对是 LOW——低头，快低头。",
+    "g": [
+     [
+      "和语＋英语＋外来语的混搭",
+      "断然（汉语词）＋テンション（外来语）＋LOW（英语）＋だ（和语助动词）。<b>一句话跨三种语源</b>，这是现代日语口语的真实手感，也是这首歌想演的「混着用的人生」。"
+     ],
+     [
+      "同一句命令复用",
+      "第 6 句也是「屈めよ屈め」。作者不换词，是因为<b>压迫本来就不换</b>——第二遍听同一句命令，比换一句更难受。"
+     ]
+    ],
+    "tip": "连命令都懒得换——这就是这句的重点。"
+   },
+   {
+    "t": "(ロンリィNIGHT　テッペン回って　狼狽ない脳内HOPEもう一回)",
+    "r": "ろんりぃないと てっぺんまわって ろうばいないのうないほーぷ もういっかい",
+    "ro": "ronrii naito teppen mawatte roubai nai nounai hoopu mou ikkai",
+    "tr": "（寂寞的夜　时针转过顶点　不慌张的脑内 HOPE 再来一次）",
+    "lv": "n2",
+    "w": [
+     [
+      "ロンリィ",
+      "ろんりぃ",
+      "ナ形",
+      "寂寞的",
+      "lonely 的日语音写"
+     ],
+     [
+      "NIGHT",
+      "ないと",
+      "名詞",
+      "夜",
+      "与「KNIGHT」同音，呼应前段"
+     ],
+     [
+      "テッペン",
+      "てっぺん",
+      "名詞",
+      "顶端、顶点",
+      "口语，指时钟过了十二点"
+     ],
+     [
+      "回って",
+      "まわって",
+      "動詞",
+      "转过（て形）",
+      "回る的て形"
+     ],
+     [
+      "狼狽ない",
+      "ろうばいない",
+      "連語",
+      "不慌张",
+      "造语：狼狽（ろうばい）＋ない"
+     ],
+     [
+      "脳内",
+      "のうない",
+      "名詞",
+      "脑内",
+      "网络语「脳内〜」＝想象中"
+     ],
+     [
+      "もう一回",
+      "もういっかい",
+      "副詞",
+      "再一次",
+      "儿童式的央求"
+     ]
+    ],
+    "p": "（寂寞的夜里，钟转到顶点，脑子里那个不慌不忙的 HOPE 再来一次。）",
+    "g": [
+     [
+      "这一行几乎全是谐音",
+      "ロンリィNIGHT（lonely night）／KNIGHT（骑士）／ないと（＝night 的音）——<b>三段里同一个音反复变装</b>。括号行是全曲的「声音实验室」，意思要让位给声音。"
+     ],
+     [
+      "テッペン回って＝过了午夜",
+      "时针对着正上方就是十二点。「テッペン回って」＝<b>过了零点</b>，也就是「夜变成第二天」的那一瞬，和歌名的「毒」一样是临界点。"
+     ]
+    ],
+    "tip": "这一行的意思是次要的，声音是主要的：寂寞、夜、顶点、再来一次。"
+   },
+   {
+    "t": "ああオーバードーズ刑だ　アガれよアガれ",
+    "r": "ああ おーばーどーずけいだ あがれよ あがれ",
+    "ro": "aa oobaadoozu kei da agare yo agare",
+    "tr": "唉，是过量用药之刑 亢奋吧 亢奋吧",
+    "lv": "n2",
+    "w": [
+     [
+      "オーバードーズ",
+      "おーばーどーず",
+      "名詞",
+      "用药过量",
+      "overdose，常缩成 OD"
+     ],
+     [
+      "刑",
+      "けい",
+      "名詞",
+      "刑罚",
+      "与「〜系」同音"
+     ],
+     [
+      "アガれ",
+      "あがれ",
+      "動詞",
+      "亢奋起来（命令形）",
+      "アガる＝情绪高涨，口语"
+     ]
+    ],
+    "p": "唉，这刑罚叫「用药过量」——给我亢奋，给我亢奋。",
+    "g": [
+     [
+      "刑／系：同音双关",
+      "オーバードーズ<b>刑</b>（けい）与「オーバードーズ<b>系</b>」（类型）同音。写成「刑」就成了判决，写成「系」就只是分类——<b>一个音，两种命运</b>。"
+     ],
+     [
+      "アガれよ：命令形＋よ",
+      "又是命令形。注意这里的命令是「给我兴奋起来」——<b>逼自己高兴</b>，是最难执行的命令，所以后面立刻接「屈め」式的压迫。"
+     ]
+    ],
+    "tip": "「过量用药」在这里不是比喻，是判决书上的罪名。"
+   }
+  ]
+ },
+ {
+  "n": "07",
+  "h": "主歌 2b · 同一句，换一个动词",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "心の中身は　無理オブ無理ジャンキー",
+    "r": "こころのなかみは むりおぶむりじゃんきー",
+    "ro": "kokoro no nakami wa muri obu muri jankii",
+    "tr": "心的内容物是「不可能中的不可能」成瘾者",
+    "lv": "n2",
+    "w": [
+     [
+      "中身",
+      "なかみ",
+      "名詞",
+      "内容物、里面",
+      "与第 9 句的「レシピ」同一个比喻域"
+     ],
+     [
+      "無理オブ無理",
+      "むりおぶむり",
+      "連語",
+      "不可能中的不可能",
+      "和制英语式造语：A of A 的最高级"
+     ],
+     [
+      "ジャンキー",
+      "じゃんきー",
+      "名詞",
+      "成瘾者",
+      "与第 9 句同一个词"
+     ]
+    ],
+    "p": "心的内容物是「无解中的无解」成瘾者。",
+    "g": [
+     [
+      "第 9 句 vs 第 22 句：只换了谓语",
+      "第 9 句「心のレシピは かまちょ味 寂ジャンキー」，第 22 句「心の中身は 無理オブ無理 ジャンキー」——<b>同一个「ジャンキー」，前面的配料全换了</b>。作者用重复的句尾告诉你：症状一样，只是理由升级了。"
+     ],
+     [
+      "A オブ A：和制英语的最高级",
+      "「無理オブ無理」＝「无解里的无解」。日语爱用「A of A」造最高级（嫌い of 嫌い），<b>用英语句型说和语心情</b>，很符合这首歌的混搭腔。"
+     ]
+    ],
+    "tip": "第一遍说「寂寞成瘾」，第二遍说「无解成瘾」——瘾没变，理由变狠了。"
+   },
+   {
+    "t": "どんどん強がって　バラバラに伏す",
+    "r": "どんどんつよがって ばらばらにふす",
+    "ro": "dondon tsuyogatte barabara ni fusu",
+    "tr": "越来越逞强　然后散架一样趴下",
+    "lv": "n3",
+    "w": [
+     [
+      "どんどん",
+      "どんどん",
+      "副詞",
+      "越来越、不断",
+      "比「だんだん」更急"
+     ],
+     [
+      "強がって",
+      "つよがって",
+      "動詞",
+      "逞强（て形）",
+      "与第 10 句同一个词"
+     ],
+     [
+      "バラバラ",
+      "ばらばら",
+      "副詞",
+      "散乱、零碎",
+      "拟态词"
+     ],
+     [
+      "伏す",
+      "ふす",
+      "動詞",
+      "趴、伏",
+      "与第 10 句同一个词"
+     ]
+    ],
+    "p": "越来越硬撑，最后散架一样趴下去。",
+    "g": [
+     [
+      "第 10 句 vs 第 23 句：只换副词",
+      "だんだん強がって ドロドロに伏す → どんどん強がって バラバラに伏す。动词一个没换，<b>只把「渐渐」换成「越来越」，把「泥一样」换成「散架」</b>——这就是「病情加重」在歌词里的写法：不改结构，只改程度。"
+     ],
+     [
+      "拟态词的替换＝程度刻度",
+      "ドロドロ（黏糊）→ バラバラ（碎散）。日语拟态词自带刻度，换一个词就等于把严重程度拧一档。"
+     ]
+    ],
+    "tip": "第二遍比第一遍更碎。作者不需要新句子，只需要更重的副词。"
+   },
+   {
+    "t": "ドクドク呑み込んで　苦しんで泣いて逃げ出せないの　ベノベノム",
+    "r": "どくどくのみこんで くるしんでないてにげだせないの べのべのむ",
+    "ro": "dokudoku nomikonde kurushinde naite nigedasenai no benobenomu",
+    "tr": "咕嘟咕嘟吞下去　痛苦着哭着却逃不出去 毒毒毒",
+    "lv": "n3",
+    "w": [
+     [
+      "ドクドク",
+      "どくどく",
+      "副詞",
+      "咕嘟咕嘟",
+      "与第 11 句同一个词"
+     ],
+     [
+      "呑み込んで",
+      "のみこんで",
+      "動詞",
+      "吞下（て形）",
+      "与第 11 句同一个词"
+     ],
+     [
+      "逃げ出せない",
+      "にげだせない",
+      "動詞",
+      "逃不出去",
+      "「吐き出せない」换成了「逃げ出せない」"
+     ],
+     [
+      "ベノベノム",
+      "べのべのむ",
+      "名詞",
+      "毒毒毒",
+      "与第 11 句同一个词"
+     ]
+    ],
+    "p": "咕嘟咕嘟全咽下去，疼着哭着，这次连逃都逃不掉——毒、毒、毒。",
+    "g": [
+     [
+      "第 11 句 vs 第 24 句：只换一个动词",
+      "吐き出せない（吐不出）→ 逃げ出せない（逃不掉）。前半 15 个字一字不改，<b>只把最后一个动词换掉，性质就从「身体」变成「处境」</b>。这是全曲最省力也最狠的一次改写。"
+     ],
+     [
+      "可能形否定的两个层次",
+      "吐き出せない＝生理上做不到；逃げ出せない＝处境上做不到。同样是「できない」，<b>一个怪身体，一个怪世界</b>。"
+     ]
+    ],
+    "tip": "第一遍吐不出来，第二遍连跑都跑不了——同样的句子，换了动词就换了地狱。"
+   },
+   {
+    "t": "あらま",
+    "r": "あらま",
+    "ro": "arama",
+    "tr": "哎呀",
+    "lv": "n3",
+    "w": [
+     [
+      "あらま",
+      "あらま",
+      "感動詞",
+      "哎呀",
+      "与第 13 句同一个词"
+     ]
+    ],
+    "p": "哎呀。",
+    "g": [
+     [
+      "第二次「あらま」",
+      "和第 13 句同一句。第一次出现在「再见啦」之后，这一次出现在「逃不掉」之后——<b>麻掉的语气在加重</b>。"
+     ]
+    ],
+    "tip": "又一句「哎呀」。同一个口头禅，第二次比第一次更没力气。"
+   }
+  ]
+ },
+ {
+  "n": "08",
+  "h": "副歌 2 · 同一段，换两个词",
+  "jp": "サビ",
+  "lines": [
+   {
+    "t": "求愛性　孤独　ドク　流るルル(愛をもっと)頂戴な　ねえ",
+    "r": "きゅうあいせい こどく どく ながるるる あいをもっと ちょうだいな ねえ",
+    "ro": "kyuuai sei kodoku doku nagarururu ai o motto choudai na nee",
+    "tr": "求爱性 孤独 毒 流啊流啊（爱再多给点）给我嘛 喂",
+    "lv": "rep",
+    "w": [],
+    "p": "求爱性、孤独、毒——全都流啊流啊。（爱再多给我一点嘛）喂。",
+    "tip": "与第 14 句一字不差。<b>副歌原封不动地回来</b>，说明中间那两段主歌没能改变任何事。注意听第二遍时歌手会唱得比第一遍更用力——词一样，力气不一样。"
+   },
+   {
+    "t": "痛い痛いのとんでけ",
+    "r": "いたいいたいのとんでけ",
+    "ro": "itai itai no tondeke",
+    "tr": "痛痛飞走吧",
+    "lv": "rep",
+    "w": [],
+    "p": "痛痛——飞走吧。",
+    "tip": "与第 15 句一字不差。这是日本小孩受伤时大人念的咒语（「痛いの痛いの飛んでけ」）。<b>用哄小孩的话对付自己的疼</b>——这句是全曲最可爱也最心酸的一句。"
+   },
+   {
+    "t": "存在感　既読　ドク　欲しがルル(無いの？もっと)愛(愛)愛(愛)",
+    "r": "そんざいかん きどく どく ほしがるるる ないの もっと あい あい",
+    "ro": "sonzaikan kidoku doku hoshigarururu nai no motto ai ai",
+    "tr": "存在感 已读 毒 想要想要（没有吗？再多点）爱 爱",
+    "lv": "n2",
+    "w": [
+     [
+      "存在感",
+      "そんざいかん",
+      "名詞",
+      "存在感",
+      "与第 16 句同一个词"
+     ],
+     [
+      "既読",
+      "きどく",
+      "名詞",
+      "已读",
+      "社交软件的「已读不回」"
+     ],
+     [
+      "欲しがルル",
+      "ほしがるるる",
+      "動詞",
+      "想要想要（造语）",
+      "欲しがる＋ルル"
+     ],
+     [
+      "無いの",
+      "ないの",
+      "連語",
+      "没有吗",
+      "与第 16 句同一句"
+     ],
+     [
+      "愛",
+      "あい",
+      "名詞",
+      "爱",
+      "这次重复两次"
+     ]
+    ],
+    "p": "存在感、已读、毒——想要想要。（没有吗？再多点）爱、爱。",
+    "g": [
+     [
+      "血ドクドク → 既読：最狠的一次换词",
+      "第 16 句是「血ドクドク」（血流的声音），第 28 句换成「<b>既読</b>」（已读）。同样是「キドク」这个音，一边是<b>身体在流血</b>，一边是<b>消息被读过却没回</b>——把生理的痛换成了社交的痛，一个字都没多。"
+     ],
+     [
+      "愛(愛)哀(哀) → 愛(愛)愛(愛)",
+      "第 16 句括号里是「愛・哀」，这一句变成「愛・愛」：<b>哀被换成了爱</b>。听着完全是同一个「あい」，只有看表记才知道她把「哀」改成了「爱」——这是全曲唯一一次「变好」的改写，而且听起来毫无区别。"
+     ]
+    ],
+    "tip": "「血流不止」被换成「已读不回」——同一个音，痛法不同，而且这次连「哀」都被她换成了「爱」。"
+   },
+   {
+    "t": "滅べベベノム　(めっ！)",
+    "r": "ほろべべべのむ めっ",
+    "ro": "horobebe benomu me",
+    "tr": "灭亡吧 毒毒毒（惩罚！）",
+    "lv": "n3",
+    "w": [
+     [
+      "滅べ",
+      "ほろべ",
+      "動詞",
+      "灭亡吧（命令形）",
+      "滅びる的命令形"
+     ],
+     [
+      "ベノム",
+      "べのむ",
+      "名詞",
+      "毒",
+      "venom"
+     ],
+     [
+      "めっ",
+      "めっ",
+      "感動詞",
+      "惩罚！",
+      "与第 17 句同一句"
+     ]
+    ],
+    "p": "灭亡吧——毒毒毒！（不行哦！）",
+    "g": [
+     [
+      "叫ベ → 滅べ：一个动词的升级",
+      "第一遍副歌是「叫ベベノム」（叫吧），第二遍是「滅べベベノム」（灭吧）。<b>同一个句式，把「喊」换成「灭」</b>——喊是对外求关注，灭是对内下判决。"
+     ],
+     [
+      "命令形的主语是谁",
+      "「滅べ」灭的是谁？日语省略主语，所以<b>可以是毒、可以是世界、也可以是她自己</b>。这一层含混是故意的——全曲的恨意一直没有明确的目标。"
+     ]
+    ],
+    "tip": "第一遍喊，第二遍灭。同一个位置，动词换了，方向也换了。"
+   }
+  ]
+ },
+ {
+  "n": "09",
+  "h": "大サビ · 把毒说成爱",
+  "jp": "大サビ",
+  "lines": [
+   {
+    "t": "もう悪性　届く毒　回るルル(哀でもっと)傷害な　ねえ",
+    "r": "もうあくせい とどくどく まわるるる あいでもっと しょうがいな ねえ",
+    "ro": "mou akusei todoku doku mawarururu ai de motto shougai na nee",
+    "tr": "已经是恶性的了　毒到了　转啊转啊（哀也好再多点）伤害啊 喂",
+    "lv": "n2",
+    "w": [
+     [
+      "悪性",
+      "あくせい",
+      "名詞",
+      "恶性",
+      "医学词：悪性腫瘍（恶性肿瘤）"
+     ],
+     [
+      "届く",
+      "とどく",
+      "動詞",
+      "到达、送到",
+      "「毒が届く」＝毒送到你那儿"
+     ],
+     [
+      "回るルル",
+      "まわるるる",
+      "動詞",
+      "转啊转（造语）",
+      "回る＋ルル"
+     ],
+     [
+      "傷害",
+      "しょうがい",
+      "名詞",
+      "伤害",
+      "与「障害」同音"
+     ],
+     [
+      "な",
+      "な",
+      "助詞",
+      "啊（感叹）",
+      "句尾的叹息"
+     ]
+    ],
+    "p": "已经是恶性的了，毒送到了，转啊转啊。（哀也好，再多给点）伤害啊，喂。",
+    "g": [
+     [
+      "悪性／悪声／アクセイ",
+      "「悪性（あくせい）」是医学上「恶性」的意思——<b>病已经确诊了</b>。第一段的「倦怠モード」是自述症状，到这里变成诊断结果。"
+     ],
+     [
+      "傷害／障害：同音换字",
+      "傷害（きずつけること）与障害（さまたげ）同音。「傷害な」在这里既像「造成伤害」，又像「有障碍的」——<b>又一个只能靠耳朵分辨的地方</b>。"
+     ],
+     [
+      "哀でもっと：第一次把「爱」换成「哀」",
+      "副歌一直唱「(愛をもっと)」，这里是「<b>(哀でもっと)</b>」——连索取的东西都从「爱」降成了「哀」。这是全曲情绪的谷底，也是最后一段的转折点。"
+     ]
+    ],
+    "tip": "「再多给我一点爱」在这句变成了「再多给我一点哀」——要的东西降级了，这比要不到更狠。"
+   },
+   {
+    "t": "痛い痛いのSick　Sick",
+    "r": "いたいいたいの しく しく",
+    "ro": "itai itai no shiku shiku",
+    "tr": "痛痛飞不走 病、病",
+    "lv": "n2",
+    "w": [
+     [
+      "痛い痛いの",
+      "いたいいたいの",
+      "連語",
+      "痛痛（儿语）",
+      "与第 15 句的童谣同一起头"
+     ],
+     [
+      "Sick",
+      "しく",
+      "ナ形",
+      "病态的、恶心的",
+      "英语 sick，读作シク"
+     ]
+    ],
+    "p": "痛痛——飞不走了，病了，病了。",
+    "g": [
+     [
+      "童谣被改写了后半句",
+      "第 15 句是「痛い痛いのとんでけ」（痛痛飞走吧），这一句把后半句换成「<b>Sick Sick</b>」——咒语失效了。同样的开头，<b>一个飞走，一个飞不走</b>。"
+     ],
+     [
+      "Sick 读作シク",
+      "英语 sick 在日语里读「シク」，正好和「四苦」同音。佛教的「四苦」（生老病死）＋英语的 sick ＝<b>英文单词被日语读音接住</b>，这是这首歌最典型的一招。"
+     ]
+    ],
+    "tip": "同一句咒语，副歌第一遍能飞走，到最后一遍飞不走了。"
+   },
+   {
+    "t": "存在抹消毒ドク　消えるルル(無いのずっと)愛(愛)哀(哀)愛(愛)哀(哀)",
+    "r": "そんざいまっしょうどくどく きえるるる ないのずっと あい あい あい あい",
+    "ro": "sonzai masshoudoku doku kierururu nai no zutto ai ai ai ai",
+    "tr": "存在抹消毒 毒 消失消失（一直没有吗）爱 哀 爱 哀",
+    "lv": "n2",
+    "w": [
+     [
+      "存在抹消",
+      "そんざいまっしょう",
+      "名詞",
+      "存在抹消",
+      "造语：存在＋抹消（抹掉）"
+     ],
+     [
+      "消毒",
+      "しょうどく",
+      "名詞",
+      "消毒",
+      "「抹消」与「消毒」被压成一个词"
+     ],
+     [
+      "ドク",
+      "どく",
+      "名詞",
+      "毒",
+      "接在后面，读两遍"
+     ],
+     [
+      "消えるルル",
+      "きえるるる",
+      "動詞",
+      "消失消失（造语）",
+      "消える＋ルル"
+     ],
+     [
+      "ずっと",
+      "ずっと",
+      "副詞",
+      "一直",
+      "与前面的「もっと」对位"
+     ]
+    ],
+    "p": "存在抹消毒、毒——消失吧消失吧。（一直都没有吗）爱、哀、爱、哀。",
+    "g": [
+     [
+      "存在抹消毒：一个词里塞了三个词",
+      "存在＋<b>抹消</b>＋<b>消毒</b>——「抹消（抹掉）」和「消毒（杀菌）」被硬黏成一个词。意思大概是<b>「把你存在的痕迹擦掉，再消一遍毒」</b>：不但要你消失，还要消得干干净净。这是全曲最长的一个造语，也是最狠的一个。"
+     ],
+     [
+      "もっと → ずっと",
+      "前面一直在要「もっと（再多点）」，这里变成「<b>ずっと（一直）</b>」——从「量」变成了「时长」。爱要不到，就只能要「一直」。"
+     ],
+     [
+      "愛哀愛哀：四个音走到底",
+      "这里把「愛・哀」重复两遍，成为全曲最后一个表记游戏：<b>四个「あい」听不出区别，看起来才分得清</b>。"
+     ]
+    ],
+    "tip": "「存在抹消毒」——把你抹掉，再消一次毒。这句是全曲对「我在不在」的最终回答。"
+   },
+   {
+    "t": "(愛)求愛性　孤独　ドク　流るルル(愛をもっと)頂戴な　ねえ",
+    "r": "あい きゅうあいせい こどく どく ながるるる あいをもっと ちょうだいな ねえ",
+    "ro": "ai kyuuai sei kodoku doku nagarururu ai o motto choudai na nee",
+    "tr": "（爱）求爱性 孤独 毒 流啊流啊（爱再多给点）给我嘛 喂",
+    "lv": "n2",
+    "w": [
+     [
+      "求愛性",
+      "きゅうあいせい",
+      "名詞",
+      "求爱性",
+      "与第 14 句同一个词"
+     ],
+     [
+      "孤独",
+      "こどく",
+      "名詞",
+      "孤独",
+      "「どく」藏在里面"
+     ],
+     [
+      "頂戴な",
+      "ちょうだいな",
+      "連語",
+      "给我嘛",
+      "与第 14 句同一句"
+     ]
+    ],
+    "p": "（爱）求爱性、孤独、毒——流啊流啊。（爱再多给点）给我嘛，喂。",
+    "g": [
+     [
+      "开头多了一个「(愛)」",
+      "第 14 句是「求愛性…」，这一句前面<b>多出一个括号里的「(愛)」</b>。就一个词，位置在最前面——像是终于把「我想要的是爱」这句话先说了出来。"
+     ],
+     [
+      "结构上的回环",
+      "副歌第三次回来，词几乎不变。全曲的结构是：<b>三次求救，中间夹两段自我诊断</b>——诊断越来越准，求救的话一个字没变。"
+     ]
+    ],
+    "tip": "第三次求救，这次在句首补了一个「爱」——整首歌唯一一次把需求直接说在前面。"
+   },
+   {
+    "t": "痛い痛いのとんでけ",
+    "r": "いたいいたいのとんでけ",
+    "ro": "itai itai no tondeke",
+    "tr": "痛痛飞走吧",
+    "lv": "rep",
+    "w": [],
+    "p": "痛痛——飞走吧。",
+    "tip": "与第 15、27 句一字不差。第三次念这句咒语：<b>第一次是撒娇，第二次是习惯，第三次是自己骗自己</b>。同一句话听三遍，味道全不一样。"
+   },
+   {
+    "t": "存在感　血ドクドク　零るルル(無いの？もっと)愛(愛)哀(哀)",
+    "r": "そんざいかん ちどくどく こぼるるる ないの もっと あい あい",
+    "ro": "sonzaikan chi dokudoku koborururu nai no motto ai ai",
+    "tr": "存在感 血咕嘟咕嘟地流（没有吗？再多点）爱 哀",
+    "lv": "rep",
+    "w": [],
+    "p": "存在感——血咕嘟咕嘟往外洒。（没有吗？再多点）爱，哀。",
+    "tip": "与第 16 句一字不差。<b>注意它是整首歌最后一次「完整」的副歌句</b>，之后就是三连的「叫べベベノム」——作者先让你听一遍熟的，再把它撕掉。"
+   },
+   {
+    "t": "叫べベベノム　叫べベベノム　叫べベベノム　(めっ！)",
+    "r": "さけべべべのむ さけべべべのむ さけべべべのむ めっ",
+    "ro": "sakebe bebenomu sakebe bebenomu sakebe bebenomu me",
+    "tr": "叫吧 毒毒毒 叫吧 毒毒毒 叫吧 毒毒毒（惩罚！）",
+    "lv": "n3",
+    "w": [
+     [
+      "叫べ",
+      "さけべ",
+      "動詞",
+      "叫吧（命令形）",
+      "与第 17 句同一个词"
+     ],
+     [
+      "ベノム",
+      "べのむ",
+      "名詞",
+      "毒",
+      "venom"
+     ],
+     [
+      "めっ",
+      "めっ",
+      "感動詞",
+      "惩罚！",
+      "全曲第四次出现"
+     ]
+    ],
+    "p": "叫吧——毒毒毒！叫吧——毒毒毒！叫吧——毒毒毒！（不行哦！）",
+    "g": [
+     [
+      "三连：从「叫ベ」回到「叫べ」",
+      "第一遍副歌是「叫ベベノム」（汉字＋片假名的怪拼法），第二遍是「滅べベベノム」，最后一遍回到「叫べベベノム」（全平假名）。<b>同一个词三种写法</b>：怪拼→灭→叫。三遍叫完，还是回到「叫」。"
+     ],
+     [
+      "「めっ！」收尾",
+      "全曲以一句训斥结束。前面所有的爆发、所有的毒，都被这声「不行哦」按了回去——<b>这首歌从头到尾没有一次被允许说完</b>。"
+     ]
+    ],
+    "tip": "最后三遍都在「叫」。喊完被「めっ！」按住——这就是这首歌的结局：没有被听见，只被制止。"
+   }
+  ]
+ }
+];
+/*==DATA-END==*/
+
+/*==ENGINE-START==*/
+const lvName = {n5:"N5", n4:"N4", n3:"N3", n2:"N2+", lit:"文語", rep:"重复"};
+const box = document.getElementById("lyrics");
+const emptyEl = document.querySelector(".empty");
+const bar = document.getElementById("bar");
+const state = {rd:true, ro:true, tr:true};
+const SECS = Array.isArray(S) ? S : (S.sections || []);
+let all = 0;
+
+try { Object.assign(state, JSON.parse(localStorage.getItem("wbState") || "{}")); } catch (e) {}
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function stripTags(s){return String(s == null ? "" : s).replace(/<[^>]*>/g, " ");}
+
+(SECS).forEach(sec => {
+  const wrap = document.createElement("section");
+  wrap.className = "sec";
+  const nLines = (sec.lines || []).length;
+  wrap.innerHTML = '<div class="sec-h"><span class="n">' + esc(sec.n) +
+    "</span><h3>" + esc(sec.h) + '</h3><span class="jp">' + esc(sec.jp) +
+    '</span><span class="sp"></span><span class="sec-cnt">' + nLines + " 句</span>" +
+    '<button class="sec-tg" type="button">展开本节</button></div>';
+
+  const secTg = wrap.querySelector(".sec-tg");
+  secTg.addEventListener("click", () => {
+    const lines = [...wrap.querySelectorAll(".line")];
+    const anyClosed = lines.some(l => !l.classList.contains("open"));
+    lines.forEach(l => setOpen(l, anyClosed));
+    secTg.textContent = anyClosed ? "收起本节" : "展开本节";
+  });
+
+  (sec.lines || []).forEach(L => {
+    all++;
+    const d = document.createElement("div");
+    d.className = "line" + (L.lv === "rep" ? " repcard" : "");
+
+    let words = "";
+    if (L.w && L.w.length) {
+      words = '<h4>逐词拆解</h4><table class="sx"><thead><tr>' +
+        "<th>词 / 表达</th><th>读音</th><th>词性</th><th>释义</th><th>备注</th></tr></thead><tbody>" +
+        L.w.map(w => '<tr><td class="w" data-h="词">' + esc(w[0]) + '</td><td class="rd2" data-h="读音">' + esc(w[1]) +
+          '</td><td class="pos" data-h="词性">' + esc(w[2]) + '</td><td class="mn" data-h="释义">' + esc(w[3]) +
+          '</td><td class="nt" data-h="备注">' + esc(w[4] || "") + "</td></tr>").join("") +
+        "</tbody></table>";
+    }
+    const gram = (L.g && L.g.length)
+      ? "<h4>句法结构</h4>" + L.g.map(g => '<div class="g"><b>' + g[0] + "</b><br>" + g[1] + "</div>").join("")
+      : "";
+    const plain = L.p ? '<div class="plain"><b>大白话：</b>' + L.p + "</div>" : "";
+    const tip = L.tip ? '<div class="tip"><b>提示：</b>' + L.tip + "</div>" : "";
+
+    d.innerHTML =
+      '<div class="head" role="button" tabindex="0" aria-expanded="false">' +
+        '<div class="orig">' + esc(L.t) + "</div>" +
+        '<div class="rd">' + esc(L.r) + "</div>" +
+        '<div class="ro">' + esc(L.ro) + "</div>" +
+        '<div class="tr">' + L.tr + "</div>" +
+        '<div class="foot"><span class="lv ' + L.lv + '">' + (lvName[L.lv] || L.lv) + "</span></div>" +
+        '<span class="chev" aria-hidden="true">▾</span>' +
+      "</div>" +
+      '<div class="detail">' + words + gram + plain + tip + "</div>";
+
+    d.dataset.search = stripTags([L.t, L.r, L.ro, L.tr, L.p, L.tip]
+      .concat((L.w || []).map(w => w.join(" ")))
+      .concat((L.g || []).map(g => g.join(" ")))
+      .join(" ")).toLowerCase();
+
+    const head = d.querySelector(".head");
+    head.addEventListener("click", () => setOpen(d, !d.classList.contains("open")));
+    head.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(d, !d.classList.contains("open")); }
+    });
+
+    wrap.appendChild(d);
+  });
+  box.appendChild(wrap);
+});
+
+function setOpen(line, open) {
+  line.classList.toggle("open", !!open);
+  const h = line.querySelector(".head");
+  if (h) h.setAttribute("aria-expanded", open ? "true" : "false");
+  const sec = line.closest(".sec");
+  if (sec) syncSecTg(sec);
+}
+function syncSecTg(sec) {
+  const tg = sec.querySelector(".sec-tg");
+  if (!tg) return;
+  const lines = [...sec.querySelectorAll(".line")];
+  tg.textContent = lines.some(l => !l.classList.contains("open")) ? "展开本节" : "收起本节";
+}
+
+function apply() {
+  box.querySelectorAll(".line").forEach(l => {
+    l.querySelector(".rd").style.display = state.rd ? "block" : "none";
+    l.querySelector(".ro").style.display = state.ro ? "block" : "none";
+    l.querySelector(".tr").style.display = state.tr ? "block" : "none";
+  });
+}
+
+
+/* 导航高度写进 --nav-h，供锚点与深读版目录使用 */
+function syncNavH() {
+  const h = bar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-h", Math.round(h) + "px");
+}
+if (window.ResizeObserver) new ResizeObserver(syncNavH).observe(bar);
+else window.addEventListener("resize", syncNavH);
+window.addEventListener("load", syncNavH);
+
+/* 默认全部收起：进来先看到歌词本身，想看解析再点 */
+apply();
+
+/* ---------- 主题 ---------- */
+try { if (localStorage.getItem("wbTheme") === "light") document.documentElement.classList.add("light"); } catch (e) {}
+const themeBtn = document.getElementById("themeBtn");
+function syncThemeBtn() {
+  const light = document.documentElement.classList.contains("light");
+  themeBtn.textContent = light ? "☀️" : "🌙";
+  themeBtn.setAttribute("aria-pressed", light ? "true" : "false");
+  themeBtn.title = light ? "当前：浅色（点击切深色）" : "当前：深色（点击切浅色）";
+}
+themeBtn.addEventListener("click", function () {
+  const light = document.documentElement.classList.toggle("light");
+  try { localStorage.setItem("wbTheme", light ? "light" : "dark"); } catch (e) {}
+  syncThemeBtn();
+  syncNavH();
+});
+syncThemeBtn();
+syncNavH();
+/*==ENGINE-END==*/
+</script>
+</body>
+</html>

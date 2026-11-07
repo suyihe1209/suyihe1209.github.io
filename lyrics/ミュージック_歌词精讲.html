@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ミュージック / サカナクション —— 逐句歌词精讲</title>
+<meta name="description" content="「ミュージック」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ミュージック / サカナクション —— 逐句歌词精讲">
+<meta property="og:description" content="「ミュージック」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲）">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2308070d'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ff6fb5' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%235fe3f5'/%3E%3C/svg%3E">
+<style>
+/* ==== assets/base.css 内联 ==== */
+/* ===== base.css —— 单曲与合集共用的样式（构建时内联进 <style>） ===== */
+
+/* ---------- 设计令牌 ---------- */
+:root{
+  --bg:#08070d;
+  --bg2:#0c0a14;
+  --panel:#131020;
+  --panel2:#1a1529;
+  --line:#282040;
+  --line2:#3a2e5c;
+  --text:#ece9f7;
+  --muted:#a09ab6;
+  --muted2:#8b84a6;
+  --cyan:#5fe3f5;
+  --pink:#ff6fb5;
+  --violet:#b78cff;
+  --amber:#ffc266;
+  --green:#7ff0a8;
+  --red:#ff8080;
+  --nav-h:64px;
+  --r-md:14px;
+  --r-sm:11px;
+  --fs-body:15px;
+  --fs-sm:14px;
+  --fs-xs:13px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 14px);}
+body{
+  margin:0; background:
+    radial-gradient(1100px 560px at 12% -8%, #2a1040 0%, transparent 58%),
+    radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:var(--fs-body);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-size-adjust:100%;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 120px;}
+
+/* ---------- 页头 ---------- */
+.kicker{font-size:12px;letter-spacing:.28em;color:var(--pink);text-transform:uppercase;font-weight:700;}
+h1{font-size:clamp(28px,5vw,44px);margin:12px 0 6px;letter-spacing:.02em;line-height:1.2;}
+h1 .sub{display:block;font-size:.40em;color:var(--muted);font-weight:400;letter-spacing:.16em;margin-top:10px;}
+.byline{color:var(--muted);font-size:14.5px;margin-top:14px;}
+.byline code{background:var(--panel2);padding:2px 7px;border-radius:5px;color:var(--cyan);font-size:13px;}
+
+/* ---------- 卡片区 ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px;margin:16px 0;}
+.card h2{font-size:17.5px;margin:0 0 12px;color:var(--pink);letter-spacing:.04em;display:flex;align-items:center;gap:9px;}
+.card h2::before{content:"";width:4px;height:16px;background:var(--pink);border-radius:2px;}
+.card.cy h2{color:var(--cyan);} .card.cy h2::before{background:var(--cyan);}
+.card.ok{border-color:#1e4a30;background:linear-gradient(180deg,#0b1c13,#0e0d18);}
+.card.ok h2{color:var(--green);} .card.ok h2::before{background:var(--green);}
+.card.ok p{margin:8px 0;font-size:var(--fs-body);}
+.card.ok b{color:var(--green);}
+.card.hot{border-color:#4a2a3d;}
+.card.hot h2{color:var(--pink);}
+
+/* ---------- 工具栏（单曲 .bar / 合集 .nav 共用控件） ---------- */
+.tg{border:1px solid var(--line2);background:var(--panel2);color:var(--muted);
+    font-size:13.5px;padding:6px 13px;border-radius:20px;cursor:pointer;transition:.16s;
+    user-select:none;font-family:inherit;line-height:1.5;display:inline-flex;align-items:center;gap:6px;}
+.tg:hover{color:var(--text);border-color:var(--pink);}
+.tg.on{background:rgba(255,111,181,.15);border-color:var(--pink);color:var(--pink);font-weight:600;}
+.tg.icon{padding:6px 10px;font-size:14px;}
+.sp{flex:1;}
+.home-link{text-decoration:none;color:var(--muted);font-size:15px;padding:4px 8px;
+          transition:color .2s;}
+.home-link:hover{color:var(--cyan);}
+.count{font-size:var(--fs-xs);color:var(--muted2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+
+.search{position:relative;display:flex;align-items:center;flex:none;}
+.search input{
+  width:210px;max-width:42vw;background:var(--panel2);border:1px solid var(--line2);
+  border-radius:20px;color:var(--text);font-family:inherit;font-size:13.5px;
+  padding:6px 30px 6px 32px;transition:.16s;
+}
+.search input::placeholder{color:var(--muted2);}
+.search input:focus{border-color:var(--cyan);background:var(--panel);}
+.search::before{
+  content:"";position:absolute;left:12px;width:12px;height:12px;pointer-events:none;
+  border:2px solid var(--muted2);border-radius:50%;
+}
+.search::after{
+  content:"";position:absolute;left:21px;top:20px;width:5px;height:2px;pointer-events:none;
+  background:var(--muted2);transform:rotate(45deg);
+}
+.search input:focus ~ .search::before{border-color:var(--cyan);}
+
+/* ---------- 段落 ---------- */
+.sec{margin-top:34px;}
+.sec-h{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);
+       padding-bottom:9px;margin-bottom:4px;flex-wrap:wrap;}
+.sec-h .n{font-size:12.5px;font-weight:800;letter-spacing:.2em;color:var(--cyan);}
+.sec-h h3{margin:0;font-size:20px;}
+.sec-h .jp{color:var(--muted);font-size:14px;}
+.sec-h .sp{flex:1;min-width:0;}
+.sec-tg{border:1px solid transparent;background:transparent;color:var(--muted2);
+        font-family:inherit;font-size:12.5px;padding:4px 10px;border-radius:14px;
+        cursor:pointer;transition:.16s;white-space:nowrap;}
+.sec-tg:hover{color:var(--pink);border-color:var(--line2);background:var(--panel2);}
+.sec-cnt{font-size:12px;color:var(--muted2);font-variant-numeric:tabular-nums;white-space:nowrap;}
+/* 搜索时整段无命中的降级显示（不留空白壳） */
+.sec.nomatch{opacity:.42;}
+.sec.nomatch .sec-h::after{content:"（无匹配）";font-size:12px;color:var(--muted2);}
+
+/* ---------- 句子（阅读优先：连续流，无卡片边框） ---------- */
+.line{position:relative;padding:13px 0 13px;margin:0;border-bottom:1px solid rgba(40,32,64,.55);
+      transition:background .16s;}
+.line:hover{background:rgba(255,255,255,.022);}
+.line.hide{display:none;}
+.line.open{background:rgba(255,255,255,.045);padding-left:16px;}
+.line.open::before{content:"";position:absolute;left:2px;top:12px;bottom:12px;width:3px;
+                   background:var(--pink);border-radius:3px;}
+
+.head{cursor:pointer;position:relative;padding-right:26px;border-radius:8px;}
+.head:hover .chev{opacity:.55;color:var(--pink);}
+.head:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+.orig{font-size:21px;letter-spacing:.03em;line-height:1.55;
+      font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:600;}
+.rd{font-size:14px;color:var(--cyan);margin-top:4px;letter-spacing:.02em;display:none;}
+.ro{font-size:13px;color:var(--muted2);margin-top:3px;font-style:italic;display:none;}
+.tr{font-size:var(--fs-body);color:#c9c3dc;margin-top:9px;padding-left:12px;
+    border-left:2px solid var(--line2);display:none;}
+.foot{display:flex;align-items:center;gap:9px;margin-top:10px;min-height:20px;}
+.lv{font-size:11px;font-weight:800;padding:2.5px 9px;border-radius:20px;letter-spacing:.05em;white-space:nowrap;}
+.lv.n5{background:rgba(127,240,168,.15);color:var(--green);border:1px solid rgba(127,240,168,.35);}
+.lv.n4{background:rgba(95,227,245,.14);color:var(--cyan);border:1px solid rgba(95,227,245,.34);}
+.lv.n3{background:rgba(255,194,102,.14);color:var(--amber);border:1px solid rgba(255,194,102,.34);}
+.lv.n2{background:rgba(255,128,128,.13);color:var(--red);border:1px solid rgba(255,128,128,.32);}
+.lv.rep{background:rgba(183,140,255,.14);color:var(--violet);border:1px solid rgba(183,140,255,.34);}
+.chev{position:absolute;right:2px;top:3px;font-size:12px;color:var(--muted2);
+      opacity:.28;transition:.18s;pointer-events:none;}
+.line.open .chev{opacity:1;color:var(--pink);transform:rotate(180deg);}
+
+.detail{display:none;padding:14px 0 4px;}
+.line.open .detail{display:block;animation:fade .2s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.detail h4{font-size:12.5px;letter-spacing:.16em;color:var(--violet);margin:16px 0 8px;font-weight:700;}
+.detail h4:first-child{margin-top:4px;}
+
+/* ---------- 表格 ---------- */
+table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+th{text-align:left;color:var(--muted2);font-weight:600;font-size:12px;letter-spacing:.1em;
+   padding:6px 9px;border-bottom:1px solid var(--line2);white-space:nowrap;}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:hover td{background:rgba(255,111,181,.05);}
+td.w{font-weight:700;color:var(--text);white-space:nowrap;
+     font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:16px;}
+td.rd2{color:var(--cyan);font-size:13.5px;white-space:nowrap;}
+td.pos{color:var(--pink);font-size:12.5px;white-space:nowrap;}
+td.mn{color:#c9c3dc;}
+td.nt{color:var(--muted);font-size:13px;}
+
+.sx{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin-top:8px;}
+.sx th{font-size:12px;letter-spacing:.1em;padding:8px 10px;border-bottom:1px solid var(--line2);color:var(--muted2);}
+.sx td{padding:9px 10px;border-bottom:1px solid var(--line);}
+.sx td.a{color:var(--pink);font-weight:700;font-family:"Yu Gothic",sans-serif;font-size:15px;}
+.sx td.b{color:var(--cyan);font-family:"Yu Gothic",sans-serif;}
+.sx td.c{color:#c9c3dc;}
+.sx tr:hover td{background:rgba(95,227,245,.05);}
+/* 卡片里的表：窄屏横向滚动 */
+.card .sx{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* ---------- 语法 / 大白话 / 提示 ---------- */
+.g{margin:8px 0;padding:11px 14px;background:var(--panel2);border-radius:9px;
+   border-left:3px solid var(--violet);font-size:14.5px;}
+.g b{color:var(--violet);}
+.plain{margin-top:12px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+       background:rgba(127,240,168,.07);border-left:3px solid var(--green);color:#cdeada;}
+.plain b{color:var(--green);}
+.tip{margin-top:10px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+     background:rgba(255,194,102,.07);border-left:3px solid var(--amber);color:#eadfc7;}
+.tip b{color:var(--amber);}
+
+/* ---------- 小卡网格 ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:6px;}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;}
+.mini .t{font-size:15px;font-weight:700;color:var(--cyan);margin-bottom:6px;}
+.mini .d{font-size:13.5px;color:var(--muted);}
+.mini .d em{color:var(--text);font-style:normal;background:rgba(95,227,245,.1);padding:1px 5px;border-radius:4px;
+            font-family:"Yu Gothic",sans-serif;}
+.mini .ex{font-size:13.5px;margin-top:7px;color:#c9c3dc;padding-top:7px;border-top:1px solid var(--line);}
+.mini .ex span{color:var(--pink);}
+
+footer{text-align:center;color:var(--muted2);font-size:13px;margin-top:52px;
+       padding-top:22px;border-top:1px solid var(--line);}
+
+/* ---------- 空结果提示 ---------- */
+.empty{display:none;padding:26px 0;text-align:center;color:var(--muted2);font-size:14px;}
+.empty.on{display:block;}
+
+/* ---------- 可访问性 ---------- */
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px;}
+.skip{position:absolute;left:-9999px;top:0;background:var(--panel2);color:var(--text);
+      padding:10px 16px;border-radius:0 0 10px 0;z-index:200;}
+.skip:focus{left:0;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+
+/* ---------- 浅色主题（共用部分） ---------- */
+html.light{
+  --bg:#f5f3fb; --bg2:#eeeaf8; --panel:#ffffff; --panel2:#f4f1fc;
+  --line:#e2dcf0; --line2:#cfc6e8;
+  --text:#1c1730; --muted:#585170; --muted2:#6b6484;
+  /* 浅底上必须换一套更深的强调色：原来的青/粉在白色上只有 1.7–2.5:1 */
+  --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
+  --amber:#8a5a00; --green:#0f7a46; --red:#b3261e;
+}
+html.light body{background:
+  radial-gradient(1100px 560px at 12% -8%, #efe7fb 0%, transparent 58%),
+  radial-gradient(900px 520px at 92% 2%, #e6f4fa 0%, transparent 55%),
+  var(--bg);}
+html.light .line{border-bottom-color:var(--line);}
+html.light .line:hover{background:rgba(40,32,64,.028);}
+html.light .line.open{background:rgba(40,32,64,.05);}
+html.light .card.ok{border-color:#b9e2c8;background:linear-gradient(180deg,#f2fbf5,#ffffff);}
+html.light .card.hot{border-color:#e8c2d4;}
+html.light .tr,html.light td.mn,html.light .sx td.c,html.light .mini .ex{color:#4d4763;}
+html.light .plain{color:#1c6e40;background:rgba(23,138,76,.09);}
+html.light .tip{color:#7a5b14;background:rgba(191,138,26,.1);}
+html.light .g{background:#f7f4ff;}
+html.light .tg{background:#fff;}
+html.light .search input{background:#fff;}
+html.light footer{border-top-color:var(--line);}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:700px){
+  :root{--fs-body:15px;}
+  .wrap{padding:0 14px 90px;}
+  .orig{font-size:18.5px;}
+  .card{padding:16px 15px;border-radius:12px;}
+  .count{font-size:12.5px;}
+  .search input{width:150px;padding:6px 26px 6px 30px;font-size:13px;}
+  .sec{margin-top:28px;}
+  .sec-h h3{font-size:18px;}
+
+  /* 歌词里的逐词表：改成「一行一词」的块，避免 5 列在窄屏被裁 */
+  .line .sx{display:block;width:100%;margin-top:6px;}
+  .line .sx thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .line .sx tbody,.line .sx tr,.line .sx td{display:block;width:auto;}
+  .line .sx tr{padding:9px 0 10px;border-bottom:1px solid var(--line);}
+  .line .sx tr:hover td{background:transparent;}
+  .line .sx td{border:0;padding:0;white-space:normal;}
+  .line .sx td.w{font-size:16.5px;font-weight:700;margin-bottom:2px;}
+  .line .sx td.rd2{font-size:13.5px;}
+  .line .sx td.pos{font-size:12px;margin:3px 0 1px;}
+  .line .sx td.mn{font-size:14px;}
+  .line .sx td.nt{font-size:13px;color:var(--muted2);margin-top:4px;}
+  /* 用 data-h 给移动端补上列名标签（只留给释义/备注，词头三行靠字号和颜色区分） */
+  .line .sx td[data-h]::before{content:attr(data-h);color:var(--muted2);font-size:10.5px;
+    letter-spacing:.12em;margin-right:7px;}
+  .line .sx td.w[data-h]::before,.line .sx td.rd2[data-h]::before,
+  .line .sx td.pos[data-h]::before{display:none;}
+  .line .sx td.mn[data-h]{font-size:14.5px;}
+  .line .sx td.nt[data-h]::before{display:none;}
+  .line .sx td.nt[data-h]{padding-left:11px;border-left:2px solid var(--line2);}
+  .line{padding:12px 0;}
+  .line.open{padding-left:13px;}
+  .line.open::before{left:1px;width:3px;}
+  .detail h4{font-size:12px;}
+}
+
+/* ---------- 打印 ---------- */
+@media print{
+  html,body{background:#fff!important;color:#111!important;}
+  .nav,.bar,.search,.chev,.sec-tg,.theme,.modeSwitch,.skip{display:none!important;}
+  .wrap{max-width:none;padding:0;}
+  .card,.line,.mini,.g,.plain,.tip{background:#fff!important;border-color:#bbb!important;
+    break-inside:avoid;box-shadow:none!important;}
+  .orig,.tr,td,.sx td{color:#111!important;}
+  .rd{color:#0a6b7a!important;}
+  .lv{border-color:#999!important;}
+  .line{page-break-inside:avoid;}
+  a[href]::after{content:"";}
+}
+
+
+/* ===== 单曲页专用：工具条 / 主标题区 / 浅色覆盖 ===== */
+.bar{position:sticky;top:0;z-index:60;background:rgba(8,7,13,.94);
+     backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.bar .row{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.bar .sp{flex:1 1 auto;}
+.bar .count{font-size:12.5px;}
+
+header{padding:46px 0 26px;position:relative;overflow:hidden;}
+header .ball{position:absolute;right:-10px;top:-4px;height:112%;opacity:.55;pointer-events:none;}
+header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10px;}
+.gfoot{opacity:.78;}
+
+html.light .bar{background:rgba(250,248,255,.94);}
+
+@media (max-width:700px){
+  .bar .row{padding:8px 12px;gap:6px;}
+  .bar .sp{display:none;}
+  header{padding:28px 0 18px;}
+  header .ball{display:none;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#lyrics">跳到正文</a>
+
+<div class="bar" id="bar">
+  <div class="row">
+    <div class="sp"></div>
+    <a class="home-link" href="../index.html" title="返回博客首页">返回首页</a>
+    <button class="tg icon theme" id="themeBtn" aria-pressed="false" title="切换深浅色">🌙</button>
+  </div>
+</div>
+
+<main class="wrap" id="stage">
+<header>
+  <svg class="ball" viewBox="0 0 120 300" fill="none" aria-hidden="true">
+    <rect x="22" y="190" width="76" height="10" rx="5" fill="#7c4dcc" opacity=".55"/>
+    <rect x="36" y="214" width="48" height="9" rx="4.5" fill="#5fe3f5" opacity=".5"/>
+    <rect x="18" y="76" width="84" height="11" rx="5.5" fill="#ff6fb5" opacity=".85"/>
+    <rect x="30" y="98" width="60" height="9" rx="4.5" fill="#ff6fb5" opacity=".6"/>
+    <rect x="44" y="120" width="40" height="8" rx="4" fill="#b78cff" opacity=".55"/>
+    <rect x="26" y="146" width="66" height="9" rx="4.5" fill="#5fe3f5" opacity=".45"/>
+    <rect x="38" y="166" width="44" height="8" rx="4" fill="#7c4dcc" opacity=".45"/>
+  </svg>
+  <div class="kicker">Lyrics Breakdown · 逐句精讲</div>
+  <h1>ミュージック<span class="sub">みゅーじっく / Music</span></h1>
+  <div class="byline">サカナクション ／ 作詞・作曲：<code>山口一郎</code> ／ 2013-01-23 シングル（5分26秒）<br>目标水平：<code>JLPT N4–N5</code> ／ 全曲逐句拆词 + 句法结构 + 双声道念白标注</div>
+</header>
+
+<div class="card hot">
+<h2>先说清楚：这首歌唱的不是音乐，是一个人决定继续唱</h2>
+<p>表面上是「鸟飞过城市」的一首歌，实际上从头到尾只有一个人在房间里自问自答：他像鸟一样漂走了，<b>想不起故乡、想不起该记住的人</b>，最后只剩下「继续唱」这一件事。</p><p>65 句歌词（含 10 行片假名念白）里有三个坑，提前排掉读起来会顺很多：</p><p>① <b>括号里的片假名不是音效，是完整的日语句子</b>——「カワハナガレル」＝川は流れる（河在流）、「ヨルハナガレル」＝夜は流れる（夜在流）、「マダミエテナイ」＝まだ見えていない（还看不见）。作者故意全写成片假名，让你听成一串音。</p><p>② <b>鳴く（鸟叫）与 泣く（人哭）同音</b>，都是 なく。第 9 句鸟在鳴いた，第 45 句旁白说人在泣いていた——全曲的双关都压在这一点上。</p><p>③ <b>「消えた」与「触れた」只差一个动词</b>：两段副歌结构完全一样，一个是消失，一个是触碰，都是过去式、都无法挽回。</p><p>建议用法：先只看主歌四段，你会发现它们其实是<b>两组镜像</b>（岩↔仲間、淋しい↔弱い）。把这一点抓住，副歌就成了答案，而不是装饰。</p>
+</div>
+
+<div class="card">
+<h2>N4–N5 生存指南：这首歌里反复出现的 8 个套路</h2>
+<div class="grid">
+<div class="mini"><div class="t">① 鳴く / 泣く：同音双关</div><div class="d">鸣く＝鸟兽叫，泣く＝人哭，读音都是 <b>なく</b>。这首歌第 9 句是「鳥は高く鳴いた」，第 45 句旁白是「泣いていた」——字不同、音一样。听不出来的人只觉得重复，听出来的人会发现：那只鸟可能一直就是个人。</div><div class="ex">高い声で鳴いた ／ ナイテイタ ナイテイタカラ</div></div>
+<div class="mini"><div class="t">② 消えた / 触れた：同一个过去式的两面</div><div class="d">副歌 1 全用 <b>消えた</b>（消失了），副歌 2 全用 <b>触れた</b>（碰到了）。两个都是过去式：一个是「什么都没剩下」，一个是「留下了感觉」。结构一模一样，只换一个词。</div><div class="ex">消えた ／ 触れた</div></div>
+<div class="mini"><div class="t">③ 片假名暗号：カワハナガレル</div><div class="d">全曲最重要的玩法。括号里的全片假名是<b>第二个声部</b>（コーラス），每一句其实都是完整日语：カワハナガレル＝川は流れる、ヨルハナガレル＝夜は流れる、マダミエテナイ＝まだ見えていない、ナイテイタカラ＝泣いていたから。写成片假名＝听起来只是一串音，不参与叙事。</div><div class="ex">（カワハナガレル） ／ （ヨルハナガレル）</div></div>
+<div class="mini"><div class="t">④ 〜ていた → 〜てた：口语缩略</div><div class="d">流れ流れ<b>ていた</b> → 流れ流れ<b>てた</b>；鳴い<b>ていた</b> → 鳴い<b>てた</b>；待っ<b>ている</b> → 待っ<b>てる</b>。去掉 い，语速立刻变快、语气变随意。歌词用它让句子听起来像脱口而出。</div><div class="ex">流れ流れてた鳥だって ／ 街で鳴いてたろ</div></div>
+<div class="mini"><div class="t">⑤ 〜だって：连…也／就算是…也</div><div class="d">名词＋だって 有两种口气：<b>连…也</b>（鳥だって＝连鸟都）和<b>就算是…也</b>（夜だって＝就算是夜）。尾段连排三个：痛みや傷だって／夜だって／僕だって——一层层把自己也垒进去。</div><div class="ex">鳥だって ／ 変わらないままの夜だって ／ 弱い僕だって</div></div>
+<div class="mini"><div class="t">⑥ 〜たまま：该变的东西没变</div><div class="d">濡れた<b>まま</b>の髪（头发还湿着）、昨日の<b>まま</b>だった（衣服还是昨天那样）、変わらない<b>まま</b>の夜（夜一成不变）。同一个词从小物件一路放大到整夜，是全曲的结构词。</div><div class="ex">濡れたままの髪で ／ 昨日のままだった</div></div>
+<div class="mini"><div class="t">⑦ ます形＋続ける：持续做</div><div class="d">歌い＋続ける＝继续唱；歩き続ける、待ち続ける同理。注意 続ける 是<b>他动词</b>（自己决定继续），自動詞 続く 是「自己延续」——歌里用他动词，说明「继续」是他的意志，不是自然发生。</div><div class="ex">歌い続けるよ ／ 続けるよ</div></div>
+<div class="mini"><div class="t">⑧ 〜ようだ：把判断说软</div><div class="d">見ている<b>ようだ</b>＝好像在看。它不是事实陈述，是说话人的感觉：衣服当然不会看人，但他觉得它在看。全曲「物会看人」的恐怖感，就来自这一个助动词。</div><div class="ex">だらしない僕を見ているようだ</div></div>
+</div>
+</div>
+<div id="lyrics"></div>
+<div class="empty">没有匹配的句子，换个关键词试试。</div>
+<div class="card cy">
+<h2>读音陷阱：这些字别读错</h2>
+<table class="sx"><thead><tr><th>词</th><th>读音</th><th>易错点</th></tr></thead><tbody>
+<tr><td class="a">川面</td><td class="b">かわも</td><td class="c">不读 かわづら；＝川の面（河面）</td></tr>
+<tr><td class="a">頬</td><td class="b">ほほ</td><td class="c">也读 ほお；歌里更常用 ほほ</td></tr>
+<tr><td class="a">独り言</td><td class="b">ひとりごと</td><td class="c">「言」读 ごと，不读 げん／こと</td></tr>
+<tr><td class="a">群れ</td><td class="b">むれ</td><td class="c">鸟兽鱼成群；不是「ぐんれ」</td></tr>
+<tr><td class="a">濡れる</td><td class="b">ぬれる</td><td class="c">下一段动词，湿了；不是「しめる」</td></tr>
+<tr><td class="a">鳴く／泣く</td><td class="b">なく</td><td class="c">同音不同字：动物叫／人哭，全曲的双关就靠它</td></tr>
+<tr><td class="a">過ぎ去る</td><td class="b">すぎさる</td><td class="c">過ぎる＋去る 的复合动词，多一层「不再回来」</td></tr>
+<tr><td class="a">だらしない</td><td class="b">だらしない</td><td class="c">一个词写完「邋遢＋没出息」，没有汉字</td></tr>
+<tr><td class="a">離ればなれ</td><td class="b">はなればなれ</td><td class="c">＝離れ離れ，第二词头浊化</td></tr>
+<tr><td class="a">見下ろす</td><td class="b">みおろす</td><td class="c">見る＋下ろす；不要读成「みかくす」</td></tr>
+</tbody></table>
+</div>
+<footer>
+  <div class="gfoot">逐句拆解仅供日语学习参考 · 歌词著作权归 山口一郎 / ビクターエンタテインメント 及原权利人所有<br>歌词据 <a href="https://utaten.com/lyric/jb71301037/">UtaTen</a> 与 <a href="https://kashinavi.com/lyrics/67027/">歌詞ナビ</a> 两站交叉核对 · 中文译文与解析为本站原创</div>
+</footer>
+</main>
+
+<script>
+/*==DATA-START==*/
+const S = [
+ {
+  "n": "A",
+  "h": "主歌 1 · 鸟与岩",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "流れ流れ",
+    "r": "ながれながれ",
+    "ro": "nagare nagare",
+    "tr": "流着，流着",
+    "lv": "n5",
+    "w": [
+     [
+      "流れる",
+      "ながれる",
+      "动词",
+      "流、流动",
+      "下一段动词，连用形是「流れ」"
+     ],
+     [
+      "流れ流れ",
+      "ながれながれ",
+      "动词连用形叠用",
+      "一直流、流个不停",
+      "不是名词并列，是把同一个动词叠起来延长"
+     ]
+    ],
+    "p": "流着，流着——<b>水一样一直淌过去。</b>",
+    "g": [
+     [
+      "连用形叠用＝把镜头拉长",
+      "「流れ」是 流れる 的连用形（ます形去掉 ます）。同一个连用形叠两次，日语里表示<b>动作持续、长时间重复</b>，比「流れている」更有水流感。歌把它放在最开头，是先给你一段声音，再给你意思。"
+     ]
+    ],
+    "tip": "注意这不是两个名词。判断方法：看它后面能不能接「て」——「流れて流れて」成立，说明它是动词。"
+   },
+   {
+    "t": "鳥は遠くの岩が懐かしくなるのか",
+    "r": "とりはとおくのいわがなつかしくなるのか",
+    "ro": "tori wa tooku no iwa ga natsukashiku naru no ka",
+    "tr": "鸟是不是开始怀念远处的岩石了",
+    "lv": "n4",
+    "w": [
+     [
+      "鳥",
+      "とり",
+      "名词",
+      "鸟",
+      "本曲的双主角之一：鸟＝会飞走的那一半"
+     ],
+     [
+      "遠く",
+      "とおく",
+      "名词",
+      "远处",
+      "形容词 遠い 的连用形转成名词，等于「远方」"
+     ],
+     [
+      "岩",
+      "いわ",
+      "名词",
+      "岩石",
+      "鸟原本停脚的地方"
+     ],
+     [
+      "懐かしい",
+      "なつかしい",
+      "形容词",
+      "怀念、令人眷恋",
+      "只能对人／地方／过去的事物用"
+     ],
+     [
+      "懐かしくなる",
+      "なつかしくなる",
+      "动词",
+      "开始怀念起来",
+      "形容词去 い 加 く＋なる＝状态变化"
+     ],
+     [
+      "のか",
+      "のか",
+      "助词",
+      "…吗（自问）",
+      "不是问别人，是自己心里嘀咕"
+     ]
+    ],
+    "p": "鸟是不是也开始<b>怀念远方的那块岩石</b>了？",
+    "g": [
+     [
+      "形容词变「变得…」：〜く＋なる",
+      "懐かしい → 懐かし<b>く</b>＋なる。同理 高くなる（变高）、静かになる（变安静，形容动词去 な 加 に）。这是 N4 最高频的变化句式。"
+     ],
+     [
+      "「〜のか」＝心里嘀咕，不是提问",
+      "句尾 か 前面加 の，语气变成<b>自问自答</b>：不是要你回答，是说话人自己在想。歌里连用三次（第 2、8 句），就是这个人在反复问同一件事。"
+     ]
+    ],
+    "tip": "「のか」和「か」差在哪：加 の 是「我纳闷」，不加是「我问你」。"
+   },
+   {
+    "t": "高く空を飛んだ",
+    "r": "たかくそらをとんだ",
+    "ro": "takaku sora wo tonda",
+    "tr": "高高地飞过了天空",
+    "lv": "n5",
+    "w": [
+     [
+      "高く",
+      "たかく",
+      "副词",
+      "高高地",
+      "形容词 高い 的连用形当副词用"
+     ],
+     [
+      "空",
+      "そら",
+      "名词",
+      "天空",
+      ""
+     ],
+     [
+      "飛ぶ",
+      "とぶ",
+      "动词",
+      "飞",
+      "五段动词，过去式 飛んだ"
+     ],
+     [
+      "を",
+      "を",
+      "助词",
+      "（经过的场所）",
+      ""
+     ]
+    ],
+    "p": "它<b>高高地飞过天空</b>。",
+    "g": [
+     [
+      "「空を飛ぶ」里的 を 不是宾语",
+      "移动动词（飛ぶ・歩く・走る・渡る）用 を 表示<b>经过、穿过的地方</b>，不是被作用的对象。所以「空を飛ぶ」＝在天空里飞过，不是「飞天空」。同类：道を歩く、橋を渡る。"
+     ]
+    ],
+    "tip": "看到「場所＋を＋移动动词」，先想「穿过」，别想「宾语」。"
+   }
+  ]
+ },
+ {
+  "n": "B",
+  "h": "主歌 2 · 街",
+  "jp": "Bメロ",
+  "lines": [
+   {
+    "t": "誰も知らない",
+    "r": "だれもしらない",
+    "ro": "dare mo shiranai",
+    "tr": "谁也不知道",
+    "lv": "n5",
+    "w": [
+     [
+      "誰も",
+      "だれも",
+      "代词",
+      "谁都不",
+      "后面必须跟否定"
+     ],
+     [
+      "知らない",
+      "しらない",
+      "动词",
+      "不知道",
+      "知る 的否定形"
+     ]
+    ],
+    "p": "<b>谁也不知道</b>。",
+    "g": [
+     [
+      "「誰も＋否定」＝谁都不",
+      "疑问词＋も 配否定，是「全面否定」：誰も知らない（谁都不知道）、何も言わない（什么都不说）、どこにもない（哪里都没有）。本曲前两句就用了两个。"
+     ]
+    ],
+    "tip": "反过来，全面肯定要换成「誰でも知っている」。"
+   },
+   {
+    "t": "知らない街を見下ろし 鳥は何を思うか",
+    "r": "しらないまちをみおろし とりはなにをおもうか",
+    "ro": "shiranai machi wo mioroshi, tori wa nani wo omou ka",
+    "tr": "俯视着陌生的城市，鸟在想些什么呢",
+    "lv": "n4",
+    "w": [
+     [
+      "街",
+      "まち",
+      "名词",
+      "城镇、街道",
+      "这里指人住的地方，与前面的「岩」对立"
+     ],
+     [
+      "見下ろす",
+      "みおろす",
+      "动词",
+      "俯视、往下看",
+      "見る＋下ろす 的复合动词"
+     ],
+     [
+      "何を",
+      "なにを",
+      "代词",
+      "什么",
+      ""
+     ],
+     [
+      "思う",
+      "おもう",
+      "动词",
+      "想、认为",
+      "五段动词"
+     ],
+     [
+      "か",
+      "か",
+      "助词",
+      "…呢（疑问）",
+      "这里没有 の，语气更接近真的在问"
+     ]
+    ],
+    "p": "俯视着<b>陌生的城市</b>，鸟在想些什么呢？",
+    "g": [
+     [
+      "连用形中止法：見下ろし＝「…着，然后…」",
+      "把 ます 去掉的连用形可以直接当中顿，连接下一句，比「〜て」更书面、更快。歌里两句之间用它，句子不会断，画面却换了：<b>往下看 → 想知道它在想什么</b>。"
+     ],
+     [
+      "内省的「何を思うか」",
+      "「何を思う」不是问别人「你觉得呢」，而是替别人揣测：「它心里在想什么」。后面第 6 句的「同じだろうか」就是从这个揣测长出来的。"
+     ]
+    ],
+    "tip": "中文习惯说「它在想什么」，日语把「想」的对象用 を 提出来，读起来比中文更「用力」。"
+   },
+   {
+    "t": "淋しい僕と同じだろうか",
+    "r": "さみしいぼくがおなじだろうか",
+    "ro": "samishii boku to onaji darou ka",
+    "tr": "是不是和我一样寂寞",
+    "lv": "n4",
+    "w": [
+     [
+      "淋しい",
+      "さみしい",
+      "形容词",
+      "寂寞、冷清",
+      "也写 寂しい，同音同义"
+     ],
+     [
+      "僕",
+      "ぼく",
+      "代词",
+      "我（男性自称）",
+      "全曲前 8 句只有「僕」，第 9 句才变「僕ら」"
+     ],
+     [
+      "同じ",
+      "おなじ",
+      "形容词",
+      "相同",
+      "接名词时直接加，不加 な"
+     ],
+     [
+      "だろうか",
+      "だろうか",
+      "助词",
+      "…吧？（推测＋疑问）",
+      "だろう＝でしょう 的常体"
+     ]
+    ],
+    "p": "是不是<b>和我一样寂寞</b>？",
+    "g": [
+     [
+      "「Aと＋同じ」＝和 A 一样",
+      "「淋しい僕と」里的 と 是<b>比较的对象</b>，「同じ」是形容词。整句省略了主语「鳥は」，靠上一句接过来。"
+     ],
+     [
+      "だろうか：推测里的犹豫",
+      "だろう 是推测，加 か 变成「是不是…呢」。它比「ですか」软，比「かもしれない」更没把握——正好是一个人抬头看鸟时的语气。"
+     ]
+    ],
+    "tip": "歌里「だろうか」出现两次（第 6、11 句），是这个人唯一在向别人问话的地方，而对象是鸟。"
+   }
+  ]
+ },
+ {
+  "n": "A′",
+  "h": "主歌 3 · 群",
+  "jp": "A′メロ",
+  "lines": [
+   {
+    "t": "離ればなれ",
+    "r": "はなればなれ",
+    "ro": "hanarebanare",
+    "tr": "天各一方、各自散开",
+    "lv": "n3",
+    "w": [
+     [
+      "離れ",
+      "はなれ",
+      "动词",
+      "分开、离开",
+      "離れる 的连用形"
+     ],
+     [
+      "ばなれ",
+      "ばなれ",
+      "接尾",
+      "…散、…分离",
+      "叠用式，常写「離れ離れ」"
+     ]
+    ],
+    "p": "<b>天各一方</b>。",
+    "g": [
+     [
+      "为什么是「離れ<b>ば</b>なれ」",
+      "这是「離れ離れ」的浊音化叠词（畳語）。同一词根叠两次、第二个词头浊化，表示<b>分散的状态</b>，是日语拟态词常见的造词法。它在这里只四个假名，却把鸟群拆散了。"
+     ]
+    ],
+    "tip": "记住这个词组：離ればなれになる＝彼此失散。第 13 段「離ればなれから飛び立って」会再用一次。"
+   },
+   {
+    "t": "鳥は群れの仲間が懐かしくなるのか",
+    "r": "とりはむれのなかまがなつかしくなるのか",
+    "ro": "tori wa mure no nakama ga natsukashiku naru no ka",
+    "tr": "鸟是不是开始怀念群里的伙伴了",
+    "lv": "n4",
+    "w": [
+     [
+      "群れ",
+      "むれ",
+      "名词",
+      "群、群体",
+      "鸟兽鱼成群"
+     ],
+     [
+      "仲間",
+      "なかま",
+      "名词",
+      "伙伴、同伴",
+      "同业、同伙也可用"
+     ]
+    ],
+    "p": "鸟是不是开始<b>怀念群里的伙伴</b>了？",
+    "g": [
+     [
+      "与第 2 句同型：只换一个名词",
+      "第 2 句「岩が懐かしくなるのか」→ 第 8 句「仲間が懐かしくなるのか」。<b>岩是落脚点，仲間是同类</b>：第一问还只是想念一个地方，第二问已经变成想念人。歌词没有多写一个字，只换了后面的名词。"
+     ]
+    ],
+    "tip": "这是全曲结构的第一把钥匙：A 段与 A′ 段是同一句话的两次提问，问的东西越来越近。"
+   },
+   {
+    "t": "高い声で鳴いた",
+    "r": "たかいこえでないた",
+    "ro": "takai koe de naita",
+    "tr": "用高亢的嗓子叫了起来",
+    "lv": "n5",
+    "w": [
+     [
+      "高い声",
+      "たかいこえ",
+      "名词",
+      "高音、高亢的嗓音",
+      ""
+     ],
+     [
+      "鳴く",
+      "なく",
+      "动词",
+      "（鸟兽）叫",
+      "五段动词，过去式 鳴いた"
+     ],
+     [
+      "で",
+      "で",
+      "助词",
+      "用…（手段）",
+      ""
+     ]
+    ],
+    "p": "它用<b>高亢的嗓子叫</b>了一声。",
+    "g": [
+     [
+      "鳴く 与 泣く：同音不同字",
+      "鳴く＝动物叫，泣く＝人哭，读音都是 なく。这首歌把两个字<b>当同一串音用</b>：第 9 句是鸟在 鳴いた，第 45 句的旁白是人在 泣いていた。听得懂的人会在这里起鸡皮疙瘩。"
+     ]
+    ],
+    "tip": "读音陷阱：这两句在耳朵里是同一个词，只能靠前面的主语（鳥／君）分辨。"
+   }
+  ]
+ },
+ {
+  "n": "B′",
+  "h": "主歌 4 · 沉默的街",
+  "jp": "B′メロ",
+  "lines": [
+   {
+    "t": "何も言わない",
+    "r": "なにもいわない",
+    "ro": "nani mo iwanai",
+    "tr": "什么也不说",
+    "lv": "n5",
+    "w": [
+     [
+      "何も",
+      "なにも",
+      "代词",
+      "什么都不",
+      "＋否定"
+     ],
+     [
+      "言う",
+      "いう",
+      "动词",
+      "说",
+      "五段，否定 言わない"
+     ]
+    ],
+    "p": "<b>什么也不说</b>。",
+    "g": [
+     [
+      "同一句式，主语从鸟换成街",
+      "第 4 句「誰も知らない」讲的是<b>没有人知道</b>，第 10 句「何も言わない」讲的是<b>什么都不说</b>。沉默从「不知道」升级成「不说」——这条线在第 11 句接到「街」身上，街开始有嘴了。"
+     ]
+    ],
+    "tip": "「何も言わない」全曲出现 3 次（第 10、30 句及变体），是全曲最执着的一句。"
+   },
+   {
+    "t": "言わない街は静かに それを聴いていたんだ",
+    "r": "いわないまちはしずかに それをきいていたんだ",
+    "ro": "iwanai machi wa shizuka ni sore wo kiite ita n da",
+    "tr": "沉默的城市就那样静静地听着它",
+    "lv": "n4",
+    "w": [
+     [
+      "静かに",
+      "しずかに",
+      "副词",
+      "安静地",
+      "形容动词 静か 加 に 变副词"
+     ],
+     [
+      "それ",
+      "それ",
+      "代词",
+      "那个（指鸟叫声）",
+      ""
+     ],
+     [
+      "聴く",
+      "きく",
+      "动词",
+      "听、倾听",
+      "注意汉字用「聴」，是侧耳听"
+     ],
+     [
+      "聴いていた",
+      "きいていた",
+      "动词",
+      "一直在听",
+      "聴く 的过去进行"
+     ],
+     [
+      "んだ",
+      "んだ",
+      "助词",
+      "（说明语气）",
+      "口语的 のだ，用来补一句解释"
+     ]
+    ],
+    "p": "沉默的城市就那样<b>静静地听着它</b>。",
+    "g": [
+     [
+      "副词 静かに 修饰谁",
+      "「静かに」后面跟「聴いていた」（听），不修饰「街」。日语的副词位置比中文自由，但<b>紧贴动词</b>这一点是判断依据：静かに聴いていた＝静静地听着。"
+     ],
+     [
+      "「〜ていたんだ」＝一直…（在解释）",
+      "ていた 是过去持续，加 んだ 变成「（其实是）一直在…」。它不是叙述事实，而是<b>补上一个你没想到的解释</b>：你以为街没反应，其实它一直在听。"
+     ]
+    ],
+    "tip": "这句是本曲最动人的一次「反转」：不是没听见，是听见了不说。"
+   },
+   {
+    "t": "弱い僕と同じだろうか",
+    "r": "よわいぼくとおなじだろうか",
+    "ro": "yowai boku to onaji darou ka",
+    "tr": "是不是和我一样软弱",
+    "lv": "n4",
+    "w": [
+     [
+      "弱い",
+      "よわい",
+      "形容词",
+      "软弱、弱小",
+      "反义 強い"
+     ]
+    ],
+    "p": "是不是<b>和我一样软弱</b>？",
+    "g": [
+     [
+      "A/B 与 A′/B′ 的四句对位",
+      "第 2 句「岩」↔ 第 8 句「仲間」；第 6 句「淋しい僕」↔ 第 11 句「弱い僕」。四个问句两两同型，<b>只换一个名词或形容词</b>。这是日文歌词最常用的结构手法：把变化压缩到最小，让你自己去发现。"
+     ]
+    ],
+    "tip": "淋しい（寂寞）是「一个人」；弱い（软弱）是「扛不住」。第二问比第一问更狠。"
+   }
+  ]
+ },
+ {
+  "n": "C",
+  "h": "主歌 5 · 从鸟到我们",
+  "jp": "Cメロ",
+  "lines": [
+   {
+    "t": "痛みや傷や嘘に慣れた僕らの言葉は",
+    "r": "いたみやきずやうそになれたぼくらのことばは",
+    "ro": "itami ya kizu ya uso ni nareta bokura no kotoba wa",
+    "tr": "习惯了疼痛、伤口和谎言的，我们的话",
+    "lv": "n3",
+    "w": [
+     [
+      "痛み",
+      "いたみ",
+      "名词",
+      "疼痛",
+      "痛い 的名词形"
+     ],
+     [
+      "傷",
+      "きず",
+      "名词",
+      "伤口、伤",
+      "也指心伤"
+     ],
+     [
+      "嘘",
+      "うそ",
+      "名词",
+      "谎言",
+      ""
+     ],
+     [
+      "慣れる",
+      "なれる",
+      "动词",
+      "习惯、适应",
+      "下一段，惯用 〜に慣れる"
+     ],
+     [
+      "僕ら",
+      "ぼくら",
+      "代词",
+      "我们",
+      "僕＋ら，全曲人称在这里第一次扩大"
+     ],
+     [
+      "言葉",
+      "ことば",
+      "名词",
+      "语言、话",
+      ""
+     ]
+    ],
+    "p": "习惯了<b>疼痛、伤口和谎言</b>的，我们的话……",
+    "g": [
+     [
+      "「AやBやCに慣れる」：列举＋对象",
+      "や 是<b>不完全列举</b>（还有别的，只是举三个）。慣れる 前面必须用 に：痛みに慣れる＝习惯疼痛。整句主语是「僕らの言葉は」，谓语留到下一句才出现。"
+     ],
+     [
+      "主语被拉长到四行",
+      "这一句没有说完。它一路连着「疲れた川面／浮かび流れ／君が住む町で」，四行才拼成一个完整句：<b>我们的话像河面上的东西，漂到你住的城里，然后消失了</b>。日语歌词常用这种「半句＋半句」的跨行句法。"
+     ]
+    ],
+    "tip": "注意人称：前面 8 句全是「僕」（一个人），这一句变成「僕ら」（我们）——不是多了一个人，是他把自己也算进了「习惯了痛的人」里。"
+   },
+   {
+    "t": "疲れた川面",
+    "r": "つかれたかわも",
+    "ro": "tsukareta kawamo",
+    "tr": "疲惫的河面",
+    "lv": "n3",
+    "w": [
+     [
+      "疲れた",
+      "つかれた",
+      "动词",
+      "疲惫的",
+      "疲れる 的过去式当定语修饰名词"
+     ],
+     [
+      "川面",
+      "かわも",
+      "名词",
+      "河面",
+      "读 かわも，不是 かわづら"
+     ]
+    ],
+    "p": "<b>疲惫的河面</b>。",
+    "g": [
+     [
+      "过去式直接修饰名词",
+      "「疲れた川面」＝已经累了、显出疲态的河面。日语用<b>た形</b>作定语表示状态，中文要译成「疲惫的」，不是「累过了」。同理：壊れた傘（坏了的伞）、慣れた言葉（说惯了的话）。"
+     ]
+    ],
+    "tip": "读音陷阱：川面＝かわも（川の面）。写成 かわづら 的话，日本人会以为你在说别的词。"
+   },
+   {
+    "t": "浮かび流れ",
+    "r": "うかびながれ",
+    "ro": "ukabi nagare",
+    "tr": "浮起来，流走了",
+    "lv": "n3",
+    "w": [
+     [
+      "浮かぶ",
+      "うかぶ",
+      "动词",
+      "浮起、漂浮",
+      "五段，连用形 浮かび"
+     ],
+     [
+      "流れる",
+      "ながれる",
+      "动词",
+      "流走",
+      "连用形 流れ"
+     ]
+    ],
+    "p": "<b>浮起来，流走了</b>。",
+    "g": [
+     [
+      "两个连用形并排＝不接 て 的并列",
+      "「浮かび流れ」是连用形中止法，等于「浮かんで流れる」。它比 て形<b>更书面、更连贯</b>，读起来像一句诗而不是两句叙述。第 48 句「流れ流れてた」用的是同一手法加口语化。"
+     ]
+    ],
+    "tip": "这句话的主语是上一句的「言葉」——我们的话浮在河面上，被水带走。"
+   },
+   {
+    "t": "君が住む町で",
+    "r": "きみがすむまちで",
+    "ro": "kimi ga sumu machi de",
+    "tr": "在你住的那座城里",
+    "lv": "n5",
+    "w": [
+     [
+      "君",
+      "きみ",
+      "代词",
+      "你",
+      "全曲第一次出现「君」"
+     ],
+     [
+      "住む",
+      "すむ",
+      "动词",
+      "居住",
+      "五段"
+     ],
+     [
+      "町",
+      "まち",
+      "名词",
+      "城镇",
+      "与第 5 句「街」同音不同字：街＝市街，町＝城镇"
+     ],
+     [
+      "で",
+      "で",
+      "助词",
+      "在…（地点）",
+      ""
+     ]
+    ],
+    "p": "在<b>你住的那座城里</b>。",
+    "g": [
+     [
+      "「君」出现＝歌开始有听众",
+      "前面十句都是独白（鸟／街／僕）。到这一句突然冒出「君が住む町」——<b>歌有了第二个人</b>，而且这个人不在场，只在一个地名里。「で」把这个地名变成事件发生的地点：消失是在<b>你那儿</b>发生的。"
+     ]
+    ],
+    "tip": "注意 街（まち）与 町（まち）的用字：前者是繁华街区，后者是行政上的镇。日本歌词很在意这个区别。"
+   }
+  ]
+ },
+ {
+  "n": "サビ",
+  "h": "副歌 1 · 消えた",
+  "jp": "サビ",
+  "lines": [
+   {
+    "t": "消えた",
+    "r": "きえた",
+    "ro": "kieta",
+    "tr": "消失了",
+    "lv": "n5",
+    "w": [
+     [
+      "消える",
+      "きえる",
+      "动词",
+      "消失、熄灭",
+      "下一段，过去式 消えた"
+     ]
+    ],
+    "p": "<b>消失了</b>。",
+    "g": [
+     [
+      "整段副歌只有一个动词",
+      "十行里「消えた」出现 6 次、片假名旁白 4 次。作者把副歌的词汇量压到<b>一个词</b>，靠重复和声部制造情绪——这不是词穷，是失语：想说的话已经说不出来了。"
+     ],
+     [
+      "「消えた」是过去式：已经没有的东西",
+      "不是「在消失」（消えている），也不是「会消失」（消える），而是<b>消えた</b>——完了、结束了。日语用过去式一步到位地宣布结果，副歌第一句就把结果摊开。"
+     ]
+    ],
+    "tip": "这一句是「主歌 5」的收尾：我们的话漂到你住的城里，然后消失了。"
+   },
+   {
+    "t": "消えた",
+    "r": "きえた",
+    "ro": "kieta",
+    "tr": "消失了（第二遍）",
+    "lv": "rep",
+    "w": [],
+    "p": "又一句「消失了」——<b>第二遍更轻，像回声。</b>",
+    "tip": "第二遍要比第一遍轻。歌里第一遍是喊出来的，第二遍像是回声。"
+   },
+   {
+    "t": "（カワハナガレル）",
+    "r": "かわはながれる",
+    "ro": "kawa wa nagareru",
+    "tr": "（旁白）河在流",
+    "lv": "n4",
+    "w": [
+     [
+      "川",
+      "かわ",
+      "名词",
+      "河",
+      "原句写成片假名，故意不给你汉字"
+     ],
+     [
+      "流れる",
+      "ながれる",
+      "动词",
+      "流",
+      "は 在演唱里被吞掉，听起来是 kawa-nagare-ru"
+     ]
+    ],
+    "p": "（旁白）<b>河在流</b>。",
+    "g": [
+     [
+      "括号里的片假名＝第二个声部",
+      "这些行不是主唱的词，是<b>和声／念白</b>（コーラス）。作者不写汉字、不写假名混排，整句全用片假名，就是要它听起来只是<b>一串音</b>——像在耳边报幕，不参与叙事。"
+     ],
+     [
+      "カワハナガレル ＝ 川は流れる",
+      "把 川は流れる 用片假名写出来：カワ・ハ・ナガレル。は 是助词，读 wa。听不出来的人只听到四个音节，听得出来的人听到的是「河在流」——这就是全曲的主玩法。"
+     ]
+    ],
+    "tip": "解谜钥匙：括号里的每一句都是一个完整的日语句子，只是被片假名藏起来了。"
+   },
+   {
+    "t": "消えた",
+    "r": "きえた",
+    "ro": "kieta",
+    "tr": "消失了",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>消失了。</b>」"
+   },
+   {
+    "t": "（マダミエテナイ マダミエテナイ）",
+    "r": "まだみえていない まだみえていない",
+    "ro": "mada miete inai, mada miete inai",
+    "tr": "（旁白）还看不见，还看不见",
+    "lv": "n4",
+    "w": [
+     [
+      "まだ",
+      "まだ",
+      "副词",
+      "还、仍然",
+      "后面必须跟否定或持续"
+     ],
+     [
+      "見えていない",
+      "みえていない",
+      "动词",
+      "看不见（状态）",
+      "見える＋ていない：不是「没看见」，是「到现在都还看不见」"
+     ],
+     [
+      "見えない",
+      "みえない",
+      "动词",
+      "看不见",
+      "可能形，本身就是「不能看见」"
+     ]
+    ],
+    "p": "（旁白）<b>还看不见，还看不见</b>。",
+    "g": [
+     [
+      "見えない 与 見えていない 的差别",
+      "見えない＝看不见（能力／状态）；見えていない＝<b>到现在为止还没看见</b>（时间上未完成）。旁白说的是后者：不是看不见，是还没看见——还留着一丝希望。"
+     ],
+     [
+      "重复整句＝催",
+      "同一句说两遍，第二遍就不是信息，而是<b>情绪</b>。日语把这种重复叫「畳掛け」，歌里常用来表现焦躁、恳求或咒语感。"
+     ]
+    ],
+    "tip": "对比第 60 句主唱那句「まだ見えないままただ待ってる」——同一个「まだ見えない」，最后是主唱自己说出来的。"
+   },
+   {
+    "t": "消えた",
+    "r": "きえた",
+    "ro": "kieta",
+    "tr": "消失了",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>消失了。</b>」"
+   },
+   {
+    "t": "消えた",
+    "r": "きえた",
+    "ro": "kieta",
+    "tr": "消失了",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>消失了。</b>」"
+   },
+   {
+    "t": "（カワハナガレル）",
+    "r": "かわはながれる",
+    "ro": "kawa wa nagareru",
+    "tr": "（旁白）河在流",
+    "lv": "rep",
+    "w": [],
+    "p": "（旁白）<b>河在流</b>。",
+    "tip": "与第 19 句同句。副歌的旁白是<b>同一组句子循环</b>，只有主唱那句「消えた」数在变。"
+   },
+   {
+    "t": "消えた",
+    "r": "きえた",
+    "ro": "kieta",
+    "tr": "消失了",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>消失了。</b>」"
+   },
+   {
+    "t": "（マダミエナイ マダミエナイカラ）",
+    "r": "まだみえない まだみえないから",
+    "ro": "mada mienai, mada mienai kara",
+    "tr": "（旁白）还看不见——因为还看不见",
+    "lv": "n3",
+    "w": [
+     [
+      "から",
+      "から",
+      "助词",
+      "因为",
+      "接在句末，表示理由"
+     ],
+     [
+      "見えない",
+      "みえない",
+      "动词",
+      "看不见",
+      "这里没有「て」，比第 21 句更硬、更绝对"
+     ]
+    ],
+    "p": "（旁白）<b>还看不见——因为还看不见。</b>",
+    "g": [
+     [
+      "「〜から」＝因为，不是「从」",
+      "から 有两个用法：起点（家から出る）和理由（忙しいから）。这里在句尾，是理由。副歌把「看不见」当成<b>解释自己为什么消失</b>的理由——逻辑上是循环论证，情绪上却是自暴自弃。"
+     ],
+     [
+      "「まだ見えない」少了 て：语气变硬",
+      "第 21 句是 見え<b>て</b>いない（还在持续、还有余地），这一句直接 見えない（就是看不见）。少一个 て，态度从「还没」变成「不会」。"
+     ]
+    ],
+    "tip": "全曲最像叹气的一句。副歌结束，画面切到房间。"
+   }
+  ]
+ },
+ {
+  "n": "D",
+  "h": "主歌 6 · 房间",
+  "jp": "Dメロ",
+  "lines": [
+   {
+    "t": "濡れたままの髪で僕は眠りたい",
+    "r": "ぬれたままのかみでぼくはねむりたい",
+    "ro": "nureta mama no kami de boku wa nemuritai",
+    "tr": "我想就着没干的头发睡过去",
+    "lv": "n3",
+    "w": [
+     [
+      "濡れた",
+      "ぬれた",
+      "动词",
+      "湿的",
+      "濡れる 的过去式当定语"
+     ],
+     [
+      "まま",
+      "まま",
+      "名词",
+      "就那样、保持原状",
+      "〜たまま：保持…的状态"
+     ],
+     [
+      "髪",
+      "かみ",
+      "名词",
+      "头发",
+      ""
+     ],
+     [
+      "眠りたい",
+      "ねむりたい",
+      "动词",
+      "想睡",
+      "眠る＋たい（第一人称愿望）"
+     ]
+    ],
+    "p": "我想<b>就着湿头发睡下去</b>。",
+    "g": [
+     [
+      "「〜たまま」＝保持…的样子不动",
+      "濡れたまま＝湿着（没擦）、開けたまま＝开着、立ったまま＝站着。它强调<b>某个状态一直没有被处理</b>。这里不是懒，是累了：连擦头发的力气都没有。"
+     ],
+     [
+      "「〜たい」只用于自己",
+      "眠りたい＝我想睡。たい 表示说话人自己的愿望；问别人要用「眠りたいですか」，说别人想睡要换成「眠りたがっている」。"
+     ]
+    ],
+    "tip": "湿头发＋想睡＝泡完澡／淋完雨之后的状态。全曲第一句「室内」的话，这就是入口。"
+   },
+   {
+    "t": "脱ぎ捨てられた服",
+    "r": "ぬぎすてられたふく",
+    "ro": "nugisuterareta fuku",
+    "tr": "被脱下丢在一边的衣服",
+    "lv": "n3",
+    "w": [
+     [
+      "脱ぐ",
+      "ぬぐ",
+      "动词",
+      "脱（衣）",
+      ""
+     ],
+     [
+      "捨てる",
+      "すてる",
+      "动词",
+      "扔、丢弃",
+      "脱ぐ＋捨てる＝脱了随手扔"
+     ],
+     [
+      "脱ぎ捨てられた",
+      "ぬぎすてられた",
+      "动词",
+      "被脱下丢弃",
+      "脱ぎ捨てる 的受身形＋过去式"
+     ]
+    ],
+    "p": "<b>被脱下丢在一边的衣服</b>。",
+    "g": [
+     [
+      "为什么用被动：把「我干的」藏起来",
+      "主动说「脱ぎ捨てた服」，就变成了「我扔的」。用受身「脱ぎ捨て<b>られ</b>た服」，衣服成了主语，<b>做的人不见了</b>——这是日语歌词里最常用的逃避手法：写状态，不写责任。"
+     ],
+     [
+      "复合动词＋受身",
+      "脱ぐ＋捨てる＝脱ぎ捨てる（脱了随手扔），再加 られる 变受身。三段黏在一起（ぬぎ・すて・られ・た），但意思很直白：被脱下来、被丢在那儿、已经过去了。"
+     ]
+    ],
+    "tip": "这句没有动词谓语，是一个名词短语——像镜头推过去，只给一个物件。"
+   },
+   {
+    "t": "昨日のままだった",
+    "r": "きのうのままだった",
+    "ro": "kinou no mama datta",
+    "tr": "还保持着昨天的样子",
+    "lv": "n4",
+    "w": [
+     [
+      "昨日",
+      "きのう",
+      "名词",
+      "昨天",
+      ""
+     ],
+     [
+      "まま",
+      "まま",
+      "名词",
+      "原样、照旧",
+      "与第 22 句同一个 まま"
+     ],
+     [
+      "だった",
+      "だった",
+      "助动词",
+      "是（过去）",
+      "だ 的过去式"
+     ]
+    ],
+    "p": "<b>还是昨天的样子</b>。",
+    "g": [
+     [
+      "同一句式复用：まま",
+      "第 22 句「濡れた<b>まま</b>」是状态没变，这一句「昨日の<b>まま</b>だった」是时间没动。同一个词，两次都表示<b>该变的东西没变</b>：头发没干、衣服没动、昨天没过去。"
+     ]
+    ],
+    "tip": "注意时态：まま<b>だった</b>。说话人是在回想——他看见那件衣服时，它还是昨天的样子。"
+   }
+  ]
+ },
+ {
+  "n": "D′",
+  "h": "主歌 7 · 墙",
+  "jp": "D′メロ",
+  "lines": [
+   {
+    "t": "何も言わない",
+    "r": "なにもいわない",
+    "ro": "nani mo iwanai",
+    "tr": "什么也不说（第二遍）",
+    "lv": "rep",
+    "w": [],
+    "p": "还是一句「<b>什么也不说</b>」——这次是房间。",
+    "tip": "与第 10 句同句。第一次是街沉默，这一次是<b>房间</b>沉默——同一个句式换了地方，封闭感加倍。"
+   },
+   {
+    "t": "言わない部屋の壁にそれは寄りかかって",
+    "r": "いわないへやのかべにそれはよりかかって",
+    "ro": "iwanai heya no kabe ni sore wa yorikakatte",
+    "tr": "在沉默的房间里，那个东西靠着墙",
+    "lv": "n3",
+    "w": [
+     [
+      "部屋",
+      "へや",
+      "名词",
+      "房间",
+      ""
+     ],
+     [
+      "壁",
+      "かべ",
+      "名词",
+      "墙",
+      ""
+     ],
+     [
+      "それ",
+      "それ",
+      "代词",
+      "那个（指衣服／影子）",
+      "故意不说清楚是什么"
+     ],
+     [
+      "寄りかかる",
+      "よりかかる",
+      "动词",
+      "倚靠",
+      "寄る＋かかる 的复合动词"
+     ],
+     [
+      "寄りかかって",
+      "よりかかって",
+      "动词",
+      "靠着（中顿）",
+      "て形，句子还没完"
+     ]
+    ],
+    "p": "在<b>沉默的房间的墙上</b>，那个东西就那么靠着。",
+    "g": [
+     [
+      "「それ」：故意不命名",
+      "衣服？影子？还是自己想出来的人？作者从头到尾只用「それ」。日语用 それ 指代<b>已知但不点名</b>的东西，读者只能自己填。填什么，歌就是什么。"
+     ],
+     [
+      "て形中顿：句子没完，画面在动",
+      "寄りかか<b>って</b> 后面还要接（下一句的「見ているようだ」）。て形把两个动作<b>粘在同一口气里</b>，比句号更连贯：靠着 → 看着我。"
+     ]
+    ],
+    "tip": "注意「言わない」修饰的是「部屋の壁」：不是墙不说话，是<b>整个房间都不说话</b>。"
+   },
+   {
+    "t": "だらしない僕を見ているようだ",
+    "r": "だらしないぼくをみているようだ",
+    "ro": "darashinai boku wo mite iru you da",
+    "tr": "像是在看着我这个邋遢样子",
+    "lv": "n4",
+    "w": [
+     [
+      "だらしない",
+      "だらしない",
+      "形容词",
+      "邋遢、没出息、不检点",
+      "可指衣着、生活、也指人"
+     ],
+     [
+      "見ている",
+      "みている",
+      "动词",
+      "正在看",
+      "見る 的持续形"
+     ],
+     [
+      "ようだ",
+      "ようだ",
+      "助动词",
+      "好像、仿佛",
+      "比况／推测"
+     ]
+    ],
+    "p": "像是<b>在看着我这个邋遢样子</b>。",
+    "g": [
+     [
+      "「〜ようだ」：把判断说得软一点",
+      "ようだ＝好像。它不是事实陈述（見ている），而是<b>说话人的感觉</b>：衣服当然不会看人，但他觉得它在看。全曲的「物会看人」的恐怖感就来自这一个助动词。"
+     ],
+     [
+      "を＋見ている：看的对象",
+      "「僕を」是被看的对象。整句主语是「それ」（上一句），谓语是「見ているようだ」：那个东西，好像在看<b>我</b>。"
+     ]
+    ],
+    "tip": "だらしない 是对人品的评价，比「汚い」（脏）更重：不是房间乱，是这个人活得乱。"
+   }
+  ]
+ },
+ {
+  "n": "C′",
+  "h": "主歌 8 · 夜与风",
+  "jp": "C′メロ",
+  "lines": [
+   {
+    "t": "痛みや傷や嘘に慣れた僕の独り言",
+    "r": "いたみやきずやうそになれたぼくのひとりごと",
+    "ro": "itami ya kizu ya uso ni nareta boku no hitorigoto",
+    "tr": "习惯了疼痛、伤口和谎言的，我一个人的自言自语",
+    "lv": "n3",
+    "w": [
+     [
+      "独り言",
+      "ひとりごと",
+      "名词",
+      "自言自语",
+      "独り＋言，读 ひとりごと（不是 こと）"
+     ]
+    ],
+    "p": "习惯了疼痛、伤口和谎言的，<b>我一个人的自言自语</b>。",
+    "g": [
+     [
+      "与第 13 句对位：僕ら → 僕",
+      "第 13 句是「慣れた<b>僕ら</b>の<b>言葉</b>」，这一句是「慣れた<b>僕</b>の<b>独り言</b>」。<b>我们的话 → 我一个人的嘟囔</b>：从「跟大家一样」退回到「只剩自己」，而「话」也从说给别人听，变成说给自己听。"
+     ],
+     [
+      "独り言 的读音陷阱",
+      "「言」在「独り言」里读 ごと（ひとりごと），不读 げん／こと。类似的还有 手紙（てがみ）、言伝（いいつたえ）——同一个字在不同词里读音会变。"
+     ]
+    ],
+    "tip": "这一句是全曲的「低声部」：前面喊过「消えた」，这里只剩自言自语。"
+   },
+   {
+    "t": "疲れた夜と並び吹く風",
+    "r": "つかれたよるとならびふくかぜ",
+    "ro": "tsukareta yoru to narabi fuku kaze",
+    "tr": "和疲惫的夜并排吹着的风",
+    "lv": "n3",
+    "w": [
+     [
+      "夜",
+      "よる",
+      "名词",
+      "夜",
+      ""
+     ],
+     [
+      "並ぶ",
+      "ならぶ",
+      "动词",
+      "并排、并列",
+      "五段，连用形 並び"
+     ],
+     [
+      "吹く",
+      "ふく",
+      "动词",
+      "吹",
+      "风／笛都用它"
+     ],
+     [
+      "風",
+      "かぜ",
+      "名词",
+      "风",
+      ""
+     ]
+    ],
+    "p": "和<b>疲惫的夜并排吹着的风</b>。",
+    "g": [
+     [
+      "「Aと並び」＝与 A 并排（连用中止）",
+      "並ぶ 的连用形 並び 直接接下一句，等于「並んで」。省略 て 之后节奏更紧，也更冷——像风和人一起站着，谁也不说话。"
+     ],
+     [
+      "定语套定语：疲れた 夜 と 並び吹く 風",
+      "主干只有一个名词「風」。前面全是修饰：什么样的风？和疲惫的夜并排吹着的风。日语可以把动词短语整块塞进名词前面，中文必须拆成短句，否则读不懂。"
+     ]
+    ],
+    "tip": "「疲れた夜」和前面「疲れた川面」是同一个手法：把人的疲倦塞给没有生命的东西。"
+   },
+   {
+    "t": "君の頬へ",
+    "r": "きみのほほへ",
+    "ro": "kimi no hoho e",
+    "tr": "吹向你的脸颊",
+    "lv": "n5",
+    "w": [
+     [
+      "頬",
+      "ほほ",
+      "名词",
+      "脸颊",
+      "也读 ほお，歌里更常用 ほほ"
+     ],
+     [
+      "へ",
+      "へ",
+      "助词",
+      "朝着、向",
+      "读 e，不读 he"
+     ]
+    ],
+    "p": "吹向<b>你的脸颊</b>。",
+    "g": [
+     [
+      "「へ」与「に」：朝向 vs 到达",
+      "へ 只表示<b>方向</b>（朝你那边），に 更强调<b>终点</b>。风还没吹到，所以用 へ：它只是「朝着你」去了。这种没到达的感觉，正好接下一句的「触れた」。"
+     ]
+    ],
+    "tip": "这句只有四个假名，却是全曲的转折：房间里的自言自语法，突然吹到了你身上。"
+   }
+  ]
+ },
+ {
+  "n": "サビ2",
+  "h": "副歌 2 · 触れた",
+  "jp": "サビ（2回目）",
+  "lines": [
+   {
+    "t": "触れた",
+    "r": "ふれた",
+    "ro": "fureta",
+    "tr": "碰到了",
+    "lv": "n5",
+    "w": [
+     [
+      "触れる",
+      "ふれる",
+      "动词",
+      "触碰、接触到",
+      "下一段，过去式 触れた"
+     ]
+    ],
+    "p": "<b>碰到了</b>。",
+    "g": [
+     [
+      "副歌 2 ＝ 副歌 1 的换词版",
+      "十行的位置一个不差，只把「消えた」全换成「触れた」。<b>消失 / 触碰</b>是同一个过去式的两面：一样是完结，一个是什么都没剩下，一个是留下了感觉。"
+     ],
+     [
+      "「触れた」没有宾语",
+      "触れた 前面没有「を」（不写 君に触れた），只说「碰到了」——碰到什么？下一句才给：君が。推迟宾语让这一下更轻，也更突然。"
+     ]
+    ],
+    "tip": "从「消失了」到「碰到了」：全曲唯一一次主动的、有温度的动作。"
+   },
+   {
+    "t": "触れた",
+    "r": "ふれた",
+    "ro": "fureta",
+    "tr": "碰到了（第二遍）",
+    "lv": "rep",
+    "w": [],
+    "p": "又一句「<b>碰到了</b>」。",
+    "tip": "和「消えた」一样，第二遍是回声。整段副歌就是把一个词念到不像词。"
+   },
+   {
+    "t": "（ヨルハナガレル）",
+    "r": "よるはながれる",
+    "ro": "yoru wa nagareru",
+    "tr": "（旁白）夜在流",
+    "lv": "n4",
+    "w": [
+     [
+      "夜",
+      "よる",
+      "名词",
+      "夜",
+      "与「川」对位：一个在地上流，一个在时间里流"
+     ],
+     [
+      "流れる",
+      "ながれる",
+      "动词",
+      "流",
+      "は 读 wa"
+     ]
+    ],
+    "p": "（旁白）<b>夜在流</b>。",
+    "g": [
+     [
+      "カワ→ヨル：只换一个字",
+      "副歌 1 的旁白是「カワハナガレル」（河在流），副歌 2 变成「ヨルハナガレル」（夜在流）。<b>川 → 夜</b>：流过的东西从河变成时间。整首歌的视线就是这样一层层往上抬的。"
+     ]
+    ],
+    "tip": "旁白三个词：カワ（川）／ヨル（夜）／マダミエナイ（还看不见）。全部是「让你慢慢解出来的暗号」。"
+   },
+   {
+    "t": "触れた",
+    "r": "ふれた",
+    "ro": "fureta",
+    "tr": "碰到了",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>碰到了。</b>」"
+   },
+   {
+    "t": "（ナイテハイナイ ナイテハイナイ）",
+    "r": "ないてはいない ないてはいない",
+    "ro": "naite wa inai, naite wa inai",
+    "tr": "（旁白）没有在哭，没有在哭",
+    "lv": "n3",
+    "w": [
+     [
+      "泣く",
+      "なく",
+      "动词",
+      "哭",
+      "て形 泣いて"
+     ],
+     [
+      "〜てはいない",
+      "てはいない",
+      "句型",
+      "并没有…",
+      "「ては＋否定」＝对某种状态的否认"
+     ],
+     [
+      "いない",
+      "いない",
+      "动词",
+      "不在、没有",
+      "いる 的否定"
+     ]
+    ],
+    "p": "（旁白）<b>没有在哭，没有在哭</b>。",
+    "g": [
+     [
+      "「〜てはいない」：否认，不是陈述",
+      "泣いていない＝没在哭（中性说明）；泣い<b>ては</b>いない＝<b>并没有</b>在哭（带辩解、带强调）。加一个 は，语气就从描述变成了否认——像有人问「你在哭吗」，他急着说「没有」。"
+     ],
+     [
+      "泣く 与 鳴く：同音双关",
+      "第 9 句是鸟「鳴いた」，这一句是人在「泣いていない」。两处读音都是 ないた／ないて，<b>字不同、音相同</b>。听到这里，你会怀疑前面那只鸟是不是也是个人。"
+     ]
+    ],
+    "tip": "旁白替「君」说话，而且说的是谎话——下一句就拆穿。"
+   },
+   {
+    "t": "触れた",
+    "r": "ふれた",
+    "ro": "fureta",
+    "tr": "碰到了",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>碰到了。</b>」"
+   },
+   {
+    "t": "触れた",
+    "r": "ふれた",
+    "ro": "fureta",
+    "tr": "碰到了",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>碰到了。</b>」"
+   },
+   {
+    "t": "（ヨルハナガレル）",
+    "r": "よるはながれる",
+    "ro": "yoru wa nagareru",
+    "tr": "（旁白）夜在流",
+    "lv": "rep",
+    "w": [],
+    "p": "（旁白）<b>夜在流</b>。",
+    "tip": "与第 38 句同句。旁白循环，主唱的「触れた」在数数——这是副歌的固定结构。"
+   },
+   {
+    "t": "君が",
+    "r": "きみが",
+    "ro": "kimi ga",
+    "tr": "是你——",
+    "lv": "n4",
+    "w": [
+     [
+      "君",
+      "きみ",
+      "代词",
+      "你",
+      ""
+     ],
+     [
+      "が",
+      "が",
+      "助词",
+      "（主语标记）",
+      "故意不说完"
+     ]
+    ],
+    "p": "<b>是你——</b>",
+    "g": [
+     [
+      "半句：日语歌词最爱的手法",
+      "「君が」后面没有谓语，句子停在主语上。完整意思要接下一句的旁白（泣いていた）。<b>断在主语上</b>，让「你」这个词单独占一行——视觉上，它被整页空白围着。"
+     ]
+    ],
+    "tip": "整首歌到这里才第一次把「你」单独拎出来。前面所有句子都在说「我」或「它」。"
+   },
+   {
+    "t": "（ナイテイタ ナイテイタカラ）",
+    "r": "ないていた ないていたから",
+    "ro": "naite ita, naite ita kara",
+    "tr": "（旁白）哭过——就是因为哭过",
+    "lv": "n3",
+    "w": [
+     [
+      "泣いていた",
+      "ないていた",
+      "动词",
+      "当时在哭",
+      "泣く 的过去进行"
+     ],
+     [
+      "から",
+      "から",
+      "助词",
+      "因为",
+      "与第 26 句同一个 から"
+     ]
+    ],
+    "p": "（旁白）<b>哭过——就是因为哭过。</b>",
+    "g": [
+     [
+      "上一句说「没哭」，这一句说「哭过」",
+      "第 40 句旁白：「并没有在哭」。第 45 句旁白：「在哭，因为哭过」。同一个声部，四行之内自相矛盾——这不是 bug，是<b>人在撒谎之后自己拆穿</b>。副歌的力量全在这个反转上。"
+     ],
+     [
+      "から 在句尾：把原因留在空中",
+      "「泣いていたから」后面没有主句（所以呢？）。日语常把 から 挂在句尾不接下文，意思是「因为这样，所以……（你自己想）」。欲言又止，比说完更重。"
+     ]
+    ],
+    "tip": "全曲的谜底在这四行：不是因为消失而哭，是因为哭过才消失。"
+   }
+  ]
+ },
+ {
+  "n": "E",
+  "h": "尾声 1 · 季节",
+  "jp": "Eメロ",
+  "lines": [
+   {
+    "t": "振り返った季節に立って",
+    "r": "ふりかえったきせつにたって",
+    "ro": "furikaetta kisetsu ni tatte",
+    "tr": "站在回望过去的季节里",
+    "lv": "n3",
+    "w": [
+     [
+      "振り返る",
+      "ふりかえる",
+      "动词",
+      "回头、回望",
+      "五段，过去式 振り返った"
+     ],
+     [
+      "季節",
+      "きせつ",
+      "名词",
+      "季节",
+      ""
+     ],
+     [
+      "立って",
+      "たって",
+      "动词",
+      "站着（中顿）",
+      "立つ 的て形"
+     ]
+    ],
+    "p": "站在<b>回望过去的季节</b>里。",
+    "g": [
+     [
+      "「季節に立って」：把时间当地点",
+      "立つ 一般接地点（駅に立つ），这里接「季節」——<b>时间被当成空间来站</b>。日语歌词很爱这种比喻：時間の中に立つ、夜に立つ。中文要译成「站在…的季节里」才顺。"
+     ],
+     [
+      "振り返った 是「回头看」的过去式",
+      "修饰「季節」。也可以是「（我）回望过的季节」。日语定语从句省略主语，<b>谁回头看不重要</b>——重要的是这个季节已经被回头看过了。"
+     ]
+    ],
+    "tip": "「季節」这个词在 E 段（振り返った季節）和 E′ 段（過ぎ去った季節）各出现一次，是尾段唯一的锚。"
+   },
+   {
+    "t": "思い出せなくて嫌になって",
+    "r": "おもいだせなくていやになって",
+    "ro": "omoidasenakute iya ni natte",
+    "tr": "想不起来，烦得不行",
+    "lv": "n4",
+    "w": [
+     [
+      "思い出す",
+      "おもいだす",
+      "动词",
+      "想起",
+      "可能形 思い出せる → 否定 思い出せない"
+     ],
+     [
+      "嫌になる",
+      "いやになる",
+      "惯用",
+      "变得厌烦、受不了",
+      "嫌＝讨厌，になる＝变成"
+     ],
+     [
+      "〜なくて",
+      "なくて",
+      "助词",
+      "因为不…（中顿）",
+      "否定て形，表示原因"
+     ]
+    ],
+    "p": "<b>想不起来</b>，烦得受不了。",
+    "g": [
+     [
+      "可能形＋否定：思い出せない",
+      "思い出す → 思い出<b>せ</b>る（能想起）→ 思い出せない（想不起来）。注意这里是「可能形否定」，不是「思い出さない」（不想起）：<b>不是不想，是做不到</b>。"
+     ],
+     [
+      "「〜なくて」表原因，不是并列",
+      "〜なくて 常表原因（想不起来 → 所以烦），〜ないで 表方式（不做…而…）。这里用 なくて，两个动作是<b>因果</b>：因为想不起来，所以受不了。"
+     ]
+    ],
+    "tip": "「嫌になって」后面没有宾语——烦什么？下一句才知道：烦自己。"
+   },
+   {
+    "t": "流れ流れてた鳥だって",
+    "r": "ながれながれてたとりだって",
+    "ro": "nagare nagareteta tori datte",
+    "tr": "就连那只一直随波漂流的鸟",
+    "lv": "n3",
+    "w": [
+     [
+      "流れ流れてた",
+      "ながれながれてた",
+      "动词",
+      "一直漂、漂了很久",
+      "流れ流れていた 的口语缩略"
+     ],
+     [
+      "だって",
+      "だって",
+      "助词",
+      "就连…也",
+      "名词＋だって＝でも"
+     ],
+     [
+      "鳥",
+      "とり",
+      "名词",
+      "鸟",
+      "第 2 句那只鸟回来了"
+     ]
+    ],
+    "p": "<b>就连那只一直漂着的鸟</b>，",
+    "g": [
+     [
+      "「〜ていた」缩成「〜てた」",
+      "流れ流れ<b>ていた</b> → 流れ流れ<b>てた</b>。口语里 い 被吞掉，语速更快、更随意。歌词用缩略形，是为了让这句话听起来像<b>脱口而出</b>，而不是写好的句子。"
+     ],
+     [
+      "「だって」：把对方也拉进来",
+      "名詞＋だって＝「连…也」。它比 も 更口语、更有情绪：鳥<b>だって</b>鳴いてたろ＝连鸟都叫了吧。这里的「だって」是在<b>找一个同盟</b>：连鸟都这样，何况我。"
+     ]
+    ],
+    "tip": "注意时态：流れて<b>た</b>。那只鸟的漂流也是过去的事了。"
+   },
+   {
+    "t": "街で鳴いてたろ",
+    "r": "まちでないてたろ",
+    "ro": "machi de naitetaro",
+    "tr": "在城里叫过吧",
+    "lv": "n4",
+    "w": [
+     [
+      "街",
+      "まち",
+      "名词",
+      "城里",
+      "第 5 句那个「知らない街」"
+     ],
+     [
+      "鳴いてた",
+      "ないてた",
+      "动词",
+      "当时在叫",
+      "鳴いていた 的缩略"
+     ],
+     [
+      "たろ",
+      "たろ",
+      "助词",
+      "…吧",
+      "「ただろう」的缩略，推量"
+     ]
+    ],
+    "p": "在城里<b>叫过吧</b>。",
+    "g": [
+     [
+      "「〜たろ」＝「〜ただろう」的口语缩略",
+      "鳴いてたろ＝鳴いていただろう。省掉 だ 和 う，只剩两个假名。它表示<b>推量＋求认同</b>：「你也是吧？」——不是问句，是希望对方点头。"
+     ],
+     [
+      "为什么用「たろ」而不用「でしょう」",
+      "でしょう 是礼貌体，たろ 是常体缩略。一个人在歌里自言自语，不会用 でしょう。用 たろ 说明他<b>在跟自己对话</b>，或者在跟一个不在场的人说话。"
+     ]
+    ],
+    "tip": "这一句把「鸟」和「我」缝在一起：鸟在城里叫，我在城里活着。"
+   },
+   {
+    "t": "鳴いてたろ",
+    "r": "ないてたろ",
+    "ro": "naitetaro",
+    "tr": "叫过吧",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>叫过吧。</b>」",
+    "tip": "同一句再念一遍。第二遍不是重复，是<b>追问</b>——你在等一个回应，而对方不会回答。"
+   }
+  ]
+ },
+ {
+  "n": "E′",
+  "h": "尾声 2 · 起飞",
+  "jp": "E′メロ",
+  "lines": [
+   {
+    "t": "過ぎ去った季節を待って",
+    "r": "すぎさったきせつをまって",
+    "ro": "sugisatta kisetsu wo matte",
+    "tr": "等着已经过去的季节",
+    "lv": "n3",
+    "w": [
+     [
+      "過ぎ去る",
+      "すぎさる",
+      "动词",
+      "逝去、过去",
+      "過ぎる＋去る 的复合动词"
+     ],
+     [
+      "待って",
+      "まって",
+      "动词",
+      "等着（中顿）",
+      "待つ 的て形"
+     ]
+    ],
+    "p": "等着<b>已经过去的季节</b>。",
+    "g": [
+     [
+      "矛盾的宾语：等一个已经过去的季节",
+      "待つ 的对象应该是还没来的东西，这里却是「過ぎ去った季節」——<b>等已经过去的东西回来</b>。语法没错，逻辑是错的；这个错就是这首歌的情绪：他等的不是未来。"
+     ],
+     [
+      "過ぎ去る：复合动词的重量",
+      "過ぎる（过）＋去る（离去）＝过而且走了。比单说 過ぎた 多一层「不再回来」。日语复合动词常这样叠两个近义词来加重量：飛び立つ、流れ去る、消え去る。"
+     ]
+    ],
+    "tip": "E 段是「振り返った」（回头看），E′ 段是「過ぎ去った」（已经走远）。同一件事，两种时态。"
+   },
+   {
+    "t": "思い出せなくて嫌になって",
+    "r": "おもいだせなくていやになって",
+    "ro": "omoidasenakute iya ni natte",
+    "tr": "想不起来，烦得不行（第二遍）",
+    "lv": "rep",
+    "w": [],
+    "p": "一字不差再说一遍：<b>想不起来，烦得受不了。</b>",
+    "tip": "与第 47 句一字不差。E 段与 E′ 段是<b>同一个模板换两个动词</b>：振り返った→過ぎ去った、流れ流れてた→離ればなれから飛び立って。"
+   },
+   {
+    "t": "離ればなれから飛び立って",
+    "r": "はなればなれからとびたって",
+    "ro": "hanarebanare kara tobitatte",
+    "tr": "从天各一方起飞",
+    "lv": "n3",
+    "w": [
+     [
+      "離ればなれ",
+      "はなればなれ",
+      "名词",
+      "天各一方",
+      "第 7 句那个词，隔了四十句回来"
+     ],
+     [
+      "飛び立つ",
+      "とびたつ",
+      "动词",
+      "起飞、飞离",
+      "飛ぶ＋立つ 的复合动词"
+     ],
+     [
+      "から",
+      "から",
+      "助词",
+      "从…（起点）",
+      ""
+     ]
+    ],
+    "p": "<b>从天各一方起飞</b>。",
+    "g": [
+     [
+      "「から」在这里是起点，不是原因",
+      "同一个 から，第 26／45 句是「因为」，这里是「从」。判断方法：<b>后面接移动动词（飛び立つ）就是起点</b>，接状态或句子就是原因。"
+     ],
+     [
+      "飞离「散开」本身",
+      "「離ればなれから飛び立つ」＝从「彼此失散」这个状态里飞出去。起点不是地点，是<b>处境</b>。日语常用抽象名词＋から表示「从某种状态里出来」：孤独から逃げる、悲しみから立ち直る。"
+     ]
+    ],
+    "tip": "第 7 句「離ればなれ」第一次出现时只有四个假名，孤零零一行；四十句之后，它变成了起飞的跑道。"
+   },
+   {
+    "t": "鳥も鳴いてたろ",
+    "r": "とりもないてたろ",
+    "ro": "tori mo naitetaro",
+    "tr": "鸟也叫过吧",
+    "lv": "n4",
+    "w": [
+     [
+      "も",
+      "も",
+      "助词",
+      "也",
+      "与第 49 句的 だって 同义，但 も 更中性"
+     ]
+    ],
+    "p": "<b>鸟也叫过吧</b>。",
+    "g": [
+     [
+      "だって → も：语气从「连…都」变成「…也」",
+      "第 49 句是「鳥<b>だって</b>」（连鸟都），这一句是「鳥<b>も</b>」（鸟也）。同义，但 だって 更激动、更需要认同；も 更平静，像叙述。两段结尾各用一次，情绪正好降了半格。"
+     ]
+    ],
+    "tip": "E′ 段结束时，那个「叫过吧」的问句已经问了两轮，还是没人回答。"
+   },
+   {
+    "t": "鳴いてたろ",
+    "r": "ないてたろ",
+    "ro": "naitetaro",
+    "tr": "叫过吧",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>叫过吧。</b>」",
+    "tip": "与第 50 句同句。尾段把同一句重复两次，是为了让下一段的「いつだって」接得上——从疑问直接跳到承诺。"
+   }
+  ]
+ },
+ {
+  "n": "F",
+  "h": "终章 1 · 继续唱",
+  "jp": "Fメロ",
+  "lines": [
+   {
+    "t": "いつだって僕らを待ってる",
+    "r": "いつだってぼくらをまってる",
+    "ro": "itsudatte bokura wo matteru",
+    "tr": "无论什么时候都在等着我们",
+    "lv": "n4",
+    "w": [
+     [
+      "いつだって",
+      "いつだって",
+      "副词",
+      "无论何时、总是",
+      "いつ＋だって"
+     ],
+     [
+      "僕ら",
+      "ぼくら",
+      "代词",
+      "我们",
+      "与第 13 句同一个人称"
+     ],
+     [
+      "待ってる",
+      "まってる",
+      "动词",
+      "在等",
+      "待っている 的缩略"
+     ]
+    ],
+    "p": "<b>什么时候都在等着我们</b>。",
+    "g": [
+     [
+      "「〜てる」＝「〜ている」的口语形",
+      "待っている → 待ってる；歌い続けている → 歌い続けてる。口语里 い 被吞掉，是所有缩略里最常见的一个。它让句子听起来<b>像说话，不像写词</b>。"
+     ],
+     [
+      "主语不见了：谁在等",
+      "「待ってる」前面没有主语。可能是「夜」、可能是「痛み」、也可能是「你」。F 段四句全是这种<b>省略主语＋だって</b>的排比：等着的、疲惫的、不变的，全都被拉进来当同伙。"
+     ]
+    ],
+    "tip": "注意人称回到「僕ら」：最孤独的那句（僕の独り言）之后，最后一段又变回「我们」。"
+   },
+   {
+    "t": "疲れた痛みや傷だって",
+    "r": "つかれたいたみやきずだって",
+    "ro": "tsukareta itami ya kizu datte",
+    "tr": "就算是疲惫的疼痛和伤口",
+    "lv": "n3",
+    "w": [
+     [
+      "痛み",
+      "いたみ",
+      "名词",
+      "疼痛",
+      "第 13 句的那三个词回来了"
+     ],
+     [
+      "傷",
+      "きず",
+      "名词",
+      "伤口",
+      ""
+     ],
+     [
+      "だって",
+      "だって",
+      "助词",
+      "就算是…也",
+      ""
+     ]
+    ],
+    "p": "<b>就算是疲惫的疼痛和伤口</b>，",
+    "g": [
+     [
+      "「疲れた痛み」：痛会累",
+      "痛み 不会累，人才会。作者把「疲れた」硬塞给「痛み」，于是痛变成了<b>一个有寿命的东西</b>——它也会老、也会累。这种搭配叫「逸脱搭配」，日语歌词最擅长的越界。"
+     ],
+     [
+      "「〜だって」三项排比",
+      "痛みや傷だって／夜だって／僕だって——三个 だって 连排，把「就算…就算…就算…」一层层垒上去。这是日语演讲、歌词里最强的<b>让步排比</b>句式。"
+     ]
+    ],
+    "tip": "第 13 句是「慣れた」（习惯了痛），这里变成「疲れた」（痛也累了）。同一个词，四十几句之后终于翻面。"
+   },
+   {
+    "t": "変わらないままの夜だって",
+    "r": "かわらないままのよるだって",
+    "ro": "kawaranai mama no yoru datte",
+    "tr": "就算是一成不变的夜",
+    "lv": "n3",
+    "w": [
+     [
+      "変わらない",
+      "かわらない",
+      "动词",
+      "不变",
+      "変わる 的否定"
+     ],
+     [
+      "まま",
+      "まま",
+      "名词",
+      "原样、照旧",
+      "第三次出现：濡れたまま／昨日のまま／変わらないまま"
+     ]
+    ],
+    "p": "<b>就算是一成不变的夜</b>，",
+    "g": [
+     [
+      "まま 的三次变奏",
+      "第 22 句「濡れたまま」（头发）、第 29 句「昨日のままだった」（衣服）、这一句「変わらないまま」（夜）。<b>同一个词，从小物件一路放大到整夜</b>：先是没擦的头发，再是没动的衣服，最后是不会变的夜。"
+     ],
+     [
+      "「変わらない」修饰「夜」：夜也不会变",
+      "日语里「変わらない」常带<b>安慰</b>意味（変わらないね＝你没变）；这里却是抱怨：夜一点都没变，所以我也没变。同一个词，看谁用。"
+     ]
+    ],
+    "tip": "「まま」是本曲的结构关键词之一：它始终表示<b>该变的东西没变</b>。"
+   },
+   {
+    "t": "歌い続けるよ",
+    "r": "うたいつづけるよ",
+    "ro": "utai tsuzukeru yo",
+    "tr": "我会继续唱下去",
+    "lv": "n4",
+    "w": [
+     [
+      "歌う",
+      "うたう",
+      "动词",
+      "唱",
+      "五段，连用形 歌い"
+     ],
+     [
+      "続ける",
+      "つづける",
+      "动词",
+      "继续",
+      "接在连用形后＝持续做"
+     ],
+     [
+      "よ",
+      "よ",
+      "助词",
+      "（强调、告知）",
+      "把话说给对方听"
+     ]
+    ],
+    "p": "我会<b>继续唱下去</b>。",
+    "g": [
+     [
+      "ます形＋続ける：持续做",
+      "歌い＋続ける＝继续唱。同类：歩き続ける、待ち続ける。注意 続ける 是<b>他动词</b>（自己决定继续），自動詞 続く 是「自己延续下去」——这里用他动词，说明是<b>他的意志</b>。"
+     ],
+     [
+      "句尾「よ」：把承诺说出口",
+      "よ 在这里不是提醒，是<b>宣告</b>：我要继续唱。全曲 65 行，只有这里出现了对未来的、主动的承诺。"
+     ]
+    ],
+    "tip": "标题「ミュージック」到这一句才落地：不是音乐陪着他，是他决定继续做音乐。"
+   },
+   {
+    "t": "続けるよ",
+    "r": "つづけるよ",
+    "ro": "tsuzukeru yo",
+    "tr": "继续唱",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>继续唱。</b>」",
+    "tip": "只剩动词，把「歌い」省掉。省掉的正是「歌」——他说的「继续」，已经不必再说明继续什么。"
+   }
+  ]
+ },
+ {
+  "n": "F′",
+  "h": "终章 2 · 继续唱（第二遍）",
+  "jp": "F′メロ",
+  "lines": [
+   {
+    "t": "いつだって僕らを待ってる",
+    "r": "いつだってぼくらをまってる",
+    "ro": "itsudatte bokura wo matteru",
+    "tr": "无论什么时候都在等着我们（第二遍）",
+    "lv": "rep",
+    "w": [],
+    "p": "再说一遍：<b>什么时候都在等着我们。</b>",
+    "tip": "与第 56 句同句。F 与 F′ 是整段复唱，只把第二、三、四句换掉：痛みと傷→まだ見えないまま、夜→だらしなくて弱い僕。"
+   },
+   {
+    "t": "まだ見えないままただ待ってる",
+    "r": "まだみえないままただまってる",
+    "ro": "mada mienai mama tada matteru",
+    "tr": "还是看不见，就那样一直等着",
+    "lv": "n3",
+    "w": [
+     [
+      "まだ",
+      "まだ",
+      "副词",
+      "还、仍然",
+      "第 21 句旁白那个 まだ"
+     ],
+     [
+      "見えない",
+      "みえない",
+      "动词",
+      "看不见",
+      "第 26 句旁白那个 見えない"
+     ],
+     [
+      "まま",
+      "まま",
+      "名词",
+      "就那样",
+      ""
+     ],
+     [
+      "ただ",
+      "ただ",
+      "副词",
+      "只是、仅仅",
+      "强调「什么也不做，只等」"
+     ],
+     [
+      "待ってる",
+      "まってる",
+      "动词",
+      "在等",
+      ""
+     ]
+    ],
+    "p": "<b>还是看不见，就那样一直等着</b>。",
+    "g": [
+     [
+      "旁白的话，最后从主唱嘴里说出来",
+      "「まだ見えない」在第 21 句是片假名旁白（マダミエテナイ），在第 26 句是旁白的结语（マダミエナイ）。到这里，<b>主唱自己说了这句话</b>：旁白不再是别人的声音，就是他的内心。"
+     ],
+     [
+      "「〜まま＋ただ＋动词」：三个词拧成一股",
+      "まま（状态不变）＋ただ（什么都不做）＋待ってる（等着）＝「只能干等」。日语用这种副词叠加制造<b>无力感</b>，中文要拆成好几个短句才译得出来。"
+     ]
+    ],
+    "tip": "全曲最后一次「看不见」。「消えた」的东西没有回来，但他不再问「为什么」了。"
+   },
+   {
+    "t": "だらしなくて弱い僕だって",
+    "r": "だらしなくてよわいぼくだって",
+    "ro": "darashinakute yowai boku datte",
+    "tr": "就算是又邋遢又软弱的我",
+    "lv": "n3",
+    "w": [
+     [
+      "だらしない",
+      "だらしない",
+      "形容词",
+      "邋遢、没出息",
+      "第 32 句被人（衣服）看着的那个词"
+     ],
+     [
+      "弱い",
+      "よわい",
+      "形容词",
+      "软弱",
+      "第 11 句问鸟的那个词"
+     ],
+     [
+      "だって",
+      "だって",
+      "助词",
+      "就算是…也",
+      ""
+     ]
+    ],
+    "p": "<b>就算是又邋遢又软弱的我</b>，",
+    "g": [
+     [
+      "前两段的两个贬词，最后自己认了",
+      "第 11 句他问鸟「是不是和我一样<b>弱い</b>」，第 32 句衣服「看着<b>だらしない</b>的我」。到这一句，两个词并排放在「僕」前面——<b>别人说的、自己问的，全部认下来</b>，然后接「歌い続けるよ」。"
+     ],
+     [
+      "形容词并列：〜くて",
+      "だらしない（形容词）→ だらしな<b>くて</b>；弱い → 弱<b>くて</b>。い形容词的て形去 い 加 くて，用来并列两个性质。"
+     ]
+    ],
+    "tip": "这是全曲的自画像，也是最后一句话的前提：不因为变好了才继续唱，是因为继续唱才不用变好。"
+   },
+   {
+    "t": "歌い続けるよ",
+    "r": "うたいつづけるよ",
+    "ro": "utai tsuzukeru yo",
+    "tr": "我会继续唱下去（第二遍）",
+    "lv": "rep",
+    "w": [],
+    "p": "再说一遍：<b>我会继续唱下去。</b>",
+    "tip": "与第 59 句同句。第二遍的「続けるよ」后面就是曲终——没有渐弱，直接停。"
+   },
+   {
+    "t": "続けるよ",
+    "r": "つづけるよ",
+    "ro": "tsuzukeru yo",
+    "tr": "继续唱",
+    "lv": "rep",
+    "w": [],
+    "p": "「<b>继续唱。</b>」",
+    "tip": "全曲最后两个字。日语歌常常不给你一个完整的结尾，只留下一个动词。"
+   }
+  ]
+ }
+];
+/*==DATA-END==*/
+
+/*==ENGINE-START==*/
+const lvName = {n5:"N5", n4:"N4", n3:"N3", n2:"N2+", lit:"文語", rep:"重复"};
+const box = document.getElementById("lyrics");
+const emptyEl = document.querySelector(".empty");
+const bar = document.getElementById("bar");
+const state = {rd:true, ro:true, tr:true};
+const SECS = Array.isArray(S) ? S : (S.sections || []);
+let all = 0;
+
+try { Object.assign(state, JSON.parse(localStorage.getItem("wbState") || "{}")); } catch (e) {}
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function stripTags(s){return String(s == null ? "" : s).replace(/<[^>]*>/g, " ");}
+
+(SECS).forEach(sec => {
+  const wrap = document.createElement("section");
+  wrap.className = "sec";
+  const nLines = (sec.lines || []).length;
+  wrap.innerHTML = '<div class="sec-h"><span class="n">' + esc(sec.n) +
+    "</span><h3>" + esc(sec.h) + '</h3><span class="jp">' + esc(sec.jp) +
+    '</span><span class="sp"></span><span class="sec-cnt">' + nLines + " 句</span>" +
+    '<button class="sec-tg" type="button">展开本节</button></div>';
+
+  const secTg = wrap.querySelector(".sec-tg");
+  secTg.addEventListener("click", () => {
+    const lines = [...wrap.querySelectorAll(".line")];
+    const anyClosed = lines.some(l => !l.classList.contains("open"));
+    lines.forEach(l => setOpen(l, anyClosed));
+    secTg.textContent = anyClosed ? "收起本节" : "展开本节";
+  });
+
+  (sec.lines || []).forEach(L => {
+    all++;
+    const d = document.createElement("div");
+    d.className = "line" + (L.lv === "rep" ? " repcard" : "");
+
+    let words = "";
+    if (L.w && L.w.length) {
+      words = '<h4>逐词拆解</h4><table class="sx"><thead><tr>' +
+        "<th>词 / 表达</th><th>读音</th><th>词性</th><th>释义</th><th>备注</th></tr></thead><tbody>" +
+        L.w.map(w => '<tr><td class="w" data-h="词">' + esc(w[0]) + '</td><td class="rd2" data-h="读音">' + esc(w[1]) +
+          '</td><td class="pos" data-h="词性">' + esc(w[2]) + '</td><td class="mn" data-h="释义">' + esc(w[3]) +
+          '</td><td class="nt" data-h="备注">' + esc(w[4] || "") + "</td></tr>").join("") +
+        "</tbody></table>";
+    }
+    const gram = (L.g && L.g.length)
+      ? "<h4>句法结构</h4>" + L.g.map(g => '<div class="g"><b>' + g[0] + "</b><br>" + g[1] + "</div>").join("")
+      : "";
+    const plain = L.p ? '<div class="plain"><b>大白话：</b>' + L.p + "</div>" : "";
+    const tip = L.tip ? '<div class="tip"><b>提示：</b>' + L.tip + "</div>" : "";
+
+    d.innerHTML =
+      '<div class="head" role="button" tabindex="0" aria-expanded="false">' +
+        '<div class="orig">' + esc(L.t) + "</div>" +
+        '<div class="rd">' + esc(L.r) + "</div>" +
+        '<div class="ro">' + esc(L.ro) + "</div>" +
+        '<div class="tr">' + L.tr + "</div>" +
+        '<div class="foot"><span class="lv ' + L.lv + '">' + (lvName[L.lv] || L.lv) + "</span></div>" +
+        '<span class="chev" aria-hidden="true">▾</span>' +
+      "</div>" +
+      '<div class="detail">' + words + gram + plain + tip + "</div>";
+
+    d.dataset.search = stripTags([L.t, L.r, L.ro, L.tr, L.p, L.tip]
+      .concat((L.w || []).map(w => w.join(" ")))
+      .concat((L.g || []).map(g => g.join(" ")))
+      .join(" ")).toLowerCase();
+
+    const head = d.querySelector(".head");
+    head.addEventListener("click", () => setOpen(d, !d.classList.contains("open")));
+    head.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(d, !d.classList.contains("open")); }
+    });
+
+    wrap.appendChild(d);
+  });
+  box.appendChild(wrap);
+});
+
+function setOpen(line, open) {
+  line.classList.toggle("open", !!open);
+  const h = line.querySelector(".head");
+  if (h) h.setAttribute("aria-expanded", open ? "true" : "false");
+  const sec = line.closest(".sec");
+  if (sec) syncSecTg(sec);
+}
+function syncSecTg(sec) {
+  const tg = sec.querySelector(".sec-tg");
+  if (!tg) return;
+  const lines = [...sec.querySelectorAll(".line")];
+  tg.textContent = lines.some(l => !l.classList.contains("open")) ? "展开本节" : "收起本节";
+}
+
+function apply() {
+  box.querySelectorAll(".line").forEach(l => {
+    l.querySelector(".rd").style.display = state.rd ? "block" : "none";
+    l.querySelector(".ro").style.display = state.ro ? "block" : "none";
+    l.querySelector(".tr").style.display = state.tr ? "block" : "none";
+  });
+}
+
+
+/* 导航高度写进 --nav-h，供锚点与深读版目录使用 */
+function syncNavH() {
+  const h = bar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-h", Math.round(h) + "px");
+}
+if (window.ResizeObserver) new ResizeObserver(syncNavH).observe(bar);
+else window.addEventListener("resize", syncNavH);
+window.addEventListener("load", syncNavH);
+
+/* 默认全部收起：进来先看到歌词本身，想看解析再点 */
+apply();
+
+/* ---------- 主题 ---------- */
+try { if (localStorage.getItem("wbTheme") === "light") document.documentElement.classList.add("light"); } catch (e) {}
+const themeBtn = document.getElementById("themeBtn");
+function syncThemeBtn() {
+  const light = document.documentElement.classList.contains("light");
+  themeBtn.textContent = light ? "☀️" : "🌙";
+  themeBtn.setAttribute("aria-pressed", light ? "true" : "false");
+  themeBtn.title = light ? "当前：浅色（点击切深色）" : "当前：深色（点击切浅色）";
+}
+themeBtn.addEventListener("click", function () {
+  const light = document.documentElement.classList.toggle("light");
+  try { localStorage.setItem("wbTheme", light ? "light" : "dark"); } catch (e) {}
+  syncThemeBtn();
+  syncNavH();
+});
+syncThemeBtn();
+syncNavH();
+/*==ENGINE-END==*/
+</script>
+</body>
+</html>

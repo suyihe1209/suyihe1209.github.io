@@ -1,0 +1,333 @@
+/* ============================================================
+   紫荆情怀 · 个人博客 全局样式
+   浅色霓虹主题（固定浅色，无深浅切换）
+   ============================================================ */
+
+/* ---------- 设计令牌（浅色） ---------- */
+:root {
+  --bg: #eae6f5;
+  --bg2: #e2dcf0;
+  --panel: #ffffff;
+  --panel2: #f4f1fc;
+  --line: #e2dcf0;
+  --line2: #cfc6e8;
+  --text: #1c1730;
+  --muted: #585170;
+  --muted2: #6b6484;
+  --cyan: #0b7a8d;
+  --pink: #c2185b;
+  --violet: #6b3fb8;
+  --amber: #8a5a00;
+  --green: #0f7a46;
+  --red: #b3261e;
+  --nav-h: 64px;
+  --r-md: 14px;
+  --r-sm: 11px;
+  --fs-body: 15px;
+  --card-bg: #ffffff;
+  --card-hover: #f4f1fc;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 14px); }
+
+body {
+  /* 弥散光斑（粉紫青蓝，呼应霓虹色板） + 胶片噪点 + 浅紫底色 */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E"),
+    radial-gradient(1000px 640px at 6% 4%, rgba(194, 24, 91, 0.22) 0%, transparent 60%),
+    radial-gradient(900px 620px at 96% 8%, rgba(11, 122, 141, 0.20) 0%, transparent 58%),
+    radial-gradient(1100px 700px at 50% 96%, rgba(107, 63, 184, 0.22) 0%, transparent 60%),
+    radial-gradient(760px 520px at 20% 55%, rgba(95, 227, 245, 0.16) 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  line-height: 1.7;
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+a { color: inherit; }
+
+/* ---------- 顶部导航 ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 60;
+  background: rgba(250, 248, 255, 0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); gap: 16px; }
+.logo { font-size: 19px; font-weight: 700; text-decoration: none; color: var(--text); }
+.logo .dot { color: var(--pink); }
+.nav { display: flex; gap: 20px; align-items: center; }
+.nav a {
+  text-decoration: none; color: var(--muted); font-size: 15px;
+  transition: color .2s; padding: 4px 0;
+}
+.nav a:hover, .nav a.active { color: var(--cyan); }
+
+/* ---------- Hero ---------- */
+.hero { padding: 96px 0 72px; }
+.hero-kicker { color: var(--cyan); font-size: 15px; font-weight: 600; letter-spacing: .06em; }
+.hero-title { font-size: 56px; letter-spacing: -1px; margin: 10px 0 14px; }
+.hero-title .accent {
+  background: linear-gradient(90deg, var(--pink), var(--violet));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub { color: var(--muted); font-size: 18px; max-width: 560px; }
+.hero-actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ---------- 头图 Hero（首页专用） ---------- */
+.hero-with-image {
+  position: relative;
+  /* 严格按照片原始比例 4:3（4032x3024），高度跟随宽度等比，全屏也不裁切 */
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  background-image: url("hero.jpg");
+  background-size: cover;
+  background-position: center 30%;
+  overflow: hidden;
+}
+/* 底部柔化遮罩：用与页面底色同色的渐变把照片硬边彻底盖住，消除交界分界线 */
+.hero-with-image::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 22%;
+  background: linear-gradient(180deg, rgba(234, 230, 245, 0) 0%, rgba(234, 230, 245, 1) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-with-image .hero-overlay {
+  position: absolute; inset: 0;
+  /* 顶部轻微压暗保证标题可读 */
+  background:
+    linear-gradient(180deg, rgba(20, 16, 40, 0.30) 0%, rgba(20, 16, 40, 0.0) 24%);
+  pointer-events: none;
+}
+.hero-with-image .hero-content {
+  position: relative; z-index: 1;
+  padding: 72px 0 0 64px;
+}
+/* 头图夕阳处的名言小字（中上部、水平居中，避开手办） */
+.hero-quote {
+  position: absolute; left: 0; right: 0; top: 28%;
+  text-align: center; z-index: 2;
+  font-size: 14px; color: #3a3358;
+  letter-spacing: .03em;
+  text-shadow: 0 1px 12px rgba(255,255,255,0.55);
+}
+.hero-quote .hero-quote-src {
+  margin-left: 6px; font-size: 12.5px; color: #6b6484;
+}
+/* 标题行：头像 + 文字并排，靠左上，避开手办脸部（角色在画面中下部） */
+.hero-brand { display: flex; align-items: center; gap: 18px; }
+.hero-brand .brand-avatar {
+  width: 68px; height: 68px; border-radius: 50%;
+  object-fit: cover; border: 2px solid rgba(255,255,255,0.8);
+  box-shadow: 0 4px 18px rgba(20, 16, 40, 0.25);
+}
+.hero-with-image .hero-title {
+  font-size: 66px; letter-spacing: -1px; margin: 0; line-height: 1.1;
+  color: #1c1730; text-shadow: 0 1px 14px rgba(255,255,255,0.45);
+}
+
+.btn {
+  display: inline-block; padding: 11px 24px; border-radius: var(--r-sm);
+  font-size: 15px; font-weight: 600; text-decoration: none; transition: all .2s;
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--pink), var(--violet));
+  color: #fff;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(183, 140, 255, 0.35); }
+.btn-ghost { border-color: var(--line2); color: var(--text); }
+.btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ---------- 区块 ---------- */
+.section { padding: 52px 0; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 26px; }
+.section-title { font-size: 26px; letter-spacing: -.5px; }
+.section-title::before {
+  content: ""; display: inline-block; width: 4px; height: 20px;
+  background: linear-gradient(180deg, var(--pink), var(--violet));
+  border-radius: 2px; margin-right: 12px; vertical-align: -2px;
+}
+.section-more { color: var(--muted); font-size: 14px; text-decoration: none; }
+.section-more:hover { color: var(--cyan); }
+
+/* ---------- 卡片通用 ---------- */
+.card {
+  background: var(--card-bg); border: 1px solid var(--line);
+  border-radius: var(--r-md); transition: all .2s;
+}
+
+/* ---------- 文章列表 ---------- */
+.post-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.post-card {
+  display: block; text-decoration: none; color: var(--text);
+  padding: 22px 24px;
+  /* 去掉卡片白色圆角底，直接铺在页面背景上 */
+  background: transparent; border: none; border-radius: 0;
+  box-shadow: none;
+}
+.post-card:hover { background: var(--card-hover); transform: translateY(-2px); }
+.post-card .post-date { color: var(--muted2); font-size: 12px; }
+.post-card h3 { font-size: 16px; margin: 4px 0 8px; }
+.post-card .post-excerpt { color: var(--muted); font-size: 14px; }
+.post-card .post-tag {
+  display: inline-block; margin-top: 12px; padding: 3px 11px;
+  font-size: 12px; border-radius: 20px;
+  background: rgba(95, 227, 245, 0.1); color: var(--cyan);
+}
+.post-card .post-tag.deep {
+  margin-left: 8px;
+  background: rgba(194, 24, 91, 0.1); color: var(--pink);
+}
+
+/* 首页歌词曲目迷你卡片：更紧凑，只保留歌手+曲名 */
+.song-mini { padding: 12px 16px; }
+.song-mini h3 { font-size: 16px; margin: 4px 0 0; }
+.song-mini .post-date { font-size: 12px; }
+#songList.post-list { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+/* ---------- 歌词专区卡片 ---------- */
+.lyrics-banner {
+  position: relative; overflow: hidden; padding: 32px 30px;
+  background:
+    radial-gradient(600px 300px at 85% -20%, rgba(255, 111, 181, 0.16) 0%, transparent 60%),
+    radial-gradient(500px 280px at 10% 120%, rgba(95, 227, 245, 0.14) 0%, transparent 60%),
+    var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  margin-bottom: 28px;
+}
+.lyrics-banner h2 { font-size: 28px; margin-bottom: 10px; letter-spacing: -.5px; }
+.lyrics-banner h2 .jp { color: var(--pink); }
+.lyrics-banner p { color: var(--muted); max-width: 640px; margin-bottom: 18px; }
+.lyrics-stats { display: flex; gap: 26px; flex-wrap: wrap; }
+.lyrics-stats .stat { display: flex; flex-direction: column; }
+.lyrics-stats .stat b {
+  font-size: 26px; background: linear-gradient(90deg, var(--cyan), var(--pink));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lyrics-stats .stat span { font-size: 12.5px; color: var(--muted2); }
+
+.song-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.song-card {
+  display: flex; flex-direction: column; text-decoration: none; color: var(--text);
+  padding: 20px 20px 18px;
+}
+.song-card:hover { background: var(--card-hover); border-color: var(--line2); transform: translateY(-3px); }
+.song-card .song-seq { color: var(--muted2); font-size: 12px; font-weight: 600; letter-spacing: .08em; }
+.song-card .song-title { font-size: 17px; font-weight: 700; margin: 8px 0 4px; }
+.song-card .song-sub { color: var(--muted2); font-size: 12.5px; margin-bottom: 10px; }
+.song-card .song-artist { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+.song-card .song-meta {
+  margin-top: auto; display: flex; gap: 12px; flex-wrap: wrap;
+  font-size: 12px; color: var(--muted2);
+}
+.song-card .song-meta b { color: var(--cyan); font-weight: 600; }
+.song-card .deep-badge {
+  display: inline-block; padding: 2px 8px; font-size: 11px; border-radius: 20px;
+  background: rgba(255, 111, 181, 0.12); color: var(--pink);
+}
+
+/* ---------- 关于我 ---------- */
+.about-card {
+  display: flex; gap: 22px; align-items: flex-start;
+  padding: 30px;
+}
+.about-avatar {
+  flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line2);
+  box-shadow: 0 4px 16px rgba(107, 63, 184, 0.18);
+}
+.about-text p { color: var(--muted); margin-bottom: 10px; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-text a { color: var(--cyan); text-decoration: none; }
+.about-text a:hover { text-decoration: underline; }
+
+/* ---------- 页脚 ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 30px 0; text-align: center; margin-top: 40px; }
+.site-footer p { color: var(--muted2); font-size: 13.5px; }
+
+/* ---------- 文章页 ---------- */
+.article-header { padding: 64px 0 20px; }
+.article-header .post-date { color: var(--muted2); font-size: 14px; }
+.article-header h1 { font-size: 38px; letter-spacing: -1px; margin: 10px 0 16px; }
+.article-header .post-tag {
+  display: inline-block; padding: 4px 12px; font-size: 13px;
+  border-radius: 20px; background: rgba(95, 227, 245, 0.1); color: var(--cyan);
+}
+.article-body { padding: 20px 0 60px; max-width: 720px; }
+.article-body h2 { font-size: 24px; margin: 34px 0 14px; }
+.article-body h2::before {
+  content: ""; display: inline-block; width: 4px; height: 18px;
+  background: linear-gradient(180deg, var(--pink), var(--violet));
+  border-radius: 2px; margin-right: 10px; vertical-align: -2px;
+}
+.article-body h3 { font-size: 19px; margin: 26px 0 10px; color: var(--cyan); }
+.article-body p { margin-bottom: 16px; color: var(--text); }
+.article-body code {
+  background: rgba(95, 227, 245, 0.1); color: var(--cyan);
+  padding: 2px 6px; border-radius: 5px; font-size: 14px;
+}
+.article-body pre {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 18px; overflow-x: auto; margin: 16px 0;
+}
+.article-body pre code { background: none; color: var(--text); padding: 0; }
+.article-body ul, .article-body ol { margin: 0 0 16px 22px; }
+.article-body li { margin-bottom: 6px; }
+.article-body ul.contact-list { list-style: none; margin-left: 0; padding: 0; }
+.article-body ul.contact-list li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; margin-bottom: 8px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  font-size: 15px;
+}
+.article-body ul.contact-list li::before {
+  content: ""; flex-shrink: 0; width: 8px; height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+}
+.article-body a { color: var(--cyan); }
+.article-body blockquote {
+  border-left: 3px solid var(--pink); padding: 8px 16px;
+  color: var(--muted); margin: 16px 0;
+  background: rgba(255, 111, 181, 0.08);
+  border-radius: 0 8px 8px 0;
+}
+.back-link {
+  display: inline-block; margin: 20px 0 0; text-decoration: none;
+  color: var(--muted2); font-size: 15px;
+}
+.back-link:hover { color: var(--cyan); }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 900px) {
+  .song-grid { grid-template-columns: repeat(2, 1fr); }
+  .post-list { grid-template-columns: 1fr; }
+  #songList.post-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .hero { padding: 64px 0 48px; }
+  .hero-title { font-size: 40px; }
+  .hero-with-image .hero-content { padding: 28px 0 0 20px; }
+  .hero-with-image .hero-title { font-size: 40px; }
+  .hero-brand .brand-avatar { width: 48px; height: 48px; }
+  .song-grid { grid-template-columns: 1fr; }
+  #songList.post-list { grid-template-columns: 1fr; }
+  .nav { gap: 14px; }
+  .nav a { font-size: 14px; }
+  .article-header h1 { font-size: 30px; }
+  .lyrics-stats { gap: 18px; }
+  .lyrics-stats .stat b { font-size: 22px; }
+}
