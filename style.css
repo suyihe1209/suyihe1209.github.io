@@ -87,10 +87,15 @@ a { color: inherit; }
   padding: 0;
   display: flex;
   align-items: flex-start;
+  /* 默认用 5MB 原图；下方 @supports 检测到 WebP 支持后覆盖为 83KB 版 */
   background-image: url("hero.jpg");
   background-size: cover;
   background-position: center 30%;
   overflow: hidden;
+}
+/* WebP 特性检测：支持的浏览器改用 83KB 压缩版（原 5MB 的 98% 减重） */
+@supports (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=")) {
+  .hero-with-image { background-image: url("hero.webp"); }
 }
 /* 底部柔化遮罩：用与页面底色同色的渐变把照片硬边彻底盖住，消除交界分界线 */
 .hero-with-image::after {
