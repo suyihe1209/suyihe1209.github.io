@@ -317,6 +317,26 @@ html.light .bar{background:rgba(250,248,255,.94);}
   header{padding:28px 0 18px;}
   header .ball{display:none;}
 }
+
+/* ---------- 上一首 / 下一首 ---------- */
+.pager{display:flex;justify-content:space-between;align-items:stretch;gap:12px;margin-top:48px;}
+.pager a{flex:1;text-decoration:none;color:var(--text);background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;
+  transition:.16s;display:flex;flex-direction:column;gap:4px;min-width:0;}
+.pager a:hover{border-color:var(--pink);background:var(--panel2);transform:translateY(-2px);}
+.pager .lab{font-size:11.5px;letter-spacing:.14em;color:var(--muted2);font-weight:700;}
+.pager .ttl{font-size:15px;font-weight:700;color:var(--cyan);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pager .next{align-items:flex-end;text-align:right;}
+.pager .prev{align-items:flex-start;text-align:left;}
+.pager .spacer{flex:1;border:1px dashed var(--line);border-radius:var(--r-md);display:flex;
+  align-items:center;justify-content:center;color:var(--muted2);font-size:12.5px;letter-spacing:.1em;}
+html.light .pager a{background:#fff;}
+html.light .pager a:hover{background:#f4f1fc;}
+@media (max-width:700px){
+  .pager{flex-direction:column;}
+  .pager a{align-items:flex-start;text-align:left;}
+  .pager .next{align-items:flex-start;text-align:left;}
+}
 </style>
 </head>
 <body>
@@ -411,6 +431,11 @@ html.light .bar{background:rgba(250,248,255,.94);}
 <div class="g"><b>④ 〜でしかない（不过只是……）</b><br>想像は想像でしかないし → 「想象终究<b>只是</b>想象」。<br>公式：<b>N／ナ形词干 + でしかない</b>＝不过只是……（带贬义的限定）。<br>N3 语法，这首歌用得极熟：先承认局限，再顺势把所有东西拆台。</div>
 <div class="g"><b>⑤ 棚に上げる（对自己宽容）</b><br>人のダメなとこばっか見つけて／指摘して、自分<b>棚に上げすぎ</b> → 「净盯着别人的毛病指指点点，对自己却过度宽容」。<br>完整形：<b>自分のことは棚に上げる</b>（把自己的问题搁到架子上不予理会）。<br>建议整句背下来，<b>吐槽时的万能句</b>。</div>
 <div class="g"><b>⑥ 〜まで（到……为止）</b><br>あばらの骨が折れるまで → 「直到肋骨折」。<br>公式：<b>动词辞书形 + まで</b>＝直到……为止。<br>この曲的出现形式是夸张：笑的时间长度被夸张到身体出ダメージ为止。</div>
+</div>
+
+<div class="pager">
+  <a class="prev" href="緋色の空_歌词精讲.html" title="上一首：緋色の空"><span class="lab">← 上一首</span><span class="ttl">緋色の空</span></a>
+  <a class="next" href="上海an_歌词精讲.html" title="下一首：上海an"><span class="lab">下一首 →</span><span class="ttl">上海an</span></a>
 </div>
 <footer>
   <div class="gfoot">逐句拆解仅供日语学习与作品评论 · 歌词著作权归 ACAね ／ ユニバーサル ミュージック（EMI Records）所有<br>歌词核对：kazelyrics ／ lyricf（含官方注释） ／ lyricsmill ／ xiaojiangclub 译本 ／ 微信公众号译本 五源对照<br>分歧说明：①最后一遍副歌「なりたい自分に絡まる連中」，部分源讹作「電柱」，本页从 lyricf・lyricsmill，因为这是收尾点题；②「ゆうもわな」官方未公布汉字写法，本页保留假名并列两派解读；③「いい切れる」有源写「言い切れる」，本页按歌词书刊写法两行区分；④最后一遍副歌的「ねばった成績」，一源作「戦績」，本页从 lyricsmill・nhacxhome 作「成績」，与全曲 A／B 对应结构一致 · 生成于 2026-10-27 · 伊莉雅</div>

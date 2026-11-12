@@ -11,11 +11,12 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="index.html">紫荆情怀<span class="dot">.</span></a>
-    <nav class="nav">
-      <a href="index.html" class="active">首页</a>
-      <a href="#posts">文章</a>
-      <a href="#lyrics">歌词精讲</a>
-      <a href="about.html">关于</a>
+    <nav class="nav" id="siteNav">
+      <a href="index.html" class="active" data-nav="home">首页</a>
+      <a href="#posts" data-nav="posts">文章</a>
+      <a href="#lyrics" data-nav="lyrics">歌词精讲</a>
+      <a href="#tools" data-nav="tools">小工具</a>
+      <a href="about.html" data-nav="about">关于</a>
     </nav>
   </div>
 </header>
@@ -47,6 +48,21 @@
     </div>
     <div class="post-list" id="postList">
       <!-- 由 posts.js 渲染 -->
+    </div>
+  </section>
+
+  <section id="tools" class="section">
+    <div class="section-head">
+      <h2 class="section-title">小工具</h2>
+    </div>
+    <div class="post-list">
+      <a class="post-card card" href="matcher.html">
+        <span class="post-date">工具 · CS2</span>
+        <h3>CS2 打法匹配器</h3>
+        <p class="post-excerpt">粘贴完美 / 5E 战绩页文本，和 IEM Cologne Major 2026 的 160 名参赛选手比一比，看打法最像谁。</p>
+        <span class="post-tag">匹配</span>
+        <span class="post-tag deep">离线</span>
+      </a>
     </div>
   </section>
 

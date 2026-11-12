@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS2 打法匹配器 · 紫荆情怀</title>
+<style>
+  :root{
+    --bg:#eae6f5; --bg2:#e2dcf0; --panel:#ffffff; --panel2:#f4f1fc;
+    --line:#e2dcf0; --line2:#cfc6e8;
+    --text:#1c1730; --dim:#585170; --dim2:#6b6484;
+    --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
+    --accent:#6b3fb8; --accent2:#c2185b;
+    --good:#0f7a46; --warn:#8a5a00; --bad:#b3261e;
+    --nav-h:64px; --r-md:14px; --r-sm:11px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 14px)}
+  body{
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E"),
+      radial-gradient(1000px 640px at 6% 4%, rgba(194,24,91,.22) 0%, transparent 60%),
+      radial-gradient(900px 620px at 96% 8%, rgba(11,122,141,.20) 0%, transparent 58%),
+      radial-gradient(1100px 700px at 50% 96%, rgba(107,63,184,.22) 0%, transparent 60%),
+      radial-gradient(760px 520px at 20% 55%, rgba(95,227,245,.16) 0%, transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.7;font-size:15px;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* 顶部导航（与博客一致） */
+  .site-header{position:sticky;top:0;z-index:60;background:rgba(250,248,255,.94);
+    backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:16px}
+  .logo{font-size:19px;font-weight:700;text-decoration:none;color:var(--text)}
+  .logo .dot{color:var(--pink)}
+  .nav{display:flex;gap:20px;align-items:center}
+  .nav a{text-decoration:none;color:var(--dim);font-size:15px;transition:color .2s;padding:4px 0}
+  .nav a:hover,.nav a.active{color:var(--cyan)}
+
+  /* 页面标题区 */
+  .page-head{padding:48px 0 8px;max-width:1080px;margin:0 auto}
+  h1{font-size:30px;letter-spacing:-.5px;font-weight:700;line-height:1.25;
+    background:linear-gradient(100deg,#c2185b 0%,#6b3fb8 55%,#0b7a8d 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  h1::after{content:"";display:block;width:58px;height:3px;margin-top:13px;border-radius:3px;
+    background:linear-gradient(90deg,#c2185b,#6b3fb8);box-shadow:0 0 16px rgba(107,63,184,.5)}
+  .sub{color:var(--dim);font-size:13px}
+
+  /* 匹配器专属组件 */
+  main{max-width:1080px;margin:0 auto;padding:14px 24px 72px}
+  .card{background:transparent;border:none;border-radius:0;padding:22px 0;margin:0;
+    border-bottom:1px solid var(--line)}
+  .card:last-of-type{border-bottom:none}
+  .card.err{border:none;background:transparent}
+  .card.err,.err{color:var(--bad)}
+  .card h2{position:relative;padding-left:14px;font-size:17px;letter-spacing:-.3px}
+  .card h2::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;border-radius:2px;
+    background:linear-gradient(180deg,var(--pink),var(--violet))}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  input[type=text]{flex:1;min-width:200px;background:#fff;border:1px solid var(--line2);color:var(--text);
+    padding:10px 12px;border-radius:10px;font-size:14px;
+    transition:border-color .16s,box-shadow .16s}
+  input[type=text]:focus,select:focus{outline:0;border-color:var(--violet);
+    box-shadow:0 0 0 4px rgba(107,63,184,.12)}
+  button{background:linear-gradient(135deg,#c2185b,#6b3fb8);color:#fff;border:0;padding:10px 18px;border-radius:10px;
+    font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;
+    box-shadow:0 8px 20px -12px rgba(194,24,91,.7);transition:transform .12s,box-shadow .16s,filter .16s}
+  button:hover{filter:brightness(1.05);box-shadow:0 12px 26px -12px rgba(107,63,184,.7)}
+  button:active{transform:translateY(1px)}
+  button:disabled{opacity:.45;cursor:default;box-shadow:none}
+  button.ghost{background:#fff;border:1px solid var(--line2);color:var(--dim);box-shadow:none;font-weight:500}
+  button.ghost:hover{border-color:var(--violet);color:var(--violet);box-shadow:0 0 0 3px rgba(107,63,184,.08)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{color:var(--dim2);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em}
+  tbody tr{cursor:pointer;transition:background .14s}
+  tbody tr:hover{background:#f6f3fd}
+  tbody tr.sel{background:linear-gradient(90deg,#efe9fa,#fdf2f6);box-shadow:inset 3px 0 0 var(--violet)}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .rank{color:var(--dim2);width:34px}
+  .name{font-weight:600}
+  .team{color:var(--dim2);font-size:12.5px}
+  .bar{display:inline-block;height:6px;border-radius:4px;
+    background:linear-gradient(90deg,var(--pink),var(--violet));vertical-align:middle}
+  .barcell{width:74px}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;background:#eeeaf7;color:var(--dim2)}
+  .warn{color:var(--warn);font-size:13px}
+  details{margin:18px 0 0}
+  details summary{cursor:pointer;color:var(--dim);font-size:14px;font-weight:600;
+    list-style:none;user-select:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"▸";display:inline-block;margin-right:6px;color:var(--pink);
+    transition:transform .18s;font-size:12px}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{color:var(--violet)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .kv{display:flex;justify-content:space-between;border-bottom:1px dotted var(--line2);padding:5px 0;font-size:13px}
+  .kv span:last-child{font-variant-numeric:tabular-nums}
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px 14px;margin-top:12px}
+  .mgroup{grid-column:1/-1;color:var(--dim2);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    margin-top:10px;border-bottom:1px solid var(--line);padding-bottom:5px}
+  .mfield label{display:block;font-size:12px;color:var(--dim);margin-bottom:3px}
+  .mfield input{width:100%;background:#fff;border:1px solid var(--line2);color:var(--text);
+    padding:7px 9px;border-radius:8px;font-size:13px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+    transition:border-color .14s,box-shadow .14s}
+  .mfield input:focus{outline:0;border-color:var(--violet);box-shadow:0 0 0 3px rgba(107,63,184,.12)}
+  .mfield.on input{border-color:rgba(15,122,70,.55);background:rgba(15,122,70,.05)}
+  .pastebox{margin:8px 0 0;padding:0;border:none;background:transparent}
+  .pastebox textarea{width:100%;min-height:92px;resize:vertical;background:#fff;border:1px solid var(--line2);
+    color:var(--text);padding:10px 12px;border-radius:10px;font-size:13px;line-height:1.55;
+    font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+  .pastebox textarea:focus{outline:0;border-color:var(--violet);box-shadow:0 0 0 4px rgba(107,63,184,.1)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .chip{font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(107,63,184,.08);
+    color:var(--violet);border:1px solid rgba(107,63,184,.22);font-variant-numeric:tabular-nums}
+  .chip.est{background:rgba(138,90,0,.09);color:#8a5a00;border-color:rgba(138,90,0,.3)}
+  .chip.ign{background:#f1eef7;color:var(--dim2);border-color:var(--line2)}
+  .hexhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .hexhead h2{margin:0}
+  .hexctl{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dim)}
+  .hexwrap{display:grid;grid-template-columns:440px 1fr;gap:14px;align-items:center}
+  @media(max-width:820px){.hexwrap{grid-template-columns:1fr}}
+  .hexlegend{font-size:13px}
+  .hexrow{display:grid;grid-template-columns:52px 1fr 96px;gap:10px;align-items:center;padding:6px 0;
+    border-bottom:1px dotted var(--line2)}
+  .hexrow .lbl{color:var(--dim)}
+  .hexrow .vals{text-align:right;font-variant-numeric:tabular-nums;font-size:12.5px}
+  .hexrow .u{color:var(--pink)}
+  .hexrow .p{color:var(--cyan)}
+  .hexbar{position:relative;height:14px}
+  .hexbar i{position:absolute;left:0;height:5px;border-radius:3px;display:block}
+  .hexbar i.u{background:linear-gradient(90deg,var(--pink),var(--violet));top:0}
+  .hexbar i.p{background:linear-gradient(90deg,var(--cyan),#2aa9b8);top:8px}
+  .hextot{display:flex;gap:22px;margin-top:12px;font-size:13px;color:var(--dim);flex-wrap:wrap}
+  .hextot b{color:var(--text);font-size:16px}
+  .foot{max-width:1080px;margin:0 auto;padding:0 24px 40px;color:var(--dim2);font-size:12px;text-align:center}
+  .back-link{display:inline-block;margin:20px 0 0;text-decoration:none;color:var(--dim2);font-size:15px}
+  .back-link:hover{color:var(--cyan)}
+
+  /* 页脚（与博客一致） */
+  .site-footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;margin-top:40px}
+  .site-footer p{color:var(--dim2);font-size:13.5px}
+
+  @media(max-width:700px){
+    .nav{gap:14px}.nav a{font-size:14px}
+    .page-head{padding:36px 0 4px}
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">紫荆情怀<span class="dot">.</span></a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="index.html#posts">文章</a>
+      <a href="index.html#lyrics">歌词精讲</a>
+      <a href="about.html">关于</a>
+      <a href="matcher.html" class="active">CS2 匹配</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container page-head">
+  <h1>CS2 打法匹配器</h1>
+  <div class="sub">把你的战绩和 IEM Cologne Major 2026 的 160 名参赛选手比一比，看打法最像谁。数据全部内嵌，无需联网。</div>
+</div>
+
+<main>
+  <div class="pastebox">
+    <div class="sub" style="margin-bottom:8px">把完美 / 5E 的战绩页整页 Ctrl+A / Ctrl+C 粘进来（或手抄几行），自动识别你的数据。</div>
+    <textarea id="pasteraw" placeholder="例如：
+K/D 1.12
+ADR 84.2
+场均击杀 19.4
+爆头率 45%
+存活率 38%
+闪光弹/回合 0.72"></textarea>
+    <div class="row" style="margin-top:8px">
+      <button id="pastego" type="button">解析文本并匹配</button>
+      <span class="sub" id="pastehint">识别出来的项会自动算出结果</span>
+    </div>
+    <div class="chips" id="pastechips"></div>
+  </div>
+
+  <details id="manualcard">
+    <summary>手动填数据（点开）</summary>
+    <div class="sub" style="margin-top:8px">
+      填你知道的就行，<b>留空的项不参与比较</b>。至少 4 项才能算，8 项以上才比较稳。
+      数字去完美 / 5E 的战绩页抄：K/D、ADR、爆头率、存活率、助攻/回合这些一般都有。
+    </div>
+    <div class="mgrid" id="mfields"></div>
+    <div class="row" style="margin-top:14px">
+      <input id="mrounds" type="text" placeholder="总回合数（可选，填了更准）" style="min-width:180px">
+      <input id="mmaps" type="text" placeholder="总图数（可选）" style="min-width:140px">
+      <button id="mgo" type="button">用这些数据匹配</button>
+      <button id="msample" type="button" class="ghost">填个示例</button>
+    </div>
+    <div class="sub" id="mcount" style="margin-top:8px"></div>
+  </details>
+
+  <div id="status"></div>
+  <div id="result"></div>
+
+  <a class="back-link" href="index.html">← 返回首页</a>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 紫荆情怀 · 用爱发电</p>
+  </div>
+</footer>
+
+<script>
+
+/* ================= 内嵌数据 ================= */
+const PROS = [{"utility_on_death":120.7,"steam64_id":"76561198068002993","survived_pct":0.3589,"reaction_time":0.5,"molotov_per_round":0.624,"multi4k_per_round":0.0104,"rating_t":0.0209,"rating_leetify":0.0145,"dpr":0.6411,"kd":1.0777,"trade_death_success_pct":0.6214,"maps":23,"adr":78.4398,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.747,"rounds":482,"kpr":0.6909,"mvps":55,"multi3k_per_round":0.027,"he_per_round":0.34,"multi5k_per_round":0.0,"flash_assist_per_round":0.025,"he_foe_dmg":4.9,"flash_per_round":0.73,"apr":0.1826,"team":"G2 Esports","preaim":8.46,"nickname":"HeavyGod","trade_kill_success_pct":0.4775,"rating_hltv":1.0322,"flash_hit_foe_per_flash":0.688,"multi2k_per_round":0.1369,"accuracy_head":0.25,"counter_strafe_good_ratio":0.7788,"hs_pct":0.6,"kast":0.75,"rating_ct":0.007},{"utility_on_death":244.4,"steam64_id":"76561199046478501","survived_pct":0.3548,"reaction_time":0.5,"molotov_per_round":0.604,"multi4k_per_round":0.0041,"rating_t":-0.0086,"rating_leetify":-0.0054,"dpr":0.6411,"kd":0.9935,"trade_death_success_pct":0.575,"maps":23,"adr":68.5871,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.591,"rounds":482,"kpr":0.6369,"mvps":34,"multi3k_per_round":0.027,"he_per_round":0.4,"multi5k_per_round":0.0021,"flash_assist_per_round":0.039,"he_foe_dmg":4.6,"flash_per_round":0.452,"apr":0.1929,"team":"G2 Esports","preaim":11.6,"nickname":"MATYS","trade_kill_success_pct":0.5045,"rating_hltv":0.9666,"flash_hit_foe_per_flash":0.757,"multi2k_per_round":0.112,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8115,"hs_pct":0.62,"kast":0.75,"rating_ct":-0.0002},{"utility_on_death":215.9,"steam64_id":"76561198053126645","survived_pct":0.3278,"reaction_time":0.5,"molotov_per_round":0.519,"multi4k_per_round":0.0,"rating_t":-0.0231,"rating_leetify":-0.0124,"dpr":0.6722,"kd":0.966,"trade_death_success_pct":0.5776,"maps":23,"adr":72.6535,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.587,"rounds":482,"kpr":0.6494,"mvps":50,"multi3k_per_round":0.0415,"he_per_round":0.463,"multi5k_per_round":0.0021,"flash_assist_per_round":0.019,"he_foe_dmg":7.7,"flash_per_round":0.529,"apr":0.1929,"team":"G2 Esports","preaim":10.64,"nickname":"NertZ","trade_kill_success_pct":0.5047,"rating_hltv":0.9734,"flash_hit_foe_per_flash":0.478,"multi2k_per_round":0.1349,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8058,"hs_pct":0.57,"kast":0.7,"rating_ct":0.0002},{"utility_on_death":220.0,"steam64_id":"76561198309839541","survived_pct":0.4232,"reaction_time":0.4,"molotov_per_round":0.475,"multi4k_per_round":0.0062,"rating_t":0.005,"rating_leetify":0.0093,"dpr":0.5768,"kd":1.1547,"trade_death_success_pct":0.6222,"maps":23,"adr":67.2676,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.776,"rounds":482,"kpr":0.666,"mvps":67,"multi3k_per_round":0.0353,"he_per_round":0.191,"multi5k_per_round":0.0,"flash_assist_per_round":0.048,"he_foe_dmg":12.7,"flash_per_round":0.973,"apr":0.1162,"team":"G2 Esports","preaim":6.9,"nickname":"SunPayus","trade_kill_success_pct":0.4928,"rating_hltv":1.0512,"flash_hit_foe_per_flash":0.721,"multi2k_per_round":0.11,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8268,"hs_pct":0.35,"kast":0.75,"rating_ct":0.0141},{"utility_on_death":204.6,"steam64_id":"76561198012872053","survived_pct":0.3568,"reaction_time":0.5,"molotov_per_round":0.535,"multi4k_per_round":0.0062,"rating_t":-0.0085,"rating_leetify":0.0019,"dpr":0.639,"kd":1.0519,"trade_death_success_pct":0.6796,"maps":23,"adr":73.1888,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.79,"rounds":482,"kpr":0.6722,"mvps":64,"multi3k_per_round":0.0353,"he_per_round":0.396,"multi5k_per_round":0.0,"flash_assist_per_round":0.093,"he_foe_dmg":11.1,"flash_per_round":0.952,"apr":0.1784,"team":"G2 Esports","preaim":10.95,"nickname":"huNter-","trade_kill_success_pct":0.6065,"rating_hltv":1.0139,"flash_hit_foe_per_flash":0.697,"multi2k_per_round":0.1224,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8001,"hs_pct":0.53,"kast":0.75,"rating_ct":0.0138},{"utility_on_death":201.3,"steam64_id":"76561198304115519","survived_pct":0.3194,"reaction_time":0.5,"molotov_per_round":0.585,"multi4k_per_round":0.0063,"rating_t":-0.0094,"rating_leetify":-0.0038,"dpr":0.6785,"kd":0.8769,"trade_death_success_pct":0.5745,"maps":22,"adr":68.5678,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.86,"rounds":479,"kpr":0.595,"mvps":41,"multi3k_per_round":0.0188,"he_per_round":0.405,"multi5k_per_round":0.0,"flash_assist_per_round":0.038,"he_foe_dmg":8.8,"flash_per_round":0.616,"apr":0.1983,"team":"B8","preaim":9.13,"nickname":"alex666","trade_kill_success_pct":0.5,"rating_hltv":0.8806,"flash_hit_foe_per_flash":0.705,"multi2k_per_round":0.1148,"accuracy_head":0.18,"counter_strafe_good_ratio":0.814,"hs_pct":0.48,"kast":0.7,"rating_ct":0.0021},{"utility_on_death":221.6,"steam64_id":"76561199149812353","survived_pct":0.3507,"reaction_time":0.5,"molotov_per_round":0.622,"multi4k_per_round":0.0021,"rating_t":-0.0127,"rating_leetify":-0.0042,"dpr":0.6493,"kd":0.9389,"trade_death_success_pct":0.6058,"maps":22,"adr":64.215,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.626,"rounds":479,"kpr":0.6096,"mvps":45,"multi3k_per_round":0.0292,"he_per_round":0.476,"multi5k_per_round":0.0,"flash_assist_per_round":0.015,"he_foe_dmg":5.6,"flash_per_round":0.309,"apr":0.1587,"team":"B8","preaim":9.18,"nickname":"esenthial","trade_kill_success_pct":0.4577,"rating_hltv":0.9153,"flash_hit_foe_per_flash":0.601,"multi2k_per_round":0.1086,"accuracy_head":0.3,"counter_strafe_good_ratio":0.878,"hs_pct":0.66,"kast":0.71,"rating_ct":0.0047},{"utility_on_death":323.1,"steam64_id":"76561198382173659","survived_pct":0.2944,"reaction_time":0.5,"molotov_per_round":0.43,"multi4k_per_round":0.0021,"rating_t":-0.0092,"rating_leetify":-0.0049,"dpr":0.7056,"kd":0.9675,"trade_death_success_pct":0.5714,"maps":22,"adr":74.6994,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.432,"rounds":479,"kpr":0.6827,"mvps":46,"multi3k_per_round":0.0271,"he_per_round":0.42,"multi5k_per_round":0.0063,"flash_assist_per_round":0.025,"he_foe_dmg":9.6,"flash_per_round":0.357,"apr":0.2004,"team":"B8","preaim":10.26,"nickname":"kensizor","trade_kill_success_pct":0.5105,"rating_hltv":0.9743,"flash_hit_foe_per_flash":0.561,"multi2k_per_round":0.1253,"accuracy_head":0.24,"counter_strafe_good_ratio":0.7809,"hs_pct":0.6,"kast":0.7,"rating_ct":-0.0004},{"utility_on_death":295.0,"steam64_id":"76561198305036904","survived_pct":0.2672,"reaction_time":0.5,"molotov_per_round":0.518,"multi4k_per_round":0.0167,"rating_t":-0.0013,"rating_leetify":-0.0095,"dpr":0.7307,"kd":0.9686,"trade_death_success_pct":0.6018,"maps":22,"adr":79.0292,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.518,"rounds":479,"kpr":0.7077,"mvps":53,"multi3k_per_round":0.0418,"he_per_round":0.355,"multi5k_per_round":0.0,"flash_assist_per_round":0.033,"he_foe_dmg":9.3,"flash_per_round":0.426,"apr":0.2025,"team":"B8","preaim":9.2,"nickname":"npl","trade_kill_success_pct":0.4715,"rating_hltv":1.0112,"flash_hit_foe_per_flash":0.662,"multi2k_per_round":0.119,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8363,"hs_pct":0.6,"kast":0.7,"rating_ct":-0.0181},{"utility_on_death":283.2,"steam64_id":"76561199001538362","survived_pct":0.3403,"reaction_time":0.5,"molotov_per_round":0.292,"multi4k_per_round":0.0063,"rating_t":-0.0021,"rating_leetify":0.0133,"dpr":0.6555,"kd":1.0924,"trade_death_success_pct":0.5701,"maps":22,"adr":72.6994,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.501,"rounds":479,"kpr":0.7161,"mvps":61,"multi3k_per_round":0.0313,"he_per_round":0.157,"multi5k_per_round":0.0042,"flash_assist_per_round":0.046,"he_foe_dmg":14.1,"flash_per_round":0.559,"apr":0.1086,"team":"B8","preaim":7.13,"nickname":"s1zzi","trade_kill_success_pct":0.5517,"rating_hltv":1.0574,"flash_hit_foe_per_flash":0.586,"multi2k_per_round":0.1315,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8345,"hs_pct":0.3,"kast":0.73,"rating_ct":0.0295},{"utility_on_death":144.0,"steam64_id":"76561198146207066","survived_pct":0.3397,"reaction_time":0.5,"molotov_per_round":0.709,"multi4k_per_round":0.0043,"rating_t":0.0023,"rating_leetify":0.0055,"dpr":0.6538,"kd":0.9837,"trade_death_success_pct":0.6271,"maps":23,"adr":74.1111,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.814,"rounds":468,"kpr":0.6432,"mvps":49,"multi3k_per_round":0.0321,"he_per_round":0.553,"multi5k_per_round":0.0,"flash_assist_per_round":0.032,"he_foe_dmg":10.9,"flash_per_round":0.795,"apr":0.235,"team":"BetBoom Team","preaim":11.0,"nickname":"Boombl4","trade_kill_success_pct":0.4454,"rating_hltv":0.9732,"flash_hit_foe_per_flash":0.583,"multi2k_per_round":0.141,"accuracy_head":0.17,"counter_strafe_good_ratio":0.8232,"hs_pct":0.41,"kast":0.7,"rating_ct":0.0087},{"utility_on_death":190.4,"steam64_id":"76561198014259134","survived_pct":0.3355,"reaction_time":0.5,"molotov_per_round":0.489,"multi4k_per_round":0.0085,"rating_t":-0.0069,"rating_leetify":0.0045,"dpr":0.6581,"kd":1.0325,"trade_death_success_pct":0.5876,"maps":23,"adr":72.8803,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.571,"rounds":468,"kpr":0.6795,"mvps":53,"multi3k_per_round":0.0385,"he_per_round":0.417,"multi5k_per_round":0.0,"flash_assist_per_round":0.017,"he_foe_dmg":7.1,"flash_per_round":0.395,"apr":0.1774,"team":"BetBoom Team","preaim":10.14,"nickname":"FL4MUS","trade_kill_success_pct":0.4553,"rating_hltv":1.0251,"flash_hit_foe_per_flash":0.551,"multi2k_per_round":0.1368,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8627,"hs_pct":0.55,"kast":0.68,"rating_ct":0.0158},{"utility_on_death":180.1,"steam64_id":"76561198372023214","survived_pct":0.344,"reaction_time":0.5,"molotov_per_round":0.624,"multi4k_per_round":0.015,"rating_t":-0.0002,"rating_leetify":0.0173,"dpr":0.656,"kd":1.1531,"trade_death_success_pct":0.6161,"maps":23,"adr":83.2158,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.662,"rounds":468,"kpr":0.7564,"mvps":63,"multi3k_per_round":0.0491,"he_per_round":0.447,"multi5k_per_round":0.0021,"flash_assist_per_round":0.049,"he_foe_dmg":10.1,"flash_per_round":0.724,"apr":0.2415,"team":"BetBoom Team","preaim":10.1,"nickname":"Magnojez","trade_kill_success_pct":0.5048,"rating_hltv":1.1388,"flash_hit_foe_per_flash":0.622,"multi2k_per_round":0.1303,"accuracy_head":0.19,"counter_strafe_good_ratio":0.8474,"hs_pct":0.51,"kast":0.73,"rating_ct":0.0342},{"utility_on_death":186.4,"steam64_id":"76561198859428279","survived_pct":0.3333,"reaction_time":0.4,"molotov_per_round":0.538,"multi4k_per_round":0.0128,"rating_t":0.0004,"rating_leetify":0.0012,"dpr":0.6624,"kd":1.0129,"trade_death_success_pct":0.5462,"maps":23,"adr":72.4915,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.786,"rounds":468,"kpr":0.6709,"mvps":49,"multi3k_per_round":0.0171,"he_per_round":0.421,"multi5k_per_round":0.0,"flash_assist_per_round":0.024,"he_foe_dmg":3.7,"flash_per_round":0.519,"apr":0.1688,"team":"BetBoom Team","preaim":9.53,"nickname":"d1Ledez","trade_kill_success_pct":0.5139,"rating_hltv":0.9897,"flash_hit_foe_per_flash":0.551,"multi2k_per_round":0.1346,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8637,"hs_pct":0.64,"kast":0.72,"rating_ct":0.0024},{"utility_on_death":217.2,"steam64_id":"76561198059614402","survived_pct":0.3825,"reaction_time":0.5,"molotov_per_round":0.4,"multi4k_per_round":0.0043,"rating_t":0.0004,"rating_leetify":-0.0,"dpr":0.6175,"kd":0.9965,"trade_death_success_pct":0.4946,"maps":23,"adr":63.8333,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.566,"rounds":468,"kpr":0.6154,"mvps":36,"multi3k_per_round":0.0214,"he_per_round":0.231,"multi5k_per_round":0.0,"flash_assist_per_round":0.083,"he_foe_dmg":8.5,"flash_per_round":0.788,"apr":0.1068,"team":"BetBoom Team","preaim":6.79,"nickname":"zorte","trade_kill_success_pct":0.4934,"rating_hltv":0.9408,"flash_hit_foe_per_flash":0.707,"multi2k_per_round":0.1068,"accuracy_head":0.26,"counter_strafe_good_ratio":0.9158,"hs_pct":0.33,"kast":0.73,"rating_ct":-0.0004},{"utility_on_death":176.3,"steam64_id":"76561198041683378","survived_pct":0.3638,"reaction_time":0.5,"molotov_per_round":0.623,"multi4k_per_round":0.0109,"rating_t":0.0169,"rating_leetify":0.0245,"dpr":0.6318,"kd":1.1793,"trade_death_success_pct":0.5934,"maps":20,"adr":78.8606,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.693,"rounds":459,"kpr":0.7451,"mvps":42,"multi3k_per_round":0.0283,"he_per_round":0.519,"multi5k_per_round":0.0,"flash_assist_per_round":0.028,"he_foe_dmg":8.6,"flash_per_round":0.606,"apr":0.1939,"team":"Team Falcons","preaim":9.04,"nickname":"NiKo","trade_kill_success_pct":0.5804,"rating_hltv":1.0943,"flash_hit_foe_per_flash":0.511,"multi2k_per_round":0.1416,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8738,"hs_pct":0.57,"kast":0.76,"rating_ct":0.0319},{"utility_on_death":220.1,"steam64_id":"76561197996678278","survived_pct":0.3682,"reaction_time":0.5,"molotov_per_round":0.617,"multi4k_per_round":0.0065,"rating_t":0.0047,"rating_leetify":-0.0008,"dpr":0.6296,"kd":1.0104,"trade_death_success_pct":0.6848,"maps":20,"adr":64.7081,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.791,"rounds":459,"kpr":0.6362,"mvps":49,"multi3k_per_round":0.0327,"he_per_round":0.373,"multi5k_per_round":0.0,"flash_assist_per_round":0.031,"he_foe_dmg":5.9,"flash_per_round":0.643,"apr":0.1285,"team":"Team Falcons","preaim":9.51,"nickname":"TeSeS","trade_kill_success_pct":0.5693,"rating_hltv":0.9888,"flash_hit_foe_per_flash":0.614,"multi2k_per_round":0.1242,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8231,"hs_pct":0.6,"kast":0.72,"rating_ct":-0.0066},{"utility_on_death":185.1,"steam64_id":"76561197989430253","survived_pct":0.268,"reaction_time":0.5,"molotov_per_round":0.625,"multi4k_per_round":0.0022,"rating_t":-0.0547,"rating_leetify":-0.0439,"dpr":0.7277,"kd":0.5808,"trade_death_success_pct":0.6299,"maps":20,"adr":54.4009,"accuracy_enemy_spotted":0.34,"smoke_per_round":0.802,"rounds":459,"kpr":0.4227,"mvps":35,"multi3k_per_round":0.0218,"he_per_round":0.497,"multi5k_per_round":0.0,"flash_assist_per_round":0.05,"he_foe_dmg":9.7,"flash_per_round":0.752,"apr":0.2331,"team":"Team Falcons","preaim":11.58,"nickname":"karrigan","trade_kill_success_pct":0.3797,"rating_hltv":0.6607,"flash_hit_foe_per_flash":0.513,"multi2k_per_round":0.0697,"accuracy_head":0.19,"counter_strafe_good_ratio":0.715,"hs_pct":0.52,"kast":0.68,"rating_ct":-0.0332},{"utility_on_death":294.1,"steam64_id":"76561199032006224","survived_pct":0.3159,"reaction_time":0.5,"molotov_per_round":0.481,"multi4k_per_round":0.0131,"rating_t":0.0262,"rating_leetify":0.0073,"dpr":0.6819,"kd":1.0224,"trade_death_success_pct":0.5932,"maps":20,"adr":79.7908,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.479,"rounds":459,"kpr":0.6972,"mvps":54,"multi3k_per_round":0.0349,"he_per_round":0.418,"multi5k_per_round":0.0,"flash_assist_per_round":0.004,"he_foe_dmg":6.0,"flash_per_round":0.399,"apr":0.2309,"team":"Team Falcons","preaim":9.21,"nickname":"kyousuke","trade_kill_success_pct":0.4676,"rating_hltv":1.0275,"flash_hit_foe_per_flash":0.383,"multi2k_per_round":0.1329,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8973,"hs_pct":0.6,"kast":0.74,"rating_ct":-0.0115},{"utility_on_death":287.0,"steam64_id":"76561198074762801","survived_pct":0.4161,"reaction_time":0.5,"molotov_per_round":0.379,"multi4k_per_round":0.0087,"rating_t":0.0375,"rating_leetify":0.0408,"dpr":0.5839,"kd":1.3843,"trade_death_success_pct":0.5823,"maps":20,"adr":81.0479,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.586,"rounds":459,"kpr":0.8083,"mvps":67,"multi3k_per_round":0.0436,"he_per_round":0.248,"multi5k_per_round":0.0,"flash_assist_per_round":0.041,"he_foe_dmg":6.7,"flash_per_round":0.767,"apr":0.1176,"team":"Team Falcons","preaim":7.36,"nickname":"m0NESY","trade_kill_success_pct":0.5481,"rating_hltv":1.2197,"flash_hit_foe_per_flash":0.54,"multi2k_per_round":0.1699,"accuracy_head":0.31,"counter_strafe_good_ratio":0.9018,"hs_pct":0.4,"kast":0.75,"rating_ct":0.0442},{"utility_on_death":187.4,"steam64_id":"76561198319723208","survived_pct":0.3159,"reaction_time":0.5,"molotov_per_round":0.523,"multi4k_per_round":0.0068,"rating_t":-0.0199,"rating_leetify":0.0034,"dpr":0.6818,"kd":0.9533,"trade_death_success_pct":0.6475,"maps":22,"adr":70.3636,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.645,"rounds":440,"kpr":0.65,"mvps":50,"multi3k_per_round":0.0341,"he_per_round":0.325,"multi5k_per_round":0.0023,"flash_assist_per_round":0.034,"he_foe_dmg":8.7,"flash_per_round":0.63,"apr":0.1773,"team":"9z Team","preaim":9.4,"nickname":"HUASOPEEK","trade_kill_success_pct":0.541,"rating_hltv":0.9615,"flash_hit_foe_per_flash":0.599,"multi2k_per_round":0.1091,"accuracy_head":0.3,"counter_strafe_good_ratio":0.8223,"hs_pct":0.66,"kast":0.72,"rating_ct":0.0296},{"utility_on_death":236.4,"steam64_id":"76561198216891576","survived_pct":0.3523,"reaction_time":0.5,"molotov_per_round":0.507,"multi4k_per_round":0.0045,"rating_t":0.016,"rating_leetify":0.0136,"dpr":0.6432,"kd":1.106,"trade_death_success_pct":0.5,"maps":22,"adr":78.1773,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.47,"rounds":440,"kpr":0.7114,"mvps":39,"multi3k_per_round":0.0227,"he_per_round":0.505,"multi5k_per_round":0.0023,"flash_assist_per_round":0.02,"he_foe_dmg":8.4,"flash_per_round":0.32,"apr":0.1955,"team":"9z Team","preaim":8.62,"nickname":"dgt","trade_kill_success_pct":0.4891,"rating_hltv":1.0387,"flash_hit_foe_per_flash":0.816,"multi2k_per_round":0.1364,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8294,"hs_pct":0.52,"kast":0.73,"rating_ct":0.0109},{"utility_on_death":230.3,"steam64_id":"76561198067722198","survived_pct":0.3023,"reaction_time":0.5,"molotov_per_round":0.559,"multi4k_per_round":0.0068,"rating_t":0.0001,"rating_leetify":0.0025,"dpr":0.6977,"kd":1.1336,"trade_death_success_pct":0.5948,"maps":22,"adr":85.8386,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.53,"rounds":440,"kpr":0.7909,"mvps":46,"multi3k_per_round":0.0477,"he_per_round":0.393,"multi5k_per_round":0.0,"flash_assist_per_round":0.027,"he_foe_dmg":7.9,"flash_per_round":0.623,"apr":0.2227,"team":"9z Team","preaim":10.47,"nickname":"luchov","trade_kill_success_pct":0.5804,"rating_hltv":1.1143,"flash_hit_foe_per_flash":0.591,"multi2k_per_round":0.1705,"accuracy_head":0.3,"counter_strafe_good_ratio":0.8115,"hs_pct":0.63,"kast":0.74,"rating_ct":0.0051},{"utility_on_death":237.7,"steam64_id":"76561198242950384","survived_pct":0.3159,"reaction_time":0.5,"molotov_per_round":0.595,"multi4k_per_round":0.0,"rating_t":-0.0324,"rating_leetify":-0.0201,"dpr":0.6841,"kd":0.7575,"trade_death_success_pct":0.64,"maps":22,"adr":60.4568,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.873,"rounds":440,"kpr":0.5182,"mvps":37,"multi3k_per_round":0.0205,"he_per_round":0.416,"multi5k_per_round":0.0,"flash_assist_per_round":0.043,"he_foe_dmg":8.3,"flash_per_round":0.686,"apr":0.1841,"team":"9z Team","preaim":9.39,"nickname":"max","trade_kill_success_pct":0.4474,"rating_hltv":0.7776,"flash_hit_foe_per_flash":0.748,"multi2k_per_round":0.0909,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8293,"hs_pct":0.55,"kast":0.72,"rating_ct":-0.0065},{"utility_on_death":256.1,"steam64_id":"76561198195642865","survived_pct":0.4,"reaction_time":0.5,"molotov_per_round":0.348,"multi4k_per_round":0.0,"rating_t":-0.014,"rating_leetify":-0.0001,"dpr":0.6,"kd":0.9848,"trade_death_success_pct":0.5349,"maps":22,"adr":61.0523,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.55,"rounds":440,"kpr":0.5909,"mvps":47,"multi3k_per_round":0.0227,"he_per_round":0.164,"multi5k_per_round":0.0,"flash_assist_per_round":0.061,"he_foe_dmg":7.9,"flash_per_round":0.907,"apr":0.1159,"team":"9z Team","preaim":8.17,"nickname":"meyern","trade_kill_success_pct":0.3788,"rating_hltv":0.9188,"flash_hit_foe_per_flash":0.554,"multi2k_per_round":0.1045,"accuracy_head":0.32,"counter_strafe_good_ratio":0.8977,"hs_pct":0.47,"kast":0.73,"rating_ct":0.015},{"utility_on_death":255.1,"steam64_id":"76561198974494129","survived_pct":0.3073,"reaction_time":0.5,"molotov_per_round":0.603,"multi4k_per_round":0.0047,"rating_t":0.0123,"rating_leetify":0.0037,"dpr":0.6903,"kd":1.0103,"trade_death_success_pct":0.5833,"maps":19,"adr":73.4515,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.695,"rounds":423,"kpr":0.6974,"mvps":43,"multi3k_per_round":0.0307,"he_per_round":0.435,"multi5k_per_round":0.0024,"flash_assist_per_round":0.014,"he_foe_dmg":9.1,"flash_per_round":0.442,"apr":0.1749,"team":"Monte","preaim":11.05,"nickname":"AZUWU","trade_kill_success_pct":0.4404,"rating_hltv":0.9924,"flash_hit_foe_per_flash":0.578,"multi2k_per_round":0.1277,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8287,"hs_pct":0.61,"kast":0.73,"rating_ct":-0.0052},{"utility_on_death":271.5,"steam64_id":"76561198093386355","survived_pct":0.3475,"reaction_time":0.5,"molotov_per_round":0.478,"multi4k_per_round":0.0024,"rating_t":-0.018,"rating_leetify":-0.0174,"dpr":0.6478,"kd":0.8358,"trade_death_success_pct":0.5474,"maps":19,"adr":61.669,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.589,"rounds":423,"kpr":0.5414,"mvps":34,"multi3k_per_round":0.0165,"he_per_round":0.229,"multi5k_per_round":0.0,"flash_assist_per_round":0.031,"he_foe_dmg":6.2,"flash_per_round":0.47,"apr":0.1749,"team":"Monte","preaim":9.19,"nickname":"Bymas","trade_kill_success_pct":0.4076,"rating_hltv":0.8375,"flash_hit_foe_per_flash":0.593,"multi2k_per_round":0.1017,"accuracy_head":0.17,"counter_strafe_good_ratio":0.8672,"hs_pct":0.47,"kast":0.7,"rating_ct":-0.0169},{"utility_on_death":227.2,"steam64_id":"76561198344226986","survived_pct":0.3168,"reaction_time":0.6,"molotov_per_round":0.579,"multi4k_per_round":0.0,"rating_t":-0.0013,"rating_leetify":-0.0083,"dpr":0.6809,"kd":0.8854,"trade_death_success_pct":0.6071,"maps":19,"adr":68.6099,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.813,"rounds":423,"kpr":0.6028,"mvps":45,"multi3k_per_round":0.0378,"he_per_round":0.463,"multi5k_per_round":0.0,"flash_assist_per_round":0.069,"he_foe_dmg":13.2,"flash_per_round":0.858,"apr":0.2057,"team":"Monte","preaim":11.15,"nickname":"Gizmy","trade_kill_success_pct":0.4725,"rating_hltv":0.887,"flash_hit_foe_per_flash":0.713,"multi2k_per_round":0.0969,"accuracy_head":0.23,"counter_strafe_good_ratio":0.9082,"hs_pct":0.57,"kast":0.73,"rating_ct":-0.0156},{"utility_on_death":275.9,"steam64_id":"76561198138113790","survived_pct":0.3452,"reaction_time":0.5,"molotov_per_round":0.478,"multi4k_per_round":0.0071,"rating_t":-0.0035,"rating_leetify":0.0001,"dpr":0.6454,"kd":1.0513,"trade_death_success_pct":0.5256,"maps":19,"adr":74.8085,"accuracy_enemy_spotted":0.47,"smoke_per_round":0.589,"rounds":423,"kpr":0.6785,"mvps":41,"multi3k_per_round":0.0449,"he_per_round":0.4,"multi5k_per_round":0.0,"flash_assist_per_round":0.017,"he_foe_dmg":5.7,"flash_per_round":0.407,"apr":0.1702,"team":"Monte","preaim":11.3,"nickname":"Rainwaker","trade_kill_success_pct":0.5443,"rating_hltv":1.0293,"flash_hit_foe_per_flash":0.634,"multi2k_per_round":0.1158,"accuracy_head":0.17,"counter_strafe_good_ratio":0.8666,"hs_pct":0.46,"kast":0.7,"rating_ct":0.0041},{"utility_on_death":165.0,"steam64_id":"76561198035581101","survived_pct":0.3972,"reaction_time":0.5,"molotov_per_round":0.461,"multi4k_per_round":0.0047,"rating_t":0.0172,"rating_leetify":0.0166,"dpr":0.5981,"kd":1.1621,"trade_death_success_pct":0.4308,"maps":19,"adr":73.5012,"accuracy_enemy_spotted":0.47,"smoke_per_round":0.643,"rounds":423,"kpr":0.695,"mvps":49,"multi3k_per_round":0.026,"he_per_round":0.291,"multi5k_per_round":0.0,"flash_assist_per_round":0.087,"he_foe_dmg":8.3,"flash_per_round":0.941,"apr":0.1395,"team":"Monte","preaim":7.29,"nickname":"afro","trade_kill_success_pct":0.5312,"rating_hltv":1.047,"flash_hit_foe_per_flash":0.741,"multi2k_per_round":0.1324,"accuracy_head":0.21,"counter_strafe_good_ratio":0.9165,"hs_pct":0.29,"kast":0.72,"rating_ct":0.0161},{"utility_on_death":258.8,"steam64_id":"76561198386265483","survived_pct":0.3273,"reaction_time":0.5,"molotov_per_round":0.506,"multi4k_per_round":0.0182,"rating_t":0.0333,"rating_leetify":0.0421,"dpr":0.6753,"kd":1.3808,"trade_death_success_pct":0.6019,"maps":18,"adr":94.9429,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.574,"rounds":385,"kpr":0.9325,"mvps":63,"multi3k_per_round":0.0753,"he_per_round":0.522,"multi5k_per_round":0.0,"flash_assist_per_round":0.003,"he_foe_dmg":5.0,"flash_per_round":0.395,"apr":0.2364,"team":"Team Spirit","preaim":10.27,"nickname":"donk","trade_kill_success_pct":0.563,"rating_hltv":1.3269,"flash_hit_foe_per_flash":0.336,"multi2k_per_round":0.1506,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8923,"hs_pct":0.62,"kast":0.78,"rating_ct":0.0509},{"utility_on_death":201.3,"steam64_id":"76561199063238565","survived_pct":0.3922,"reaction_time":0.5,"molotov_per_round":0.678,"multi4k_per_round":0.0052,"rating_t":-0.0356,"rating_leetify":-0.0075,"dpr":0.6104,"kd":0.9617,"trade_death_success_pct":0.6122,"maps":18,"adr":67.7429,"accuracy_enemy_spotted":0.36,"smoke_per_round":1.042,"rounds":385,"kpr":0.587,"mvps":32,"multi3k_per_round":0.0104,"he_per_round":0.525,"multi5k_per_round":0.0026,"flash_assist_per_round":0.042,"he_foe_dmg":10.7,"flash_per_round":1.081,"apr":0.213,"team":"Team Spirit","preaim":9.78,"nickname":"magixx","trade_kill_success_pct":0.4045,"rating_hltv":0.9302,"flash_hit_foe_per_flash":0.719,"multi2k_per_round":0.1221,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8351,"hs_pct":0.48,"kast":0.76,"rating_ct":0.021},{"utility_on_death":188.9,"steam64_id":"76561198081484775","survived_pct":0.4727,"reaction_time":0.4,"molotov_per_round":0.483,"multi4k_per_round":0.013,"rating_t":0.0324,"rating_leetify":0.0362,"dpr":0.5299,"kd":1.5637,"trade_death_success_pct":0.5652,"maps":18,"adr":82.5481,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.621,"rounds":385,"kpr":0.8286,"mvps":48,"multi3k_per_round":0.0312,"he_per_round":0.234,"multi5k_per_round":0.0,"flash_assist_per_round":0.062,"he_foe_dmg":9.0,"flash_per_round":0.917,"apr":0.1558,"team":"Team Spirit","preaim":7.15,"nickname":"sh1ro","trade_kill_success_pct":0.5597,"rating_hltv":1.2795,"flash_hit_foe_per_flash":0.592,"multi2k_per_round":0.1766,"accuracy_head":0.21,"counter_strafe_good_ratio":0.7973,"hs_pct":0.33,"kast":0.79,"rating_ct":0.0398},{"utility_on_death":146.7,"steam64_id":"76561198872013168","survived_pct":0.3273,"reaction_time":0.5,"molotov_per_round":0.668,"multi4k_per_round":0.0,"rating_t":-0.0026,"rating_leetify":-0.0051,"dpr":0.6727,"kd":0.9421,"trade_death_success_pct":0.625,"maps":18,"adr":70.5403,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.605,"rounds":385,"kpr":0.6338,"mvps":49,"multi3k_per_round":0.0494,"he_per_round":0.426,"multi5k_per_round":0.0,"flash_assist_per_round":0.016,"he_foe_dmg":6.3,"flash_per_round":0.662,"apr":0.187,"team":"Team Spirit","preaim":9.62,"nickname":"tN1R","trade_kill_success_pct":0.4944,"rating_hltv":0.9511,"flash_hit_foe_per_flash":0.592,"multi2k_per_round":0.1143,"accuracy_head":0.25,"counter_strafe_good_ratio":0.7426,"hs_pct":0.57,"kast":0.73,"rating_ct":-0.0084},{"utility_on_death":236.5,"steam64_id":"76561198995880877","survived_pct":0.3688,"reaction_time":0.5,"molotov_per_round":0.668,"multi4k_per_round":0.0026,"rating_t":-0.0009,"rating_leetify":-0.0035,"dpr":0.6338,"kd":0.9508,"trade_death_success_pct":0.5545,"maps":18,"adr":67.4494,"accuracy_enemy_spotted":0.45,"smoke_per_round":0.725,"rounds":385,"kpr":0.6026,"mvps":34,"multi3k_per_round":0.0312,"he_per_round":0.499,"multi5k_per_round":0.0,"flash_assist_per_round":0.029,"he_foe_dmg":12.9,"flash_per_round":0.494,"apr":0.1948,"team":"Team Spirit","preaim":9.74,"nickname":"zont1x","trade_kill_success_pct":0.5301,"rating_hltv":0.9385,"flash_hit_foe_per_flash":0.542,"multi2k_per_round":0.1247,"accuracy_head":0.19,"counter_strafe_good_ratio":0.9135,"hs_pct":0.48,"kast":0.75,"rating_ct":-0.0063},{"utility_on_death":187.1,"steam64_id":"76561198991278425","survived_pct":0.2812,"reaction_time":0.5,"molotov_per_round":0.633,"multi4k_per_round":0.0078,"rating_t":-0.0101,"rating_leetify":-0.0048,"dpr":0.7188,"kd":0.8986,"trade_death_success_pct":0.6471,"maps":19,"adr":75.2552,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.878,"rounds":384,"kpr":0.6458,"mvps":48,"multi3k_per_round":0.026,"he_per_round":0.544,"multi5k_per_round":0.0052,"flash_assist_per_round":0.057,"he_foe_dmg":8.5,"flash_per_round":0.633,"apr":0.2135,"team":"FUT Esports","preaim":10.75,"nickname":"Krabeni","trade_kill_success_pct":0.3883,"rating_hltv":0.9379,"flash_hit_foe_per_flash":0.889,"multi2k_per_round":0.1146,"accuracy_head":0.25,"counter_strafe_good_ratio":0.7946,"hs_pct":0.58,"kast":0.68,"rating_ct":-0.0004},{"utility_on_death":189.0,"steam64_id":"76561199313968259","survived_pct":0.3932,"reaction_time":0.5,"molotov_per_round":0.497,"multi4k_per_round":0.0,"rating_t":-0.0133,"rating_leetify":0.0032,"dpr":0.599,"kd":0.9826,"trade_death_success_pct":0.473,"maps":19,"adr":60.276,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.792,"rounds":384,"kpr":0.5885,"mvps":40,"multi3k_per_round":0.026,"he_per_round":0.263,"multi5k_per_round":0.0,"flash_assist_per_round":0.096,"he_foe_dmg":6.5,"flash_per_round":0.945,"apr":0.112,"team":"FUT Esports","preaim":7.35,"nickname":"cmtry","trade_kill_success_pct":0.4,"rating_hltv":0.9277,"flash_hit_foe_per_flash":0.694,"multi2k_per_round":0.1068,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8304,"hs_pct":0.35,"kast":0.69,"rating_ct":0.0177},{"utility_on_death":222.2,"steam64_id":"76561198875633179","survived_pct":0.3281,"reaction_time":0.4,"molotov_per_round":0.51,"multi4k_per_round":0.0078,"rating_t":0.01,"rating_leetify":0.0031,"dpr":0.6719,"kd":1.0,"trade_death_success_pct":0.566,"maps":19,"adr":73.1901,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.568,"rounds":384,"kpr":0.6719,"mvps":35,"multi3k_per_round":0.0286,"he_per_round":0.453,"multi5k_per_round":0.0,"flash_assist_per_round":0.018,"he_foe_dmg":6.7,"flash_per_round":0.37,"apr":0.1536,"team":"FUT Esports","preaim":8.66,"nickname":"dem0n","trade_kill_success_pct":0.4196,"rating_hltv":0.9894,"flash_hit_foe_per_flash":0.676,"multi2k_per_round":0.1432,"accuracy_head":0.29,"counter_strafe_good_ratio":0.8446,"hs_pct":0.64,"kast":0.68,"rating_ct":-0.0025},{"utility_on_death":231.6,"steam64_id":"76561199100725838","survived_pct":0.3359,"reaction_time":0.5,"molotov_per_round":0.529,"multi4k_per_round":0.0052,"rating_t":0.0075,"rating_leetify":0.0055,"dpr":0.6641,"kd":1.0196,"trade_death_success_pct":0.5345,"maps":19,"adr":75.0417,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.685,"rounds":384,"kpr":0.6771,"mvps":38,"multi3k_per_round":0.0208,"he_per_round":0.427,"multi5k_per_round":0.0,"flash_assist_per_round":0.026,"he_foe_dmg":5.4,"flash_per_round":0.417,"apr":0.1849,"team":"FUT Esports","preaim":9.96,"nickname":"dziugss","trade_kill_success_pct":0.5922,"rating_hltv":0.9849,"flash_hit_foe_per_flash":0.525,"multi2k_per_round":0.1562,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8556,"hs_pct":0.57,"kast":0.76,"rating_ct":0.0038},{"utility_on_death":232.5,"steam64_id":"76561198972795853","survived_pct":0.3047,"reaction_time":0.5,"molotov_per_round":0.484,"multi4k_per_round":0.0026,"rating_t":-0.02,"rating_leetify":-0.0152,"dpr":0.6953,"kd":0.8801,"trade_death_success_pct":0.5969,"maps":19,"adr":66.0625,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.526,"rounds":384,"kpr":0.612,"mvps":34,"multi3k_per_round":0.0312,"he_per_round":0.443,"multi5k_per_round":0.0,"flash_assist_per_round":0.01,"he_foe_dmg":6.5,"flash_per_round":0.445,"apr":0.224,"team":"FUT Esports","preaim":11.34,"nickname":"lauNX","trade_kill_success_pct":0.5379,"rating_hltv":0.8886,"flash_hit_foe_per_flash":0.614,"multi2k_per_round":0.112,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8339,"hs_pct":0.57,"kast":0.74,"rating_ct":-0.0113},{"utility_on_death":218.4,"steam64_id":"76561198364937038","survived_pct":0.3294,"reaction_time":0.5,"molotov_per_round":0.724,"multi4k_per_round":0.0088,"rating_t":0.0149,"rating_leetify":0.0163,"dpr":0.6676,"kd":1.1322,"trade_death_success_pct":0.5632,"maps":16,"adr":82.6676,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.612,"rounds":340,"kpr":0.7559,"mvps":31,"multi3k_per_round":0.0471,"he_per_round":0.394,"multi5k_per_round":0.0,"flash_assist_per_round":0.032,"he_foe_dmg":10.9,"flash_per_round":0.506,"apr":0.2176,"team":"TYLOO","preaim":11.97,"nickname":"JamYoung","trade_kill_success_pct":0.4906,"rating_hltv":1.1,"flash_hit_foe_per_flash":0.622,"multi2k_per_round":0.1441,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8583,"hs_pct":0.56,"kast":0.77,"rating_ct":0.0179},{"utility_on_death":248.7,"steam64_id":"76561198360407641","survived_pct":0.3794,"reaction_time":0.5,"molotov_per_round":0.409,"multi4k_per_round":0.0059,"rating_t":0.0066,"rating_leetify":0.0095,"dpr":0.6176,"kd":1.019,"trade_death_success_pct":0.619,"maps":16,"adr":66.8853,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.859,"rounds":340,"kpr":0.6294,"mvps":46,"multi3k_per_round":0.0324,"he_per_round":0.185,"multi5k_per_round":0.0029,"flash_assist_per_round":0.085,"he_foe_dmg":8.6,"flash_per_round":0.938,"apr":0.1294,"team":"TYLOO","preaim":7.89,"nickname":"Jee","trade_kill_success_pct":0.4286,"rating_hltv":0.9924,"flash_hit_foe_per_flash":0.614,"multi2k_per_round":0.1059,"accuracy_head":0.25,"counter_strafe_good_ratio":0.7879,"hs_pct":0.39,"kast":0.74,"rating_ct":0.0124},{"utility_on_death":228.7,"steam64_id":"76561198108796479","survived_pct":0.3382,"reaction_time":0.5,"molotov_per_round":0.576,"multi4k_per_round":0.0,"rating_t":-0.0158,"rating_leetify":-0.0151,"dpr":0.6588,"kd":0.7679,"trade_death_success_pct":0.6533,"maps":16,"adr":59.2235,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.774,"rounds":340,"kpr":0.5059,"mvps":25,"multi3k_per_round":0.0206,"he_per_round":0.288,"multi5k_per_round":0.0,"flash_assist_per_round":0.071,"he_foe_dmg":5.2,"flash_per_round":0.747,"apr":0.1765,"team":"TYLOO","preaim":11.36,"nickname":"Mercury","trade_kill_success_pct":0.5,"rating_hltv":0.7926,"flash_hit_foe_per_flash":0.732,"multi2k_per_round":0.0941,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8517,"hs_pct":0.58,"kast":0.69,"rating_ct":-0.014},{"utility_on_death":235.9,"steam64_id":"76561198355197522","survived_pct":0.3206,"reaction_time":0.5,"molotov_per_round":0.588,"multi4k_per_round":0.0,"rating_t":-0.0184,"rating_leetify":-0.0167,"dpr":0.6794,"kd":0.8831,"trade_death_success_pct":0.5111,"maps":16,"adr":67.5088,"accuracy_enemy_spotted":0.44,"smoke_per_round":0.497,"rounds":340,"kpr":0.6,"mvps":28,"multi3k_per_round":0.0235,"he_per_round":0.359,"multi5k_per_round":0.0,"flash_assist_per_round":0.015,"he_foe_dmg":6.6,"flash_per_round":0.291,"apr":0.1824,"team":"TYLOO","preaim":12.71,"nickname":"Moseyuh","trade_kill_success_pct":0.5455,"rating_hltv":0.8787,"flash_hit_foe_per_flash":0.747,"multi2k_per_round":0.1265,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8678,"hs_pct":0.56,"kast":0.71,"rating_ct":-0.015},{"utility_on_death":231.7,"steam64_id":"76561198956909643","survived_pct":0.3235,"reaction_time":0.5,"molotov_per_round":0.568,"multi4k_per_round":0.0176,"rating_t":-0.0036,"rating_leetify":0.0015,"dpr":0.6765,"kd":1.0043,"trade_death_success_pct":0.5556,"maps":16,"adr":72.8176,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.594,"rounds":340,"kpr":0.6794,"mvps":39,"multi3k_per_round":0.0235,"he_per_round":0.3,"multi5k_per_round":0.0059,"flash_assist_per_round":0.012,"he_foe_dmg":8.0,"flash_per_round":0.297,"apr":0.1647,"team":"TYLOO","preaim":11.6,"nickname":"Zero ","trade_kill_success_pct":0.4808,"rating_hltv":1.0444,"flash_hit_foe_per_flash":0.673,"multi2k_per_round":0.1324,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8676,"hs_pct":0.55,"kast":0.68,"rating_ct":0.0073},{"utility_on_death":196.0,"steam64_id":"76561198078771373","survived_pct":0.3171,"reaction_time":0.5,"molotov_per_round":0.625,"multi4k_per_round":0.0122,"rating_t":-0.0178,"rating_leetify":-0.0068,"dpr":0.6768,"kd":0.9775,"trade_death_success_pct":0.5584,"maps":16,"adr":72.3872,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.579,"rounds":328,"kpr":0.6616,"mvps":32,"multi3k_per_round":0.0427,"he_per_round":0.412,"multi5k_per_round":0.0,"flash_assist_per_round":0.024,"he_foe_dmg":9.0,"flash_per_round":0.628,"apr":0.2165,"team":"BIG","preaim":9.76,"nickname":"JDC","trade_kill_success_pct":0.48,"rating_hltv":1.0006,"flash_hit_foe_per_flash":0.573,"multi2k_per_round":0.1128,"accuracy_head":0.2,"counter_strafe_good_ratio":0.8295,"hs_pct":0.53,"kast":0.7,"rating_ct":0.0047},{"utility_on_death":288.2,"steam64_id":"76561198028458803","survived_pct":0.3811,"reaction_time":0.5,"molotov_per_round":0.473,"multi4k_per_round":0.0091,"rating_t":-0.0082,"rating_leetify":0.0093,"dpr":0.6128,"kd":1.2736,"trade_death_success_pct":0.6078,"maps":16,"adr":84.5122,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.662,"rounds":328,"kpr":0.7805,"mvps":39,"multi3k_per_round":0.0488,"he_per_round":0.622,"multi5k_per_round":0.0,"flash_assist_per_round":0.015,"he_foe_dmg":14.4,"flash_per_round":0.457,"apr":0.2683,"team":"BIG","preaim":9.13,"nickname":"blameF","trade_kill_success_pct":0.4862,"rating_hltv":1.1706,"flash_hit_foe_per_flash":0.647,"multi2k_per_round":0.1463,"accuracy_head":0.16,"counter_strafe_good_ratio":0.8478,"hs_pct":0.43,"kast":0.74,"rating_ct":0.0278},{"utility_on_death":218.2,"steam64_id":"76561198118196092","survived_pct":0.311,"reaction_time":0.5,"molotov_per_round":0.64,"multi4k_per_round":0.0091,"rating_t":-0.0162,"rating_leetify":-0.0022,"dpr":0.689,"kd":0.9292,"trade_death_success_pct":0.5647,"maps":16,"adr":68.4299,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.616,"rounds":328,"kpr":0.6402,"mvps":29,"multi3k_per_round":0.0244,"he_per_round":0.39,"multi5k_per_round":0.0,"flash_assist_per_round":0.015,"he_foe_dmg":5.9,"flash_per_round":0.351,"apr":0.1982,"team":"BIG","preaim":10.84,"nickname":"faveN","trade_kill_success_pct":0.5,"rating_hltv":0.9331,"flash_hit_foe_per_flash":0.591,"multi2k_per_round":0.1189,"accuracy_head":0.23,"counter_strafe_good_ratio":0.7935,"hs_pct":0.61,"kast":0.72,"rating_ct":0.0125},{"utility_on_death":223.8,"steam64_id":"76561198370176682","survived_pct":0.3506,"reaction_time":0.4,"molotov_per_round":0.363,"multi4k_per_round":0.0061,"rating_t":-0.0144,"rating_leetify":0.0053,"dpr":0.6494,"kd":1.0986,"trade_death_success_pct":0.5063,"maps":16,"adr":71.4573,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.579,"rounds":328,"kpr":0.7134,"mvps":42,"multi3k_per_round":0.0457,"he_per_round":0.265,"multi5k_per_round":0.0,"flash_assist_per_round":0.037,"he_foe_dmg":10.6,"flash_per_round":0.738,"apr":0.1707,"team":"BIG","preaim":6.95,"nickname":"gr1ks","trade_kill_success_pct":0.5146,"rating_hltv":1.0597,"flash_hit_foe_per_flash":0.719,"multi2k_per_round":0.128,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8753,"hs_pct":0.29,"kast":0.73,"rating_ct":0.0254},{"utility_on_death":225.7,"steam64_id":"76561197961491680","survived_pct":0.3201,"reaction_time":0.5,"molotov_per_round":0.567,"multi4k_per_round":0.003,"rating_t":-0.0225,"rating_leetify":-0.009,"dpr":0.6799,"kd":0.843,"trade_death_success_pct":0.5914,"maps":16,"adr":70.5854,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.771,"rounds":328,"kpr":0.5732,"mvps":31,"multi3k_per_round":0.0244,"he_per_round":0.418,"multi5k_per_round":0.0,"flash_assist_per_round":0.034,"he_foe_dmg":10.7,"flash_per_round":0.604,"apr":0.253,"team":"BIG","preaim":11.48,"nickname":"tabseN","trade_kill_success_pct":0.4382,"rating_hltv":0.8509,"flash_hit_foe_per_flash":0.672,"multi2k_per_round":0.1067,"accuracy_head":0.19,"counter_strafe_good_ratio":0.8441,"hs_pct":0.51,"kast":0.72,"rating_ct":0.0049},{"utility_on_death":245.6,"steam64_id":"76561199203563345","survived_pct":0.3345,"reaction_time":0.5,"molotov_per_round":0.369,"multi4k_per_round":0.0034,"rating_t":0.0075,"rating_leetify":0.0167,"dpr":0.6655,"kd":1.057,"trade_death_success_pct":0.6346,"maps":13,"adr":69.7034,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.634,"rounds":290,"kpr":0.7034,"mvps":30,"multi3k_per_round":0.031,"he_per_round":0.217,"multi5k_per_round":0.0,"flash_assist_per_round":0.066,"he_foe_dmg":10.0,"flash_per_round":0.952,"apr":0.1345,"team":"The MongolZ","preaim":6.87,"nickname":"910","trade_kill_success_pct":0.3846,"rating_hltv":1.0167,"flash_hit_foe_per_flash":0.775,"multi2k_per_round":0.1552,"accuracy_head":0.29,"counter_strafe_good_ratio":0.9007,"hs_pct":0.35,"kast":0.7,"rating_ct":0.0275},{"utility_on_death":241.5,"steam64_id":"76561198838822582","survived_pct":0.2966,"reaction_time":0.5,"molotov_per_round":0.493,"multi4k_per_round":0.0069,"rating_t":-0.014,"rating_leetify":-0.0069,"dpr":0.7034,"kd":0.8873,"trade_death_success_pct":0.4714,"maps":13,"adr":69.1552,"accuracy_enemy_spotted":0.34,"smoke_per_round":0.59,"rounds":290,"kpr":0.6241,"mvps":18,"multi3k_per_round":0.031,"he_per_round":0.334,"multi5k_per_round":0.0,"flash_assist_per_round":0.017,"he_foe_dmg":8.3,"flash_per_round":0.414,"apr":0.1345,"team":"The MongolZ","preaim":10.43,"nickname":"Mzinho","trade_kill_success_pct":0.5161,"rating_hltv":0.889,"flash_hit_foe_per_flash":0.675,"multi2k_per_round":0.0828,"accuracy_head":0.32,"counter_strafe_good_ratio":0.7576,"hs_pct":0.72,"kast":0.66,"rating_ct":0.0014},{"utility_on_death":224.5,"steam64_id":"76561198966340160","survived_pct":0.3034,"reaction_time":0.5,"molotov_per_round":0.503,"multi4k_per_round":0.0069,"rating_t":-0.0298,"rating_leetify":-0.0222,"dpr":0.6931,"kd":0.7861,"trade_death_success_pct":0.6061,"maps":13,"adr":61.931,"accuracy_enemy_spotted":0.33,"smoke_per_round":0.579,"rounds":290,"kpr":0.5448,"mvps":24,"multi3k_per_round":0.0138,"he_per_round":0.383,"multi5k_per_round":0.0,"flash_assist_per_round":0.031,"he_foe_dmg":7.2,"flash_per_round":0.569,"apr":0.1724,"team":"The MongolZ","preaim":10.51,"nickname":"Techno4K","trade_kill_success_pct":0.3472,"rating_hltv":0.818,"flash_hit_foe_per_flash":0.764,"multi2k_per_round":0.1103,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8086,"hs_pct":0.54,"kast":0.67,"rating_ct":-0.0135},{"utility_on_death":282.4,"steam64_id":"76561198959824088","survived_pct":0.3,"reaction_time":0.5,"molotov_per_round":0.562,"multi4k_per_round":0.0103,"rating_t":0.0055,"rating_leetify":0.0046,"dpr":0.6966,"kd":0.9208,"trade_death_success_pct":0.5507,"maps":13,"adr":79.4862,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.721,"rounds":290,"kpr":0.6414,"mvps":39,"multi3k_per_round":0.0241,"he_per_round":0.555,"multi5k_per_round":0.0,"flash_assist_per_round":0.048,"he_foe_dmg":12.6,"flash_per_round":0.807,"apr":0.2517,"team":"The MongolZ","preaim":8.8,"nickname":"bLitz","trade_kill_success_pct":0.52,"rating_hltv":0.9322,"flash_hit_foe_per_flash":0.692,"multi2k_per_round":0.1172,"accuracy_head":0.2,"counter_strafe_good_ratio":0.8865,"hs_pct":0.56,"kast":0.7,"rating_ct":0.0033},{"utility_on_death":296.8,"steam64_id":"76561199430871803","survived_pct":0.3241,"reaction_time":0.5,"molotov_per_round":0.541,"multi4k_per_round":0.0,"rating_t":-0.0234,"rating_leetify":0.0041,"dpr":0.669,"kd":0.9948,"trade_death_success_pct":0.5143,"maps":13,"adr":70.2345,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.659,"rounds":290,"kpr":0.6655,"mvps":31,"multi3k_per_round":0.031,"he_per_round":0.397,"multi5k_per_round":0.0,"flash_assist_per_round":0.01,"he_foe_dmg":6.8,"flash_per_round":0.397,"apr":0.1414,"team":"The MongolZ","preaim":12.45,"nickname":"cobrazera","trade_kill_success_pct":0.5568,"rating_hltv":0.9565,"flash_hit_foe_per_flash":0.478,"multi2k_per_round":0.1276,"accuracy_head":0.23,"counter_strafe_good_ratio":0.7881,"hs_pct":0.58,"kast":0.71,"rating_ct":0.0377},{"utility_on_death":207.7,"steam64_id":"76561198013243326","survived_pct":0.4028,"reaction_time":0.5,"molotov_per_round":0.686,"multi4k_per_round":0.0035,"rating_t":-0.03,"rating_leetify":-0.0199,"dpr":0.6042,"kd":0.7544,"trade_death_success_pct":0.6806,"maps":13,"adr":58.0424,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.876,"rounds":283,"kpr":0.4558,"mvps":25,"multi3k_per_round":0.0141,"he_per_round":0.516,"multi5k_per_round":0.0035,"flash_assist_per_round":0.06,"he_foe_dmg":10.3,"flash_per_round":0.898,"apr":0.2191,"team":"Natus Vincere","preaim":10.16,"nickname":"Aleksib","trade_kill_success_pct":0.4062,"rating_hltv":0.8075,"flash_hit_foe_per_flash":0.583,"multi2k_per_round":0.0777,"accuracy_head":0.15,"counter_strafe_good_ratio":0.8405,"hs_pct":0.39,"kast":0.75,"rating_ct":-0.0122},{"utility_on_death":260.0,"steam64_id":"76561198246607476","survived_pct":0.4064,"reaction_time":0.5,"molotov_per_round":0.523,"multi4k_per_round":0.0071,"rating_t":0.0039,"rating_leetify":0.0148,"dpr":0.6007,"kd":1.2824,"trade_death_success_pct":0.6458,"maps":13,"adr":84.7385,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.802,"rounds":283,"kpr":0.7703,"mvps":29,"multi3k_per_round":0.0424,"he_per_round":0.403,"multi5k_per_round":0.0,"flash_assist_per_round":0.032,"he_foe_dmg":3.6,"flash_per_round":0.65,"apr":0.1873,"team":"Natus Vincere","preaim":10.71,"nickname":"b1t","trade_kill_success_pct":0.4845,"rating_hltv":1.1414,"flash_hit_foe_per_flash":0.587,"multi2k_per_round":0.1272,"accuracy_head":0.25,"counter_strafe_good_ratio":0.825,"hs_pct":0.57,"kast":0.8,"rating_ct":0.0232},{"utility_on_death":256.7,"steam64_id":"76561198050250233","survived_pct":0.3216,"reaction_time":0.5,"molotov_per_round":0.442,"multi4k_per_round":0.0035,"rating_t":0.0099,"rating_leetify":-0.0004,"dpr":0.6855,"kd":1.0515,"trade_death_success_pct":0.5588,"maps":13,"adr":77.7385,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.59,"rounds":283,"kpr":0.7208,"mvps":24,"multi3k_per_round":0.0318,"he_per_round":0.424,"multi5k_per_round":0.0,"flash_assist_per_round":0.032,"he_foe_dmg":6.3,"flash_per_round":0.527,"apr":0.2261,"team":"Natus Vincere","preaim":10.08,"nickname":"iM","trade_kill_success_pct":0.5783,"rating_hltv":1.0041,"flash_hit_foe_per_flash":0.644,"multi2k_per_round":0.1378,"accuracy_head":0.17,"counter_strafe_good_ratio":0.7636,"hs_pct":0.47,"kast":0.73,"rating_ct":-0.0088},{"utility_on_death":199.5,"steam64_id":"76561199076189612","survived_pct":0.2933,"reaction_time":0.5,"molotov_per_round":0.58,"multi4k_per_round":0.0035,"rating_t":-0.0193,"rating_leetify":-0.0127,"dpr":0.7138,"kd":0.9059,"trade_death_success_pct":0.6316,"maps":13,"adr":72.0883,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.576,"rounds":283,"kpr":0.6466,"mvps":26,"multi3k_per_round":0.0318,"he_per_round":0.576,"multi5k_per_round":0.0,"flash_assist_per_round":0.007,"he_foe_dmg":8.3,"flash_per_round":0.534,"apr":0.1908,"team":"Natus Vincere","preaim":10.1,"nickname":"makazze","trade_kill_success_pct":0.5079,"rating_hltv":0.9108,"flash_hit_foe_per_flash":0.543,"multi2k_per_round":0.1201,"accuracy_head":0.21,"counter_strafe_good_ratio":0.7678,"hs_pct":0.56,"kast":0.69,"rating_ct":-0.0076},{"utility_on_death":190.6,"steam64_id":"76561199063068840","survived_pct":0.4028,"reaction_time":0.5,"molotov_per_round":0.367,"multi4k_per_round":0.0071,"rating_t":0.0014,"rating_leetify":0.0033,"dpr":0.6007,"kd":1.1412,"trade_death_success_pct":0.5672,"maps":13,"adr":67.5371,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.601,"rounds":283,"kpr":0.6855,"mvps":34,"multi3k_per_round":0.0247,"he_per_round":0.191,"multi5k_per_round":0.0,"flash_assist_per_round":0.039,"he_foe_dmg":7.3,"flash_per_round":0.894,"apr":0.1025,"team":"Natus Vincere","preaim":7.36,"nickname":"w0nderful","trade_kill_success_pct":0.5682,"rating_hltv":1.0449,"flash_hit_foe_per_flash":0.542,"multi2k_per_round":0.1343,"accuracy_head":0.29,"counter_strafe_good_ratio":0.7592,"hs_pct":0.38,"kast":0.77,"rating_ct":0.0047},{"utility_on_death":156.1,"steam64_id":"76561197960690195","survived_pct":0.362,"reaction_time":0.5,"molotov_per_round":0.609,"multi4k_per_round":0.0036,"rating_t":-0.0259,"rating_leetify":-0.0204,"dpr":0.638,"kd":0.7809,"trade_death_success_pct":0.6,"maps":15,"adr":56.7957,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.989,"rounds":279,"kpr":0.4982,"mvps":24,"multi3k_per_round":0.0215,"he_per_round":0.33,"multi5k_per_round":0.0,"flash_assist_per_round":0.068,"he_foe_dmg":7.6,"flash_per_round":1.118,"apr":0.1649,"team":"FURIA","preaim":10.49,"nickname":"FalleN","trade_kill_success_pct":0.4906,"rating_hltv":0.8159,"flash_hit_foe_per_flash":0.593,"multi2k_per_round":0.0932,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8217,"hs_pct":0.6,"kast":0.72,"rating_ct":-0.0146},{"utility_on_death":226.9,"steam64_id":"76561198058500492","survived_pct":0.4158,"reaction_time":0.5,"molotov_per_round":0.642,"multi4k_per_round":0.0143,"rating_t":0.0006,"rating_leetify":0.0086,"dpr":0.5771,"kd":1.1553,"trade_death_success_pct":0.52,"maps":15,"adr":70.7957,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.706,"rounds":279,"kpr":0.6667,"mvps":35,"multi3k_per_round":0.0179,"he_per_round":0.591,"multi5k_per_round":0.0036,"flash_assist_per_round":0.032,"he_foe_dmg":6.3,"flash_per_round":0.581,"apr":0.1864,"team":"FURIA","preaim":8.27,"nickname":"KSCERATO","trade_kill_success_pct":0.507,"rating_hltv":1.0851,"flash_hit_foe_per_flash":0.679,"multi2k_per_round":0.1254,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8057,"hs_pct":0.55,"kast":0.76,"rating_ct":0.018},{"utility_on_death":201.0,"steam64_id":"76561198134401925","survived_pct":0.2939,"reaction_time":0.5,"molotov_per_round":0.62,"multi4k_per_round":0.0072,"rating_t":0.0072,"rating_leetify":0.0045,"dpr":0.7061,"kd":1.0102,"trade_death_success_pct":0.5645,"maps":15,"adr":81.7133,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.634,"rounds":279,"kpr":0.7133,"mvps":32,"multi3k_per_round":0.0358,"he_per_round":0.441,"multi5k_per_round":0.0,"flash_assist_per_round":0.039,"he_foe_dmg":15.1,"flash_per_round":0.749,"apr":0.2437,"team":"FURIA","preaim":10.79,"nickname":"YEKINDAR","trade_kill_success_pct":0.4878,"rating_hltv":1.0238,"flash_hit_foe_per_flash":0.679,"multi2k_per_round":0.1649,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8266,"hs_pct":0.64,"kast":0.72,"rating_ct":0.0015},{"utility_on_death":251.7,"steam64_id":"76561198200982290","survived_pct":0.4373,"reaction_time":0.4,"molotov_per_round":0.487,"multi4k_per_round":0.0036,"rating_t":0.0233,"rating_leetify":0.0291,"dpr":0.5663,"kd":1.4494,"trade_death_success_pct":0.6222,"maps":15,"adr":82.5233,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.473,"rounds":279,"kpr":0.8208,"mvps":37,"multi3k_per_round":0.0645,"he_per_round":0.301,"multi5k_per_round":0.0,"flash_assist_per_round":0.039,"he_foe_dmg":8.1,"flash_per_round":0.627,"apr":0.1541,"team":"FURIA","preaim":5.85,"nickname":"molodoy","trade_kill_success_pct":0.5,"rating_hltv":1.2578,"flash_hit_foe_per_flash":0.526,"multi2k_per_round":0.1577,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8032,"hs_pct":0.34,"kast":0.76,"rating_ct":0.0353},{"utility_on_death":137.1,"steam64_id":"76561198164970560","survived_pct":0.4767,"reaction_time":0.5,"molotov_per_round":0.663,"multi4k_per_round":0.0072,"rating_t":0.0152,"rating_leetify":0.0212,"dpr":0.5161,"kd":1.3264,"trade_death_success_pct":0.6818,"maps":15,"adr":75.0072,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.703,"rounds":279,"kpr":0.6846,"mvps":28,"multi3k_per_round":0.0323,"he_per_round":0.416,"multi5k_per_round":0.0,"flash_assist_per_round":0.025,"he_foe_dmg":5.5,"flash_per_round":0.631,"apr":0.1792,"team":"FURIA","preaim":9.93,"nickname":"yuurih","trade_kill_success_pct":0.494,"rating_hltv":1.1215,"flash_hit_foe_per_flash":0.528,"multi2k_per_round":0.1254,"accuracy_head":0.21,"counter_strafe_good_ratio":0.7927,"hs_pct":0.48,"kast":0.82,"rating_ct":0.0274},{"utility_on_death":279.1,"steam64_id":"76561198113666193","survived_pct":0.4416,"reaction_time":0.5,"molotov_per_round":0.456,"multi4k_per_round":0.0146,"rating_t":0.0456,"rating_leetify":0.0436,"dpr":0.5584,"kd":1.6471,"trade_death_success_pct":0.58,"maps":14,"adr":94.7993,"accuracy_enemy_spotted":0.45,"smoke_per_round":0.547,"rounds":274,"kpr":0.9197,"mvps":38,"multi3k_per_round":0.0511,"he_per_round":0.252,"multi5k_per_round":0.0073,"flash_assist_per_round":0.055,"he_foe_dmg":5.0,"flash_per_round":0.774,"apr":0.1679,"team":"Team Vitality","preaim":8.58,"nickname":"ZywOo","trade_kill_success_pct":0.5517,"rating_hltv":1.4019,"flash_hit_foe_per_flash":0.642,"multi2k_per_round":0.1569,"accuracy_head":0.29,"counter_strafe_good_ratio":0.8947,"hs_pct":0.44,"kast":0.8,"rating_ct":0.0417},{"utility_on_death":321.6,"steam64_id":"76561197989744167","survived_pct":0.3431,"reaction_time":0.6,"molotov_per_round":0.544,"multi4k_per_round":0.0036,"rating_t":-0.009,"rating_leetify":-0.0169,"dpr":0.6569,"kd":0.95,"trade_death_success_pct":0.5522,"maps":14,"adr":73.354,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.664,"rounds":274,"kpr":0.6241,"mvps":30,"multi3k_per_round":0.0255,"he_per_round":0.58,"multi5k_per_round":0.0,"flash_assist_per_round":0.069,"he_foe_dmg":13.3,"flash_per_round":0.894,"apr":0.2299,"team":"Team Vitality","preaim":10.36,"nickname":"apEX","trade_kill_success_pct":0.4407,"rating_hltv":0.9309,"flash_hit_foe_per_flash":0.641,"multi2k_per_round":0.1204,"accuracy_head":0.2,"counter_strafe_good_ratio":0.7902,"hs_pct":0.53,"kast":0.72,"rating_ct":-0.0241},{"utility_on_death":209.8,"steam64_id":"76561197978835160","survived_pct":0.3467,"reaction_time":0.5,"molotov_per_round":0.701,"multi4k_per_round":0.0,"rating_t":-0.0067,"rating_leetify":-0.009,"dpr":0.646,"kd":1.0339,"trade_death_success_pct":0.5946,"maps":14,"adr":72.8905,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.635,"rounds":274,"kpr":0.6679,"mvps":33,"multi3k_per_round":0.0292,"he_per_round":0.307,"multi5k_per_round":0.0,"flash_assist_per_round":0.015,"he_foe_dmg":6.7,"flash_per_round":0.847,"apr":0.1788,"team":"Team Vitality","preaim":11.47,"nickname":"flameZ","trade_kill_success_pct":0.459,"rating_hltv":0.9941,"flash_hit_foe_per_flash":0.375,"multi2k_per_round":0.1533,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8315,"hs_pct":0.63,"kast":0.75,"rating_ct":-0.0105},{"utility_on_death":267.1,"steam64_id":"76561197973140692","survived_pct":0.4197,"reaction_time":0.4,"molotov_per_round":0.595,"multi4k_per_round":0.0036,"rating_t":-0.0169,"rating_leetify":-0.0106,"dpr":0.5803,"kd":1.0126,"trade_death_success_pct":0.5763,"maps":14,"adr":62.5985,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.701,"rounds":274,"kpr":0.5876,"mvps":26,"multi3k_per_round":0.0401,"he_per_round":0.336,"multi5k_per_round":0.0,"flash_assist_per_round":0.044,"he_foe_dmg":8.1,"flash_per_round":0.657,"apr":0.146,"team":"Team Vitality","preaim":9.34,"nickname":"mezii","trade_kill_success_pct":0.5522,"rating_hltv":0.969,"flash_hit_foe_per_flash":0.644,"multi2k_per_round":0.0876,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8489,"hs_pct":0.61,"kast":0.74,"rating_ct":-0.0049},{"utility_on_death":279.4,"steam64_id":"76561197991272318","survived_pct":0.3978,"reaction_time":0.4,"molotov_per_round":0.529,"multi4k_per_round":0.0036,"rating_t":0.0169,"rating_leetify":0.0117,"dpr":0.5985,"kd":1.189,"trade_death_success_pct":0.5,"maps":14,"adr":77.4015,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.536,"rounds":274,"kpr":0.7117,"mvps":31,"multi3k_per_round":0.0365,"he_per_round":0.38,"multi5k_per_round":0.0,"flash_assist_per_round":0.007,"he_foe_dmg":8.2,"flash_per_round":0.292,"apr":0.1679,"team":"Team Vitality","preaim":8.22,"nickname":"ropz","trade_kill_success_pct":0.4333,"rating_hltv":1.0743,"flash_hit_foe_per_flash":0.4,"multi2k_per_round":0.1314,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8652,"hs_pct":0.59,"kast":0.76,"rating_ct":0.0069},{"utility_on_death":227.5,"steam64_id":"76561197967432889","survived_pct":0.4071,"reaction_time":0.5,"molotov_per_round":0.538,"multi4k_per_round":0.004,"rating_t":-0.0061,"rating_leetify":0.0066,"dpr":0.5929,"kd":1.0067,"trade_death_success_pct":0.5952,"maps":13,"adr":66.8142,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.945,"rounds":253,"kpr":0.5968,"mvps":27,"multi3k_per_round":0.0395,"he_per_round":0.451,"multi5k_per_round":0.0,"flash_assist_per_round":0.024,"he_foe_dmg":7.8,"flash_per_round":0.917,"apr":0.1818,"team":"Aurora Gaming","preaim":8.85,"nickname":"MAJ3R","trade_kill_success_pct":0.3833,"rating_hltv":0.9661,"flash_hit_foe_per_flash":0.509,"multi2k_per_round":0.087,"accuracy_head":0.21,"counter_strafe_good_ratio":0.7504,"hs_pct":0.5,"kast":0.7,"rating_ct":0.0154},{"utility_on_death":207.9,"steam64_id":"76561198812513923","survived_pct":0.3874,"reaction_time":0.5,"molotov_per_round":0.526,"multi4k_per_round":0.0119,"rating_t":0.0283,"rating_leetify":0.0165,"dpr":0.6126,"kd":1.3419,"trade_death_success_pct":0.5106,"maps":13,"adr":85.581,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.719,"rounds":253,"kpr":0.8221,"mvps":32,"multi3k_per_round":0.0514,"he_per_round":0.526,"multi5k_per_round":0.0,"flash_assist_per_round":0.02,"he_foe_dmg":4.4,"flash_per_round":0.364,"apr":0.2016,"team":"Aurora Gaming","preaim":11.43,"nickname":"Wicadia","trade_kill_success_pct":0.5574,"rating_hltv":1.2217,"flash_hit_foe_per_flash":0.489,"multi2k_per_round":0.1502,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8215,"hs_pct":0.57,"kast":0.77,"rating_ct":0.0091},{"utility_on_death":286.0,"steam64_id":"76561198044118796","survived_pct":0.3439,"reaction_time":0.5,"molotov_per_round":0.407,"multi4k_per_round":0.0079,"rating_t":0.0098,"rating_leetify":-0.0054,"dpr":0.6522,"kd":1.103,"trade_death_success_pct":0.541,"maps":13,"adr":81.1621,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.368,"rounds":253,"kpr":0.7194,"mvps":23,"multi3k_per_round":0.0198,"he_per_round":0.458,"multi5k_per_round":0.004,"flash_assist_per_round":0.02,"he_foe_dmg":8.4,"flash_per_round":0.403,"apr":0.2174,"team":"Aurora Gaming","preaim":7.93,"nickname":"XANTARES","trade_kill_success_pct":0.4386,"rating_hltv":1.0583,"flash_hit_foe_per_flash":0.627,"multi2k_per_round":0.1502,"accuracy_head":0.23,"counter_strafe_good_ratio":0.9168,"hs_pct":0.58,"kast":0.77,"rating_ct":-0.0162},{"utility_on_death":246.1,"steam64_id":"76561198327068178","survived_pct":0.3478,"reaction_time":0.4,"molotov_per_round":0.502,"multi4k_per_round":0.004,"rating_t":0.0081,"rating_leetify":0.0038,"dpr":0.6403,"kd":1.0123,"trade_death_success_pct":0.5556,"maps":13,"adr":72.0395,"accuracy_enemy_spotted":0.44,"smoke_per_round":0.644,"rounds":253,"kpr":0.6482,"mvps":26,"multi3k_per_round":0.0474,"he_per_round":0.229,"multi5k_per_round":0.0,"flash_assist_per_round":0.032,"he_foe_dmg":6.0,"flash_per_round":0.3,"apr":0.1976,"team":"Aurora Gaming","preaim":11.27,"nickname":"soulfly","trade_kill_success_pct":0.4375,"rating_hltv":0.9898,"flash_hit_foe_per_flash":0.658,"multi2k_per_round":0.0949,"accuracy_head":0.2,"counter_strafe_good_ratio":0.7874,"hs_pct":0.5,"kast":0.72,"rating_ct":0.0014},{"utility_on_death":222.3,"steam64_id":"76561198083485506","survived_pct":0.4545,"reaction_time":0.4,"molotov_per_round":0.427,"multi4k_per_round":0.0079,"rating_t":0.0108,"rating_leetify":0.0133,"dpr":0.5455,"kd":1.2101,"trade_death_success_pct":0.4565,"maps":13,"adr":66.6324,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.411,"rounds":253,"kpr":0.6601,"mvps":31,"multi3k_per_round":0.0356,"he_per_round":0.225,"multi5k_per_round":0.0,"flash_assist_per_round":0.04,"he_foe_dmg":2.6,"flash_per_round":0.64,"apr":0.1028,"team":"Aurora Gaming","preaim":5.37,"nickname":"woxic","trade_kill_success_pct":0.4833,"rating_hltv":1.0761,"flash_hit_foe_per_flash":0.704,"multi2k_per_round":0.1067,"accuracy_head":0.25,"counter_strafe_good_ratio":0.7759,"hs_pct":0.31,"kast":0.75,"rating_ct":0.0151},{"utility_on_death":197.9,"steam64_id":"76561197987212623","survived_pct":0.3093,"reaction_time":0.5,"molotov_per_round":0.614,"multi4k_per_round":0.0,"rating_t":-0.0195,"rating_leetify":-0.0114,"dpr":0.6864,"kd":1.0,"trade_death_success_pct":0.623,"maps":11,"adr":72.1653,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.636,"rounds":236,"kpr":0.6864,"mvps":31,"multi3k_per_round":0.0551,"he_per_round":0.475,"multi5k_per_round":0.0,"flash_assist_per_round":0.093,"he_foe_dmg":10.0,"flash_per_round":1.038,"apr":0.1737,"team":"FlyQuest","preaim":9.11,"nickname":"INS","trade_kill_success_pct":0.4444,"rating_hltv":1.0163,"flash_hit_foe_per_flash":0.698,"multi2k_per_round":0.1483,"accuracy_head":0.17,"counter_strafe_good_ratio":0.7951,"hs_pct":0.4,"kast":0.72,"rating_ct":-0.0045},{"utility_on_death":234.4,"steam64_id":"76561198052888143","survived_pct":0.3432,"reaction_time":0.5,"molotov_per_round":0.686,"multi4k_per_round":0.0042,"rating_t":0.0016,"rating_leetify":0.0058,"dpr":0.6525,"kd":1.1169,"trade_death_success_pct":0.5333,"maps":11,"adr":81.4534,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.733,"rounds":236,"kpr":0.7288,"mvps":22,"multi3k_per_round":0.0424,"he_per_round":0.517,"multi5k_per_round":0.0,"flash_assist_per_round":0.017,"he_foe_dmg":9.6,"flash_per_round":0.492,"apr":0.2119,"team":"FlyQuest","preaim":9.55,"nickname":"Vexite","trade_kill_success_pct":0.5,"rating_hltv":1.0743,"flash_hit_foe_per_flash":0.586,"multi2k_per_round":0.1568,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8792,"hs_pct":0.58,"kast":0.75,"rating_ct":0.0092},{"utility_on_death":151.1,"steam64_id":"76561197977105184","survived_pct":0.3347,"reaction_time":0.5,"molotov_per_round":0.691,"multi4k_per_round":0.0127,"rating_t":-0.0223,"rating_leetify":0.002,"dpr":0.661,"kd":1.1154,"trade_death_success_pct":0.5536,"maps":11,"adr":80.3898,"accuracy_enemy_spotted":0.34,"smoke_per_round":0.725,"rounds":236,"kpr":0.7373,"mvps":18,"multi3k_per_round":0.0254,"he_per_round":0.551,"multi5k_per_round":0.0,"flash_assist_per_round":0.03,"he_foe_dmg":9.3,"flash_per_round":0.597,"apr":0.2288,"team":"FlyQuest","preaim":9.71,"nickname":"jks","trade_kill_success_pct":0.4861,"rating_hltv":1.0625,"flash_hit_foe_per_flash":0.596,"multi2k_per_round":0.1356,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8206,"hs_pct":0.62,"kast":0.76,"rating_ct":0.0226},{"utility_on_death":205.9,"steam64_id":"76561198332845251","survived_pct":0.3347,"reaction_time":0.5,"molotov_per_round":0.559,"multi4k_per_round":0.0,"rating_t":0.0052,"rating_leetify":0.0044,"dpr":0.6653,"kd":0.9682,"trade_death_success_pct":0.5915,"maps":11,"adr":76.9153,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.653,"rounds":236,"kpr":0.6441,"mvps":25,"multi3k_per_round":0.0212,"he_per_round":0.428,"multi5k_per_round":0.0,"flash_assist_per_round":0.055,"he_foe_dmg":9.5,"flash_per_round":0.653,"apr":0.2881,"team":"FlyQuest","preaim":9.29,"nickname":"nettik","trade_kill_success_pct":0.4937,"rating_hltv":0.9352,"flash_hit_foe_per_flash":0.662,"multi2k_per_round":0.1483,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8721,"hs_pct":0.59,"kast":0.78,"rating_ct":0.0038},{"utility_on_death":205.6,"steam64_id":"76561198065448360","survived_pct":0.4153,"reaction_time":0.4,"molotov_per_round":0.428,"multi4k_per_round":0.0085,"rating_t":0.0167,"rating_leetify":0.0061,"dpr":0.572,"kd":1.1407,"trade_death_success_pct":0.4634,"maps":11,"adr":57.9449,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.674,"rounds":236,"kpr":0.6525,"mvps":26,"multi3k_per_round":0.0424,"he_per_round":0.229,"multi5k_per_round":0.0,"flash_assist_per_round":0.072,"he_foe_dmg":10.4,"flash_per_round":0.903,"apr":0.0636,"team":"FlyQuest","preaim":6.3,"nickname":"story","trade_kill_success_pct":0.4815,"rating_hltv":1.0553,"flash_hit_foe_per_flash":0.751,"multi2k_per_round":0.0932,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8522,"hs_pct":0.32,"kast":0.69,"rating_ct":-0.0031},{"utility_on_death":233.1,"steam64_id":"76561198043769572","survived_pct":0.3537,"reaction_time":0.5,"molotov_per_round":0.45,"multi4k_per_round":0.0087,"rating_t":-0.0053,"rating_leetify":0.0038,"dpr":0.6594,"kd":1.0132,"trade_death_success_pct":0.4694,"maps":15,"adr":78.9956,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.646,"rounds":229,"kpr":0.6681,"mvps":26,"multi3k_per_round":0.0262,"he_per_round":0.406,"multi5k_per_round":0.0,"flash_assist_per_round":0.061,"he_foe_dmg":12.8,"flash_per_round":0.755,"apr":0.2009,"team":"Legacy","preaim":11.69,"nickname":"arT","trade_kill_success_pct":0.4681,"rating_hltv":0.9782,"flash_hit_foe_per_flash":0.723,"multi2k_per_round":0.1135,"accuracy_head":0.2,"counter_strafe_good_ratio":0.7896,"hs_pct":0.54,"kast":0.72,"rating_ct":0.0122},{"utility_on_death":175.2,"steam64_id":"76561198194325317","survived_pct":0.3231,"reaction_time":0.5,"molotov_per_round":0.62,"multi4k_per_round":0.0087,"rating_t":0.0226,"rating_leetify":0.0074,"dpr":0.6856,"kd":0.9936,"trade_death_success_pct":0.5294,"maps":15,"adr":80.2795,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.629,"rounds":229,"kpr":0.6812,"mvps":28,"multi3k_per_round":0.0524,"he_per_round":0.568,"multi5k_per_round":0.0,"flash_assist_per_round":0.035,"he_foe_dmg":11.4,"flash_per_round":0.873,"apr":0.2358,"team":"Legacy","preaim":12.56,"nickname":"dumau","trade_kill_success_pct":0.3585,"rating_hltv":1.0158,"flash_hit_foe_per_flash":0.515,"multi2k_per_round":0.1135,"accuracy_head":0.18,"counter_strafe_good_ratio":0.8412,"hs_pct":0.47,"kast":0.7,"rating_ct":-0.0066},{"utility_on_death":181.4,"steam64_id":"76561198850020186","survived_pct":0.3799,"reaction_time":0.5,"molotov_per_round":0.581,"multi4k_per_round":0.0044,"rating_t":0.0004,"rating_leetify":0.0139,"dpr":0.6332,"kd":1.0897,"trade_death_success_pct":0.5208,"maps":15,"adr":73.7817,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.707,"rounds":229,"kpr":0.69,"mvps":38,"multi3k_per_round":0.0393,"he_per_round":0.537,"multi5k_per_round":0.0,"flash_assist_per_round":0.026,"he_foe_dmg":9.5,"flash_per_round":0.764,"apr":0.1834,"team":"Legacy","preaim":9.02,"nickname":"latto","trade_kill_success_pct":0.4348,"rating_hltv":1.0396,"flash_hit_foe_per_flash":0.646,"multi2k_per_round":0.1528,"accuracy_head":0.2,"counter_strafe_good_ratio":0.8693,"hs_pct":0.5,"kast":0.72,"rating_ct":0.0264},{"utility_on_death":166.0,"steam64_id":"76561198061763596","survived_pct":0.3974,"reaction_time":0.6,"molotov_per_round":0.533,"multi4k_per_round":0.0,"rating_t":-0.0287,"rating_leetify":-0.0277,"dpr":0.6157,"kd":0.7234,"trade_death_success_pct":0.4884,"maps":15,"adr":49.5328,"accuracy_enemy_spotted":0.32,"smoke_per_round":0.734,"rounds":229,"kpr":0.4454,"mvps":7,"multi3k_per_round":0.0087,"he_per_round":0.432,"multi5k_per_round":0.0,"flash_assist_per_round":0.022,"he_foe_dmg":4.7,"flash_per_round":0.694,"apr":0.1703,"team":"Legacy","preaim":11.74,"nickname":"n1ssim","trade_kill_success_pct":0.4898,"rating_hltv":0.7383,"flash_hit_foe_per_flash":0.547,"multi2k_per_round":0.0699,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8281,"hs_pct":0.59,"kast":0.7,"rating_ct":-0.0268},{"utility_on_death":182.3,"steam64_id":"76561198100494962","survived_pct":0.4061,"reaction_time":0.5,"molotov_per_round":0.389,"multi4k_per_round":0.0,"rating_t":0.0266,"rating_leetify":0.0102,"dpr":0.607,"kd":0.9424,"trade_death_success_pct":0.413,"maps":15,"adr":59.1485,"accuracy_enemy_spotted":0.32,"smoke_per_round":0.742,"rounds":229,"kpr":0.5721,"mvps":29,"multi3k_per_round":0.0087,"he_per_round":0.236,"multi5k_per_round":0.0,"flash_assist_per_round":0.052,"he_foe_dmg":9.1,"flash_per_round":0.969,"apr":0.1223,"team":"Legacy","preaim":9.89,"nickname":"saadzin","trade_kill_success_pct":0.3125,"rating_hltv":0.8601,"flash_hit_foe_per_flash":0.635,"multi2k_per_round":0.0873,"accuracy_head":0.28,"counter_strafe_good_ratio":0.8182,"hs_pct":0.46,"kast":0.73,"rating_ct":-0.0049},{"utility_on_death":211.9,"steam64_id":"76561198310561479","survived_pct":0.3018,"reaction_time":0.5,"molotov_per_round":0.577,"multi4k_per_round":0.0045,"rating_t":-0.019,"rating_leetify":-0.009,"dpr":0.6982,"kd":0.9935,"trade_death_success_pct":0.4423,"maps":11,"adr":80.5721,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.613,"rounds":222,"kpr":0.6937,"mvps":22,"multi3k_per_round":0.0405,"he_per_round":0.505,"multi5k_per_round":0.0045,"flash_assist_per_round":0.036,"he_foe_dmg":9.9,"flash_per_round":0.5,"apr":0.1982,"team":"GamerLegion","preaim":8.97,"nickname":"PR","trade_kill_success_pct":0.4941,"rating_hltv":0.9993,"flash_hit_foe_per_flash":0.793,"multi2k_per_round":0.1036,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8097,"hs_pct":0.52,"kast":0.69,"rating_ct":0.0008},{"utility_on_death":216.6,"steam64_id":"76561198034172415","survived_pct":0.3063,"reaction_time":0.5,"molotov_per_round":0.59,"multi4k_per_round":0.018,"rating_t":0.0021,"rating_leetify":-0.0135,"dpr":0.6937,"kd":0.8831,"trade_death_success_pct":0.6207,"maps":11,"adr":69.1577,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.631,"rounds":222,"kpr":0.6126,"mvps":24,"multi3k_per_round":0.0225,"he_per_round":0.401,"multi5k_per_round":0.0045,"flash_assist_per_round":0.014,"he_foe_dmg":9.1,"flash_per_round":0.581,"apr":0.2703,"team":"GamerLegion","preaim":9.79,"nickname":"REZ","trade_kill_success_pct":0.4531,"rating_hltv":0.9475,"flash_hit_foe_per_flash":0.558,"multi2k_per_round":0.0991,"accuracy_head":0.19,"counter_strafe_good_ratio":0.7805,"hs_pct":0.51,"kast":0.71,"rating_ct":-0.029},{"utility_on_death":203.7,"steam64_id":"76561197982141573","survived_pct":0.3063,"reaction_time":0.5,"molotov_per_round":0.568,"multi4k_per_round":0.009,"rating_t":0.0067,"rating_leetify":0.0018,"dpr":0.6937,"kd":0.9026,"trade_death_success_pct":0.4889,"maps":11,"adr":72.9279,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.689,"rounds":222,"kpr":0.6261,"mvps":22,"multi3k_per_round":0.0315,"he_per_round":0.59,"multi5k_per_round":0.0,"flash_assist_per_round":0.041,"he_foe_dmg":9.0,"flash_per_round":0.658,"apr":0.2297,"team":"GamerLegion","preaim":11.76,"nickname":"Snax","trade_kill_success_pct":0.3846,"rating_hltv":0.9209,"flash_hit_foe_per_flash":0.856,"multi2k_per_round":0.1036,"accuracy_head":0.16,"counter_strafe_good_ratio":0.7905,"hs_pct":0.45,"kast":0.68,"rating_ct":-0.003},{"utility_on_death":249.7,"steam64_id":"76561198316706174","survived_pct":0.2838,"reaction_time":0.5,"molotov_per_round":0.581,"multi4k_per_round":0.0135,"rating_t":-0.0072,"rating_leetify":-0.0159,"dpr":0.7117,"kd":0.8987,"trade_death_success_pct":0.5333,"maps":11,"adr":65.5766,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.622,"rounds":222,"kpr":0.6396,"mvps":24,"multi3k_per_round":0.0225,"he_per_round":0.455,"multi5k_per_round":0.0,"flash_assist_per_round":0.032,"he_foe_dmg":7.6,"flash_per_round":0.387,"apr":0.1667,"team":"GamerLegion","preaim":9.91,"nickname":"Tauson","trade_kill_success_pct":0.4478,"rating_hltv":0.9308,"flash_hit_foe_per_flash":0.535,"multi2k_per_round":0.1261,"accuracy_head":0.18,"counter_strafe_good_ratio":0.8729,"hs_pct":0.44,"kast":0.66,"rating_ct":-0.0247},{"utility_on_death":284.6,"steam64_id":"76561198254686734","survived_pct":0.3604,"reaction_time":0.4,"molotov_per_round":0.342,"multi4k_per_round":0.0,"rating_t":0.0083,"rating_leetify":0.0092,"dpr":0.6351,"kd":1.0,"trade_death_success_pct":0.5849,"maps":11,"adr":63.9955,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.761,"rounds":222,"kpr":0.6351,"mvps":21,"multi3k_per_round":0.0225,"he_per_round":0.221,"multi5k_per_round":0.0,"flash_assist_per_round":0.045,"he_foe_dmg":5.2,"flash_per_round":0.806,"apr":0.1081,"team":"GamerLegion","preaim":6.9,"nickname":"hypex","trade_kill_success_pct":0.3433,"rating_hltv":0.9273,"flash_hit_foe_per_flash":0.631,"multi2k_per_round":0.1036,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8225,"hs_pct":0.38,"kast":0.73,"rating_ct":0.0104},{"utility_on_death":310.1,"steam64_id":"76561198184153575","survived_pct":0.3785,"reaction_time":0.5,"molotov_per_round":0.542,"multi4k_per_round":0.014,"rating_t":-0.0023,"rating_leetify":0.0029,"dpr":0.6215,"kd":1.0602,"trade_death_success_pct":0.5,"maps":11,"adr":71.0,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.565,"rounds":214,"kpr":0.6589,"mvps":27,"multi3k_per_round":0.0327,"he_per_round":0.332,"multi5k_per_round":0.0,"flash_assist_per_round":0.014,"he_foe_dmg":9.1,"flash_per_round":0.425,"apr":0.1822,"team":"M80","preaim":9.63,"nickname":"JBa","trade_kill_success_pct":0.4595,"rating_hltv":1.0256,"flash_hit_foe_per_flash":0.451,"multi2k_per_round":0.1121,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8516,"hs_pct":0.61,"kast":0.74,"rating_ct":0.0083},{"utility_on_death":192.5,"steam64_id":"76561198337484196","survived_pct":0.2897,"reaction_time":0.5,"molotov_per_round":0.626,"multi4k_per_round":0.0047,"rating_t":0.0198,"rating_leetify":0.0089,"dpr":0.7103,"kd":1.0395,"trade_death_success_pct":0.5676,"maps":11,"adr":76.7757,"accuracy_enemy_spotted":0.44,"smoke_per_round":0.547,"rounds":214,"kpr":0.7383,"mvps":21,"multi3k_per_round":0.0467,"he_per_round":0.607,"multi5k_per_round":0.0047,"flash_assist_per_round":0.0,"he_foe_dmg":10.2,"flash_per_round":0.617,"apr":0.1682,"team":"M80","preaim":13.31,"nickname":"Lake","trade_kill_success_pct":0.5652,"rating_hltv":1.04,"flash_hit_foe_per_flash":0.409,"multi2k_per_round":0.1075,"accuracy_head":0.19,"counter_strafe_good_ratio":0.8333,"hs_pct":0.46,"kast":0.75,"rating_ct":-0.0027},{"utility_on_death":180.1,"steam64_id":"76561198183003671","survived_pct":0.271,"reaction_time":0.4,"molotov_per_round":0.804,"multi4k_per_round":0.0093,"rating_t":-0.0275,"rating_leetify":-0.0096,"dpr":0.7243,"kd":0.871,"trade_death_success_pct":0.6129,"maps":11,"adr":71.9159,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.71,"rounds":214,"kpr":0.6308,"mvps":24,"multi3k_per_round":0.0421,"he_per_round":0.598,"multi5k_per_round":0.0,"flash_assist_per_round":0.019,"he_foe_dmg":12.1,"flash_per_round":0.71,"apr":0.243,"team":"M80","preaim":10.67,"nickname":"Swisher","trade_kill_success_pct":0.4638,"rating_hltv":0.9179,"flash_hit_foe_per_flash":0.546,"multi2k_per_round":0.0981,"accuracy_head":0.18,"counter_strafe_good_ratio":0.8059,"hs_pct":0.48,"kast":0.75,"rating_ct":0.0093},{"utility_on_death":193.8,"steam64_id":"76561198190463461","survived_pct":0.3972,"reaction_time":0.5,"molotov_per_round":0.621,"multi4k_per_round":0.0,"rating_t":-0.0249,"rating_leetify":-0.0258,"dpr":0.5981,"kd":0.7969,"trade_death_success_pct":0.6136,"maps":11,"adr":59.3411,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.893,"rounds":214,"kpr":0.4766,"mvps":27,"multi3k_per_round":0.014,"he_per_round":0.407,"multi5k_per_round":0.0,"flash_assist_per_round":0.093,"he_foe_dmg":12.5,"flash_per_round":1.178,"apr":0.257,"team":"M80","preaim":9.25,"nickname":"s1n","trade_kill_success_pct":0.3214,"rating_hltv":0.7967,"flash_hit_foe_per_flash":0.623,"multi2k_per_round":0.0794,"accuracy_head":0.2,"counter_strafe_good_ratio":0.7639,"hs_pct":0.5,"kast":0.76,"rating_ct":-0.0265},{"utility_on_death":187.9,"steam64_id":"76561198064353169","survived_pct":0.3972,"reaction_time":0.4,"molotov_per_round":0.449,"multi4k_per_round":0.0093,"rating_t":-0.0188,"rating_leetify":0.0018,"dpr":0.5888,"kd":1.1429,"trade_death_success_pct":0.4694,"maps":11,"adr":68.715,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.78,"rounds":214,"kpr":0.6729,"mvps":28,"multi3k_per_round":0.0327,"he_per_round":0.299,"multi5k_per_round":0.0,"flash_assist_per_round":0.065,"he_foe_dmg":11.2,"flash_per_round":0.935,"apr":0.0981,"team":"M80","preaim":6.45,"nickname":"slaxz-","trade_kill_success_pct":0.4038,"rating_hltv":1.0627,"flash_hit_foe_per_flash":0.585,"multi2k_per_round":0.1168,"accuracy_head":0.35,"counter_strafe_good_ratio":0.761,"hs_pct":0.34,"kast":0.75,"rating_ct":0.0223},{"utility_on_death":216.7,"steam64_id":"76561198104626893","survived_pct":0.3351,"reaction_time":0.5,"molotov_per_round":0.518,"multi4k_per_round":0.0105,"rating_t":-0.0202,"rating_leetify":0.0024,"dpr":0.6702,"kd":0.9062,"trade_death_success_pct":0.6316,"maps":11,"adr":65.712,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.801,"rounds":191,"kpr":0.6073,"mvps":16,"multi3k_per_round":0.0157,"he_per_round":0.44,"multi5k_per_round":0.0,"flash_assist_per_round":0.094,"he_foe_dmg":11.7,"flash_per_round":0.806,"apr":0.1414,"team":"MIBR","preaim":8.25,"nickname":"LNZ","trade_kill_success_pct":0.4706,"rating_hltv":0.9126,"flash_hit_foe_per_flash":0.721,"multi2k_per_round":0.1257,"accuracy_head":0.23,"counter_strafe_good_ratio":0.872,"hs_pct":0.55,"kast":0.7,"rating_ct":0.0221},{"utility_on_death":228.2,"steam64_id":"76561198855876580","survived_pct":0.267,"reaction_time":0.5,"molotov_per_round":0.497,"multi4k_per_round":0.0052,"rating_t":-0.035,"rating_leetify":-0.0245,"dpr":0.7277,"kd":0.7482,"trade_death_success_pct":0.5652,"maps":11,"adr":66.0262,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.628,"rounds":191,"kpr":0.5445,"mvps":14,"multi3k_per_round":0.0157,"he_per_round":0.377,"multi5k_per_round":0.0,"flash_assist_per_round":0.01,"he_foe_dmg":2.9,"flash_per_round":0.408,"apr":0.1414,"team":"MIBR","preaim":9.61,"nickname":"brnz4n","trade_kill_success_pct":0.5085,"rating_hltv":0.7667,"flash_hit_foe_per_flash":0.449,"multi2k_per_round":0.0785,"accuracy_head":0.22,"counter_strafe_good_ratio":0.8395,"hs_pct":0.63,"kast":0.68,"rating_ct":-0.0152},{"utility_on_death":215.1,"steam64_id":"76561198061423730","survived_pct":0.3089,"reaction_time":0.4,"molotov_per_round":0.707,"multi4k_per_round":0.0052,"rating_t":-0.0302,"rating_leetify":0.0016,"dpr":0.7016,"kd":1.0299,"trade_death_success_pct":0.7955,"maps":11,"adr":85.9005,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.628,"rounds":191,"kpr":0.7225,"mvps":22,"multi3k_per_round":0.0576,"he_per_round":0.592,"multi5k_per_round":0.0052,"flash_assist_per_round":0.01,"he_foe_dmg":12.1,"flash_per_round":0.555,"apr":0.267,"team":"MIBR","preaim":9.3,"nickname":"insani","trade_kill_success_pct":0.4717,"rating_hltv":1.0677,"flash_hit_foe_per_flash":0.811,"multi2k_per_round":0.1361,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8417,"hs_pct":0.56,"kast":0.72,"rating_ct":0.0293},{"utility_on_death":309.1,"steam64_id":"76561198125068631","survived_pct":0.356,"reaction_time":0.5,"molotov_per_round":0.246,"multi4k_per_round":0.0157,"rating_t":0.0186,"rating_leetify":0.0001,"dpr":0.644,"kd":1.1382,"trade_death_success_pct":0.4762,"maps":11,"adr":70.466,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.513,"rounds":191,"kpr":0.733,"mvps":23,"multi3k_per_round":0.0471,"he_per_round":0.241,"multi5k_per_round":0.0,"flash_assist_per_round":0.042,"he_foe_dmg":3.6,"flash_per_round":0.487,"apr":0.0942,"team":"MIBR","preaim":7.97,"nickname":"kl1m","trade_kill_success_pct":0.5303,"rating_hltv":1.0951,"flash_hit_foe_per_flash":0.699,"multi2k_per_round":0.1099,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8763,"hs_pct":0.47,"kast":0.71,"rating_ct":-0.0166},{"utility_on_death":183.2,"steam64_id":"76561198218265253","survived_pct":0.2775,"reaction_time":0.5,"molotov_per_round":0.387,"multi4k_per_round":0.0105,"rating_t":-0.0318,"rating_leetify":0.0025,"dpr":0.733,"kd":0.8786,"trade_death_success_pct":0.5938,"maps":11,"adr":68.0733,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.534,"rounds":191,"kpr":0.644,"mvps":15,"multi3k_per_round":0.0419,"he_per_round":0.22,"multi5k_per_round":0.0052,"flash_assist_per_round":0.016,"he_foe_dmg":11.0,"flash_per_round":0.476,"apr":0.1885,"team":"MIBR","preaim":10.46,"nickname":"venomzera","trade_kill_success_pct":0.5192,"rating_hltv":0.9457,"flash_hit_foe_per_flash":0.615,"multi2k_per_round":0.0838,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8304,"hs_pct":0.57,"kast":0.72,"rating_ct":0.0325},{"utility_on_death":264.8,"steam64_id":"76561198138828475","survived_pct":0.2527,"reaction_time":0.5,"molotov_per_round":0.565,"multi4k_per_round":0.0,"rating_t":-0.0147,"rating_leetify":-0.0178,"dpr":0.7527,"kd":0.75,"trade_death_success_pct":0.4918,"maps":11,"adr":68.9355,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.505,"rounds":186,"kpr":0.5645,"mvps":16,"multi3k_per_round":0.0269,"he_per_round":0.328,"multi5k_per_round":0.0,"flash_assist_per_round":0.027,"he_foe_dmg":11.1,"flash_per_round":0.516,"apr":0.1613,"team":"MOUZ","preaim":10.74,"nickname":"Brollan","trade_kill_success_pct":0.4565,"rating_hltv":0.7943,"flash_hit_foe_per_flash":0.625,"multi2k_per_round":0.1237,"accuracy_head":0.24,"counter_strafe_good_ratio":0.851,"hs_pct":0.63,"kast":0.68,"rating_ct":-0.0212},{"utility_on_death":172.1,"steam64_id":"76561198063336407","survived_pct":0.3441,"reaction_time":0.5,"molotov_per_round":0.484,"multi4k_per_round":0.0054,"rating_t":-0.0039,"rating_leetify":-0.0021,"dpr":0.6613,"kd":0.9756,"trade_death_success_pct":0.5,"maps":11,"adr":73.9677,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.452,"rounds":186,"kpr":0.6452,"mvps":15,"multi3k_per_round":0.0215,"he_per_round":0.462,"multi5k_per_round":0.0,"flash_assist_per_round":0.011,"he_foe_dmg":7.2,"flash_per_round":0.425,"apr":0.1828,"team":"MOUZ","preaim":8.57,"nickname":"Spinx","trade_kill_success_pct":0.3878,"rating_hltv":0.9578,"flash_hit_foe_per_flash":0.443,"multi2k_per_round":0.1452,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8713,"hs_pct":0.58,"kast":0.72,"rating_ct":-0.0001},{"utility_on_death":255.9,"steam64_id":"76561198355739212","survived_pct":0.371,"reaction_time":0.4,"molotov_per_round":0.419,"multi4k_per_round":0.0054,"rating_t":-0.0135,"rating_leetify":0.0162,"dpr":0.6344,"kd":1.1017,"trade_death_success_pct":0.6667,"maps":11,"adr":70.8978,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.575,"rounds":186,"kpr":0.6989,"mvps":27,"multi3k_per_round":0.0376,"he_per_round":0.22,"multi5k_per_round":0.0,"flash_assist_per_round":0.086,"he_foe_dmg":10.5,"flash_per_round":0.731,"apr":0.1344,"team":"MOUZ","preaim":6.41,"nickname":"torzsi","trade_kill_success_pct":0.4242,"rating_hltv":1.045,"flash_hit_foe_per_flash":0.647,"multi2k_per_round":0.1344,"accuracy_head":0.25,"counter_strafe_good_ratio":0.7806,"hs_pct":0.4,"kast":0.74,"rating_ct":0.0494},{"utility_on_death":245.6,"steam64_id":"76561198998266210","survived_pct":0.328,"reaction_time":0.4,"molotov_per_round":0.511,"multi4k_per_round":0.0,"rating_t":-0.0141,"rating_leetify":-0.0236,"dpr":0.6774,"kd":0.8175,"trade_death_success_pct":0.4,"maps":11,"adr":57.8172,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.57,"rounds":186,"kpr":0.5538,"mvps":18,"multi3k_per_round":0.0323,"he_per_round":0.263,"multi5k_per_round":0.0,"flash_assist_per_round":0.027,"he_foe_dmg":4.7,"flash_per_round":0.473,"apr":0.1129,"team":"MOUZ","preaim":10.79,"nickname":"xelex","trade_kill_success_pct":0.3818,"rating_hltv":0.8324,"flash_hit_foe_per_flash":0.534,"multi2k_per_round":0.086,"accuracy_head":0.29,"counter_strafe_good_ratio":0.8956,"hs_pct":0.66,"kast":0.63,"rating_ct":-0.0343},{"utility_on_death":237.3,"steam64_id":"76561198193174134","survived_pct":0.3441,"reaction_time":0.5,"molotov_per_round":0.661,"multi4k_per_round":0.0108,"rating_t":0.0387,"rating_leetify":0.0099,"dpr":0.6613,"kd":0.9756,"trade_death_success_pct":0.5278,"maps":11,"adr":74.5054,"accuracy_enemy_spotted":0.36,"smoke_per_round":1.059,"rounds":186,"kpr":0.6452,"mvps":20,"multi3k_per_round":0.0215,"he_per_round":0.527,"multi5k_per_round":0.0,"flash_assist_per_round":0.016,"he_foe_dmg":10.3,"flash_per_round":0.763,"apr":0.1989,"team":"MOUZ","preaim":7.97,"nickname":"xertioN","trade_kill_success_pct":0.3906,"rating_hltv":0.9471,"flash_hit_foe_per_flash":0.585,"multi2k_per_round":0.1022,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8913,"hs_pct":0.55,"kast":0.71,"rating_ct":-0.0222},{"utility_on_death":143.1,"steam64_id":"76561198191236195","survived_pct":0.3167,"reaction_time":0.5,"molotov_per_round":0.606,"multi4k_per_round":0.0167,"rating_t":0.0095,"rating_leetify":0.0094,"dpr":0.6889,"kd":0.9839,"trade_death_success_pct":0.5532,"maps":8,"adr":77.9778,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.656,"rounds":180,"kpr":0.6778,"mvps":17,"multi3k_per_round":0.0556,"he_per_round":0.467,"multi5k_per_round":0.0,"flash_assist_per_round":0.022,"he_foe_dmg":10.5,"flash_per_round":0.511,"apr":0.2222,"team":"NRG","preaim":10.72,"nickname":"Grim","trade_kill_success_pct":0.5224,"rating_hltv":1.0379,"flash_hit_foe_per_flash":0.641,"multi2k_per_round":0.1056,"accuracy_head":0.23,"counter_strafe_good_ratio":0.78,"hs_pct":0.53,"kast":0.69,"rating_ct":0.0095},{"utility_on_death":166.7,"steam64_id":"76561197975129851","survived_pct":0.3111,"reaction_time":0.5,"molotov_per_round":0.694,"multi4k_per_round":0.0056,"rating_t":-0.0368,"rating_leetify":-0.0047,"dpr":0.6833,"kd":0.935,"trade_death_success_pct":0.4565,"maps":8,"adr":74.0056,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.528,"rounds":180,"kpr":0.6389,"mvps":16,"multi3k_per_round":0.0333,"he_per_round":0.544,"multi5k_per_round":0.0,"flash_assist_per_round":0.006,"he_foe_dmg":9.5,"flash_per_round":0.739,"apr":0.2333,"team":"NRG","preaim":10.52,"nickname":"Sonic","trade_kill_success_pct":0.5,"rating_hltv":0.9423,"flash_hit_foe_per_flash":0.759,"multi2k_per_round":0.1222,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8891,"hs_pct":0.59,"kast":0.7,"rating_ct":0.0262},{"utility_on_death":150.4,"steam64_id":"76561198060483793","survived_pct":0.3333,"reaction_time":0.5,"molotov_per_round":0.556,"multi4k_per_round":0.0056,"rating_t":0.0035,"rating_leetify":-0.001,"dpr":0.6722,"kd":0.9339,"trade_death_success_pct":0.561,"maps":8,"adr":70.7944,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.483,"rounds":180,"kpr":0.6278,"mvps":14,"multi3k_per_round":0.0167,"he_per_round":0.444,"multi5k_per_round":0.0,"flash_assist_per_round":0.006,"he_foe_dmg":10.6,"flash_per_round":0.717,"apr":0.1944,"team":"NRG","preaim":9.6,"nickname":"br0","trade_kill_success_pct":0.4528,"rating_hltv":0.9146,"flash_hit_foe_per_flash":0.504,"multi2k_per_round":0.1222,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8759,"hs_pct":0.63,"kast":0.72,"rating_ct":-0.0056},{"utility_on_death":223.8,"steam64_id":"76561197995889730","survived_pct":0.3389,"reaction_time":0.5,"molotov_per_round":0.633,"multi4k_per_round":0.0,"rating_t":-0.0365,"rating_leetify":-0.0048,"dpr":0.6667,"kd":0.9,"trade_death_success_pct":0.7143,"maps":8,"adr":62.85,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.967,"rounds":180,"kpr":0.6,"mvps":21,"multi3k_per_round":0.0611,"he_per_round":0.417,"multi5k_per_round":0.0,"flash_assist_per_round":0.033,"he_foe_dmg":4.3,"flash_per_round":0.578,"apr":0.1167,"team":"NRG","preaim":10.76,"nickname":"nitr0","trade_kill_success_pct":0.5946,"rating_hltv":0.9414,"flash_hit_foe_per_flash":0.615,"multi2k_per_round":0.1056,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8247,"hs_pct":0.59,"kast":0.69,"rating_ct":0.0277},{"utility_on_death":230.2,"steam64_id":"76561198047472534","survived_pct":0.3778,"reaction_time":0.4,"molotov_per_round":0.344,"multi4k_per_round":0.0056,"rating_t":-0.0483,"rating_leetify":-0.0119,"dpr":0.6278,"kd":0.8407,"trade_death_success_pct":0.5714,"maps":8,"adr":59.0333,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.617,"rounds":180,"kpr":0.5278,"mvps":17,"multi3k_per_round":0.0222,"he_per_round":0.222,"multi5k_per_round":0.0,"flash_assist_per_round":0.05,"he_foe_dmg":7.4,"flash_per_round":0.867,"apr":0.1444,"team":"NRG","preaim":7.07,"nickname":"oSee","trade_kill_success_pct":0.3898,"rating_hltv":0.8506,"flash_hit_foe_per_flash":0.712,"multi2k_per_round":0.0833,"accuracy_head":0.18,"counter_strafe_good_ratio":0.8872,"hs_pct":0.36,"kast":0.7,"rating_ct":0.0259},{"utility_on_death":191.6,"steam64_id":"76561198015308884","survived_pct":0.2882,"reaction_time":0.5,"molotov_per_round":0.553,"multi4k_per_round":0.0,"rating_t":-0.025,"rating_leetify":-0.0062,"dpr":0.6882,"kd":0.8205,"trade_death_success_pct":0.6512,"maps":8,"adr":65.0,"accuracy_enemy_spotted":0.42,"smoke_per_round":0.735,"rounds":170,"kpr":0.5647,"mvps":21,"multi3k_per_round":0.0235,"he_per_round":0.453,"multi5k_per_round":0.0,"flash_assist_per_round":0.041,"he_foe_dmg":6.6,"flash_per_round":0.747,"apr":0.1706,"team":"paiN Gaming","preaim":10.22,"nickname":"biguzera","trade_kill_success_pct":0.4048,"rating_hltv":0.8365,"flash_hit_foe_per_flash":0.63,"multi2k_per_round":0.1235,"accuracy_head":0.2,"counter_strafe_good_ratio":0.9061,"hs_pct":0.55,"kast":0.68,"rating_ct":0.0138},{"utility_on_death":219.6,"steam64_id":"76561198396338183","survived_pct":0.3647,"reaction_time":0.6,"molotov_per_round":0.565,"multi4k_per_round":0.0118,"rating_t":0.0149,"rating_leetify":0.0104,"dpr":0.6353,"kd":1.0556,"trade_death_success_pct":0.4865,"maps":8,"adr":71.1471,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.576,"rounds":170,"kpr":0.6706,"mvps":16,"multi3k_per_round":0.0353,"he_per_round":0.459,"multi5k_per_round":0.0,"flash_assist_per_round":0.018,"he_foe_dmg":3.2,"flash_per_round":0.329,"apr":0.1706,"team":"paiN Gaming","preaim":10.23,"nickname":"piriajr","trade_kill_success_pct":0.5278,"rating_hltv":1.0414,"flash_hit_foe_per_flash":0.607,"multi2k_per_round":0.1412,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8804,"hs_pct":0.57,"kast":0.71,"rating_ct":0.0056},{"utility_on_death":180.0,"steam64_id":"76561197985565685","survived_pct":0.3529,"reaction_time":0.5,"molotov_per_round":0.394,"multi4k_per_round":0.0059,"rating_t":-0.0013,"rating_leetify":0.0211,"dpr":0.6471,"kd":1.0818,"trade_death_success_pct":0.5676,"maps":8,"adr":70.8176,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.682,"rounds":170,"kpr":0.7,"mvps":16,"multi3k_per_round":0.0588,"he_per_round":0.235,"multi5k_per_round":0.0,"flash_assist_per_round":0.065,"he_foe_dmg":6.1,"flash_per_round":0.747,"apr":0.1059,"team":"paiN Gaming","preaim":9.88,"nickname":"saffee","trade_kill_success_pct":0.5405,"rating_hltv":1.0398,"flash_hit_foe_per_flash":0.622,"multi2k_per_round":0.0765,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8011,"hs_pct":0.41,"kast":0.72,"rating_ct":0.0445},{"utility_on_death":210.1,"steam64_id":"76561198377335846","survived_pct":0.3588,"reaction_time":0.5,"molotov_per_round":0.524,"multi4k_per_round":0.0059,"rating_t":-0.0015,"rating_leetify":0.0076,"dpr":0.6412,"kd":1.0826,"trade_death_success_pct":0.6111,"maps":8,"adr":76.5706,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.718,"rounds":170,"kpr":0.6941,"mvps":19,"multi3k_per_round":0.0412,"he_per_round":0.353,"multi5k_per_round":0.0,"flash_assist_per_round":0.041,"he_foe_dmg":8.3,"flash_per_round":0.576,"apr":0.1941,"team":"paiN Gaming","preaim":10.73,"nickname":"snow","trade_kill_success_pct":0.5246,"rating_hltv":1.0335,"flash_hit_foe_per_flash":0.602,"multi2k_per_round":0.1176,"accuracy_head":0.25,"counter_strafe_good_ratio":0.7697,"hs_pct":0.6,"kast":0.72,"rating_ct":0.0171},{"utility_on_death":123.4,"steam64_id":"76561198011732823","survived_pct":0.3235,"reaction_time":0.5,"molotov_per_round":0.618,"multi4k_per_round":0.0059,"rating_t":-0.0126,"rating_leetify":-0.0124,"dpr":0.6765,"kd":0.8174,"trade_death_success_pct":0.475,"maps":8,"adr":64.4294,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.553,"rounds":170,"kpr":0.5529,"mvps":14,"multi3k_per_round":0.0176,"he_per_round":0.276,"multi5k_per_round":0.0,"flash_assist_per_round":0.006,"he_foe_dmg":10.6,"flash_per_round":0.588,"apr":0.1941,"team":"paiN Gaming","preaim":13.3,"nickname":"v$m","trade_kill_success_pct":0.3519,"rating_hltv":0.8421,"flash_hit_foe_per_flash":0.47,"multi2k_per_round":0.1118,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8277,"hs_pct":0.57,"kast":0.69,"rating_ct":-0.0121},{"utility_on_death":217.3,"steam64_id":"76561198253670517","survived_pct":0.2897,"reaction_time":0.5,"molotov_per_round":0.428,"multi4k_per_round":0.0069,"rating_t":-0.0081,"rating_leetify":-0.025,"dpr":0.7172,"kd":0.7115,"trade_death_success_pct":0.5952,"maps":8,"adr":53.7034,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.621,"rounds":145,"kpr":0.5103,"mvps":11,"multi3k_per_round":0.0207,"he_per_round":0.234,"multi5k_per_round":0.0,"flash_assist_per_round":0.041,"he_foe_dmg":7.2,"flash_per_round":0.455,"apr":0.1379,"team":"PARIVISION","preaim":11.66,"nickname":"BELCHONOKK","trade_kill_success_pct":0.5143,"rating_hltv":0.7563,"flash_hit_foe_per_flash":0.697,"multi2k_per_round":0.069,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8444,"hs_pct":0.65,"kast":0.71,"rating_ct":-0.0395},{"utility_on_death":194.3,"steam64_id":"76561198066693739","survived_pct":0.2759,"reaction_time":0.5,"molotov_per_round":0.462,"multi4k_per_round":0.0,"rating_t":-0.011,"rating_leetify":0.0044,"dpr":0.7241,"kd":1.0095,"trade_death_success_pct":0.5814,"maps":7,"adr":81.0759,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.593,"rounds":145,"kpr":0.731,"mvps":13,"multi3k_per_round":0.0483,"he_per_round":0.455,"multi5k_per_round":0.0,"flash_assist_per_round":0.0,"he_foe_dmg":8.1,"flash_per_round":0.552,"apr":0.2414,"team":"Team Liquid","preaim":11.59,"nickname":"EliGE","trade_kill_success_pct":0.4262,"rating_hltv":1.0073,"flash_hit_foe_per_flash":0.55,"multi2k_per_round":0.1517,"accuracy_head":0.24,"counter_strafe_good_ratio":0.7731,"hs_pct":0.61,"kast":0.74,"rating_ct":0.0219},{"utility_on_death":203.5,"steam64_id":"76561198036125584","survived_pct":0.4207,"reaction_time":0.5,"molotov_per_round":0.352,"multi4k_per_round":0.0,"rating_t":0.0084,"rating_leetify":-0.0032,"dpr":0.5862,"kd":0.9529,"trade_death_success_pct":0.625,"maps":8,"adr":61.2759,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.759,"rounds":145,"kpr":0.5586,"mvps":14,"multi3k_per_round":0.0276,"he_per_round":0.283,"multi5k_per_round":0.0,"flash_assist_per_round":0.034,"he_foe_dmg":10.4,"flash_per_round":0.876,"apr":0.131,"team":"PARIVISION","preaim":7.01,"nickname":"Jame","trade_kill_success_pct":0.4571,"rating_hltv":0.9189,"flash_hit_foe_per_flash":0.709,"multi2k_per_round":0.1103,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8519,"hs_pct":0.3,"kast":0.71,"rating_ct":-0.0133},{"utility_on_death":183.6,"steam64_id":"76561198001151695","survived_pct":0.3448,"reaction_time":0.5,"molotov_per_round":0.614,"multi4k_per_round":0.0069,"rating_t":0.0175,"rating_leetify":0.0165,"dpr":0.6552,"kd":1.1158,"trade_death_success_pct":0.5,"maps":7,"adr":85.9793,"accuracy_enemy_spotted":0.44,"smoke_per_round":0.655,"rounds":145,"kpr":0.731,"mvps":14,"multi3k_per_round":0.0345,"he_per_round":0.531,"multi5k_per_round":0.0,"flash_assist_per_round":0.021,"he_foe_dmg":6.2,"flash_per_round":0.421,"apr":0.2,"team":"Team Liquid","preaim":7.08,"nickname":"NAF","trade_kill_success_pct":0.5682,"rating_hltv":1.0454,"flash_hit_foe_per_flash":0.656,"multi2k_per_round":0.1172,"accuracy_head":0.18,"counter_strafe_good_ratio":0.7877,"hs_pct":0.5,"kast":0.79,"rating_ct":0.0154},{"utility_on_death":254.6,"steam64_id":"76561198080703143","survived_pct":0.2483,"reaction_time":0.5,"molotov_per_round":0.614,"multi4k_per_round":0.0207,"rating_t":0.0013,"rating_leetify":0.0021,"dpr":0.7448,"kd":1.0,"trade_death_success_pct":0.5581,"maps":7,"adr":78.5103,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.524,"rounds":145,"kpr":0.7448,"mvps":15,"multi3k_per_round":0.0345,"he_per_round":0.441,"multi5k_per_round":0.0,"flash_assist_per_round":0.007,"he_foe_dmg":6.9,"flash_per_round":0.428,"apr":0.1517,"team":"Team Liquid","preaim":10.52,"nickname":"malbsMd","trade_kill_success_pct":0.3958,"rating_hltv":1.0409,"flash_hit_foe_per_flash":0.806,"multi2k_per_round":0.1241,"accuracy_head":0.32,"counter_strafe_good_ratio":0.8462,"hs_pct":0.66,"kast":0.71,"rating_ct":0.0027},{"utility_on_death":228.2,"steam64_id":"76561198975070027","survived_pct":0.2828,"reaction_time":0.5,"molotov_per_round":0.869,"multi4k_per_round":0.0,"rating_t":0.0039,"rating_leetify":-0.0037,"dpr":0.7103,"kd":0.9223,"trade_death_success_pct":0.5588,"maps":8,"adr":76.2483,"accuracy_enemy_spotted":0.32,"smoke_per_round":0.662,"rounds":145,"kpr":0.6552,"mvps":11,"multi3k_per_round":0.0345,"he_per_round":0.669,"multi5k_per_round":0.0069,"flash_assist_per_round":0.021,"he_foe_dmg":10.0,"flash_per_round":0.4,"apr":0.1517,"team":"PARIVISION","preaim":9.82,"nickname":"nota","trade_kill_success_pct":0.4898,"rating_hltv":0.9503,"flash_hit_foe_per_flash":0.793,"multi2k_per_round":0.1034,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8142,"hs_pct":0.69,"kast":0.71,"rating_ct":-0.0092},{"utility_on_death":233.8,"steam64_id":"76561198150673360","survived_pct":0.3172,"reaction_time":0.5,"molotov_per_round":0.483,"multi4k_per_round":0.0069,"rating_t":-0.0435,"rating_leetify":-0.0453,"dpr":0.6828,"kd":0.6162,"trade_death_success_pct":0.5581,"maps":7,"adr":52.2483,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.772,"rounds":145,"kpr":0.4207,"mvps":15,"multi3k_per_round":0.0207,"he_per_round":0.421,"multi5k_per_round":0.0,"flash_assist_per_round":0.021,"he_foe_dmg":10.8,"flash_per_round":0.683,"apr":0.2069,"team":"Team Liquid","preaim":9.52,"nickname":"siuhy","trade_kill_success_pct":0.3922,"rating_hltv":0.6934,"flash_hit_foe_per_flash":0.717,"multi2k_per_round":0.0414,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8242,"hs_pct":0.62,"kast":0.66,"rating_ct":-0.0475},{"utility_on_death":218.4,"steam64_id":"76561198283989223","survived_pct":0.3241,"reaction_time":0.4,"molotov_per_round":0.338,"multi4k_per_round":0.0069,"rating_t":-0.0029,"rating_leetify":-0.0009,"dpr":0.6759,"kd":0.9082,"trade_death_success_pct":0.4286,"maps":7,"adr":65.8759,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.49,"rounds":145,"kpr":0.6138,"mvps":10,"multi3k_per_round":0.0138,"he_per_round":0.2,"multi5k_per_round":0.0,"flash_assist_per_round":0.076,"he_foe_dmg":3.3,"flash_per_round":0.683,"apr":0.1517,"team":"Team Liquid","preaim":8.54,"nickname":"ultimate","trade_kill_success_pct":0.3333,"rating_hltv":0.8769,"flash_hit_foe_per_flash":0.828,"multi2k_per_round":0.0897,"accuracy_head":0.18,"counter_strafe_good_ratio":0.8448,"hs_pct":0.28,"kast":0.7,"rating_ct":0.0013},{"utility_on_death":193.0,"steam64_id":"76561198141272052","survived_pct":0.3103,"reaction_time":0.5,"molotov_per_round":0.441,"multi4k_per_round":0.0138,"rating_t":0.0041,"rating_leetify":0.0071,"dpr":0.6897,"kd":1.03,"trade_death_success_pct":0.5429,"maps":8,"adr":71.8207,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.545,"rounds":145,"kpr":0.7103,"mvps":13,"multi3k_per_round":0.0345,"he_per_round":0.414,"multi5k_per_round":0.0,"flash_assist_per_round":0.0,"he_foe_dmg":6.2,"flash_per_round":0.517,"apr":0.1586,"team":"PARIVISION","preaim":12.42,"nickname":"xiELO","trade_kill_success_pct":0.5641,"rating_hltv":1.0284,"flash_hit_foe_per_flash":0.653,"multi2k_per_round":0.1241,"accuracy_head":0.31,"counter_strafe_good_ratio":0.7677,"hs_pct":0.7,"kast":0.69,"rating_ct":0.0098},{"utility_on_death":219.6,"steam64_id":"76561198210626739","survived_pct":0.269,"reaction_time":0.6,"molotov_per_round":0.393,"multi4k_per_round":0.0,"rating_t":-0.0282,"rating_leetify":-0.0286,"dpr":0.7379,"kd":0.6729,"trade_death_success_pct":0.7027,"maps":8,"adr":58.3793,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.759,"rounds":145,"kpr":0.4966,"mvps":13,"multi3k_per_round":0.0138,"he_per_round":0.29,"multi5k_per_round":0.0,"flash_assist_per_round":0.021,"he_foe_dmg":6.5,"flash_per_round":0.469,"apr":0.2138,"team":"PARIVISION","preaim":11.49,"nickname":"zweih","trade_kill_success_pct":0.413,"rating_hltv":0.7099,"flash_hit_foe_per_flash":0.618,"multi2k_per_round":0.0966,"accuracy_head":0.19,"counter_strafe_good_ratio":0.826,"hs_pct":0.44,"kast":0.75,"rating_ct":-0.0289},{"utility_on_death":195.7,"steam64_id":"76561198292598811","survived_pct":0.2619,"reaction_time":0.6,"molotov_per_round":0.706,"multi4k_per_round":0.0079,"rating_t":-0.0047,"rating_leetify":-0.0123,"dpr":0.7381,"kd":0.7527,"trade_death_success_pct":0.617,"maps":6,"adr":60.5635,"accuracy_enemy_spotted":0.31,"smoke_per_round":0.921,"rounds":126,"kpr":0.5556,"mvps":9,"multi3k_per_round":0.0317,"he_per_round":0.349,"multi5k_per_round":0.0,"flash_assist_per_round":0.016,"he_foe_dmg":7.6,"flash_per_round":0.571,"apr":0.1508,"team":"HEROIC","preaim":15.17,"nickname":"Chr1zN","trade_kill_success_pct":0.5806,"rating_hltv":0.8153,"flash_hit_foe_per_flash":0.542,"multi2k_per_round":0.0952,"accuracy_head":0.27,"counter_strafe_good_ratio":0.7758,"hs_pct":0.6,"kast":0.7,"rating_ct":-0.0207},{"utility_on_death":293.1,"steam64_id":"76561198161056567","survived_pct":0.3016,"reaction_time":0.5,"molotov_per_round":0.389,"multi4k_per_round":0.0079,"rating_t":0.0123,"rating_leetify":0.0135,"dpr":0.6905,"kd":1.023,"trade_death_success_pct":0.7105,"maps":6,"adr":78.3095,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.468,"rounds":126,"kpr":0.7063,"mvps":10,"multi3k_per_round":0.0397,"he_per_round":0.183,"multi5k_per_round":0.0,"flash_assist_per_round":0.008,"he_foe_dmg":8.3,"flash_per_round":0.317,"apr":0.1587,"team":"HEROIC","preaim":11.51,"nickname":"nilo","trade_kill_success_pct":0.463,"rating_hltv":1.0105,"flash_hit_foe_per_flash":0.525,"multi2k_per_round":0.127,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8294,"hs_pct":0.57,"kast":0.75,"rating_ct":0.0153},{"utility_on_death":306.0,"steam64_id":"76561198342718168","survived_pct":0.3333,"reaction_time":0.4,"molotov_per_round":0.437,"multi4k_per_round":0.0079,"rating_t":-0.0028,"rating_leetify":0.0073,"dpr":0.6667,"kd":0.9048,"trade_death_success_pct":0.6667,"maps":6,"adr":65.746,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.635,"rounds":126,"kpr":0.6032,"mvps":10,"multi3k_per_round":0.0317,"he_per_round":0.508,"multi5k_per_round":0.0,"flash_assist_per_round":0.0,"he_foe_dmg":1.8,"flash_per_round":0.278,"apr":0.1667,"team":"HEROIC","preaim":10.15,"nickname":"susp","trade_kill_success_pct":0.4483,"rating_hltv":0.9335,"flash_hit_foe_per_flash":0.343,"multi2k_per_round":0.127,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8076,"hs_pct":0.59,"kast":0.74,"rating_ct":0.0183},{"utility_on_death":156.8,"steam64_id":"76561198178209109","survived_pct":0.2937,"reaction_time":0.5,"molotov_per_round":0.667,"multi4k_per_round":0.0,"rating_t":-0.0446,"rating_leetify":-0.028,"dpr":0.6984,"kd":0.7614,"trade_death_success_pct":0.5676,"maps":6,"adr":64.4444,"accuracy_enemy_spotted":0.34,"smoke_per_round":0.579,"rounds":126,"kpr":0.5317,"mvps":12,"multi3k_per_round":0.0397,"he_per_round":0.532,"multi5k_per_round":0.0,"flash_assist_per_round":0.024,"he_foe_dmg":10.7,"flash_per_round":0.675,"apr":0.2857,"team":"HEROIC","preaim":10.74,"nickname":"xfl0ud","trade_kill_success_pct":0.4878,"rating_hltv":0.7874,"flash_hit_foe_per_flash":0.447,"multi2k_per_round":0.0476,"accuracy_head":0.22,"counter_strafe_good_ratio":0.7967,"hs_pct":0.52,"kast":0.75,"rating_ct":-0.01},{"utility_on_death":192.3,"steam64_id":"76561199137143905","survived_pct":0.381,"reaction_time":0.5,"molotov_per_round":0.357,"multi4k_per_round":0.0159,"rating_t":0.0124,"rating_leetify":0.0182,"dpr":0.619,"kd":1.1667,"trade_death_success_pct":0.5238,"maps":6,"adr":72.254,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.683,"rounds":126,"kpr":0.7222,"mvps":22,"multi3k_per_round":0.0238,"he_per_round":0.151,"multi5k_per_round":0.0,"flash_assist_per_round":0.103,"he_foe_dmg":13.5,"flash_per_round":0.889,"apr":0.1429,"team":"HEROIC","preaim":9.17,"nickname":"yxngstxr","trade_kill_success_pct":0.625,"rating_hltv":1.0919,"flash_hit_foe_per_flash":0.67,"multi2k_per_round":0.1349,"accuracy_head":0.28,"counter_strafe_good_ratio":0.8543,"hs_pct":0.47,"kast":0.77,"rating_ct":0.0245},{"utility_on_death":269.9,"steam64_id":"76561198416388144","survived_pct":0.3613,"reaction_time":0.4,"molotov_per_round":0.403,"multi4k_per_round":0.0084,"rating_t":-0.0055,"rating_leetify":-0.0079,"dpr":0.6471,"kd":0.8701,"trade_death_success_pct":0.6071,"maps":7,"adr":64.1345,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.597,"rounds":119,"kpr":0.563,"mvps":10,"multi3k_per_round":0.0252,"he_per_round":0.244,"multi5k_per_round":0.0,"flash_assist_per_round":0.0,"he_foe_dmg":9.8,"flash_per_round":0.689,"apr":0.1429,"team":"Lynn Vision Gaming","preaim":6.86,"nickname":"C4LLM3SU3","trade_kill_success_pct":0.3125,"rating_hltv":0.8915,"flash_hit_foe_per_flash":0.427,"multi2k_per_round":0.1008,"accuracy_head":0.27,"counter_strafe_good_ratio":0.7946,"hs_pct":0.7,"kast":0.69,"rating_ct":-0.0114},{"utility_on_death":228.2,"steam64_id":"76561198816731401","survived_pct":0.2521,"reaction_time":0.5,"molotov_per_round":0.555,"multi4k_per_round":0.0,"rating_t":-0.032,"rating_leetify":-0.0107,"dpr":0.7479,"kd":0.7865,"trade_death_success_pct":0.4595,"maps":7,"adr":64.4286,"accuracy_enemy_spotted":0.33,"smoke_per_round":0.521,"rounds":119,"kpr":0.5882,"mvps":9,"multi3k_per_round":0.042,"he_per_round":0.37,"multi5k_per_round":0.0,"flash_assist_per_round":0.05,"he_foe_dmg":10.9,"flash_per_round":0.479,"apr":0.1849,"team":"Lynn Vision Gaming","preaim":13.78,"nickname":"EmiliaQAQ","trade_kill_success_pct":0.4667,"rating_hltv":0.8303,"flash_hit_foe_per_flash":0.368,"multi2k_per_round":0.0924,"accuracy_head":0.26,"counter_strafe_good_ratio":0.8237,"hs_pct":0.59,"kast":0.64,"rating_ct":0.0205},{"utility_on_death":250.3,"steam64_id":"76561198880299543","survived_pct":0.4034,"reaction_time":0.5,"molotov_per_round":0.588,"multi4k_per_round":0.0084,"rating_t":0.0293,"rating_leetify":0.0062,"dpr":0.605,"kd":1.125,"trade_death_success_pct":0.32,"maps":7,"adr":77.395,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.555,"rounds":119,"kpr":0.6807,"mvps":11,"multi3k_per_round":0.0168,"he_per_round":0.437,"multi5k_per_round":0.0,"flash_assist_per_round":0.025,"he_foe_dmg":7.3,"flash_per_round":0.529,"apr":0.1597,"team":"Lynn Vision Gaming","preaim":9.1,"nickname":"Starry","trade_kill_success_pct":0.5385,"rating_hltv":1.0302,"flash_hit_foe_per_flash":0.429,"multi2k_per_round":0.1597,"accuracy_head":0.29,"counter_strafe_good_ratio":0.8714,"hs_pct":0.7,"kast":0.67,"rating_ct":-0.028},{"utility_on_death":233.9,"steam64_id":"76561198107240040","survived_pct":0.3025,"reaction_time":0.5,"molotov_per_round":0.622,"multi4k_per_round":0.0,"rating_t":-0.0603,"rating_leetify":-0.0364,"dpr":0.7059,"kd":0.8095,"trade_death_success_pct":0.4286,"maps":7,"adr":64.0504,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.79,"rounds":119,"kpr":0.5714,"mvps":13,"multi3k_per_round":0.0336,"he_per_round":0.504,"multi5k_per_round":0.0,"flash_assist_per_round":0.034,"he_foe_dmg":10.6,"flash_per_round":0.824,"apr":0.1681,"team":"Lynn Vision Gaming","preaim":11.25,"nickname":"westmelon","trade_kill_success_pct":0.4545,"rating_hltv":0.8397,"flash_hit_foe_per_flash":0.561,"multi2k_per_round":0.1176,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8651,"hs_pct":0.54,"kast":0.68,"rating_ct":-0.0009},{"utility_on_death":240.8,"steam64_id":"76561198137783463","survived_pct":0.3613,"reaction_time":0.4,"molotov_per_round":0.277,"multi4k_per_round":0.0,"rating_t":0.0155,"rating_leetify":0.0037,"dpr":0.6387,"kd":0.8421,"trade_death_success_pct":0.7895,"maps":7,"adr":57.2353,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.79,"rounds":119,"kpr":0.5378,"mvps":8,"multi3k_per_round":0.0168,"he_per_round":0.151,"multi5k_per_round":0.0,"flash_assist_per_round":0.118,"he_foe_dmg":10.9,"flash_per_round":1.303,"apr":0.084,"team":"Lynn Vision Gaming","preaim":8.18,"nickname":"z4KR","trade_kill_success_pct":0.3429,"rating_hltv":0.822,"flash_hit_foe_per_flash":0.587,"multi2k_per_round":0.084,"accuracy_head":0.29,"counter_strafe_good_ratio":0.8632,"hs_pct":0.52,"kast":0.72,"rating_ct":-0.0143},{"utility_on_death":209.3,"steam64_id":"76561198095896540","survived_pct":0.2621,"reaction_time":0.5,"molotov_per_round":0.437,"multi4k_per_round":0.0,"rating_t":-0.0489,"rating_leetify":-0.0358,"dpr":0.7282,"kd":0.8533,"trade_death_success_pct":0.5667,"maps":6,"adr":75.0874,"accuracy_enemy_spotted":0.44,"smoke_per_round":0.583,"rounds":103,"kpr":0.6214,"mvps":12,"multi3k_per_round":0.068,"he_per_round":0.33,"multi5k_per_round":0.0,"flash_assist_per_round":0.01,"he_foe_dmg":2.7,"flash_per_round":0.583,"apr":0.1942,"team":"Sharks Esports","preaim":8.5,"nickname":"doc","trade_kill_success_pct":0.4667,"rating_hltv":0.915,"flash_hit_foe_per_flash":0.883,"multi2k_per_round":0.0971,"accuracy_head":0.25,"counter_strafe_good_ratio":0.881,"hs_pct":0.72,"kast":0.7,"rating_ct":-0.0242},{"utility_on_death":332.8,"steam64_id":"76561198135228658","survived_pct":0.3495,"reaction_time":0.4,"molotov_per_round":0.456,"multi4k_per_round":0.0,"rating_t":-0.0277,"rating_leetify":-0.0173,"dpr":0.6408,"kd":0.8182,"trade_death_success_pct":0.6364,"maps":6,"adr":54.2136,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.767,"rounds":103,"kpr":0.5243,"mvps":11,"multi3k_per_round":0.0194,"he_per_round":0.505,"multi5k_per_round":0.0,"flash_assist_per_round":0.049,"he_foe_dmg":2.1,"flash_per_round":0.485,"apr":0.1262,"team":"Sharks Esports","preaim":11.4,"nickname":"gafolo","trade_kill_success_pct":0.4857,"rating_hltv":0.8234,"flash_hit_foe_per_flash":0.52,"multi2k_per_round":0.1068,"accuracy_head":0.22,"counter_strafe_good_ratio":0.7919,"hs_pct":0.44,"kast":0.79,"rating_ct":-0.0084},{"utility_on_death":333.9,"steam64_id":"76561198809462276","survived_pct":0.3786,"reaction_time":0.5,"molotov_per_round":0.301,"multi4k_per_round":0.0097,"rating_t":0.0338,"rating_leetify":0.0228,"dpr":0.6214,"kd":1.1562,"trade_death_success_pct":0.4667,"maps":6,"adr":78.2233,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.573,"rounds":103,"kpr":0.7184,"mvps":10,"multi3k_per_round":0.0388,"he_per_round":0.466,"multi5k_per_round":0.0097,"flash_assist_per_round":0.019,"he_foe_dmg":5.2,"flash_per_round":0.233,"apr":0.1165,"team":"Sharks Esports","preaim":10.14,"nickname":"koala","trade_kill_success_pct":0.4583,"rating_hltv":1.1219,"flash_hit_foe_per_flash":0.458,"multi2k_per_round":0.0971,"accuracy_head":0.19,"counter_strafe_good_ratio":0.7657,"hs_pct":0.5,"kast":0.73,"rating_ct":0.0136},{"utility_on_death":263.2,"steam64_id":"76561199030972198","survived_pct":0.4175,"reaction_time":0.5,"molotov_per_round":0.515,"multi4k_per_round":0.0,"rating_t":0.0319,"rating_leetify":0.0118,"dpr":0.5825,"kd":1.0833,"trade_death_success_pct":0.4762,"maps":6,"adr":70.2233,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.437,"rounds":103,"kpr":0.6311,"mvps":10,"multi3k_per_round":0.0194,"he_per_round":0.32,"multi5k_per_round":0.0,"flash_assist_per_round":0.107,"he_foe_dmg":12.0,"flash_per_round":0.825,"apr":0.1456,"team":"Sharks Esports","preaim":7.93,"nickname":"maxxkor","trade_kill_success_pct":0.5758,"rating_hltv":0.9924,"flash_hit_foe_per_flash":0.847,"multi2k_per_round":0.1553,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8662,"hs_pct":0.42,"kast":0.73,"rating_ct":-0.0052},{"utility_on_death":274.7,"steam64_id":"76561198307734468","survived_pct":0.2524,"reaction_time":0.4,"molotov_per_round":0.534,"multi4k_per_round":0.0,"rating_t":-0.0509,"rating_leetify":-0.0275,"dpr":0.7282,"kd":0.7733,"trade_death_success_pct":0.6667,"maps":6,"adr":62.7087,"accuracy_enemy_spotted":0.41,"smoke_per_round":0.689,"rounds":103,"kpr":0.5631,"mvps":9,"multi3k_per_round":0.0097,"he_per_round":0.34,"multi5k_per_round":0.0,"flash_assist_per_round":0.029,"he_foe_dmg":8.3,"flash_per_round":0.485,"apr":0.165,"team":"Sharks Esports","preaim":11.47,"nickname":"rdnzao","trade_kill_success_pct":0.375,"rating_hltv":0.8003,"flash_hit_foe_per_flash":0.52,"multi2k_per_round":0.1553,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8498,"hs_pct":0.59,"kast":0.65,"rating_ct":-0.0093},{"utility_on_death":217.9,"steam64_id":"76561198072321716","survived_pct":0.2647,"reaction_time":0.5,"molotov_per_round":0.549,"multi4k_per_round":0.0,"rating_t":-0.0099,"rating_leetify":-0.0187,"dpr":0.7255,"kd":0.8514,"trade_death_success_pct":0.4667,"maps":5,"adr":64.9706,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.657,"rounds":102,"kpr":0.6176,"mvps":4,"multi3k_per_round":0.0196,"he_per_round":0.392,"multi5k_per_round":0.0,"flash_assist_per_round":0.078,"he_foe_dmg":6.0,"flash_per_round":0.804,"apr":0.1078,"team":"THUNDERdOWNUNDER","preaim":8.33,"nickname":"Liazz","trade_kill_success_pct":0.5789,"rating_hltv":0.8351,"flash_hit_foe_per_flash":0.683,"multi2k_per_round":0.1078,"accuracy_head":0.21,"counter_strafe_good_ratio":0.7935,"hs_pct":0.54,"kast":0.71,"rating_ct":-0.0292},{"utility_on_death":249.1,"steam64_id":"76561198350221098","survived_pct":0.4412,"reaction_time":0.4,"molotov_per_round":0.343,"multi4k_per_round":0.0098,"rating_t":0.0091,"rating_leetify":0.0219,"dpr":0.5588,"kd":1.2281,"trade_death_success_pct":0.5556,"maps":4,"adr":74.2647,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.647,"rounds":102,"kpr":0.6863,"mvps":8,"multi3k_per_round":0.0294,"he_per_round":0.225,"multi5k_per_round":0.0,"flash_assist_per_round":0.059,"he_foe_dmg":4.1,"flash_per_round":0.931,"apr":0.1275,"team":"SINNERS Esports","preaim":8.43,"nickname":"MoDo","trade_kill_success_pct":0.3871,"rating_hltv":1.0773,"flash_hit_foe_per_flash":0.642,"multi2k_per_round":0.098,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8899,"hs_pct":0.21,"kast":0.75,"rating_ct":0.0333},{"utility_on_death":218.6,"steam64_id":"76561198169560297","survived_pct":0.3137,"reaction_time":0.5,"molotov_per_round":0.725,"multi4k_per_round":0.0098,"rating_t":0.0043,"rating_leetify":-0.013,"dpr":0.6863,"kd":0.8857,"trade_death_success_pct":0.55,"maps":4,"adr":65.8529,"accuracy_enemy_spotted":0.43,"smoke_per_round":0.804,"rounds":102,"kpr":0.6078,"mvps":10,"multi3k_per_round":0.0098,"he_per_round":0.461,"multi5k_per_round":0.0,"flash_assist_per_round":0.01,"he_foe_dmg":4.5,"flash_per_round":0.696,"apr":0.1373,"team":"SINNERS Esports","preaim":7.92,"nickname":"SHOCK","trade_kill_success_pct":0.5,"rating_hltv":0.8784,"flash_hit_foe_per_flash":0.535,"multi2k_per_round":0.1078,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8169,"hs_pct":0.5,"kast":0.68,"rating_ct":-0.0285},{"utility_on_death":226.3,"steam64_id":"76561198163780030","survived_pct":0.2549,"reaction_time":0.6,"molotov_per_round":0.608,"multi4k_per_round":0.0,"rating_t":-0.026,"rating_leetify":-0.0211,"dpr":0.7451,"kd":0.7237,"trade_death_success_pct":0.6176,"maps":5,"adr":62.9804,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.48,"rounds":102,"kpr":0.5392,"mvps":6,"multi3k_per_round":0.0392,"he_per_round":0.48,"multi5k_per_round":0.0,"flash_assist_per_round":0.039,"he_foe_dmg":5.3,"flash_per_round":0.686,"apr":0.1471,"team":"THUNDERdOWNUNDER","preaim":9.25,"nickname":"TjP","trade_kill_success_pct":0.3947,"rating_hltv":0.7856,"flash_hit_foe_per_flash":0.571,"multi2k_per_round":0.098,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8083,"hs_pct":0.56,"kast":0.72,"rating_ct":-0.0151},{"utility_on_death":230.2,"steam64_id":"76561198098346710","survived_pct":0.3235,"reaction_time":0.5,"molotov_per_round":0.353,"multi4k_per_round":0.0,"rating_t":-0.0165,"rating_leetify":0.0102,"dpr":0.6765,"kd":0.913,"trade_death_success_pct":0.7308,"maps":5,"adr":62.7451,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.569,"rounds":102,"kpr":0.6176,"mvps":14,"multi3k_per_round":0.049,"he_per_round":0.147,"multi5k_per_round":0.0,"flash_assist_per_round":0.137,"he_foe_dmg":16.3,"flash_per_round":1.216,"apr":0.1569,"team":"THUNDERdOWNUNDER","preaim":10.46,"nickname":"aliStair","trade_kill_success_pct":0.2353,"rating_hltv":0.9274,"flash_hit_foe_per_flash":0.645,"multi2k_per_round":0.1078,"accuracy_head":0.24,"counter_strafe_good_ratio":0.776,"hs_pct":0.29,"kast":0.73,"rating_ct":0.0427},{"utility_on_death":325.0,"steam64_id":"76561198028656944","survived_pct":0.2941,"reaction_time":0.5,"molotov_per_round":0.392,"multi4k_per_round":0.0196,"rating_t":0.0158,"rating_leetify":0.0114,"dpr":0.7059,"kd":1.0139,"trade_death_success_pct":0.5714,"maps":5,"adr":87.2549,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.637,"rounds":102,"kpr":0.7157,"mvps":11,"multi3k_per_round":0.0392,"he_per_round":0.324,"multi5k_per_round":0.0098,"flash_assist_per_round":0.039,"he_foe_dmg":21.5,"flash_per_round":0.402,"apr":0.2451,"team":"THUNDERdOWNUNDER","preaim":15.05,"nickname":"asap","trade_kill_success_pct":0.4048,"rating_hltv":1.0656,"flash_hit_foe_per_flash":0.585,"multi2k_per_round":0.0588,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8419,"hs_pct":0.63,"kast":0.76,"rating_ct":0.006},{"utility_on_death":208.8,"steam64_id":"76561198033438750","survived_pct":0.2745,"reaction_time":0.5,"molotov_per_round":0.49,"multi4k_per_round":0.0196,"rating_t":-0.0129,"rating_leetify":-0.0284,"dpr":0.7255,"kd":0.7568,"trade_death_success_pct":0.5312,"maps":4,"adr":65.4706,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.676,"rounds":102,"kpr":0.549,"mvps":9,"multi3k_per_round":0.0098,"he_per_round":0.353,"multi5k_per_round":0.0,"flash_assist_per_round":0.059,"he_foe_dmg":8.7,"flash_per_round":1.029,"apr":0.1863,"team":"SINNERS Esports","preaim":9.33,"nickname":"beastik","trade_kill_success_pct":0.25,"rating_hltv":0.8247,"flash_hit_foe_per_flash":0.581,"multi2k_per_round":0.098,"accuracy_head":0.32,"counter_strafe_good_ratio":0.8611,"hs_pct":0.71,"kast":0.7,"rating_ct":-0.0422},{"utility_on_death":291.6,"steam64_id":"76561198061801241","survived_pct":0.2451,"reaction_time":0.6,"molotov_per_round":0.441,"multi4k_per_round":0.0,"rating_t":-0.0387,"rating_leetify":-0.0284,"dpr":0.7549,"kd":0.8701,"trade_death_success_pct":0.5417,"maps":5,"adr":73.9902,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.588,"rounds":102,"kpr":0.6569,"mvps":9,"multi3k_per_round":0.0686,"he_per_round":0.451,"multi5k_per_round":0.0,"flash_assist_per_round":0.039,"he_foe_dmg":15.9,"flash_per_round":0.696,"apr":0.1471,"team":"THUNDERdOWNUNDER","preaim":10.07,"nickname":"dexter","trade_kill_success_pct":0.641,"rating_hltv":0.9069,"flash_hit_foe_per_flash":0.732,"multi2k_per_round":0.0686,"accuracy_head":0.19,"counter_strafe_good_ratio":0.8865,"hs_pct":0.46,"kast":0.7,"rating_ct":-0.0159},{"utility_on_death":237.5,"steam64_id":"76561198252742076","survived_pct":0.2941,"reaction_time":0.5,"molotov_per_round":0.725,"multi4k_per_round":0.0098,"rating_t":0.0174,"rating_leetify":-0.003,"dpr":0.7059,"kd":1.0,"trade_death_success_pct":0.5833,"maps":4,"adr":85.8235,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.52,"rounds":102,"kpr":0.7059,"mvps":8,"multi3k_per_round":0.0392,"he_per_round":0.578,"multi5k_per_round":0.0,"flash_assist_per_round":0.049,"he_foe_dmg":8.2,"flash_per_round":0.412,"apr":0.2255,"team":"SINNERS Esports","preaim":12.18,"nickname":"kisserek","trade_kill_success_pct":0.48,"rating_hltv":0.9862,"flash_hit_foe_per_flash":0.714,"multi2k_per_round":0.0882,"accuracy_head":0.21,"counter_strafe_good_ratio":0.7078,"hs_pct":0.61,"kast":0.75,"rating_ct":-0.0211},{"utility_on_death":225.0,"steam64_id":"76561198304437116","survived_pct":0.3529,"reaction_time":0.4,"molotov_per_round":0.627,"multi4k_per_round":0.0098,"rating_t":-0.0575,"rating_leetify":-0.0272,"dpr":0.6471,"kd":0.9242,"trade_death_success_pct":0.5357,"maps":4,"adr":58.902,"accuracy_enemy_spotted":0.37,"smoke_per_round":0.5,"rounds":102,"kpr":0.598,"mvps":9,"multi3k_per_round":0.0196,"he_per_round":0.461,"multi5k_per_round":0.0,"flash_assist_per_round":0.02,"he_foe_dmg":4.2,"flash_per_round":0.608,"apr":0.1765,"team":"SINNERS Esports","preaim":13.29,"nickname":"stressarN","trade_kill_success_pct":0.4146,"rating_hltv":0.9125,"flash_hit_foe_per_flash":0.581,"multi2k_per_round":0.098,"accuracy_head":0.17,"counter_strafe_good_ratio":0.786,"hs_pct":0.49,"kast":0.67,"rating_ct":-0.0001},{"utility_on_death":181.0,"steam64_id":"76561197998926770","survived_pct":0.2737,"reaction_time":0.5,"molotov_per_round":0.611,"multi4k_per_round":0.0105,"rating_t":-0.0476,"rating_leetify":-0.0141,"dpr":0.7263,"kd":0.7101,"trade_death_success_pct":0.5926,"maps":5,"adr":61.4105,"accuracy_enemy_spotted":0.42,"smoke_per_round":1.074,"rounds":95,"kpr":0.5158,"mvps":7,"multi3k_per_round":0.0316,"he_per_round":0.474,"multi5k_per_round":0.0,"flash_assist_per_round":0.063,"he_foe_dmg":4.4,"flash_per_round":0.811,"apr":0.2526,"team":"Astralis","preaim":11.43,"nickname":"HooXi","trade_kill_success_pct":0.5556,"rating_hltv":0.7948,"flash_hit_foe_per_flash":0.766,"multi2k_per_round":0.0842,"accuracy_head":0.24,"counter_strafe_good_ratio":0.7833,"hs_pct":0.61,"kast":0.66,"rating_ct":0.0125},{"utility_on_death":153.0,"steam64_id":"76561198005107817","survived_pct":0.3368,"reaction_time":0.4,"molotov_per_round":0.526,"multi4k_per_round":0.0105,"rating_t":-0.0345,"rating_leetify":0.0201,"dpr":0.6632,"kd":1.1429,"trade_death_success_pct":0.3889,"maps":5,"adr":81.3684,"accuracy_enemy_spotted":0.39,"smoke_per_round":0.463,"rounds":95,"kpr":0.7579,"mvps":14,"multi3k_per_round":0.0842,"he_per_round":0.453,"multi5k_per_round":0.0,"flash_assist_per_round":0.011,"he_foe_dmg":3.4,"flash_per_round":0.621,"apr":0.1684,"team":"Astralis","preaim":7.42,"nickname":"Staehr","trade_kill_success_pct":0.4074,"rating_hltv":1.1514,"flash_hit_foe_per_flash":0.746,"multi2k_per_round":0.1053,"accuracy_head":0.21,"counter_strafe_good_ratio":0.7947,"hs_pct":0.49,"kast":0.66,"rating_ct":0.0634},{"utility_on_death":187.9,"steam64_id":"76561198120557348","survived_pct":0.2842,"reaction_time":0.5,"molotov_per_round":0.621,"multi4k_per_round":0.0105,"rating_t":-0.0386,"rating_leetify":-0.0242,"dpr":0.7158,"kd":0.8529,"trade_death_success_pct":0.6316,"maps":5,"adr":67.8105,"accuracy_enemy_spotted":0.45,"smoke_per_round":0.642,"rounds":95,"kpr":0.6105,"mvps":6,"multi3k_per_round":0.0421,"he_per_round":0.568,"multi5k_per_round":0.0,"flash_assist_per_round":0.0,"he_foe_dmg":1.3,"flash_per_round":0.347,"apr":0.1053,"team":"Astralis","preaim":8.68,"nickname":"jabbi","trade_kill_success_pct":0.5,"rating_hltv":0.8944,"flash_hit_foe_per_flash":0.636,"multi2k_per_round":0.0737,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8565,"hs_pct":0.6,"kast":0.64,"rating_ct":-0.0128},{"utility_on_death":227.1,"steam64_id":"76561198408199043","survived_pct":0.3263,"reaction_time":0.4,"molotov_per_round":0.495,"multi4k_per_round":0.0,"rating_t":-0.0664,"rating_leetify":-0.033,"dpr":0.6737,"kd":0.7188,"trade_death_success_pct":0.6316,"maps":5,"adr":55.0,"accuracy_enemy_spotted":0.4,"smoke_per_round":0.526,"rounds":95,"kpr":0.4842,"mvps":3,"multi3k_per_round":0.0211,"he_per_round":0.232,"multi5k_per_round":0.0,"flash_assist_per_round":0.074,"he_foe_dmg":5.5,"flash_per_round":0.611,"apr":0.0526,"team":"Astralis","preaim":7.42,"nickname":"phzy","trade_kill_success_pct":0.3478,"rating_hltv":0.7449,"flash_hit_foe_per_flash":1.0,"multi2k_per_round":0.0632,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8837,"hs_pct":0.26,"kast":0.62,"rating_ct":-0.0066},{"utility_on_death":235.6,"steam64_id":"76561198168401372","survived_pct":0.2737,"reaction_time":0.5,"molotov_per_round":0.516,"multi4k_per_round":0.0,"rating_t":-0.0244,"rating_leetify":-0.0141,"dpr":0.7263,"kd":0.971,"trade_death_success_pct":0.4444,"maps":5,"adr":75.3474,"accuracy_enemy_spotted":0.38,"smoke_per_round":0.568,"rounds":95,"kpr":0.7053,"mvps":9,"multi3k_per_round":0.0421,"he_per_round":0.284,"multi5k_per_round":0.0,"flash_assist_per_round":0.011,"he_foe_dmg":10.7,"flash_per_round":0.305,"apr":0.1684,"team":"Astralis","preaim":12.02,"nickname":"ryu","trade_kill_success_pct":0.5,"rating_hltv":0.9715,"flash_hit_foe_per_flash":0.414,"multi2k_per_round":0.1474,"accuracy_head":0.21,"counter_strafe_good_ratio":0.8205,"hs_pct":0.54,"kast":0.68,"rating_ct":-0.006},{"utility_on_death":113.0,"steam64_id":"76561198018027263","survived_pct":0.2647,"reaction_time":0.5,"molotov_per_round":0.441,"multi4k_per_round":0.0147,"rating_t":-0.0105,"rating_leetify":-0.0063,"dpr":0.7353,"kd":0.9,"trade_death_success_pct":0.5625,"maps":4,"adr":64.9853,"accuracy_enemy_spotted":0.36,"smoke_per_round":0.588,"rounds":68,"kpr":0.6618,"mvps":7,"multi3k_per_round":0.0147,"he_per_round":0.147,"multi5k_per_round":0.0,"flash_assist_per_round":0.029,"he_foe_dmg":6.5,"flash_per_round":0.971,"apr":0.0882,"team":"Gaimin Gladiators","preaim":8.72,"nickname":"HEN1","trade_kill_success_pct":0.5217,"rating_hltv":0.9146,"flash_hit_foe_per_flash":0.727,"multi2k_per_round":0.1176,"accuracy_head":0.24,"counter_strafe_good_ratio":0.8523,"hs_pct":0.42,"kast":0.65,"rating_ct":0.0004},{"utility_on_death":113.1,"steam64_id":"76561198054820484","survived_pct":0.1029,"reaction_time":0.4,"molotov_per_round":0.368,"multi4k_per_round":0.0,"rating_t":-0.0456,"rating_leetify":-0.0495,"dpr":0.8971,"kd":0.5246,"trade_death_success_pct":0.4737,"maps":4,"adr":65.8382,"accuracy_enemy_spotted":0.31,"smoke_per_round":0.618,"rounds":68,"kpr":0.4706,"mvps":3,"multi3k_per_round":0.0147,"he_per_round":0.206,"multi5k_per_round":0.0,"flash_assist_per_round":0.015,"he_foe_dmg":8.4,"flash_per_round":0.544,"apr":0.2059,"team":"Gaimin Gladiators","preaim":9.06,"nickname":"JOTA","trade_kill_success_pct":0.2647,"rating_hltv":0.5534,"flash_hit_foe_per_flash":0.919,"multi2k_per_round":0.0882,"accuracy_head":0.15,"counter_strafe_good_ratio":0.7816,"hs_pct":0.53,"kast":0.6,"rating_ct":-0.0557},{"utility_on_death":151.0,"steam64_id":"76561198006379986","survived_pct":0.25,"reaction_time":0.6,"molotov_per_round":0.456,"multi4k_per_round":0.0,"rating_t":-0.0298,"rating_leetify":-0.0201,"dpr":0.75,"kd":0.7647,"trade_death_success_pct":0.4444,"maps":4,"adr":64.0147,"accuracy_enemy_spotted":0.35,"smoke_per_round":0.588,"rounds":68,"kpr":0.5735,"mvps":3,"multi3k_per_round":0.0,"he_per_round":0.324,"multi5k_per_round":0.0,"flash_assist_per_round":0.0,"he_foe_dmg":6.9,"flash_per_round":0.412,"apr":0.1471,"team":"Gaimin Gladiators","preaim":9.16,"nickname":"Luken","trade_kill_success_pct":0.5714,"rating_hltv":0.7776,"flash_hit_foe_per_flash":0.429,"multi2k_per_round":0.1618,"accuracy_head":0.25,"counter_strafe_good_ratio":0.8421,"hs_pct":0.67,"kast":0.68,"rating_ct":-0.0043},{"utility_on_death":159.6,"steam64_id":"76561198036884160","survived_pct":0.1618,"reaction_time":0.5,"molotov_per_round":0.368,"multi4k_per_round":0.0,"rating_t":-0.038,"rating_leetify":-0.0448,"dpr":0.8382,"kd":0.5263,"trade_death_success_pct":0.5,"maps":4,"adr":54.2206,"accuracy_enemy_spotted":0.31,"smoke_per_round":0.912,"rounds":68,"kpr":0.4412,"mvps":1,"multi3k_per_round":0.0294,"he_per_round":0.235,"multi5k_per_round":0.0,"flash_assist_per_round":0.044,"he_foe_dmg":5.4,"flash_per_round":0.721,"apr":0.1324,"team":"Gaimin Gladiators","preaim":9.9,"nickname":"NEKiZ","trade_kill_success_pct":0.2778,"rating_hltv":0.5846,"flash_hit_foe_per_flash":0.551,"multi2k_per_round":0.0588,"accuracy_head":0.23,"counter_strafe_good_ratio":0.8103,"hs_pct":0.57,"kast":0.6,"rating_ct":-0.0559},{"utility_on_death":111.4,"steam64_id":"76561197999186947","survived_pct":0.1618,"reaction_time":0.6,"molotov_per_round":0.221,"multi4k_per_round":0.0,"rating_t":-0.0577,"rating_leetify":-0.0456,"dpr":0.8382,"kd":0.5789,"trade_death_success_pct":0.4444,"maps":4,"adr":61.7794,"accuracy_enemy_spotted":0.31,"smoke_per_round":0.368,"rounds":68,"kpr":0.4853,"mvps":2,"multi3k_per_round":0.0294,"he_per_round":0.191,"multi5k_per_round":0.0,"flash_assist_per_round":0.015,"he_foe_dmg":12.2,"flash_per_round":0.456,"apr":0.1618,"team":"Gaimin Gladiators","preaim":9.12,"nickname":"fer","trade_kill_success_pct":0.5263,"rating_hltv":0.6166,"flash_hit_foe_per_flash":0.806,"multi2k_per_round":0.0441,"accuracy_head":0.27,"counter_strafe_good_ratio":0.8248,"hs_pct":0.64,"kast":0.65,"rating_ct":-0.0259}];
+const PHOTOS = {};   // 昵称 -> data:image/webp;base64（缺省 {}，可后补）
+
+/* ================= 战队品牌（队标占位配色 + 缩写） ================= */
+const TEAM_BRAND = {
+  "G2 Esports":            ["#1c1c1c", "#d9d9d9", "G2"],
+  "B8":                    ["#0a0a2e", "#4da6ff", "B8"],
+  "BetBoom Team":          ["#141a2e", "#e8c23a", "BB"],
+  "Team Falcons":          ["#0b7a3b", "#ffffff", "FLC"],
+  "9z Team":               ["#1a1a1a", "#00c2ff", "9z"],
+  "Monte":                 ["#1b1b2f", "#ff4d4d", "M"],
+  "Team Spirit":           ["#0d0d0d", "#ffd700", "TS"],
+  "FUT Esports":           ["#f5f5f0", "#1a1a1a", "FUT"],
+  "TYLOO":                 ["#0a0a0a", "#ff2a2a", "TYLOO"],
+  "BIG":                   ["#141414", "#e6e6e6", "BIG"],
+  "The MongolZ":           ["#0b1f3a", "#ffcc00", "MGLZ"],
+  "Natus Vincere":         ["#f5d61a", "#000000", "NAVI"],
+  "FURIA":                 ["#000000", "#00a859", "FURIA"],
+  "Team Vitality":         ["#0a0a0a", "#ffc907", "VIT"],
+  "Aurora Gaming":         ["#120a2e", "#7b5cff", "AUR"],
+  "FlyQuest":              ["#0a2a4a", "#6fd6ff", "FQ"],
+  "Legacy":                ["#1a0a2e", "#ff5ca8", "LGCY"],
+  "GamerLegion":           ["#0d0d0d", "#b34dff", "GL"],
+  "M80":                   ["#101820", "#00e5a0", "M80"],
+  "MIBR":                  ["#121212", "#e6e6e6", "MIBR"],
+  "MOUZ":                  ["#0d0d0d", "#ff2f2f", "MOUZ"],
+  "NRG":                   ["#101010", "#ffcc00", "NRG"],
+  "paiN Gaming":           ["#1a1a1a", "#ffffff", "PAIN"],
+  "PARIVISION":            ["#1a0a2e", "#00c2ff", "PARI"],
+  "Team Liquid":           ["#0a1a3a", "#00a3ff", "TL"],
+  "HEROIC":                ["#1a1a1a", "#e6e6e6", "HERO"],
+  "Lynn Vision Gaming":    ["#1a1a1a", "#ffc907", "LVG"],
+  "Sharks Esports":        ["#0a2a4a", "#00c2ff", "SHRK"],
+  "THUNDERdOWNUNDER":      ["#2e0a0a", "#ffaa00", "TDU"],
+  "SINNERS Esports":       ["#1a1a1a", "#ff2f2f", "SIN"],
+  "Astralis":              ["#0a0a0a", "#ff2f2f", "AST"],
+  "Gaimin Gladiators":     ["#0a0a2e", "#4da6ff", "GG"],
+};
+
+/* 生成队标占位 SVG：圆形渐变 + 队名缩写。有真实队标(PHOTOS[team])时用图。 */
+function teamBadge(team, size){
+  const sizeStr = size || 38;
+  const img = TEAM_PHOTOS ? TEAM_PHOTOS[team] : null;
+  if (img){
+    return `<img class="avatar" style="width:${sizeStr}px;height:${sizeStr}px" src="${img}" alt="${team}">`;
+  }
+  const [bg, fg, abbr] = TEAM_BRAND[team] || ["#6b3fb8", "#ffffff", (team||"?").slice(0,2).toUpperCase()];
+  const fs = abbr.length >= 5 ? sizeStr*0.24 : abbr.length >= 4 ? sizeStr*0.27 : sizeStr*0.34;
+  return `<svg class="badge" width="${sizeStr}" height="${sizeStr}" viewBox="0 0 40 40" style="flex:none">
+    <defs><linearGradient id="bg_${abbr}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${fg}" stop-opacity=".22"/><stop offset="1" stop-color="${bg}"/>
+    </linearGradient></defs>
+    <circle cx="20" cy="20" r="19" fill="${bg}" stroke="${fg}" stroke-opacity=".55" stroke-width="1.5"/>
+    <circle cx="20" cy="20" r="19" fill="url(#bg_${abbr})"/>
+    <text x="20" y="20" text-anchor="middle" dominant-baseline="central"
+      fill="${fg}" font-size="${fs}" font-weight="700" font-family="inherit" letter-spacing=".5">${abbr}</text>
+  </svg>`;
+}
+const TEAM_PHOTOS = null;   // 未来放真实队标（team -> base64），当前用彩色占位
+
+/* ================= 匹配特征（对齐 match.py） ================= */
+const FEATURES = {
+  accuracy_enemy_spotted:["aim",1.0], accuracy_head:["aim",1.0], preaim:["aim",1.0],
+  reaction_time:["aim",1.0], spray_accuracy:["aim",0.8], hs_pct:["aim",0.8],
+  counter_strafe_good_ratio:["aim",0.6],
+  kpr:["impact",1.0], adr:["impact",1.0], kd:["impact",0.7],
+  multi2k_per_round:["impact",0.6], multi3k_per_round:["impact",0.6], survived_pct:["impact",0.5],
+  flash_per_round:["utility",1.0], flash_hit_foe_per_flash:["utility",1.0],
+  flash_assist_per_round:["utility",0.8], he_per_round:["utility",0.7], he_foe_dmg:["utility",0.6],
+  molotov_per_round:["utility",0.7], smoke_per_round:["utility",0.7], utility_on_death:["utility",0.5],
+  apr:["support",1.0], trade_kill_success_pct:["support",1.0], trade_death_success_pct:["support",0.8],
+  rating_ct:["sides",1.0], rating_t:["sides",1.0],
+};
+const GROUPS = ["aim","impact","utility","support","sides"];
+const GROUP_WEIGHT = {aim:1.3, impact:1.3, utility:1.0, support:0.9, sides:0.6};
+
+/* ================= 六边形轴（对齐 radar.py） ================= */
+const AXES = [
+  ["aim","枪法",[["accuracy_enemy_spotted",1.2,false],["accuracy_head",1.0,false],["hs_pct",0.8,false],
+                 ["preaim",1.0,true],["reaction_time",0.8,true],["spray_accuracy",0.6,false],["counter_strafe_good_ratio",0.5,false]]],
+  ["firepower","火力",[["kpr",1.2,false],["adr",1.2,false],["multi2k_per_round",0.8,false]]],
+  ["survival","生存",[["survived_pct",1.2,false],["dpr",1.0,true],["kd",0.4,false]]],
+  ["utility","道具",[["he_foe_dmg",1.0,false],["flash_hit_foe_per_flash",1.0,false],["flash_per_round",0.8,false],
+                    ["molotov_per_round",0.6,false],["smoke_per_round",0.6,false],["utility_on_death",0.5,false]]],
+  ["support","支援",[["apr",1.2,false],["flash_assist_per_round",1.0,false],["trade_kill_success_pct",1.0,false],["trade_death_success_pct",0.8,false]]],
+  ["clutch","爆发",[["multi3k_per_round",1.0,false],["multi4k_per_round",1.0,false],["multi5k_per_round",1.0,false],["mvps_per_round",0.8,false]]],
+];
+const AXIS_KEYS = AXES.map(a=>a[0]);
+const AXIS_LABELS = Object.fromEntries(AXES.map(a=>[a[0],a[1]]));
+/* 六维图英文轴标签（转播风） */
+const AXIS_EN = {aim:"AIM", firepower:"FIREPOWER", survival:"SURVIVAL", utility:"UTILITY", support:"SUPPORT", clutch:"CLUTCH"};
+
+function mvpsPerRound(row){
+  const m = row.mvps, rd = row.rounds;
+  if (typeof m === "number" && typeof rd === "number" && rd) return m/rd;
+  return row.mvps_per_round;
+}
+
+/* build_refs: 每字段排序后的参考值数组 */
+const REFS = (() => {
+  const refs = {};
+  for (const [, , feats] of AXES){
+    for (const [f] of feats){
+      if (refs[f]) continue;
+      const vals = [];
+      for (const p of PROS){
+        const v = (f === "mvps_per_round") ? mvpsPerRound(p) : p[f];
+        if (typeof v === "number") vals.push(v);
+      }
+      if (vals.length >= 10) refs[f] = vals.sort((a,b)=>a-b);
+    }
+  }
+  return refs;
+})();
+
+function pctOf(sorted, v){
+  const n = sorted.length;
+  let lo = 0, hi = n;
+  while (lo < hi){ const mid = (lo+hi)>>1; if (sorted[mid] < v) lo = mid+1; else hi = mid; }
+  const left = lo;
+  lo = 0; hi = n;
+  while (lo < hi){ const mid = (lo+hi)>>1; if (sorted[mid] <= v) lo = mid+1; else hi = mid; }
+  const right = lo;
+  return 100 * ((left + right) / 2) / n;
+}
+
+function hexScore(row){
+  const out = {};
+  for (const [key, , feats] of AXES){
+    let num = 0, den = 0;
+    for (const [f, w, invert] of feats){
+      const ref = REFS[f];
+      const v = (f === "mvps_per_round") ? mvpsPerRound(row) : row[f];
+      if (!ref || typeof v !== "number") continue;
+      let p = pctOf(ref, v);
+      if (invert) p = 100 - p;
+      num += w * p; den += w;
+    }
+    out[key] = den ? Math.round(num/den*10)/10 : null;
+  }
+  const vals = Object.values(out).filter(v=>v!=null);
+  out.overall = vals.length ? Math.round(vals.reduce((a,b)=>a+b,0)/vals.length*10)/10 : null;
+  return out;
+}
+
+/* ================= 匹配算法（对齐 match.py） ================= */
+function stats(feat){
+  const vals = PROS.map(p=>p[feat]).filter(v=>typeof v==="number");
+  if (vals.length < 5) return null;
+  const mean = vals.reduce((a,b)=>a+b,0)/vals.length;
+  const variance = vals.reduce((a,b)=>a+(b-mean)*(b-mean),0)/vals.length;
+  return [mean, Math.sqrt(variance)||1e-9];
+}
+function zval(v, st){ if (v==null || st==null) return null; return Math.max(-3, Math.min(3, (v-st[0])/st[1])); }
+
+function similarity(user){
+  const st = {}; for (const f in FEATURES) st[f] = stats(f);
+  const usable = Object.keys(FEATURES).filter(f => typeof user[f]==="number" && st[f]);
+  if (usable.length < 4) throw new Error("可比特征只有 " + usable.length + " 项，至少需要 4 项");
+  const uz = {}; for (const f of usable) uz[f] = zval(user[f], st[f]);
+  const wts = {}; for (const f of usable) wts[f] = FEATURES[f][1] * GROUP_WEIGHT[FEATURES[f][0]];
+  let unorm = Math.sqrt(usable.reduce((a,f)=>a + wts[f]*uz[f]*uz[f], 0)) || 1e-9;
+
+  const results = [];
+  for (const p of PROS){
+    const pz = {}; for (const f of usable) pz[f] = zval(p[f], st[f]);
+    const have = usable.filter(f => pz[f] != null);
+    if (have.length < usable.length * 0.7) continue;
+    const dot = have.reduce((a,f)=>a + wts[f]*uz[f]*pz[f], 0);
+    let pnorm = Math.sqrt(have.reduce((a,f)=>a + wts[f]*pz[f]*pz[f], 0)) || 1e-9;
+    const cos = dot/(unorm*pnorm);
+    const dist = Math.sqrt(Math.max(0, have.reduce((a,f)=>a + wts[f]*(uz[f]-pz[f])*(uz[f]-pz[f]), 0)
+                              / have.reduce((a,f)=>a+wts[f],0)));
+    const gnum = {}, gden = {};
+    for (const g of GROUPS){ gnum[g]=0; gden[g]=0; }
+    for (const f of have){ const g=FEATURES[f][0]; gnum[g]+=wts[f]*(uz[f]-pz[f])*(uz[f]-pz[f]); gden[g]+=wts[f]; }
+    const groups = {};
+    for (const g of GROUPS) groups[g] = gden[g] ? Math.sqrt(gnum[g]/gden[g]) : null;
+    const diffs = have.map(f=>({f, gap:Math.abs(uz[f]-pz[f]), you:uz[f], pro:pz[f]}))
+                      .sort((a,b)=>b.gap-a.gap);
+    results.push({pro:p, dist, cos, groups, diffs});
+  }
+  results.sort((a,b)=> a.dist - b.dist || b.cos - a.cos);
+  const n = results.length;
+  results.forEach((r,i)=> r.pct = 100*(1 - i/Math.max(1,n-1)));
+  return {results, usable};
+}
+
+/* ================= 手动表单定义（对齐 server.py MANUAL_SPEC） ================= */
+const MANUAL_SPEC = [
+  ["accuracy_enemy_spotted","命中率 %","aim","打中人的子弹 / 开火数"],
+  ["accuracy_head","爆头命中率 %","aim","爆头数 / 命中数，多数平台没有"],
+  ["hs_pct","爆头击杀占比 %","aim","爆头击杀 / 总击杀（平台常显示 HS%）"],
+  ["preaim","预瞄偏移","aim","越小越好，没有就留空"],
+  ["reaction_time","反应时间 ms","aim","没有就留空"],
+  ["spray_accuracy","扫射命中率 %","aim","没有就留空"],
+  ["counter_strafe_good_ratio","急停成功率 %","aim","没有就留空"],
+  ["kpr","击杀/回合","impact","总击杀 / 总回合"],
+  ["adr","ADR","impact","每回合伤害"],
+  ["kd","K/D","impact","击杀 / 阵亡"],
+  ["multi2k_per_round","双杀+/回合","impact","含 3K 4K 5K"],
+  ["multi3k_per_round","三杀+/回合","impact",""],
+  ["survived_pct","存活率 %","impact","没死回合 / 总回合"],
+  ["flash_per_round","闪光/回合","utility",""],
+  ["flash_hit_foe_per_flash","致盲敌人/闪","utility","每颗闪平均闪到几个敌人"],
+  ["flash_assist_per_round","闪光助攻/回合","utility",""],
+  ["he_per_round","手雷/回合","utility",""],
+  ["he_foe_dmg","手雷伤害/颗","utility",""],
+  ["molotov_per_round","燃烧弹/回合","utility",""],
+  ["smoke_per_round","烟雾/回合","utility",""],
+  ["utility_on_death","阵亡时剩余道具","utility","没有就留空"],
+  ["apr","助攻/回合","support",""],
+  ["trade_kill_success_pct","换人成功率 %","support","队友被杀后你补掉杀手的比例"],
+  ["trade_death_success_pct","被换成功率 %","support","你死后被队友补掉的比例"],
+  ["rating_ct","CT rating","sides","多数平台没有"],
+  ["rating_t","T rating","sides",""],
+];
+const PCT_FIELDS = new Set(["hs_pct","accuracy","accuracy_enemy_spotted","accuracy_head","kast",
+  "counter_strafe_good_ratio","trade_kill_success_pct","trade_death_success_pct",
+  "opening_success_pct","opening_attempt_pct"]);
+
+/* ================= 粘贴文本解析（对齐 manual_parse.py） ================= */
+const AVG_ROUNDS_PER_MAP = 21.5;
+const ALIASES = [
+  ["kpr","per_round",["KPR","击杀\\s*/\\s*回合","每回合击杀","场均击杀\\s*/\\s*回合"]],
+  ["kpr","per_map",["场均击杀","平均击杀","Kills\\s*/\\s*map"]],
+  ["adr","per_round",["ADR","场均伤害","每回合伤害","伤害\\s*/\\s*回合","平均伤害"]],
+  ["kd","ratio",["K\\s*/\\s*D","\\bKD\\b","击杀\\s*死亡\\s*比","击杀\\s*/\\s*死亡"]],
+  ["hs_pct","percent",["爆头率","爆头击杀占比","爆头占比","HS\\s*%","爆头\\s*%","\\bHSP\\b"]],
+  ["survived_pct","percent",["存活率","生存率","存活占比"]],
+  ["multi2k_per_round","per_round",["双杀\\s*/\\s*回合","每回合双杀"]],
+  ["multi3k_per_round","per_round",["三杀\\s*/\\s*回合","每回合三杀"]],
+  ["accuracy_enemy_spotted","percent",["命中率\\(敌人可见\\)","accuracy\\s*enemy\\s*spotted"]],
+  ["accuracy_head","percent",["爆头命中率","命中头\\s*率"]],
+  ["preaim","ratio",["预瞄","预瞄偏移","Preaim"]],
+  ["reaction_time","ms",["反应时间","反应速度","Reaction"]],
+  ["spray_accuracy","percent",["扫射命中率","扫射准确率","Spray\\s*accuracy"]],
+  ["counter_strafe_good_ratio","percent",["急停成功率","急停\\s*good","Counter\\s*-?\\s*strafe"]],
+  ["flash_per_round","per_round",["闪光(?:弹)?\\s*/\\s*回合","每回合闪光"]],
+  ["flash_per_round","per_map",["场均闪光","平均闪光"]],
+  ["flash_hit_foe_per_flash","ratio",["致盲敌人\\s*/\\s*闪","每闪致盲","致盲/闪"]],
+  ["flash_assist_per_round","per_round",["闪光助攻\\s*/\\s*回合","每回合闪光助攻"]],
+  ["he_per_round","per_round",["手雷\\s*/\\s*回合","每回合手雷","HE\\s*/\\s*回合"]],
+  ["he_per_round","per_map",["场均手雷"]],
+  ["he_foe_dmg","ratio",["手雷伤害\\s*/\\s*颗","每颗手雷伤害"]],
+  ["molotov_per_round","per_round",["燃烧弹\\s*/\\s*回合","每回合燃烧弹"]],
+  ["molotov_per_round","per_map",["场均燃烧弹"]],
+  ["smoke_per_round","per_round",["烟雾\\s*/\\s*回合","每回合烟雾"]],
+  ["smoke_per_round","per_map",["场均烟雾"]],
+  ["utility_on_death","ratio",["阵亡时剩余道具","死亡时道具"]],
+  ["apr","per_round",["APR","助攻\\s*/\\s*回合","每回合助攻"]],
+  ["apr","per_map",["场均助攻","平均助攻"]],
+  ["trade_kill_success_pct","percent",["换人成功率","补枪成功率"]],
+  ["trade_death_success_pct","percent",["被换成功率","被补枪成功率"]],
+  ["rating_ct","ratio",["CT\\s*rating","CT\\s*评分","防守方\\s*rating"]],
+  ["rating_t","ratio",["T\\s*rating","T\\s*评分","进攻方\\s*rating"]],
+];
+const NOISE = /胜率|场次|比赛数|总场|MVP|时长|分钟|小时|等级|分段|积分|排名|RWS|rating\s*2|Rating|击杀数|死亡数|助攻数|回合数/i;
+const NUM = /[-+]?\d+(?:\.\d+)?/;
+
+function normalizeText(t){
+  const map = {"\uff10":"0","\uff11":"1","\uff12":"2","\uff13":"3","\uff14":"4",
+    "\uff15":"5","\uff16":"6","\uff17":"7","\uff18":"8","\uff19":"9",
+    "\uff0e":".","\uff05":"%","\uff1a":":","\uff0f":"/","\uff08":"(","\uff09":")"};
+  t = t.replace(/[\uff10-\uff19\uff0e\uff05\uff1a\uff0f\uff08\uff09]/g, c => map[c] || c);
+  t = t.replace(/\u00a0/g," ").replace(/\u3000/g," ");
+  t = t.replace(/(?<=\d),(?=\d{3}\b)/g,"");
+  return t;
+}
+function hasLabel(line){ return ALIASES.some(([, , pats]) => pats.some(p => new RegExp(p,"i").test(line))); }
+function numAfter(line, end){ const m = line.slice(end).match(NUM); return m ? m[0] : null; }
+function numBefore(line, start){ const found = line.slice(0,start).match(new RegExp(NUM.source,"g")); return found ? found[found.length-1] : null; }
+
+function parseText(text){
+  text = normalizeText(text || "");
+  const lines = text.split(/\r?\n/).map(s=>s.trim()).filter(s=>s);
+  const values = {}, matched = [], ignored = [], used = new Set();
+
+  function put(field, kind, raw, label, est=false){
+    let v = parseFloat(raw);
+    if (Number.isNaN(v)) return;
+    if (kind === "percent"){ if (v > 1.5) v /= 100; }
+    else if (kind === "per_map"){ v /= AVG_ROUNDS_PER_MAP; est = true; }
+    if (v < 0 || v > 5000) return;
+    if (values[field] != null) return;
+    v = Math.round(v*10000)/10000;
+    values[field] = v;
+    let disp;
+    if (kind === "percent") disp = (v*100).toFixed(1)+"%";
+    else if (kind === "per_map") disp = v.toFixed(3)+" ≈";
+    else disp = String(v);
+    matched.push({field, label, raw, display:disp, value:v, estimated:est, kind});
+  }
+
+  for (const kinds of [new Set(["per_round","percent","ratio","ms"]), new Set(["per_map"])]){
+    for (let i=0;i<lines.length;i++){
+      const line = lines[i];
+      for (const [field, kind, pats] of ALIASES){
+        if (!kinds.has(kind) || values[field]!=null) continue;
+        for (const pat of pats){
+          const m = new RegExp(pat,"i").exec(line);
+          if (!m) continue;
+          let raw = numAfter(line, m.index + m[0].length);
+          let label = m[0];
+          if (raw == null) raw = numBefore(line, m.index);
+          if (raw == null && i+1 < lines.length && !hasLabel(lines[i+1])){ raw = numAfter(lines[i+1], 0); if (raw!=null){ label += " →下一行"; used.add(i+1); } }
+          if (raw == null) continue;
+          put(field, kind, raw, label);
+          used.add(i);
+          break;
+        }
+      }
+    }
+  }
+  for (let i=0;i<lines.length;i++){
+    if (!used.has(i) && NUM.test(lines[i]) && !NOISE.test(lines[i])) ignored.push(lines[i].slice(0,80));
+  }
+  return {values, matched, ignored: ignored.slice(0,12), rounds_per_map: AVG_ROUNDS_PER_MAP};
+}
+
+/* ================= 渲染 ================= */
+const $ = s => document.querySelector(s);
+const fmt = (v, d=3) => (v === null || v === undefined || Number.isNaN(v)) ? "–" : Number(v).toFixed(d);
+const GROUPS_LABEL = [["aim","枪法"],["impact","火力"],["utility","道具"],["support","辅助"],["sides","阵营"]];
+let DATA = null, SEL = 0;
+
+function groupCell(v){
+  if (v == null || Number.isNaN(v)) return `<td class="num barcell" title="这一组的特征没填"><span class="sub">–</span></td>`;
+  const w = Math.max(4, Math.min(100, (1 - Math.min(v,3)/3) * 100));
+  const c = v < 0.7 ? "var(--cyan)" : v < 1.2 ? "var(--violet)" : "var(--warn)";
+  return `<td class="num barcell" title="${v.toFixed(2)}"><span class="bar" style="width:${w}%;background:${c}"></span></td>`;
+}
+
+function polar(i, v, R, c){
+  const a = -Math.PI/2 + i*Math.PI/3;
+  const r = R * Math.max(0, Math.min(100, v == null ? 0 : v)) / 100;
+  return [c + r*Math.cos(a), c + r*Math.sin(a)];
+}
+function poly(hex, axes, R, c){
+  return axes.map(([k], i) => polar(i, hex ? hex[k] : 0, R, c).map(x=>x.toFixed(1)).join(",")).join(" ");
+}
+
+/* 角色判定：根据六维打法特征，猜一个职业角色 */
+function guessRole(hex){
+  if (!hex) return "PLAYER";
+  const h = hex;
+  const clutch = h.clutch || 0, fire = h.firepower || 0, util = h.utility || 0,
+        sup = h.support || 0, aim = h.aim || 0, surv = h.survival || 0;
+  if (clutch >= 70 && fire >= 60) return "STAR RIFLER";
+  if (aim >= 70 && fire >= 65 && sup < 55) return "RIFLER";
+  if (util >= 65 && sup >= 55) return "SUPPORT";
+  if (surv >= 65 && fire < 60) return "LURKER";
+  if (clutch >= 60) return "CLUTCHER";
+  return "RIFLER";
+}
+
+/* 单人金色雷达（参考赛事转播风） */
+function radarSVGGold(hex, axes, meta){
+  const S = 420, c = 210, R = 148;
+  const gold = "#d4b46e", goldHi = "#f0d78a", goldDeep = "#8a6b2f";
+  let g = "";
+  // 网格：内层白/灰细线 + 最外层金色描边
+  for (let ring = 20; ring <= 100; ring += 20){
+    const pts = axes.map((_, i) => polar(i, ring, R, c).map(x=>x.toFixed(1)).join(",")).join(" ");
+    if (ring === 100){
+      g += `<polygon points="${pts}" fill="none" stroke="${gold}" stroke-opacity=".75" stroke-width="1.4"/>`;
+    } else {
+      g += `<polygon points="${pts}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="0.7" stroke-dasharray="3 4"/>`;
+    }
+  }
+  // 辐条线（中心到顶点）
+  axes.forEach(([k], i) => {
+    const [x, y] = polar(i, 100, R, c);
+    g += `<line x1="${c}" y1="${c}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="rgba(255,255,255,.10)" stroke-width="0.8"/>`;
+  });
+  // 数据六边形：金属金色渐变 + 发光
+  const dpts = poly(hex, axes, R, c);
+  g += `<defs>
+    <linearGradient id="goldfill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${goldHi}" stop-opacity=".55"/>
+      <stop offset=".5" stop-color="${gold}" stop-opacity=".42"/>
+      <stop offset="1" stop-color="${goldDeep}" stop-opacity=".5"/>
+    </linearGradient>
+    <filter id="goldglow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>`;
+  g += `<polygon points="${dpts}" fill="url(#goldfill)" stroke="${goldHi}" stroke-width="2.2" stroke-linejoin="round" filter="url(#goldglow)"/>`;
+  // 顶点亮点
+  axes.forEach(([k], i) => {
+    const [x, y] = polar(i, hex ? hex[k] : 0, R, c);
+    g += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.2" fill="${goldHi}" stroke="#fff" stroke-width="1" stroke-opacity=".5"/>`;
+  });
+  // 轴标签 + 数值（中文副标注）
+  axes.forEach(([k, label], i) => {
+    const v = hex ? hex[k] : null;
+    const [lx, ly] = polar(i, 100, R + 34, c);
+    const anchor = Math.abs(lx - c) < 6 ? "middle" : (lx > c ? "start" : "end");
+    const val = (v == null ? "–" : v.toFixed(0));
+    g += `<text x="${lx.toFixed(1)}" y="${(ly-2).toFixed(1)}" fill="#e8dcc0" font-size="15" font-weight="700" text-anchor="${anchor}">${label}</text>`;
+    g += `<text x="${lx.toFixed(1)}" y="${(ly+14).toFixed(1)}" fill="${gold}" font-size="12" text-anchor="${anchor}">${val}</text>`;
+  });
+  // 中心角色标识
+  g += `<text x="${c}" y="${c-6}" text-anchor="middle" fill="rgba(232,220,192,.9)" font-size="17" font-weight="800" letter-spacing="2">${meta.role}</text>`;
+  g += `<text x="${c}" y="${c+16}" text-anchor="middle" fill="rgba(212,180,110,.6)" font-size="11" letter-spacing="1">${meta.name||""}</text>`;
+  return `<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}">${g}</svg>`;
+}
+
+/* 双人对比雷达（用户青色 + 选手金色） */
+function radarSVG(uhex, phex, axes){
+  const S = 420, c = 210, R = 148;
+  const uCol = "#7fd0c8", pCol = "#d4b46e";
+  let g = "";
+  for (let ring = 20; ring <= 100; ring += 20){
+    const pts = axes.map((_, i) => polar(i, ring, R, c).map(x=>x.toFixed(1)).join(",")).join(" ");
+    if (ring === 100){
+      g += `<polygon points="${pts}" fill="none" stroke="rgba(212,180,110,.75)" stroke-width="1.4"/>`;
+    } else {
+      g += `<polygon points="${pts}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="0.7" stroke-dasharray="3 4"/>`;
+    }
+  }
+  axes.forEach(([k, label], i) => {
+    const [x, y] = polar(i, 100, R, c);
+    g += `<line x1="${c}" y1="${c}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="rgba(255,255,255,.10)" stroke-width="0.8"/>`;
+    const [lx, ly] = polar(i, 100, R + 30, c);
+    const anchor = Math.abs(lx - c) < 6 ? "middle" : (lx > c ? "start" : "end");
+    g += `<text x="${lx.toFixed(1)}" y="${(ly+4).toFixed(1)}" fill="rgba(200,190,160,.8)" font-size="13" text-anchor="${anchor}">${label}</text>`;
+  });
+  g += `<polygon points="${poly(phex, axes, R, c)}" fill="rgba(212,180,110,.14)" stroke="${pCol}" stroke-width="2" stroke-linejoin="round"/>`;
+  g += `<polygon points="${poly(uhex, axes, R, c)}" fill="rgba(127,208,200,.14)" stroke="${uCol}" stroke-width="2" stroke-linejoin="round"/>`;
+  axes.forEach(([k], i) => {
+    const [px, py] = polar(i, phex ? phex[k] : 0, R, c);
+    const [ux, uy] = polar(i, uhex ? uhex[k] : 0, R, c);
+    g += `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.6" fill="${pCol}"/>`;
+    g += `<circle cx="${ux.toFixed(1)}" cy="${uy.toFixed(1)}" r="2.6" fill="${uCol}"/>`;
+  });
+  return `<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}">${g}</svg>`;
+}
+let HEX_MODE = "single";   // "single"（单人金色，默认）| "compare"（双人对比）
+
+function hexLegendSingle(hex, axes, name){
+  const rows = axes.map(([k, label]) => {
+    const v = hex ? hex[k] : null;
+    return `<div class="hexrow">
+      <span class="lbl">${label}</span>
+      <span class="hexbar"><i class="u" style="width:${v==null?0:v}%"></i></span>
+      <span class="vals"><span class="u">${v==null?"–":v.toFixed(0)}</span></span>
+    </div>`;
+  }).join("");
+  return `${rows}
+    <div class="hextot">
+      <span>综合 <b style="color:#d4b46e">${hex&&hex.overall!=null?hex.overall.toFixed(0):"–"}</b> ${name}</span>
+    </div>`;
+}
+
+function drawHex(){
+  if (!DATA) return;
+  const m = DATA.matches[SEL];
+  if (!m) return;
+  const axes = DATA.axes;
+  const role = guessRole(m.hex);
+  if (HEX_MODE === "single"){
+    $("#hexsvg").innerHTML = radarSVGGold(m.hex, axes, {role, name:m.nickname});
+    $("#hexlegend").innerHTML = hexLegendSingle(m.hex, axes, m.nickname);
+    $("#hexsub").textContent = `金色六边形 = ${m.nickname}（${m.team||"?"}）的战力轮廓。每轴 0–100 分位：数值越大，代表比更多职业选手强。`;
+  } else {
+    $("#hexsvg").innerHTML = radarSVG(DATA.user_hex, m.hex, axes);
+    $("#hexlegend").innerHTML = "";
+    $("#hexsub").textContent = `青 = 你，金 = ${m.nickname}。每轴 0–100 分位：80 表示「比 160 位职业选手里 80% 的人强」，六边形越大越强，形状不同才是打法差异。`;
+  }
+  $("#hexface").innerHTML = m.photo
+    ? `<img class="avatar-lg" src="${m.photo}" alt="${m.nickname}">`
+    : `<div class="hexface-badge">${teamBadge(m.team, 60)}</div>`;
+}
+
+function render(user, sim){
+  const {results, usable} = sim;
+  const top = results.slice(0, 12);
+  const user_hex = hexScore(user);
+  const photo = n => PHOTOS[n] || "";
+  const matches = top.map(r => {
+    const p = r.pro;
+    return {
+      nickname:p.nickname, team:p.team, distance:Math.round(r.dist*1000)/1000,
+      groups:Object.fromEntries(GROUPS.map(g=>[g, r.groups[g]==null?null:Math.round(r.groups[g]*100)/100])),
+      maps:p.maps, rounds:p.rounds, hex:hexScore(p), photo:photo(p.nickname),
+      diffs:r.diffs.slice(0,5).map(x=>({feature:x.f, you:Math.round(x.you*100)/100, pro:Math.round(x.pro*100)/100})),
+      profile:{kpr:p.kpr,adr:p.adr,kd:p.kd,hs_pct:p.hs_pct,flash_per_round:p.flash_per_round,rating_leetify:p.rating_leetify},
+    };
+  });
+  DATA = {user, user_hex, usable_features:usable.length, matches, axes:AXES.map(a=>[a[0], AXIS_EN[a[0]]])};
+  SEL = 0;
+
+  const head = `<tr><th>#</th><th>选手</th><th class="num">距离</th>
+    ${GROUPS_LABEL.map(([,n])=>`<th class="num">${n}</th>`).join("")}
+    <th class="num">图数</th><th class="num">回合</th></tr>`;
+  const rows = matches.map((m,i)=>`<tr data-i="${i}" class="${i===0?"sel":""}">
+    <td class="rank">${i+1}</td>
+    <td><div class="pcell">${m.photo?`<img class="avatar" src="${m.photo}" alt="${m.nickname}">`:teamBadge(m.team,38)}<div class="who"><div class="name">${m.nickname}</div><div class="team">${m.team || ""}</div></div></div></td>
+    <td class="num">${fmt(m.distance,2)}</td>
+    ${GROUPS.map(g=>groupCell(m.groups[g])).join("")}
+    <td class="num">${m.maps}</td>
+    <td class="num">${m.rounds}</td>
+  </tr>`).join("");
+
+  const best = matches[0];
+  const u = user;
+  const kv = [["KPR",u.kpr,best.profile.kpr],["ADR",u.adr,best.profile.adr],["K/D",u.kd,best.profile.kd],
+              ["HS%",u.hs_pct!=null?u.hs_pct*100:null,best.profile.hs_pct!=null?best.profile.hs_pct*100:null],
+              ["闪光/回合",u.flash_per_round,best.profile.flash_per_round],
+              ["Leetify rating",u.rating_leetify,best.profile.rating_leetify]];
+  const kvRows = kv.map(([k,a,b])=>`<div class="kv"><span>${k}</span><span>你 ${fmt(a,2)} · ${best.nickname} ${fmt(b,2)}</span></div>`).join("");
+  const diffs = best.diffs.map(x=>`<div class="kv"><span>${x.feature}</span><span>你 z=${fmt(x.you,2)} · 对方 z=${fmt(x.pro,2)}</span></div>`).join("");
+
+  const warn = (u.rounds||0) > 0 && (u.rounds||0) < 200 ? `<div class="warn">⚠ 样本仅 ${u.rounds||0} 回合 / ${u.maps||0} 张图，结果噪声较大</div>` : "";
+
+  $("#result").innerHTML = `
+    <div class="card">
+      ${warn}
+      <div class="sub">你的样本：${u.maps||"–"} 张图 / ${u.rounds||"–"} 回合 · 参与比较的特征 ${usable.length} 个</div>
+      <h2>最像的 ${matches.length} 位选手</h2>
+      <table><thead>${head}</thead><tbody>${rows}</tbody></table>
+      <div class="sub" style="margin-top:10px">距离 = 各风格特征加权 |z| 距离，越小越像；柱子越长越像。点任意一行，下面的六边形就换成他。</div>
+    </div>
+    <div class="hexcard">
+      <div class="hexhead">
+        <h2>战力六边形</h2>
+        <div class="hexctl">
+          <button type="button" id="hexmode" class="hexmodebtn">对比</button>
+        </div>
+      </div>
+      <div class="hexwrap">
+        <div class="hexleft">
+          <div id="hexsvg"></div>
+          <div class="hexface" id="hexface"></div>
+        </div>
+        <div class="hexlegend" id="hexlegend"></div>
+      </div>
+      <div class="hexsub" id="hexsub"></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>你和 ${best.nickname} 的关键指标</h2>${best.photo?`<div class="besthead"><img class="avatar-lg" src="${best.photo}" alt="${best.nickname}"><span class="sub">${best.nickname} · ${best.team||""}</span></div>`:`<div class="besthead">${teamBadge(best.team,44)}<span class="sub">${best.nickname} · ${best.team||""}</span></div>`}${kvRows}</div>
+      <div class="card"><h2>差异最大的 5 个指标</h2>${diffs}</div>
+    </div>`;
+
+  drawHex();
+  document.querySelectorAll("#result tbody tr").forEach(tr => {
+    tr.addEventListener("click", () => { SEL = Number(tr.dataset.i); markRow(); drawHex(); });
+  });
+  const modeBtn = $("#hexmode");
+  if (modeBtn) modeBtn.onclick = () => {
+    HEX_MODE = HEX_MODE === "single" ? "compare" : "single";
+    modeBtn.textContent = HEX_MODE === "single" ? "对比" : "单人";
+    drawHex();
+  };
+}
+function markRow(){
+  document.querySelectorAll("#result tbody tr").forEach(tr => tr.classList.toggle("sel", Number(tr.dataset.i) === SEL));
+}
+
+/* ================= 表单 ================= */
+const MGROUPS = [["aim","枪法 / 机制"],["impact","火力 / 影响力"],["utility","道具"],["support","支援 / 换人"],["sides","阵营"]];
+
+function buildForm(){
+  let html = "";
+  for (const [g, glabel] of MGROUPS){
+    const items = MANUAL_SPEC.filter(f => f[2] === g);
+    if (!items.length) continue;
+    html += `<div class="mgroup">${glabel}</div>`;
+    for (const f of items){
+      html += `<div class="mfield" data-f="${f[0]}" title="${f[3]||f[1]}">
+        <label>${f[1]}</label>
+        <input type="text" inputmode="decimal" placeholder="留空" data-field="${f[0]}">
+      </div>`;
+    }
+  }
+  $("#mfields").innerHTML = html;
+  $("#mfields").addEventListener("input", countManual);
+}
+function manualValues(){
+  const out = {};
+  document.querySelectorAll("#mfields input").forEach(i => {
+    const v = i.value.trim();
+    if (v !== "" && !Number.isNaN(Number(v))) out[i.dataset.field] = Number(v);
+  });
+  return out;
+}
+function countManual(){
+  const vals = manualValues();
+  document.querySelectorAll("#mfields .mfield").forEach(d => {
+    d.classList.toggle("on", Object.prototype.hasOwnProperty.call(vals, d.dataset.f));
+  });
+  const n = Object.keys(vals).length;
+  const tips = n < 4 ? "还不够，至少 4 项" : (n < 8 ? "能算了，但建议再补几项" : "够用了");
+  $("#mcount").innerHTML = `已填 <b>${n}</b> 项 · ${tips}`;
+}
+
+function runWithValues(vals){
+  if (Object.keys(vals).length < 4){
+    $("#status").innerHTML = `<div class="err" style="padding:14px 0">至少需要 4 项才能匹配。最省事的 4 项：K/D、ADR、爆头击杀占比、击杀/回合。</div>`;
+    return false;
+  }
+  const user = Object.assign({}, vals, {
+    rounds: parseInt($("#mrounds").value) || 0,
+    maps: parseInt($("#mmaps").value) || 0,
+  });
+  // 百分比类字段：业余玩家填 52 表示 52%，职业数据是 0.52
+  for (const k in user){
+    if (PCT_FIELDS.has(k) && user[k] > 1.5) user[k] /= 100;
+  }
+  $("#status").innerHTML = "";
+  try{
+    const sim = similarity(user);
+    render(user, sim);
+    window.scrollTo({top:0, behavior:"smooth"});
+    return true;
+  }catch(e){
+    $("#status").innerHTML = `<div class="err" style="padding:14px 0">${e.message}</div>`;
+    return false;
+  }
+}
+
+function runManual(){
+  runWithValues(manualValues());
+}
+
+function parsePaste(){
+  const text = $("#pasteraw").value;
+  if (!text.trim()){ $("#pastehint").textContent = "先粘点东西进来"; return; }
+  const d = parseText(text);
+  const vals = d.values || {};
+
+  // 先把识别结果填进手动表单（供用户核对/补充）
+  let n = 0;
+  document.querySelectorAll("#mfields input").forEach(i => {
+    if (Object.prototype.hasOwnProperty.call(vals, i.dataset.field)){ i.value = vals[i.dataset.field]; n++; }
+  });
+  countManual();
+  const chips = (d.matched || []).map(m =>
+    `<span class="chip${m.estimated?" est":""}" title="${m.label} ${m.raw}${m.estimated?"（按每图 "+(Math.round((d.rounds_per_map||21.5)*10)/10)+" 回合折算）":""}">${m.label} ${m.display}${m.estimated?" 折算":""}</span>`).join("");
+  const ign = (d.ignored||[]).slice(0,4).map(t=>`<span class="chip ign" title="没认出来">${t}</span>`).join("");
+  $("#pastechips").innerHTML = chips + ign;
+
+  // 字段够就直接匹配；不够则展开手动区提示补充
+  if (n >= 4){
+    runWithValues(vals);
+    $("#pastehint").textContent = `识别 ${n} 项，已直接匹配。要调整就点开下方「手动填数据」改。`;
+  }else{
+    $("#manualcard").open = true;
+    $("#pastehint").textContent = n
+      ? `只识别出 ${n} 项，还不够匹配，请在下方手动补几项（至少 4 项）`
+      : "没认出可用字段，试试加标签，比如「ADR 84」「爆头率 45%」，或点开下方手动填。";
+  }
+}
+
+const SAMPLE = {kd:1.12, adr:84, hs_pct:52, kpr:0.78, survived_pct:38, apr:0.16,
+  flash_per_round:0.72, flash_assist_per_round:0.09, molotov_per_round:0.30,
+  smoke_per_round:0.55, multi2k_per_round:0.16};
+function fillSample(){
+  document.querySelectorAll("#mfields input").forEach(i => {
+    if (Object.prototype.hasOwnProperty.call(SAMPLE, i.dataset.field)) i.value = SAMPLE[i.dataset.field];
+  });
+  $("#mrounds").value = 900;
+  $("#mmaps").value = 40;
+  countManual();
+}
+
+$("#pastego").addEventListener("click", parsePaste);
+$("#msample").addEventListener("click", fillSample);
+$("#mgo").addEventListener("click", runManual);
+
+buildForm();
+countManual();
+
+const QP = new URLSearchParams(location.search);
+if (QP.get("sample")){ fillSample(); runManual(); }
+
+</script>
+</body>
+</html>
