@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CS2 打法匹配器 · 紫荆情怀</title>
 <style>
+  @font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/SourceHanSerifCN-Regular.woff2") format("woff2")}
+  @font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/SourceHanSerifCN-Bold.woff2") format("woff2")}
   :root{
-    --bg:#eae6f5; --bg2:#e2dcf0; --panel:#ffffff; --panel2:#f4f1fc;
-    --line:#e2dcf0; --line2:#cfc6e8;
+    --bg:#f5efe6; --bg2:#efe6d8; --panel:#ffffff; --panel2:#f7f1e8;
+    --line:#efe6d8; --line2:#e0d3bf;
     --text:#1c1730; --dim:#585170; --dim2:#6b6484;
     --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
     --accent:#6b3fb8; --accent2:#c2185b;
@@ -19,13 +21,9 @@
   body{
     background:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E"),
-      radial-gradient(1000px 640px at 6% 4%, rgba(194,24,91,.22) 0%, transparent 60%),
-      radial-gradient(900px 620px at 96% 8%, rgba(11,122,141,.20) 0%, transparent 58%),
-      radial-gradient(1100px 700px at 50% 96%, rgba(107,63,184,.22) 0%, transparent 60%),
-      radial-gradient(760px 520px at 20% 55%, rgba(95,227,245,.16) 0%, transparent 55%),
       var(--bg);
     color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    font-family:"Source Han Serif CN","Noto Serif SC","Songti SC","SimSun","STSong",serif;
     line-height:1.7;font-size:15px;
     -webkit-font-smoothing:antialiased}
   a{color:inherit}
@@ -35,10 +33,10 @@
   .site-header{position:sticky;top:0;z-index:60;background:rgba(250,248,255,.94);
     backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
   .header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:16px}
-  .logo{font-size:19px;font-weight:700;text-decoration:none;color:var(--text)}
+  .logo{font-size:20px;font-weight:700;text-decoration:none;color:var(--text)}
   .logo .dot{color:var(--pink)}
   .nav{display:flex;gap:20px;align-items:center}
-  .nav a{text-decoration:none;color:var(--dim);font-size:15px;transition:color .2s;padding:4px 0}
+  .nav a{text-decoration:none;color:var(--dim);font-size:16.5px;transition:color .2s;padding:4px 0}
   .nav a:hover,.nav a.active{color:var(--cyan)}
 
   /* 页面标题区 */
@@ -78,8 +76,8 @@
   th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
   th{color:var(--dim2);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em}
   tbody tr{cursor:pointer;transition:background .14s}
-  tbody tr:hover{background:#f6f3fd}
-  tbody tr.sel{background:linear-gradient(90deg,#efe9fa,#fdf2f6);box-shadow:inset 3px 0 0 var(--violet)}
+  tbody tr:hover{background:#f8f2e9}
+  tbody tr.sel{background:linear-gradient(90deg,#f7eee0,#faf0e2);box-shadow:inset 3px 0 0 var(--violet)}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   .rank{color:var(--dim2);width:34px}
   .name{font-weight:600}
@@ -87,7 +85,7 @@
   .bar{display:inline-block;height:6px;border-radius:4px;
     background:linear-gradient(90deg,var(--pink),var(--violet));vertical-align:middle}
   .barcell{width:74px}
-  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;background:#eeeaf7;color:var(--dim2)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;background:#f3ead9;color:var(--dim2)}
   .warn{color:var(--warn);font-size:13px}
   details{margin:18px 0 0}
   details summary{cursor:pointer;color:var(--dim);font-size:14px;font-weight:600;
@@ -119,7 +117,7 @@
   .chip{font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(107,63,184,.08);
     color:var(--violet);border:1px solid rgba(107,63,184,.22);font-variant-numeric:tabular-nums}
   .chip.est{background:rgba(138,90,0,.09);color:#8a5a00;border-color:rgba(138,90,0,.3)}
-  .chip.ign{background:#f1eef7;color:var(--dim2);border-color:var(--line2)}
+  .chip.ign{background:#f2ecdf;color:var(--dim2);border-color:var(--line2)}
   .hexhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
   .hexhead h2{margin:0}
   .hexctl{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dim)}
@@ -147,7 +145,7 @@
   .site-footer p{color:var(--dim2);font-size:13.5px}
 
   @media(max-width:700px){
-    .nav{gap:14px}.nav a{font-size:14px}
+    .nav{gap:14px}.nav a{font-size:15px}
     .page-head{padding:36px 0 4px}
   }
 </style>

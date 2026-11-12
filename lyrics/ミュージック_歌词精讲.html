@@ -46,7 +46,7 @@ body{
     radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
     var(--bg);
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-family:"Source Han Serif CN","Noto Serif SC","Songti SC","SimSun","STSong",serif;
   font-size:var(--fs-body);
   line-height:1.75;
   -webkit-font-smoothing:antialiased;
@@ -221,8 +221,8 @@ footer{text-align:center;color:var(--muted2);font-size:13px;margin-top:52px;
 
 /* ---------- 浅色主题（共用部分） ---------- */
 html.light{
-  --bg:#f5f3fb; --bg2:#eeeaf8; --panel:#ffffff; --panel2:#f4f1fc;
-  --line:#e2dcf0; --line2:#cfc6e8;
+  --bg:#f5efe6; --bg2:#efe6d8; --panel:#ffffff; --panel2:#f7f1e8;
+  --line:#efe6d8; --line2:#e0d3bf;
   --text:#1c1730; --muted:#585170; --muted2:#6b6484;
   /* 浅底上必须换一套更深的强调色：原来的青/粉在白色上只有 1.7–2.5:1 */
   --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
@@ -337,6 +337,23 @@ html.light .pager a:hover{background:#f4f1fc;}
   .pager a{align-items:flex-start;text-align:left;}
   .pager .next{align-items:flex-start;text-align:left;}
 }
+/* ---------- 思源宋体（自托管） ---------- */
+@font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/SourceHanSerifCN-Regular.woff2") format("woff2");}
+@font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/SourceHanSerifCN-Bold.woff2") format("woff2");}
+
+/* ---------- 完整导航（与博客首页一致） ---------- */
+.bar .mainnav{display:flex;align-items:center;gap:18px;}
+.bar .mainnav a{text-decoration:none;color:var(--muted);font-size:16.5px;font-weight:400;
+  padding:4px 0;transition:color .2s;}
+.bar .mainnav a:hover{color:var(--cyan);}
+.bar .mainnav a.active{color:var(--cyan);font-weight:700;}
+.bar .theme{flex-shrink:0;}
+.bar .logo{font-size:20px;font-weight:700;color:var(--text);text-decoration:none;margin-right:auto;}
+.bar .logo .dot{color:var(--pink);}
+@media (max-width:700px){
+  .bar .mainnav{gap:12px;overflow-x:auto;}
+  .bar .mainnav a{font-size:15px;white-space:nowrap;}
+}
 </style>
 </head>
 <body>
@@ -345,8 +362,14 @@ html.light .pager a:hover{background:#f4f1fc;}
 
 <div class="bar" id="bar">
   <div class="row">
-    <div class="sp"></div>
-    <a class="home-link" href="../index.html" title="返回博客首页">返回首页</a>
+    <a class="logo" href="../index.html">紫荆情怀<span class="dot">.</span></a>
+    <nav class="mainnav">
+      <a href="../index.html">首页</a>
+      <a href="../index.html#posts">文章</a>
+      <a href="../index.html#lyrics" class="active">歌词精讲</a>
+      <a href="../index.html#tools">小工具</a>
+      <a href="../about.html">关于</a>
+    </nav>
     <button class="tg icon theme" id="themeBtn" aria-pressed="false" title="切换深浅色">🌙</button>
   </div>
 </div>
