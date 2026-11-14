@@ -1,9 +1,9 @@
 // 由 lyrics_data.json 生成，供专区页在 file:// 协议下离线加载
 const LYRICS_DATA = {
-  "total": 15,
-  "total_lines": 686,
-  "total_words": 2309,
-  "total_grammar": 1170,
+  "total": 17,
+  "total_lines": 743,
+  "total_words": 2483,
+  "total_grammar": 1282,
   "songs": [
     {
       "seq": 1,
@@ -281,6 +281,42 @@ const LYRICS_DATA = {
         "n3": 16,
         "n2": 13,
         "rep": 4
+      }
+    },
+    {
+      "seq": 16,
+      "nav": "ローリンガール",
+      "title": "ローリンガール",
+      "subtitle": "ろーりんがーる / Rolling Girl",
+      "artist": "wowaka feat. 初音ミク",
+      "file": "ローリンガール_歌词精讲.html",
+      "deep": "",
+      "lines": 28,
+      "words": 82,
+      "grammar": 51,
+      "levels": {
+        "n3": 13,
+        "n4": 3,
+        "n2": 6,
+        "rep": 6
+      }
+    },
+    {
+      "seq": 17,
+      "nav": "三日月ステップ",
+      "title": "三日月ステップ",
+      "subtitle": "みかづきすてっぷ / Mikazuki Step",
+      "artist": "r-906 feat. 初音ミク",
+      "file": "三日月ステップ_歌词精讲.html",
+      "deep": "",
+      "lines": 29,
+      "words": 92,
+      "grammar": 61,
+      "levels": {
+        "n4": 3,
+        "n2": 12,
+        "n3": 12,
+        "rep": 2
       }
     }
   ]

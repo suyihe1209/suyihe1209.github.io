@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ローリンガール / wowaka feat. 初音ミク —— 逐句歌词精讲</title>
+<meta name="description" content="「ローリンガール」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ローリンガール / wowaka feat. 初音ミク —— 逐句歌词精讲">
+<meta property="og:description" content="「ローリンガール」日语歌词逐句精讲：假名、罗马音、逐词拆解、句法结构与中文白话翻译（Lyrics Breakdown · 逐句精讲）">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2308070d'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ff6fb5' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%235fe3f5'/%3E%3C/svg%3E">
+<style>
+/* ==== assets/base.css 内联 ==== */
+/* ===== base.css —— 单曲与合集共用的样式（构建时内联进 <style>） ===== */
+
+/* ---------- 设计令牌 ---------- */
+:root{
+  --bg:#08070d;
+  --bg2:#0c0a14;
+  --panel:#131020;
+  --panel2:#1a1529;
+  --line:#282040;
+  --line2:#3a2e5c;
+  --text:#ece9f7;
+  --muted:#a09ab6;
+  --muted2:#8b84a6;
+  --cyan:#5fe3f5;
+  --pink:#ff6fb5;
+  --violet:#b78cff;
+  --amber:#ffc266;
+  --green:#7ff0a8;
+  --red:#ff8080;
+  --nav-h:64px;
+  --r-md:14px;
+  --r-sm:11px;
+  --fs-body:15px;
+  --fs-sm:14px;
+  --fs-xs:13px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 14px);}
+body{
+  margin:0; background:
+    radial-gradient(1100px 560px at 12% -8%, #2a1040 0%, transparent 58%),
+    radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:"Source Han Serif CN","Noto Serif SC","Songti SC","SimSun","STSong",serif;
+  font-size:var(--fs-body);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-size-adjust:100%;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 120px;}
+
+/* ---------- 页头 ---------- */
+.kicker{font-size:12px;letter-spacing:.28em;color:var(--pink);text-transform:uppercase;font-weight:700;}
+h1{font-size:clamp(28px,5vw,44px);margin:12px 0 6px;letter-spacing:.02em;line-height:1.2;}
+h1 .sub{display:block;font-size:.40em;color:var(--muted);font-weight:400;letter-spacing:.16em;margin-top:10px;}
+.byline{color:var(--muted);font-size:14.5px;margin-top:14px;}
+.byline code{background:var(--panel2);padding:2px 7px;border-radius:5px;color:var(--cyan);font-size:13px;}
+
+/* ---------- 卡片区 ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px;margin:16px 0;}
+.card h2{font-size:17.5px;margin:0 0 12px;color:var(--pink);letter-spacing:.04em;display:flex;align-items:center;gap:9px;}
+.card h2::before{content:"";width:4px;height:16px;background:var(--pink);border-radius:2px;}
+.card.cy h2{color:var(--cyan);} .card.cy h2::before{background:var(--cyan);}
+.card.ok{border-color:#1e4a30;background:linear-gradient(180deg,#0b1c13,#0e0d18);}
+.card.ok h2{color:var(--green);} .card.ok h2::before{background:var(--green);}
+.card.ok p{margin:8px 0;font-size:var(--fs-body);}
+.card.ok b{color:var(--green);}
+.card.hot{border-color:#4a2a3d;}
+.card.hot h2{color:var(--pink);}
+
+/* ---------- 工具栏（单曲 .bar / 合集 .nav 共用控件） ---------- */
+.tg{border:1px solid var(--line2);background:var(--panel2);color:var(--muted);
+    font-size:13.5px;padding:6px 13px;border-radius:20px;cursor:pointer;transition:.16s;
+    user-select:none;font-family:inherit;line-height:1.5;display:inline-flex;align-items:center;gap:6px;}
+.tg:hover{color:var(--text);border-color:var(--pink);}
+.tg.on{background:rgba(255,111,181,.15);border-color:var(--pink);color:var(--pink);font-weight:600;}
+.tg.icon{padding:6px 10px;font-size:14px;}
+.sp{flex:1;}
+.count{font-size:var(--fs-xs);color:var(--muted2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+
+.search{position:relative;display:flex;align-items:center;flex:none;}
+.search input{
+  width:210px;max-width:42vw;background:var(--panel2);border:1px solid var(--line2);
+  border-radius:20px;color:var(--text);font-family:inherit;font-size:13.5px;
+  padding:6px 30px 6px 32px;transition:.16s;
+}
+.search input::placeholder{color:var(--muted2);}
+.search input:focus{border-color:var(--cyan);background:var(--panel);}
+.search::before{
+  content:"";position:absolute;left:12px;width:12px;height:12px;pointer-events:none;
+  border:2px solid var(--muted2);border-radius:50%;
+}
+.search::after{
+  content:"";position:absolute;left:21px;top:20px;width:5px;height:2px;pointer-events:none;
+  background:var(--muted2);transform:rotate(45deg);
+}
+.search input:focus ~ .search::before{border-color:var(--cyan);}
+
+/* ---------- 段落 ---------- */
+.sec{margin-top:34px;}
+.sec-h{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);
+       padding-bottom:9px;margin-bottom:4px;flex-wrap:wrap;}
+.sec-h .n{font-size:12.5px;font-weight:800;letter-spacing:.2em;color:var(--cyan);}
+.sec-h h3{margin:0;font-size:20px;}
+.sec-h .jp{color:var(--muted);font-size:14px;}
+.sec-h .sp{flex:1;min-width:0;}
+.sec-tg{border:1px solid transparent;background:transparent;color:var(--muted2);
+        font-family:inherit;font-size:12.5px;padding:4px 10px;border-radius:14px;
+        cursor:pointer;transition:.16s;white-space:nowrap;}
+.sec-tg:hover{color:var(--pink);border-color:var(--line2);background:var(--panel2);}
+.sec-cnt{font-size:12px;color:var(--muted2);font-variant-numeric:tabular-nums;white-space:nowrap;}
+/* 搜索时整段无命中的降级显示（不留空白壳） */
+.sec.nomatch{opacity:.42;}
+.sec.nomatch .sec-h::after{content:"（无匹配）";font-size:12px;color:var(--muted2);}
+
+/* ---------- 句子（阅读优先：连续流，无卡片边框） ---------- */
+.line{position:relative;padding:13px 0 13px;margin:0;border-bottom:1px solid rgba(40,32,64,.55);
+      transition:background .16s;}
+.line:hover{background:rgba(255,255,255,.022);}
+.line.hide{display:none;}
+.line.open{background:rgba(255,255,255,.045);padding-left:16px;}
+.line.open::before{content:"";position:absolute;left:2px;top:12px;bottom:12px;width:3px;
+                   background:var(--pink);border-radius:3px;}
+
+.head{cursor:pointer;position:relative;padding-right:26px;border-radius:8px;}
+.head:hover .chev{opacity:.55;color:var(--pink);}
+.head:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+.orig{font-size:21px;letter-spacing:.03em;line-height:1.55;
+      font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:600;}
+.rd{font-size:14px;color:var(--cyan);margin-top:4px;letter-spacing:.02em;display:none;}
+.ro{font-size:13px;color:var(--muted2);margin-top:3px;font-style:italic;display:none;}
+.tr{font-size:var(--fs-body);color:#c9c3dc;margin-top:9px;padding-left:12px;
+    border-left:2px solid var(--line2);display:none;}
+.foot{display:flex;align-items:center;gap:9px;margin-top:10px;min-height:20px;}
+.lv{font-size:11px;font-weight:800;padding:2.5px 9px;border-radius:20px;letter-spacing:.05em;white-space:nowrap;}
+.lv.n5{background:rgba(127,240,168,.15);color:var(--green);border:1px solid rgba(127,240,168,.35);}
+.lv.n4{background:rgba(95,227,245,.14);color:var(--cyan);border:1px solid rgba(95,227,245,.34);}
+.lv.n3{background:rgba(255,194,102,.14);color:var(--amber);border:1px solid rgba(255,194,102,.34);}
+.lv.n2{background:rgba(255,128,128,.13);color:var(--red);border:1px solid rgba(255,128,128,.32);}
+.lv.rep{background:rgba(183,140,255,.14);color:var(--violet);border:1px solid rgba(183,140,255,.34);}
+.chev{position:absolute;right:2px;top:3px;font-size:12px;color:var(--muted2);
+      opacity:.28;transition:.18s;pointer-events:none;}
+.line.open .chev{opacity:1;color:var(--pink);transform:rotate(180deg);}
+
+.detail{display:none;padding:14px 0 4px;}
+.line.open .detail{display:block;animation:fade .2s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.detail h4{font-size:12.5px;letter-spacing:.16em;color:var(--violet);margin:16px 0 8px;font-weight:700;}
+.detail h4:first-child{margin-top:4px;}
+
+/* ---------- 表格 ---------- */
+table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+th{text-align:left;color:var(--muted2);font-weight:600;font-size:12px;letter-spacing:.1em;
+   padding:6px 9px;border-bottom:1px solid var(--line2);white-space:nowrap;}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:hover td{background:rgba(255,111,181,.05);}
+td.w{font-weight:700;color:var(--text);white-space:nowrap;
+     font-family:"Yu Gothic","Noto Sans JP",sans-serif;font-size:16px;}
+td.rd2{color:var(--cyan);font-size:13.5px;white-space:nowrap;}
+td.pos{color:var(--pink);font-size:12.5px;white-space:nowrap;}
+td.mn{color:#c9c3dc;}
+td.nt{color:var(--muted);font-size:13px;}
+
+.sx{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin-top:8px;}
+.sx th{font-size:12px;letter-spacing:.1em;padding:8px 10px;border-bottom:1px solid var(--line2);color:var(--muted2);}
+.sx td{padding:9px 10px;border-bottom:1px solid var(--line);}
+.sx td.a{color:var(--pink);font-weight:700;font-family:"Yu Gothic",sans-serif;font-size:15px;}
+.sx td.b{color:var(--cyan);font-family:"Yu Gothic",sans-serif;}
+.sx td.c{color:#c9c3dc;}
+.sx tr:hover td{background:rgba(95,227,245,.05);}
+/* 卡片里的表：窄屏横向滚动 */
+.card .sx{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* ---------- 语法 / 大白话 / 提示 ---------- */
+.g{margin:8px 0;padding:11px 14px;background:var(--panel2);border-radius:9px;
+   border-left:3px solid var(--violet);font-size:14.5px;}
+.g b{color:var(--violet);}
+.plain{margin-top:12px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+       background:rgba(127,240,168,.07);border-left:3px solid var(--green);color:#cdeada;}
+.plain b{color:var(--green);}
+.tip{margin-top:10px;padding:11px 14px;border-radius:9px;font-size:14.5px;
+     background:rgba(255,194,102,.07);border-left:3px solid var(--amber);color:#eadfc7;}
+.tip b{color:var(--amber);}
+
+/* ---------- 小卡网格 ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:6px;}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;}
+.mini .t{font-size:15px;font-weight:700;color:var(--cyan);margin-bottom:6px;}
+.mini .d{font-size:13.5px;color:var(--muted);}
+.mini .d em{color:var(--text);font-style:normal;background:rgba(95,227,245,.1);padding:1px 5px;border-radius:4px;
+            font-family:"Yu Gothic",sans-serif;}
+.mini .ex{font-size:13.5px;margin-top:7px;color:#c9c3dc;padding-top:7px;border-top:1px solid var(--line);}
+.mini .ex span{color:var(--pink);}
+
+footer{text-align:center;color:var(--muted2);font-size:13px;margin-top:52px;
+       padding-top:22px;border-top:1px solid var(--line);}
+
+/* ---------- 空结果提示 ---------- */
+.empty{display:none;padding:26px 0;text-align:center;color:var(--muted2);font-size:14px;}
+.empty.on{display:block;}
+
+/* ---------- 可访问性 ---------- */
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px;}
+.skip{position:absolute;left:-9999px;top:0;background:var(--panel2);color:var(--text);
+      padding:10px 16px;border-radius:0 0 10px 0;z-index:200;}
+.skip:focus{left:0;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+
+/* ---------- 浅色主题（共用部分） ---------- */
+html.light{
+  --bg:#f5efe6; --bg2:#efe6d8; --panel:#ffffff; --panel2:#f7f1e8;
+  --line:#efe6d8; --line2:#e0d3bf;
+  --text:#1c1730; --muted:#585170; --muted2:#6b6484;
+  /* 浅底上必须换一套更深的强调色：原来的青/粉在白色上只有 1.7–2.5:1 */
+  --cyan:#0b7a8d; --pink:#c2185b; --violet:#6b3fb8;
+  --amber:#8a5a00; --green:#0f7a46; --red:#b3261e;
+}
+html.light body{background:
+  radial-gradient(1100px 560px at 12% -8%, #efe7fb 0%, transparent 58%),
+  radial-gradient(900px 520px at 92% 2%, #e6f4fa 0%, transparent 55%),
+  var(--bg);}
+html.light .line{border-bottom-color:var(--line);}
+html.light .line:hover{background:rgba(40,32,64,.028);}
+html.light .line.open{background:rgba(40,32,64,.05);}
+html.light .card.ok{border-color:#b9e2c8;background:linear-gradient(180deg,#f2fbf5,#ffffff);}
+html.light .card.hot{border-color:#e8c2d4;}
+html.light .tr,html.light td.mn,html.light .sx td.c,html.light .mini .ex{color:#4d4763;}
+html.light .plain{color:#1c6e40;background:rgba(23,138,76,.09);}
+html.light .tip{color:#7a5b14;background:rgba(191,138,26,.1);}
+html.light .g{background:#f7f4ff;}
+html.light .tg{background:#fff;}
+html.light .search input{background:#fff;}
+html.light footer{border-top-color:var(--line);}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:700px){
+  :root{--fs-body:15px;}
+  .wrap{padding:0 14px 90px;}
+  .orig{font-size:18.5px;}
+  .card{padding:16px 15px;border-radius:12px;}
+  .count{font-size:12.5px;}
+  .search input{width:150px;padding:6px 26px 6px 30px;font-size:13px;}
+  .sec{margin-top:28px;}
+  .sec-h h3{font-size:18px;}
+
+  /* 歌词里的逐词表：改成「一行一词」的块，避免 5 列在窄屏被裁 */
+  .line .sx{display:block;width:100%;margin-top:6px;}
+  .line .sx thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .line .sx tbody,.line .sx tr,.line .sx td{display:block;width:auto;}
+  .line .sx tr{padding:9px 0 10px;border-bottom:1px solid var(--line);}
+  .line .sx tr:hover td{background:transparent;}
+  .line .sx td{border:0;padding:0;white-space:normal;}
+  .line .sx td.w{font-size:16.5px;font-weight:700;margin-bottom:2px;}
+  .line .sx td.rd2{font-size:13.5px;}
+  .line .sx td.pos{font-size:12px;margin:3px 0 1px;}
+  .line .sx td.mn{font-size:14px;}
+  .line .sx td.nt{font-size:13px;color:var(--muted2);margin-top:4px;}
+  /* 用 data-h 给移动端补上列名标签（只留给释义/备注，词头三行靠字号和颜色区分） */
+  .line .sx td[data-h]::before{content:attr(data-h);color:var(--muted2);font-size:10.5px;
+    letter-spacing:.12em;margin-right:7px;}
+  .line .sx td.w[data-h]::before,.line .sx td.rd2[data-h]::before,
+  .line .sx td.pos[data-h]::before{display:none;}
+  .line .sx td.mn[data-h]{font-size:14.5px;}
+  .line .sx td.nt[data-h]::before{display:none;}
+  .line .sx td.nt[data-h]{padding-left:11px;border-left:2px solid var(--line2);}
+  .line{padding:12px 0;}
+  .line.open{padding-left:13px;}
+  .line.open::before{left:1px;width:3px;}
+  .detail h4{font-size:12px;}
+}
+
+/* ---------- 打印 ---------- */
+@media print{
+  html,body{background:#fff!important;color:#111!important;}
+  .nav,.bar,.search,.chev,.sec-tg,.theme,.modeSwitch,.skip{display:none!important;}
+  .wrap{max-width:none;padding:0;}
+  .card,.line,.mini,.g,.plain,.tip{background:#fff!important;border-color:#bbb!important;
+    break-inside:avoid;box-shadow:none!important;}
+  .orig,.tr,td,.sx td{color:#111!important;}
+  .rd{color:#0a6b7a!important;}
+  .lv{border-color:#999!important;}
+  .line{page-break-inside:avoid;}
+  a[href]::after{content:"";}
+}
+
+
+/* ===== 单曲页专用：工具条 / 主标题区 / 浅色覆盖 ===== */
+.bar{position:sticky;top:0;z-index:60;background:rgba(8,7,13,.94);
+     backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+.bar .row{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.bar .sp{flex:1 1 auto;}
+.bar .count{font-size:12.5px;}
+
+header{padding:46px 0 26px;position:relative;overflow:hidden;}
+header .ball{position:absolute;right:-10px;top:-4px;height:112%;opacity:.55;pointer-events:none;}
+header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10px;}
+.gfoot{opacity:.78;}
+
+html.light .bar{background:rgba(250,248,255,.94);}
+
+@media (max-width:700px){
+  .bar .row{padding:8px 12px;gap:6px;}
+  .bar .sp{display:none;}
+  header{padding:28px 0 18px;}
+  header .ball{display:none;}
+}
+/* ---------- 思源宋体（自托管） ---------- */
+@font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/SourceHanSerifCN-Regular.woff2") format("woff2");}
+@font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/SourceHanSerifCN-Bold.woff2") format("woff2");}
+
+/* ---------- 完整导航（与博客首页一致） ---------- */
+.bar .mainnav{display:flex;align-items:center;gap:18px;}
+.bar .mainnav a{text-decoration:none;color:var(--muted);font-size:16.5px;font-weight:400;
+  padding:4px 0;transition:color .2s;}
+.bar .mainnav a:hover{color:var(--cyan);}
+.bar .mainnav a.active{color:var(--cyan);font-weight:700;}
+.bar .logo{font-size:20px;font-weight:700;color:var(--text);text-decoration:none;margin-right:auto;}
+.bar .logo .dot{color:var(--pink);}
+@media (max-width:700px){
+  .bar .mainnav{gap:12px;overflow-x:auto;}
+  .bar .mainnav a{font-size:15px;white-space:nowrap;}
+}
+
+/* ---------- 上一首 / 下一首 ---------- */
+.pager{display:flex;justify-content:space-between;align-items:stretch;gap:12px;margin-top:48px;}
+.pager a{flex:1;text-decoration:none;color:var(--text);background:transparent;
+  border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;
+  transition:.16s;display:flex;flex-direction:column;gap:4px;min-width:0;}
+.pager a:hover{border-color:var(--pink);background:transparent;transform:translateY(-2px);}
+.pager .lab{font-size:11.5px;letter-spacing:.14em;color:var(--muted2);font-weight:700;}
+.pager .ttl{font-size:15px;font-weight:700;color:var(--cyan);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pager .next{align-items:flex-end;text-align:right;}
+.pager .prev{align-items:flex-start;text-align:left;}
+.pager .spacer{flex:1;border:1px dashed var(--line);border-radius:var(--r-md);display:flex;
+  align-items:center;justify-content:center;color:var(--muted2);font-size:12.5px;letter-spacing:.1em;}
+html.light .pager a{background:transparent;}
+html.light .pager a:hover{background:transparent;}
+@media (max-width:700px){
+  .pager{flex-direction:column;}
+  .pager a{align-items:flex-start;text-align:left;}
+  .pager .next{align-items:flex-start;text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#lyrics">跳到正文</a>
+
+<div class="bar" id="bar">
+  <div class="row">
+    <a class="logo" href="../index.html">紫荆情怀<span class="dot">.</span></a>
+    <nav class="mainnav">
+      <a href="../index.html">首页</a>
+      <a href="../index.html#posts">文章</a>
+      <a href="../index.html#lyrics" class="active">歌词精讲</a>
+      <a href="../index.html#tools">小工具</a>
+      <a href="../about.html">关于</a>
+    </nav>
+    <button class="tg icon theme" id="themeBtn" aria-pressed="false" title="切换深浅色">🌙</button>
+  </div>
+</div>
+
+<main class="wrap" id="stage">
+<header>
+  <svg class="ball" viewBox="0 0 120 300" fill="none" aria-hidden="true">
+    <rect x="22" y="190" width="76" height="10" rx="5" fill="#7c4dcc" opacity=".55"/>
+    <rect x="36" y="214" width="48" height="9" rx="4.5" fill="#5fe3f5" opacity=".5"/>
+    <rect x="18" y="76" width="84" height="11" rx="5.5" fill="#ff6fb5" opacity=".85"/>
+    <rect x="30" y="98" width="60" height="9" rx="4.5" fill="#ff6fb5" opacity=".6"/>
+    <rect x="44" y="120" width="40" height="8" rx="4" fill="#b78cff" opacity=".55"/>
+    <rect x="26" y="146" width="66" height="9" rx="4.5" fill="#5fe3f5" opacity=".45"/>
+    <rect x="38" y="166" width="44" height="8" rx="4" fill="#7c4dcc" opacity=".45"/>
+  </svg>
+  <div class="kicker">Lyrics Breakdown · 逐句精讲</div>
+  <h1>ローリンガール<span class="sub">ろーりんがーる / Rolling Girl</span></h1>
+  <div class="byline">wowaka feat. 初音ミク ／ 作詞・作曲：<code>wowaka</code> ／ 2010-02-14 投稿（ニコニコ動画）· 2011-05-18 収録<br>目标水平：<code>JLPT N4–N3</code> ／ 全曲逐句拆词 + 句法结构 + 捉迷藏的双关</div>
+</header>
+
+<div class="card hot">
+<h2>先说清楚：这是一场玩不完的捉迷藏，最后她自己喊了「好了哦」</h2>
+<p>表面上是「少女不停跌倒」，其实是一首歌把<b>捉迷藏玩成了一场自杀</b>：「もう良いかい？」「まだだよ」是躲的人与找的人的固定问答，全曲问了三次，前两次都回答「还没有」，最后一次答「好了哦——你也累了吧」。它不是情歌，是一份<b>允许自己停下来的申请书</b>。</p><p>28 行歌词里有五个坑，排掉再读会顺很多：</p><p>① <b>歌名就是双关</b>。第 1 句唱「<b>ロンリー</b>ガール（lonely）」，第 12 句变成「<b>ローリン</b>ガール（rolling）」。两个词只差一个音节——孤独的女孩就是滚下去的女孩。</p><p>② <b>「もう良いかい？」来自捉迷藏</b>。它不是「你好了吗」，是「我可以开始找你了吗」；回答「まだだよ」也不是撒娇，是「还没藏好」。听懂这一点，整首歌的时间就全部是倒着走的。</p><p>③ <b>三次「言葉に◯を奏でながら」只换了中间那个词</b>：第 9 句是「意味」，第 26 句是「笑み」——第一次她给话配上意义，最后一次给话配上一个笑。而笑是全曲唯一不需要被相信的东西。</p><p>④ <b>「転がる」是全曲的主轴动词</b>。滚、摔倒、堕落都用它；第 7 句用自动词「私<b>は</b>転がります」（我自己滚），第 18 句换成他动词「私<b>を</b>転がして」（求你把我滚下去）。</p><p>⑤ <b>没有一句是确定的</b>。「失われた？」「見えるだろう」「疲れたろう」「ね」——全曲的问号和推测句一路到底，连「停不停」都不肯说死。</p><p>建议用法：先只读三次副歌的结尾三句（第 10–11、21–22、27–28 句），把「もう良いかい／まだ／もう良いよ」这组问答的演变抓住；再回头读主歌，你会发现每一句都在为最后那个「好了哦」铺路。</p>
+</div>
+
+<div class="card">
+<h2>先把这 8 个套路拿下：这首歌真正的语言骨架</h2>
+<div class="grid">
+<div class="mini"><div class="t">① 捉迷藏的三句口令</div><div class="d">「もう良いかい？」（可以开始找了吗）→「まだだよ／まだですよ」（还没好）→「もう良いよ」（好了）。中文里捉迷藏是「藏好了吗／好了」，日语这组问答是<b>固定搭配</b>，全曲直接搬用，一个字没改。主角从头到尾都在「被找」的那一边。</div><div class="ex">もう良いかい？ ／ まだですよ ／ もう良いよ</div></div>
+<div class="mini"><div class="t">② 一个「もう」撑三个意思</div><div class="d">「もう失敗」（又失败）、「もう一回」（再来一次）、「もう良い」（可以了）。同一个副词，接坏消息是「又」，接次数是「再」，接判断是「已经」。<b>作者让这三种用法挨着出现</b>，读起来像一句咒语。</div><div class="ex">もう失敗、もう失敗 ／ もう一回、もう一回 ／ もう良いかい？</div></div>
+<div class="mini"><div class="t">③ 〜て、〜て：动词重复＝停不下来</div><div class="d">「掻き回して、掻き回して。」「混ぜあわせて、混ぜあわせて。」把同一个て形连着说两遍，等于<b>「一直」「反复」</b>，比「ずっと」更有画面。日语歌词里这是最常见的「加时」手法。</div><div class="ex">掻き回して、掻き回して ／ 混ぜあわせて、混ぜあわせて</div></div>
+<div class="mini"><div class="t">④ 被动形：把责任从句子里拿掉</div><div class="d">「言葉は<b>失われた</b>」不是「我丢了话」，是「话被弄丢了」。被动一用，<b>谁干的就消失了</b>。全曲凡是「不见了／没了」的地方都用被动，这是它听起来「没有加害者」的原因。</div><div class="ex">言葉は失われた？ ／ 言葉は失われた。</div></div>
+<div class="mini"><div class="t">⑤ と：把整句台词塞进句子</div><div class="d">「『問題ない。』と呟いて」「『私は今日も転がります。』と、」——引用助词「と」后面接说／想／听的动词。<b>日语不需要冒号引号也能引用</b>，而且「と、」停在逗号上，等于话没说完。</div><div class="ex">「問題ない。」と呟いて ／ 「私は今日も転がります。」と、</div></div>
+<div class="mini"><div class="t">⑥ ながら：一边…一边</div><div class="d">「言葉に意味を奏で<b>ながら</b>」「無口に意味を重ね<b>ながら</b>」「言葉に笑みを奏で<b>ながら</b>」。三个句子同一个句型，<b>把「说」和「给话配东西」同时进行</b>——说话变成了伴奏。</div><div class="ex">意味を奏でながら ／ 意味を重ねながら ／ 笑みを奏でながら</div></div>
+<div class="mini"><div class="t">⑦ ちゃう／ちゃおう：放纵的语气</div><div class="d">「起こし<b>ちゃおう</b>」＝起こしてしまおう（干脆犯了吧）。「〜てしまう」＋意志形，带「做了就完了、管他呢」的轻佻感。换成「起こそう」就只是「犯吧」，少了这层自弃。</div><div class="ex">間違いだって起こしちゃおうと誘う</div></div>
+<div class="mini"><div class="t">⑧ だろう／ろう／ね：不敢说死的句尾</div><div class="d">「見える<b>だろう</b>」（大概能看见吧）「疲れた<b>ろう</b>」（累了吧）「ね」（对吧）。整首歌<b>没有一句用断定收尾</b>，全是推测和求同意。这不是日语习惯，是作者用语法写「她已经不相信自己说的话」。</div><div class="ex">何か見えるだろうと ／ そろそろ君も疲れたろう、ね</div></div>
+</div>
+</div>
+<div id="lyrics"></div>
+<div class="empty">没有匹配的句子，换个关键词试试。</div>
+<div class="card cy">
+<h2>读音陷阱：这些词别读错</h2>
+<table class="sx"><thead><tr><th>词</th><th>读音</th><th>易错点</th></tr></thead><tbody>
+<tr><td class="a">ロンリー</td><td class="b">ろんりー</td><td class="c">lonely。与歌名ローリン（rolling）只差一个音节，全曲的核心双关</td></tr>
+<tr><td class="a">呟いて</td><td class="b">つぶやいて</td><td class="c">不是「げん」；呟く＝小声自言自语</td></tr>
+<tr><td class="a">掻き回して</td><td class="b">かきまわして</td><td class="c">掻 读 か；掻き回す＝搅乱、翻搅</td></tr>
+<tr><td class="a">届かない</td><td class="b">とどかない</td><td class="c">届 读 とど；不是「とどけ」（那是他动词届ける）</td></tr>
+<tr><td class="a">成れの果て</td><td class="b">なれのはて</td><td class="c">「成る」＋「果て」；日语里几乎只用于坏结局</td></tr>
+<tr><td class="a">奏でながら</td><td class="b">かなでながら</td><td class="c">奏 读 かな；奏でる 只用于演奏旋律</td></tr>
+<tr><td class="a">無口</td><td class="b">むくち</td><td class="c">不是「ぶこう」；＝不爱说话</td></tr>
+<tr><td class="a">坂道</td><td class="b">さかみち</td><td class="c">坂 读 さか；坡道，往下滚的舞台</td></tr>
+<tr><td class="a">誘う</td><td class="b">さそう</td><td class="c">不是「ゆう」；＝引诱、邀请</td></tr>
+<tr><td class="a">息を止める</td><td class="b">いきをとめる</td><td class="c">止 读 と；不是「や」</td></tr>
+<tr><td class="a">失われた</td><td class="b">うしなわれた</td><td class="c">失 读 うしな；被动形，＝被弄丢了</td></tr>
+<tr><td class="a">起こしちゃおう</td><td class="b">おこしちゃおう</td><td class="c">起こす（他动词）＋ちゃう＋う；不是「おきる」</td></tr>
+<tr><td class="a">間違い探し</td><td class="b">まちがいさがし</td><td class="c">「找不同」的儿童游戏，也指挑自己的错</td></tr>
+<tr><td class="a">そろそろ</td><td class="b">そろそろ</td><td class="c">＝差不多该；催促里带体谅</td></tr>
+</tbody></table>
+</div>
+<div class="pager">
+  <a class="prev" href="ベノム_歌词精讲.html" title="上一首：ベノム"><span class="lab">← 上一首</span><span class="ttl">ベノム</span></a>
+  <a class="next" href="三日月ステップ_歌词精讲.html" title="下一首：三日月ステップ"><span class="lab">下一首 →</span><span class="ttl">三日月ステップ</span></a>
+</div>
+<footer>
+  <div class="gfoot">逐句拆解仅供日语学习参考 · 歌词著作权归 wowaka 及原权利人所有<br>歌词据 <a href="https://www.uta-net.com/song/122824/">歌ネット</a> 与 <a href="https://utaten.com/lyric/ma20080512/">うたてん</a> 两站交叉核对 · 中文译文与解析为本站原创</div>
+</footer>
+</main>
+
+<script>
+/*==DATA-START==*/
+const S = [
+ {
+  "n": "01",
+  "h": "主歌 1 · 罗恩丽女孩",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "ロンリーガールはいつまでも　届かない夢見て",
+    "r": "ろんりーがーるは いつまでも とどかないゆめみて",
+    "ro": "ronrii gaaru wa itsumademo todokanai yume mite",
+    "tr": "孤独女孩永远做着够不到的梦",
+    "lv": "n3",
+    "w": [
+     [
+      "ロンリーガール",
+      "ろんりーがーる",
+      "名詞",
+      "孤独女孩",
+      "lonely girl；与歌名「ローリング（rolling）」只差一个音"
+     ],
+     [
+      "いつまでも",
+      "いつまでも",
+      "副詞",
+      "永远、始终",
+      "「いつまで」＋「も」，含「没完没了」的叹息"
+     ],
+     [
+      "届かない",
+      "とどかない",
+      "動詞",
+      "够不到、到不了",
+      "届く的否定；可指距离，也可指「话没传达到」"
+     ],
+     [
+      "夢見て",
+      "ゆめみて",
+      "動詞",
+      "做梦（て形）",
+      "夢を見る 的缩略，て形在这里表状态延续"
+     ]
+    ],
+    "p": "孤独女孩一直做着够不到的梦。",
+    "g": [
+     [
+      "ロンリー／ローリング：标题的机关",
+      "歌名是「ローリンガール（rolling girl）」，第一句却唱「<b>ロンリー</b>ガール（lonely girl）」，到第 12 句才变回「ローリンガール」。两个词只差一个音节——<b>孤独的女孩＝滚动的女孩</b>，这就是整首歌的题眼。"
+     ],
+     [
+      "届かない夢見て：て形挂住主语",
+      "「夢見て」用て形收尾，句子没有说完就停了。日语歌词常这样，<b>把小句挂在半空</b>，让下一句来接。"
+     ]
+    ],
+    "tip": "开头就埋了歌名的机关：lonely 和 rolling 只差一个音。"
+   },
+   {
+    "t": "騒ぐ頭の中を掻き回して、掻き回して。",
+    "r": "さわぐあたまのなかを かきまわして かきまわして",
+    "ro": "sawagu atama no naka o kakimawashite kakimawashite",
+    "tr": "把吵闹的脑子里面搅来搅去，搅来搅去。",
+    "lv": "n3",
+    "w": [
+     [
+      "騒ぐ",
+      "さわぐ",
+      "動詞",
+      "吵闹、骚动",
+      "「頭が騒ぐ」＝脑子静不下来"
+     ],
+     [
+      "頭の中",
+      "あたまのなか",
+      "名詞",
+      "脑袋里",
+      "「中を」＝把里面怎么样"
+     ],
+     [
+      "掻き回して",
+      "かきまわして",
+      "動詞",
+      "搅来搅去（て形）",
+      "掻き回す；重复两次＝反复、停不下来"
+     ]
+    ],
+    "p": "把吵闹的脑子搅得一塌糊涂，搅了一遍又一遍。",
+    "g": [
+     [
+      "动词重复＝动作停不下来",
+      "「掻き回して、掻き回して。」同一句连着说两遍，中间只有逗号。日语的「〜て、〜て」本来表并列或连续，<b>重复同一个词就变成「一直」</b>——不停手。"
+     ],
+     [
+      "自动词＋他动词",
+      "騒ぐ（自己吵）／掻き回す（我去搅）。<b>脑子自己在吵，人却只能去搅它</b>——两个动词一来自动，一来他动，把「控制不了」写得很准。"
+     ]
+    ],
+    "tip": "「搅来搅去」说两遍——这就是这首歌的音量。"
+   },
+   {
+    "t": "「問題ない。」と呟いて、言葉は失われた？",
+    "r": "もんだいない とつぶやいて ことばはうしなわれた",
+    "ro": "mondai nai to tsubuyaite kotoba wa ushinawareta",
+    "tr": "嘟囔一句「没问题。」，话就消失了吗？",
+    "lv": "n3",
+    "w": [
+     [
+      "問題ない",
+      "もんだいない",
+      "連語",
+      "没问题",
+      "等于「大丈夫」，但更硬、更像在说服自己"
+     ],
+     [
+      "呟いて",
+      "つぶやいて",
+      "動詞",
+      "嘟囔（て形）",
+      "呟く＝小声自言自语"
+     ],
+     [
+      "言葉",
+      "ことば",
+      "名詞",
+      "话、语言",
+      "全曲的关键词，反复出现"
+     ],
+     [
+      "失われた",
+      "うしなわれた",
+      "動詞",
+      "消失了（被动过去）",
+      "失う的被动；「被弄丢了」"
+     ]
+    ],
+    "p": "小声说了句「没问题。」——然后话就不见了？",
+    "g": [
+     [
+      "「と」引用：把台词装进句子",
+      "「〜」と呟く＝嘟囔着「〜」。日语的引用助词「と」能把一整句台词塞进另一个句子，<b>不需要冒号引号也没有歧义</b>。全曲的对话都靠它。"
+     ],
+     [
+      "失われた：被动＝责任不在我",
+      "「言葉は失われた」不是「我丢了话」，是「话被弄丢了」。<b>用被动就取消了主语</b>——谁弄丢的？不知道，也不问。这个句法全曲反复使用。"
+     ],
+     [
+      "句尾的「？」",
+      "「失われた？」加问号，等于连「话是不是真的没了」都不确定。全曲大量句尾存疑，<b>没有一句是确定的</b>。"
+     ]
+    ],
+    "tip": "「没问题」说出口的同时，话就消失了——这是对「说出来也没用」的写法。"
+   }
+  ]
+ },
+ {
+  "n": "02",
+  "h": "主歌 2 · 重复的失败",
+  "jp": "Bメロ",
+  "lines": [
+   {
+    "t": "もう失敗、もう失敗。",
+    "r": "もうしっぱい もうしっぱい",
+    "ro": "mou shippai mou shippai",
+    "tr": "又失败了，又失败了。",
+    "lv": "n4",
+    "w": [
+     [
+      "もう",
+      "もう",
+      "副詞",
+      "又、已经",
+      "两次「もう」＝再一次又一次"
+     ],
+     [
+      "失敗",
+      "しっぱい",
+      "名詞",
+      "失败",
+      "与「一回」「一回」形成节奏对位"
+     ]
+    ],
+    "p": "又失败了，又失败了。",
+    "g": [
+     [
+      "两个词撑起一整句",
+      "「もう失敗、もう失敗。」——只有副词＋名词，连动词都省了。日语名词句可以独立成句（＝「又（是）失败」），<b>越省略越像自言自语</b>。"
+     ],
+     [
+      "节奏上的伏笔",
+      "「もう失敗」的拍子，和后面「もう一回」的拍子完全一样。<b>作者用同一个节奏装了两个相反的东西</b>：一边是失败，一边是再来一次。"
+     ]
+    ],
+    "tip": "「又失败」和「再一次」用的是同一个节拍——这就是全曲的循环。"
+   },
+   {
+    "t": "間違い探しに終われば、また、回るの！",
+    "r": "まちがいさがしにおわれば また まわるの",
+    "ro": "machigai sagashi ni owareba mata mawaru no",
+    "tr": "要是以找错收场，那又得转回去了！",
+    "lv": "n3",
+    "w": [
+     [
+      "間違い探し",
+      "まちがいさがし",
+      "名詞",
+      "找错游戏",
+      "「spot the difference」，也是「找自己的错」"
+     ],
+     [
+      "終われば",
+      "おわれば",
+      "動詞",
+      "如果结束（假定形）",
+      "終わる的ば形＝如果…就…"
+     ],
+     [
+      "また",
+      "また",
+      "副詞",
+      "又、再",
+      "失败的循环"
+     ],
+     [
+      "回る",
+      "まわる",
+      "動詞",
+      "转、绕",
+      "与「転がる」呼应：转圈"
+     ]
+    ],
+    "p": "这场「找错」要是能结束，我就又得转起来！",
+    "g": [
+     [
+      "「間違い探し」的双关",
+      "字面是儿童游戏「找不同」，这里指<b>不停地挑自己的错</b>。一句话把「游戏」和「自我审判」压在一起——这是全曲的方法：<b>用儿童游戏的名字，说最不儿童的事</b>。"
+     ],
+     [
+      "〜ば＝条件，也是绝望",
+      "「終われば」＝「如果结束了」。假定形后面接「また回る」，等于说<b>结束了也没用，还是得转</b>。日语的条件句经常用来表达「反正结果一样」。"
+     ],
+     [
+      "句尾「の」",
+      "「回るの」的「の」是口语里的<b>轻微断定／撒娇</b>，比「回る」软，比「回るよ」更像自己对自己说。"
+     ]
+    ],
+    "tip": "「找错找完了又得转」——问题不在错，在于转不完。"
+   },
+   {
+    "t": "もう一回、もう一回。",
+    "r": "もういっかい もういっかい",
+    "ro": "mou ikkai mou ikkai",
+    "tr": "再来一次，再来一次。",
+    "lv": "n4",
+    "w": [
+     [
+      "もう",
+      "もう",
+      "副詞",
+      "再、又",
+      "「もう一回」＝再一次"
+     ],
+     [
+      "一回",
+      "いっかい",
+      "名詞",
+      "一次",
+      "「いち＋かい」促音化成 いっかい"
+     ]
+    ],
+    "p": "再来一次，再来一次。",
+    "g": [
+     [
+      "这句是全曲的副歌动机",
+      "「もう一回」在后面还会出现三次（第 17、23 句）。同一个短语<b>一次比一次更像哀求</b>——第一次是撒娇，最后是惯性。"
+     ],
+     [
+      "与「もう失敗」同拍",
+      "上一句「もう失敗」，这一句「もう一回」——<b>同一个「もう」，一个接失败，一个接重来</b>。作者没有解释，只是让它们挨着。"
+     ]
+    ],
+    "tip": "「再来一次」说两遍，和「又失败」一个拍子。"
+   }
+  ]
+ },
+ {
+  "n": "03",
+  "h": "副歌 1 · もう良いかい？",
+  "jp": "サビ",
+  "lines": [
+   {
+    "t": "「私は今日も転がります。」と、",
+    "r": "わたしはきょうもころがります と",
+    "ro": "watashi wa kyou mo korogarimasu to",
+    "tr": "「我今天也照样滚下去。」",
+    "lv": "n3",
+    "w": [
+     [
+      "私は",
+      "わたしは",
+      "代名詞",
+      "我",
+      "第一次出现「私」，前面都是「少女」"
+     ],
+     [
+      "今日も",
+      "きょうも",
+      "名詞",
+      "今天也",
+      "「も」＝照旧、又一次"
+     ],
+     [
+      "転がります",
+      "ころがります",
+      "動詞",
+      "滚、跌倒（ます形）",
+      "転がる；这里既是身体的滚，也是「堕落」"
+     ],
+     [
+      "と",
+      "と",
+      "助詞",
+      "（引用）",
+      "把整句台词装进来"
+     ]
+    ],
+    "p": "「我今天也照样滚。」——她这么说。",
+    "g": [
+     [
+      "転がる：滚＝摔＝堕落",
+      "転がる 字面是「滚动」，日常也指「摔倒、躺倒」，俚语里还有「堕落」的意思。<b>歌名里的 rolling 就是这个动词</b>——滚下去不是比喻，是她的日常。"
+     ],
+     [
+      "ます形＋と：用敬语说自嘲",
+      "「転がります」是敬体。一个少女用敬体宣布自己今天也要滚——<b>越礼貌越荒诞</b>，像在念一份通告。"
+     ]
+    ],
+    "tip": "「我今天也照滚」——用敬语说出来，像在报天气。"
+   },
+   {
+    "t": "少女は言う　少女は言う",
+    "r": "しょうじょはいう しょうじょはいう",
+    "ro": "shoujo wa iu shoujo wa iu",
+    "tr": "少女说，少女说",
+    "lv": "n3",
+    "w": [
+     [
+      "少女",
+      "しょうじょ",
+      "名詞",
+      "少女",
+      "第三人称；她不说「我」，叙述者说「少女」"
+     ],
+     [
+      "は",
+      "は",
+      "助詞",
+      "（主题）",
+      "把「少女」提成话题：不是「有个少女在说」，是「少女（她）在说」"
+     ],
+     [
+      "言う",
+      "いう",
+      "動詞",
+      "说",
+      "重复两次＝回响、机械感"
+     ]
+    ],
+    "p": "少女说——少女说。",
+    "g": [
+     [
+      "从「私」跳到「少女」",
+      "上一句还是她自己说「私」，这一句叙述者改口叫「少女」。<b>一个代词的距离，就把她推成了旁观对象</b>——她在看自己滚。"
+     ],
+     [
+      "重复＝回声",
+      "「少女は言う　少女は言う」连说两遍，像录音带回声。全曲大量使用这种<b>原文重复</b>，制造「机械／失神」的质感。"
+     ]
+    ],
+    "tip": "由她自己说，改成「少女说」——人称一换，人就变成了第三人。"
+   },
+   {
+    "t": "言葉に意味を奏でながら！",
+    "r": "ことばにいみを かなでながら",
+    "ro": "kotoba ni imi o kanade nagara",
+    "tr": "一边给话语奏出意义！",
+    "lv": "n2",
+    "w": [
+     [
+      "言葉",
+      "ことば",
+      "名詞",
+      "话语",
+      "与第 3 句同一个词"
+     ],
+     [
+      "意味",
+      "いみ",
+      "名詞",
+      "意义",
+      "「言葉に意味を」＝给话配上意义"
+     ],
+     [
+      "奏で",
+      "かなで",
+      "動詞",
+      "演奏（连用形）",
+      "奏でる＝奏乐，用于乐器"
+     ],
+     [
+      "ながら",
+      "ながら",
+      "助詞",
+      "一边…一边",
+      "同时进行"
+     ]
+    ],
+    "p": "一边给「话」配上意义、弹奏着！",
+    "g": [
+     [
+      "言葉／意味：谁是乐器",
+      "「言葉に意味を奏でる」＝在话语上弹奏意义。日语「に」可以标<b>动作的落点</b>：意义是被弹到「话」上的。<b>话是乐器，意义是曲子</b>——这是全曲最重要的一句比喻。"
+     ],
+     [
+      "奏でる：只能用于音乐",
+      "「奏でる」专门指演奏乐器（旋律），不能用于日常动作。作者用它，等于把「说话」升级成「演奏」——<b>说话本身变成了表演</b>。"
+     ]
+    ],
+    "tip": "她一边说，一边在「话」这件乐器上弹出「意义」——可是话早就丢了。"
+   },
+   {
+    "t": "「もう良いかい？」",
+    "r": "もういいかい",
+    "ro": "mou ii kai",
+    "tr": "「好了吗？」（捉迷藏问句）",
+    "lv": "n4",
+    "w": [
+     [
+      "もう",
+      "もう",
+      "副詞",
+      "已经",
+      "「もう＋形容詞」＝已经够…了"
+     ],
+     [
+      "良い",
+      "いい",
+      "形容詞",
+      "好、可以",
+      "这里不是「好」，是「行了吗」的「行」"
+     ],
+     [
+      "かい",
+      "かい",
+      "助詞",
+      "吗（男性／随便的问法）",
+      "「か」的口语柔软版"
+     ]
+    ],
+    "p": "「藏好了吗？」",
+    "g": [
+     [
+      "这是捉迷藏的原句",
+      "日本捉迷藏，躲的人喊「もういいかい？」，找的人回「まだだよ」。<b>「もう良いかい？」不是「你好了吗」，是「我可以开始找你了吗」</b>。"
+     ],
+     [
+      "かい：随便的问法",
+      "「かい」是「か」的口语形，男性或长辈用，语气比「か」软一点。用在捉迷藏里刚好——<b>半认真半游戏的口气</b>。"
+     ]
+    ],
+    "tip": "这个问句来自捉迷藏。整首歌其实是一场玩不完的捉迷藏。"
+   },
+   {
+    "t": "「まだですよ、まだまだ先は見えないので。息を止めるの、今。」",
+    "r": "まだですよ まだまださきはみえないので いきをとめるの いま",
+    "ro": "mada desu yo madamada saki wa mienai node iki o tomeru no ima",
+    "tr": "「还没有哦，前面还什么都看不见呢。屏住呼吸——现在。」",
+    "lv": "n3",
+    "w": [
+     [
+      "まだですよ",
+      "まだですよ",
+      "連語",
+      "还没有哦",
+      "捉迷藏的标准回话「まだだよ」的敬体"
+     ],
+     [
+      "先",
+      "さき",
+      "名詞",
+      "前面、前方",
+      "也可指「将来」"
+     ],
+     [
+      "見えない",
+      "みえない",
+      "動詞",
+      "看不见",
+      "見える的否定"
+     ],
+     [
+      "ので",
+      "ので",
+      "助詞",
+      "因为",
+      "客观原因，比「から」软"
+     ],
+     [
+      "息を止める",
+      "いきをとめる",
+      "連語",
+      "屏住呼吸",
+      "捉迷藏时躲的人真的会屏息"
+     ],
+     [
+      "今",
+      "いま",
+      "名詞",
+      "现在",
+      "句尾单独立，像指令"
+     ]
+    ],
+    "p": "「还没好呢，前面还看不见。屏住呼吸——就现在。」",
+    "g": [
+     [
+      "敬体＋撒娇＝最可怕的一句",
+      "「まだですよ」用敬体（です／ます），像在跟长辈讲话；内容却是「还没好、看不见」。<b>礼貌的语气包着拒绝</b>，这是全曲最凉的一句。"
+     ],
+     [
+      "「の、今」：把指令拆到句尾",
+      "「息を止めるの、今。」正常语序是「今、息を止めるの」。作者把「今」扔到最后，<b>读的时候必须停顿</b>——那一下停顿就是「屏住呼吸」的时机。"
+     ],
+     [
+      "息を止める的第三层意思",
+      "捉迷藏＝屏息；唱歌＝换气；活着＝呼吸。这句同时是<b>游戏指令、演唱指示、和「别出声」的求救</b>。"
+     ]
+    ],
+    "tip": "「还没好，看不见，屏住气——现在。」这句话把游戏、歌、和求生压成了一句。"
+   }
+  ]
+ },
+ {
+  "n": "04",
+  "h": "主歌 2 · 成れの果て",
+  "jp": "Aメロ",
+  "lines": [
+   {
+    "t": "ローリンガールの成れの果て　届かない、向こうの色",
+    "r": "ろーりんがーるの なれのはて とどかない むこうのいろ",
+    "ro": "rooringaaru no nare no hate todokanai mukou no iro",
+    "tr": "滚女孩的下场 够不到的、对面的颜色",
+    "lv": "n2",
+    "w": [
+     [
+      "ローリンガール",
+      "ろーりんがーる",
+      "名詞",
+      "滚动的女孩",
+      "rolling girl；第 1 句是 ロンリー（lonely）ガール"
+     ],
+     [
+      "成れの果て",
+      "なれのはて",
+      "名詞",
+      "下场、末路",
+      "「成る」＋「果て」；日语里几乎只用于坏结局"
+     ],
+     [
+      "届かない",
+      "とどかない",
+      "動詞",
+      "够不到",
+      "与第 1 句同一个词"
+     ],
+     [
+      "向こう",
+      "むこう",
+      "名詞",
+      "对面、那边",
+      "空间上的「另一边」，也指「将来」"
+     ],
+     [
+      "色",
+      "いろ",
+      "名詞",
+      "颜色",
+      "这里指「那片景象／那个世界的颜色」"
+     ]
+    ],
+    "p": "滚女孩的下场——够不到的、对面那片颜色。",
+    "g": [
+     [
+      "ロンリー → ローリン：一个音节之差",
+      "第 1 句是「<b>ロンリー</b>ガール（lonely）」，这一句变回「<b>ローリン</b>ガール（rolling）」。作者把歌名的机关放在全曲的对称位置上——<b>同一个位置，一个音节之差，孤独的女孩就变成了滚动的女孩</b>。"
+     ],
+     [
+      "成れの果て：一个词说完一生",
+      "「成れの果て」＝「变成之后的尽头」，日语里几乎只跟坏结局搭配（「酒浸りの成れの果て」＝喝到烂掉的下场）。<b>它自带判决</b>，不需要再写「她失败了」。"
+     ],
+     [
+      "色：不写景，只写色",
+      "「向こうの色」没有说是什么色调，只说她看得见却够不到。<b>把具体交给听众</b>，这正是全曲歌词的写法——只给方向，不给画面。"
+     ]
+    ],
+    "tip": "「孤独女孩」变成「滚女孩」——一个音节之差，人已经滚下去了。"
+   },
+   {
+    "t": "重なる声と声を混ぜあわせて、混ぜあわせて。",
+    "r": "かさなるこえとこえを まぜあわせて まぜあわせて",
+    "ro": "kasanaru koe to koe o mazeawasete mazeawasete",
+    "tr": "把重叠的声音混在一起，混在一起。",
+    "lv": "n3",
+    "w": [
+     [
+      "重なる",
+      "かさなる",
+      "動詞",
+      "重叠",
+      "自动词；声音自己叠上来"
+     ],
+     [
+      "声と声",
+      "こえとこえ",
+      "名詞",
+      "声音与声音",
+      "两个人的声音，或两个自己的声音"
+     ],
+     [
+      "混ぜあわせて",
+      "まぜあわせて",
+      "動詞",
+      "混在一起（て形）",
+      "混ぜる（混合）＋合わせる（合起来）"
+     ]
+    ],
+    "p": "把重叠在一起的声音混在一块，混了又混。",
+    "g": [
+     [
+      "与第 2 句同一个模板",
+      "第 2 句「掻き回して、掻き回して。」，这一句「混ぜあわせて、混ぜあわせて。」——<b>「动词＋て、再说一遍」的同一个模板</b>。作者用重复的句法把相隔十句的两段焊在一起。"
+     ],
+     [
+      "混ぜる＋合わせる：复合动词",
+      "两个动词压成一个：混ぜる（混合）＋合わせる（合起来）。<b>日语重叠动词时重点落在后一个</b>：不是「混」，是「混到一块儿」。"
+     ]
+    ],
+    "tip": "「把重叠的声音混在一起」——既是合唱的写法，也是自我分裂的写法。"
+   },
+   {
+    "t": "「問題ない。」と呟いた言葉は失われた。",
+    "r": "もんだいない とつぶやいた ことばはうしなわれた",
+    "ro": "mondai nai to tsubuyaita kotoba wa ushinawareta",
+    "tr": "嘟囔出来的那句「没问题。」已经不见了。",
+    "lv": "n3",
+    "w": [
+     [
+      "呟いた",
+      "つぶやいた",
+      "動詞",
+      "嘟囔过（过去式）",
+      "呟く；第 3 句是 呟いて（て形）"
+     ],
+     [
+      "言葉",
+      "ことば",
+      "名詞",
+      "话",
+      "全曲关键词"
+     ],
+     [
+      "失われた",
+      "うしなわれた",
+      "動詞",
+      "消失了（被动过去）",
+      "第 3 句是「失われた？」带问号，这里是句号"
+     ]
+    ],
+    "p": "那句「没问题。」已经没了。",
+    "g": [
+     [
+      "和第 3 句只差一个标点",
+      "第 3 句：「言葉は失われた<b>？</b>」，这一句：「言葉は失われた<b>。</b>」。<b>从疑问到断定</b>——第一遍还在问「是不是丢了」，第二遍直接确认「丢了」。"
+     ],
+     [
+      "呟く → 呟いた：て形换成过去式",
+      "第 3 句「呟いて」是进行中的动作，这一句「呟いた」是已经说完的。<b>一个时态之差，话就凉了</b>。"
+     ]
+    ],
+    "tip": "第一遍还在问「话是不是丢了」，第二遍直接改成句号：丢了。"
+   }
+  ]
+ },
+ {
+  "n": "05",
+  "h": "主歌 2 尾 · 坂道在劝她",
+  "jp": "Bメロ",
+  "lines": [
+   {
+    "t": "どうなったって良いんだってさ、",
+    "r": "どうなったって いいんだってさ",
+    "ro": "dou nattatte iindatte sa",
+    "tr": "反正怎么样都无所谓啦，",
+    "lv": "n3",
+    "w": [
+     [
+      "どうなったって",
+      "どうなったって",
+      "連語",
+      "不管变成什么样",
+      "「どうなる」＋「たって」（＝ても的口语）"
+     ],
+     [
+      "良いんだ",
+      "いいんだ",
+      "連語",
+      "无所谓、也行",
+      "「良い」＋「んだ」＝认了"
+     ],
+     [
+      "ってさ",
+      "ってさ",
+      "助詞",
+      "据说／说什么",
+      "引用＋「さ」，把话推给别人"
+     ]
+    ],
+    "p": "「反正变成什么样都行啦」——她是这么说的。",
+    "g": [
+     [
+      "どうなったって＝どうなっても",
+      "「〜たって」是「〜ても」的口语形，意思是「即使…也」。<b>把「即使」说得含糊，拒绝也就跟着含糊了</b>。"
+     ],
+     [
+      "ってさ：把责任推出去",
+      "「〜ってさ」＝「说是…啦」，把这句话包装成「不是我说的，是有人这么说」。<b>用传闻的语气说自己的决心</b>，这是全曲最典型的逃避句法。"
+     ]
+    ],
+    "tip": "「反正怎样都行啦」——用「听别人说的」口气讲自己的事，等于不认账。"
+   },
+   {
+    "t": "間違いだって起こしちゃおうと誘う、坂道。",
+    "r": "まちがいだって おこしちゃおうと さそう さかみち",
+    "ro": "machigai datte okoshichaou to sasou sakamichi",
+    "tr": "连「错」都干脆犯一个吧——那条坡道这样引诱她。",
+    "lv": "n2",
+    "w": [
+     [
+      "間違いだって",
+      "まちがいだって",
+      "名詞",
+      "连错（也）",
+      "「だって」＝连…都"
+     ],
+     [
+      "起こしちゃおう",
+      "おこしちゃおう",
+      "動詞",
+      "干脆犯下吧",
+      "起こす＋ちゃう（＝てしまう）＋う（意志）"
+     ],
+     [
+      "誘う",
+      "さそう",
+      "動詞",
+      "引诱、邀请",
+      "主语是「坂道」，坡道在勾引她"
+     ],
+     [
+      "坂道",
+      "さかみち",
+      "名詞",
+      "坡道",
+      "往下滑的路＝転がる的舞台"
+     ]
+    ],
+    "p": "「连错误也犯一个吧」——坡道这样劝她。",
+    "g": [
+     [
+      "〜ちゃおう＝てしまう＋意志形",
+      "「起こしちゃおう」＝起こしてしまおう（干脆犯了吧）。<b>「ちゃう」带「做了就完了」的放纵感</b>，比「起こそう」轻佻得多。"
+     ],
+     [
+      "拟人：坡道在劝她",
+      "「誘う」的主语是「坂道」。<b>不是她想滚，是路在邀她</b>——把责任推给地形，是全曲最重要的一次甩锅。"
+     ],
+     [
+      "坂道／転がる：一组动词的舞台",
+      "坡道＋滚动＝物理上必然发生的事。<b>作者把「堕落」写成一道斜面</b>：放上去就会滚，不需要理由。"
+     ]
+    ],
+    "tip": "不是她想往下滚，是坡道在劝她——「连错也犯一个吧」。"
+   },
+   {
+    "t": "もう一回、もう一回。",
+    "r": "もういっかい もういっかい",
+    "ro": "mou ikkai mou ikkai",
+    "tr": "再来一次，再来一次。",
+    "lv": "rep",
+    "w": [],
+    "p": "再来一次，再来一次。",
+    "tip": "第 6 句原样再来一遍。位置从「主歌尾」挪到了「副歌前」——上一次是失败之后的惯性，这一次是坡道劝完之后的自暴自弃。"
+   }
+  ]
+ },
+ {
+  "n": "06",
+  "h": "副歌 2 · 転がして",
+  "jp": "サビ",
+  "lines": [
+   {
+    "t": "私をどうか転がしてと",
+    "r": "わたしを どうか ころがしてと",
+    "ro": "watashi o douka korogashite to",
+    "tr": "「求求你，把我滚下去」——",
+    "lv": "n3",
+    "w": [
+     [
+      "私を",
+      "わたしを",
+      "代名詞",
+      "我（宾语）",
+      "「を」＝被滚的对象"
+     ],
+     [
+      "どうか",
+      "どうか",
+      "副詞",
+      "请、求求你",
+      "恳求的语气词"
+     ],
+     [
+      "転がして",
+      "ころがして",
+      "動詞",
+      "让…滚（て形）",
+      "転がる的他动词形＝让别人滚我"
+     ],
+     [
+      "と",
+      "と",
+      "助詞",
+      "（引用）",
+      "句子被截断，动词省略"
+     ]
+    ],
+    "p": "「求求你，把我滚下去」——她这样说。",
+    "g": [
+     [
+      "转成他动词：请别人动手",
+      "第 7 句是「私<b>は</b>…転がり<b>ます</b>」（我自己滚），这一句是「私<b>を</b>…転がし<b>て</b>」（请把我滚）。<b>自动词→他动词＋を</b>，一次变形就把「我自己来」改成了「你来动手」。"
+     ],
+     [
+      "どうか：下跪级的请求",
+      "「どうか」是恳求副词（「どうか許してください」）。<b>全曲唯一的求人句</b>，而求的内容是「让我滚下去」。"
+     ],
+     [
+      "句尾的「と」后面没有了",
+      "「転がしてと」后面本来该接「言う」（说）。作者停在「と」——<b>话没说完</b>，和前面「言葉は失われた」呼应。"
+     ]
+    ],
+    "tip": "她第一次求人：求的不是救她，是把她滚下去。"
+   },
+   {
+    "t": "少女は言う　少女は言う",
+    "r": "しょうじょはいう しょうじょはいう",
+    "ro": "shoujo wa iu shoujo wa iu",
+    "tr": "少女说，少女说",
+    "lv": "rep",
+    "w": [],
+    "p": "少女说，少女说。",
+    "tip": "第 8 句原样再来一遍。多了一个新条件：上一遍她「言葉に意味を奏でながら」，这一遍是「無口に」——同样的动作，这次不出声。"
+   },
+   {
+    "t": "無口に意味を重ねながら！",
+    "r": "むくちにいみを かさねながら",
+    "ro": "mukuchi ni imi o kasane nagara",
+    "tr": "一声不吭地，把意义一层层叠上去！",
+    "lv": "n2",
+    "w": [
+     [
+      "無口",
+      "むくち",
+      "名詞",
+      "沉默寡言",
+      "「おしゃべり」的反面"
+     ],
+     [
+      "意味",
+      "いみ",
+      "名詞",
+      "意义",
+      "与第 9 句同一个词"
+     ],
+     [
+      "重ね",
+      "かさね",
+      "動詞",
+      "叠（连用形）",
+      "重ねる＝一层层加上去"
+     ],
+     [
+      "ながら",
+      "ながら",
+      "助詞",
+      "一边…一边",
+      "与第 9 句同一个句型"
+     ]
+    ],
+    "p": "不出声地，把意义一层一层叠上去！",
+    "g": [
+     [
+      "奏でる → 重ねる：动词换了",
+      "第 9 句「意味を<b>奏で</b>ながら」（弹奏意义），这一句「意味を<b>重ね</b>ながら」（叠加意义）。<b>从「演奏」变成「堆叠」</b>——音乐没了，只剩越积越厚的解释。"
+     ],
+     [
+      "無口に：副词用名词",
+      "「無口」本来是名词／ナ形，这里加「に」当副词用＝「沉默地」。<b>唱歌却要求「無口」</b>，这个矛盾就是这句的全部。"
+     ]
+    ],
+    "tip": "同样的动作，这次一声不响：不是弹给你听，是一层层往自己身上叠。"
+   },
+   {
+    "t": "「もう良いかい？」",
+    "r": "もういいかい",
+    "ro": "mou ii kai",
+    "tr": "「藏好了吗？」",
+    "lv": "rep",
+    "w": [],
+    "p": "「藏好了吗？」",
+    "tip": "第 10 句原样再来一遍。但这次得到的回答变了——第 11 句是「还没有，看不见」，这一句之后是「还差一点，马上就能看见什么了」。"
+   },
+   {
+    "t": "「もう少し、もうすぐ何か見えるだろうと。息を止めるの、今。」",
+    "r": "もうすこし もうすぐなにかみえるだろうと いきをとめるの いま",
+    "ro": "mou sukoshi mou sugu nanika mieru darou to iki o tomeru no ima",
+    "tr": "「再等一会儿，马上就能看见什么了吧。屏住呼吸——现在。」",
+    "lv": "n3",
+    "w": [
+     [
+      "もう少し",
+      "もうすこし",
+      "連語",
+      "再一点",
+      "与第 11 句「まだまだ」形成递进"
+     ],
+     [
+      "もうすぐ",
+      "もうすぐ",
+      "副詞",
+      "马上",
+      "两个「もう」连用＝不断往后拖"
+     ],
+     [
+      "見えるだろう",
+      "みえるだろう",
+      "動詞",
+      "大概能看见吧",
+      "推量；自己也拿不准"
+     ],
+     [
+      "息を止める",
+      "いきをとめる",
+      "連語",
+      "屏住呼吸",
+      "与第 11 句同一个指令"
+     ]
+    ],
+    "p": "「再等一下，马上就能看见什么了。屏住呼吸——现在。」",
+    "g": [
+     [
+      "和第 11 句对照：从「看不见」到「快看见了」",
+      "第 11 句：「まだまだ先は<b>見えない</b>」，这一句：「もうすぐ何か<b>見えるだろう</b>」。<b>唯一的进展是「看不见」变成了「大概能看见吧」</b>——而「だろう」是推测，不是事实。"
+     ],
+     [
+      "だろうと：连推测都用引号包住",
+      "「〜だろうと」后面本该接「言って」（说着）。<b>她连自己的期待都要加一层引用</b>，好像在转述别人的希望。"
+     ]
+    ],
+    "tip": "「再等等，快看见了」——用推测语气说出来的希望，本身就已经打折了。"
+   }
+  ]
+ },
+ {
+  "n": "07",
+  "h": "副歌 3 · もう良いよ",
+  "jp": "サビ／ラスト",
+  "lines": [
+   {
+    "t": "もう一回、もう一回。",
+    "r": "もういっかい もういっかい",
+    "ro": "mou ikkai mou ikkai",
+    "tr": "再来一次，再来一次。",
+    "lv": "rep",
+    "w": [],
+    "p": "再来一次，再来一次。",
+    "tip": "第三次。第 6 句是失败之后的惯性，第 17 句是坡道劝完之后的自暴自弃，这一遍她已经不再等回答了——「もう一回」从请求变成了口号。"
+   },
+   {
+    "t": "「私は今日も転がります。」と、",
+    "r": "わたしはきょうもころがります と",
+    "ro": "watashi wa kyou mo korogarimasu to",
+    "tr": "「我今天也照样滚下去。」",
+    "lv": "rep",
+    "w": [],
+    "p": "「我今天也照样滚。」——她这么说。",
+    "tip": "第 7 句原样第三次出现。注意前两句（23、24）紧挨着：先说「再来一次」，再说「我今天也照滚」——顺序把因果说穿了。"
+   },
+   {
+    "t": "少女は言う　少女は言う",
+    "r": "しょうじょはいう しょうじょはいう",
+    "ro": "shoujo wa iu shoujo wa iu",
+    "tr": "少女说，少女说",
+    "lv": "rep",
+    "w": [],
+    "p": "少女说——少女说。",
+    "tip": "第三次。前两遍后面接的是「言葉に意味を奏でながら」「無口に意味を重ねながら」，这一遍接「言葉に笑みを奏でながら」——<b>这次她笑了</b>。"
+   },
+   {
+    "t": "言葉に笑みを奏でながら！",
+    "r": "ことばにえみを かなでながら",
+    "ro": "kotoba ni emi o kanade nagara",
+    "tr": "一边给话语奏出笑容！",
+    "lv": "n2",
+    "w": [
+     [
+      "言葉",
+      "ことば",
+      "名詞",
+      "话语",
+      "全曲关键词，第九次出现"
+     ],
+     [
+      "笑み",
+      "えみ",
+      "名詞",
+      "笑容",
+      "「笑顔」更书面、更「挂在脸上」的那个笑"
+     ],
+     [
+      "奏で",
+      "かなで",
+      "動詞",
+      "演奏（连用形）",
+      "与第 9 句同一个动词"
+     ],
+     [
+      "ながら",
+      "ながら",
+      "助詞",
+      "一边…一边",
+      "全曲第三次用这个句型"
+     ]
+    ],
+    "p": "一边在话语上弹出笑容！",
+    "g": [
+     [
+      "意味 → 笑み：只换了一个词",
+      "三次「言葉に◯を奏でながら」：第 9 句是<b>意味</b>，第 20 句是<b>重ね</b>（动词变了），这一句是<b>笑み</b>。<b>第一次她给话配上意义，最后一次她给话配上一个笑</b>——而笑是唯一不需要被相信的东西。"
+     ],
+     [
+      "为什么是「笑み」不是「笑顔」",
+      "「笑み」偏书面、偏内心（「笑みを浮かべる」）；「笑顔」是摆给人看的脸。<b>用「笑み」＝这个笑不是给她自己看的</b>，是配在「話」这件乐器上的音色。"
+     ]
+    ],
+    "tip": "最后一遍，她给「话」配的不是意义，是一个笑。"
+   },
+   {
+    "t": "「もう良いかい？もう良いよ。そろそろ君も疲れたろう、ね。」",
+    "r": "もういいかい もういいよ そろそろきみも つかれたろう ね",
+    "ro": "mou ii kai mou ii yo sorosoro kimi mo tsukaretarou ne",
+    "tr": "「藏好了吗？」「好了哦。你也差不多累了吧，对吧。」",
+    "lv": "n2",
+    "w": [
+     [
+      "もう良いよ",
+      "もういいよ",
+      "連語",
+      "好了哦（可以了）",
+      "捉迷藏的「找到你了／我来了」；与问句只差一个「か」"
+     ],
+     [
+      "そろそろ",
+      "そろそろ",
+      "副詞",
+      "差不多该",
+      "催促，也带体谅"
+     ],
+     [
+      "君も",
+      "きみも",
+      "代名詞",
+      "你也",
+      "「も」＝连你也；第一次出现「你」"
+     ],
+     [
+      "疲れたろう",
+      "つかれたろう",
+      "動詞",
+      "大概累了吧",
+      "疲れる＋ろう（推量）"
+     ],
+     [
+      "ね",
+      "ね",
+      "助詞",
+      "对吧",
+      "寻求同意，也是收尾"
+     ]
+    ],
+    "p": "「藏好了吗？」「好了哦。你也差不多累了吧，对吧。」",
+    "g": [
+     [
+      "全曲唯一一次回答",
+      "前面两次问「もう良いかい？」得到的都是「まだ」，这一句第一次给出<b>「もう良いよ」</b>（好了）。<b>捉迷藏结束了</b>——但结束的方式是「你可以来找我了」，不是「我出来了」。"
+     ],
+     [
+      "「君」是谁",
+      "全曲第一次出现第二人称。可以是找她的那个人，也可以是听歌的你，还可以是<b>她自己</b>——三种读法都成立，而三种都通向同一个意思：<b>该停了</b>。"
+     ],
+     [
+      "「疲れたろう、ね」：把许可说成体贴",
+      "不是「我累了」，是「<b>你累了吧</b>」。「ろう」是推测，「ね」是强求同意——<b>用体谅别人的口气，替自己结束</b>。这是全曲最温柔也最狠的一句。"
+     ]
+    ],
+    "tip": "藏好了——「你也累了吧」。她把结束包装成对你的体贴。"
+   },
+   {
+    "t": "息を止めるの、今。",
+    "r": "いきをとめるの いま",
+    "ro": "iki o tomeru no ima",
+    "tr": "屏住呼吸——现在。",
+    "lv": "n3",
+    "w": [
+     [
+      "息",
+      "いき",
+      "名詞",
+      "呼吸",
+      "「息をする」＝呼吸"
+     ],
+     [
+      "止める",
+      "とめる",
+      "動詞",
+      "停住、止住",
+      "他动词；自动词是「止まる」"
+     ],
+     [
+      "の",
+      "の",
+      "助詞",
+      "（轻微断定／说明）",
+      "口语的句尾「の」，比断定软"
+     ],
+     [
+      "今",
+      "いま",
+      "名詞",
+      "现在",
+      "独立在句尾＝指令的落点"
+     ]
+    ],
+    "p": "屏住呼吸——就现在。",
+    "g": [
+     [
+      "第三次，也是最后一次",
+      "第 11 句、第 22 句、第 28 句，三次都是「息を止めるの、今。」一字不改。<b>同一个指令说三遍，前两遍是躲起来，最后一遍……</b>作者没有解释，也不需要解释。"
+     ],
+     [
+      "「の、今」：语序就是呼吸",
+      "正常语序「今、息を止めるの」。把「今」推到最末，<b>读到「の」必须换气，然后才吐出「今」</b>——这一句的节奏本身就是在屏息。"
+     ]
+    ],
+    "tip": "「屏住呼吸——现在。」第三次说同一句话，这次是结束了。"
+   }
+  ]
+ }
+];
+/*==DATA-END==*/
+
+/*==ENGINE-START==*/
+const lvName = {n5:"N5", n4:"N4", n3:"N3", n2:"N2+", lit:"文語", rep:"重复"};
+const box = document.getElementById("lyrics");
+const emptyEl = document.querySelector(".empty");
+const bar = document.getElementById("bar");
+const state = {rd:true, ro:true, tr:true};
+const SECS = Array.isArray(S) ? S : (S.sections || []);
+let all = 0;
+
+try { Object.assign(state, JSON.parse(localStorage.getItem("wbState") || "{}")); } catch (e) {}
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function stripTags(s){return String(s == null ? "" : s).replace(/<[^>]*>/g, " ");}
+
+(SECS).forEach(sec => {
+  const wrap = document.createElement("section");
+  wrap.className = "sec";
+  const nLines = (sec.lines || []).length;
+  wrap.innerHTML = '<div class="sec-h"><span class="n">' + esc(sec.n) +
+    "</span><h3>" + esc(sec.h) + '</h3><span class="jp">' + esc(sec.jp) +
+    '</span><span class="sp"></span><span class="sec-cnt">' + nLines + " 句</span>" +
+    '<button class="sec-tg" type="button">展开本节</button></div>';
+
+  const secTg = wrap.querySelector(".sec-tg");
+  secTg.addEventListener("click", () => {
+    const lines = [...wrap.querySelectorAll(".line")];
+    const anyClosed = lines.some(l => !l.classList.contains("open"));
+    lines.forEach(l => setOpen(l, anyClosed));
+    secTg.textContent = anyClosed ? "收起本节" : "展开本节";
+  });
+
+  (sec.lines || []).forEach(L => {
+    all++;
+    const d = document.createElement("div");
+    d.className = "line" + (L.lv === "rep" ? " repcard" : "");
+
+    let words = "";
+    if (L.w && L.w.length) {
+      words = '<h4>逐词拆解</h4><table class="sx"><thead><tr>' +
+        "<th>词 / 表达</th><th>读音</th><th>词性</th><th>释义</th><th>备注</th></tr></thead><tbody>" +
+        L.w.map(w => '<tr><td class="w" data-h="词">' + esc(w[0]) + '</td><td class="rd2" data-h="读音">' + esc(w[1]) +
+          '</td><td class="pos" data-h="词性">' + esc(w[2]) + '</td><td class="mn" data-h="释义">' + esc(w[3]) +
+          '</td><td class="nt" data-h="备注">' + esc(w[4] || "") + "</td></tr>").join("") +
+        "</tbody></table>";
+    }
+    const gram = (L.g && L.g.length)
+      ? "<h4>句法结构</h4>" + L.g.map(g => '<div class="g"><b>' + g[0] + "</b><br>" + g[1] + "</div>").join("")
+      : "";
+    const plain = L.p ? '<div class="plain"><b>大白话：</b>' + L.p + "</div>" : "";
+    const tip = L.tip ? '<div class="tip"><b>提示：</b>' + L.tip + "</div>" : "";
+
+    d.innerHTML =
+      '<div class="head" role="button" tabindex="0" aria-expanded="false">' +
+        '<div class="orig">' + esc(L.t) + "</div>" +
+        '<div class="rd">' + esc(L.r) + "</div>" +
+        '<div class="ro">' + esc(L.ro) + "</div>" +
+        '<div class="tr">' + L.tr + "</div>" +
+        '<div class="foot"><span class="lv ' + L.lv + '">' + (lvName[L.lv] || L.lv) + "</span></div>" +
+        '<span class="chev" aria-hidden="true">▾</span>' +
+      "</div>" +
+      '<div class="detail">' + words + gram + plain + tip + "</div>";
+
+    d.dataset.search = stripTags([L.t, L.r, L.ro, L.tr, L.p, L.tip]
+      .concat((L.w || []).map(w => w.join(" ")))
+      .concat((L.g || []).map(g => g.join(" ")))
+      .join(" ")).toLowerCase();
+
+    const head = d.querySelector(".head");
+    head.addEventListener("click", () => setOpen(d, !d.classList.contains("open")));
+    head.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(d, !d.classList.contains("open")); }
+    });
+
+    wrap.appendChild(d);
+  });
+  box.appendChild(wrap);
+});
+
+function setOpen(line, open) {
+  line.classList.toggle("open", !!open);
+  const h = line.querySelector(".head");
+  if (h) h.setAttribute("aria-expanded", open ? "true" : "false");
+  const sec = line.closest(".sec");
+  if (sec) syncSecTg(sec);
+}
+function syncSecTg(sec) {
+  const tg = sec.querySelector(".sec-tg");
+  if (!tg) return;
+  const lines = [...sec.querySelectorAll(".line")];
+  tg.textContent = lines.some(l => !l.classList.contains("open")) ? "展开本节" : "收起本节";
+}
+
+function apply() {
+  box.querySelectorAll(".line").forEach(l => {
+    l.querySelector(".rd").style.display = state.rd ? "block" : "none";
+    l.querySelector(".ro").style.display = state.ro ? "block" : "none";
+    l.querySelector(".tr").style.display = state.tr ? "block" : "none";
+  });
+}
+
+/* 导航高度写进 --nav-h，供锚点与深读版目录使用 */
+function syncNavH() {
+  const h = bar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-h", Math.round(h) + "px");
+}
+if (window.ResizeObserver) new ResizeObserver(syncNavH).observe(bar);
+else window.addEventListener("resize", syncNavH);
+window.addEventListener("load", syncNavH);
+
+/* 默认全部收起：进来先看到歌词本身，想看解析再点 */
+apply();
+
+/* ---------- 主题 ---------- */
+try { if (localStorage.getItem("wbTheme") === "light") document.documentElement.classList.add("light"); } catch (e) {}
+const themeBtn = document.getElementById("themeBtn");
+function syncThemeBtn() {
+  const light = document.documentElement.classList.contains("light");
+  themeBtn.textContent = light ? "☀️" : "🌙";
+  themeBtn.setAttribute("aria-pressed", light ? "true" : "false");
+  themeBtn.title = light ? "当前：浅色（点击切深色）" : "当前：深色（点击切浅色）";
+}
+themeBtn.addEventListener("click", function () {
+  const light = document.documentElement.classList.toggle("light");
+  try { localStorage.setItem("wbTheme", light ? "light" : "dark"); } catch (e) {}
+  syncThemeBtn();
+  syncNavH();
+});
+syncThemeBtn();
+syncNavH();
+/*==ENGINE-END==*/
+</script>
+</body>
+</html>
