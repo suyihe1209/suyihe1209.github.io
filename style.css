@@ -30,7 +30,7 @@
   --text: #1c1730;
   --muted: #585170;
   --muted2: #6b6484;
-  --cyan: #0b7a8d;
+  --cyan: #0a6d7d;
   --pink: #c2185b;
   --violet: #6b3fb8;
   --amber: #8a5a00;
@@ -65,7 +65,7 @@ a { color: inherit; }
 /* ---------- 顶部导航 ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 60;
-  background: rgba(250, 248, 255, 0.94);
+  background: rgba(245, 239, 230, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
 }
@@ -81,89 +81,64 @@ a { color: inherit; }
 
 /* ---------- Hero ---------- */
 .hero { padding: 96px 0 72px; }
-.hero-kicker { color: var(--cyan); font-size: 15px; font-weight: 600; letter-spacing: .06em; }
 .hero-title { font-size: 56px; letter-spacing: -1px; margin: 10px 0 14px; font-weight: 700; }
 .hero-title .accent {
   background: linear-gradient(90deg, var(--pink), var(--violet));
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.hero-sub { color: var(--muted); font-size: 18px; max-width: 560px; }
-.hero-actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* ---------- 头图 Hero（首页专用） ---------- */
-.hero-with-image {
-  position: relative;
-  /* 严格按照片原始比例 4:3（4032x3024），高度跟随宽度等比，全屏也不裁切 */
-  aspect-ratio: 4 / 3;
-  width: 100%;
-  padding: 0;
-  display: flex;
-  align-items: flex-start;
-  /* 默认用 5MB 原图；下方 @supports 检测到 WebP 支持后覆盖为 83KB 版 */
-  background-image: url("hero.jpg");
-  background-size: cover;
-  background-position: center 30%;
-  overflow: hidden;
+/* ---------- 首屏 Hero（首页专用：左文右图） ---------- */
+.hero.hero-with-image {
+  position: relative; display: block;
+  padding: 0; background: none; overflow: visible;
 }
-/* WebP 特性检测：支持的浏览器改用 83KB 压缩版（原 5MB 的 98% 减重） */
-@supports (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=")) {
-  .hero-with-image { background-image: url("hero.webp"); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+  gap: 56px; align-items: center;
+  padding: 56px 24px 44px;
 }
-/* 底部柔化遮罩：用与页面底色同色的渐变把照片硬边彻底盖住，消除交界分界线 */
-.hero-with-image::after {
-  content: "";
-  position: absolute; left: 0; right: 0; bottom: 0;
-  height: 22%;
-  background: linear-gradient(180deg, rgba(245, 239, 230, 0) 0%, rgba(245, 239, 230, 1) 100%);
-  pointer-events: none;
-  z-index: 1;
+.hero-content { position: relative; z-index: 1; padding: 0; }
+.hero-kicker {
+  font-size: 12px; font-weight: 700; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--pink); margin-bottom: 20px;
 }
-.hero-with-image .hero-overlay {
-  position: absolute; inset: 0;
-  /* 顶部轻微压暗保证标题可读 */
-  background:
-    linear-gradient(180deg, rgba(20, 16, 40, 0.30) 0%, rgba(20, 16, 40, 0.0) 24%);
-  pointer-events: none;
-}
-.hero-with-image .hero-content {
-  position: relative; z-index: 1;
-  padding: 72px 0 0 64px;
-}
-/* 头图夕阳处的名言小字（中上部、水平居中，避开手办） */
-.hero-quote {
-  position: absolute; left: 0; right: 0; top: 28%;
-  text-align: center; z-index: 2;
-  font-size: 14px; color: #3a3358;
-  letter-spacing: .03em;
-  text-shadow: 0 1px 12px rgba(255,255,255,0.55);
-}
-.hero-quote .hero-quote-src {
-  margin-left: 6px; font-size: 12.5px; color: #6b6484;
-}
-/* 标题行：头像 + 文字并排，靠左上，避开手办脸部（角色在画面中下部） */
 .hero-brand { display: flex; align-items: center; gap: 18px; }
 .hero-brand .brand-avatar {
   width: 68px; height: 68px; border-radius: 50%;
-  object-fit: cover; border: 2px solid rgba(255,255,255,0.8);
-  box-shadow: 0 4px 18px rgba(20, 16, 40, 0.25);
+  object-fit: cover; border: 2px solid #fff;
+  box-shadow: 0 4px 18px rgba(20, 16, 40, .18);
 }
 .hero-with-image .hero-title {
-  font-size: 66px; letter-spacing: -1px; margin: 0; line-height: 1.1; font-weight: 700;
-  color: #1c1730; text-shadow: 0 1px 14px rgba(255,255,255,0.45);
+  font-size: clamp(40px, 5.2vw, 64px);
+  letter-spacing: -.02em; line-height: 1.1;
+  margin: 0; font-weight: 700; color: var(--text);
 }
-
-.btn {
-  display: inline-block; padding: 11px 24px; border-radius: var(--r-sm);
-  font-size: 15px; font-weight: 600; text-decoration: none; transition: all .2s;
-  border: 1px solid transparent;
+.hero-quote {
+  margin: 26px 0 0; max-width: 22em;
+  font-size: 16px; line-height: 1.9; color: var(--muted);
 }
-.btn-primary {
-  background: linear-gradient(90deg, var(--pink), var(--violet));
-  color: #fff;
+.hero-quote cite {
+  display: block; margin-top: 8px;
+  font-style: normal; font-size: 12.5px;
+  letter-spacing: .04em; color: var(--muted2);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(183, 140, 255, 0.35); }
-.btn-ghost { border-color: var(--line2); color: var(--text); }
-.btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+.hero-photo {
+  margin: 0; aspect-ratio: 4 / 3; overflow: hidden;
+  border: 1px solid var(--line2); border-radius: var(--r-md);
+  box-shadow: 0 24px 60px -30px rgba(28, 23, 48, .45);
+}
+.hero-photo img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 42%;
+}
+@media (max-width: 760px) {
+  .hero-grid {
+    grid-template-columns: 1fr; gap: 28px;
+    padding: 28px 24px 32px;
+  }
+  .hero-photo { order: -1; }
+}
 
 /* ---------- 区块 ---------- */
 .section { padding: 52px 0; }
@@ -174,8 +149,6 @@ a { color: inherit; }
   background: linear-gradient(180deg, var(--pink), var(--violet));
   border-radius: 2px; margin-right: 12px; vertical-align: -2px;
 }
-.section-more { color: var(--muted); font-size: 14px; text-decoration: none; }
-.section-more:hover { color: var(--cyan); }
 
 /* ---------- 卡片通用 ---------- */
 .card {
@@ -184,10 +157,18 @@ a { color: inherit; }
 }
 
 /* ---------- 文章列表 ---------- */
-.post-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+/* 列宽上限 440px：内容少时不把一张卡拉成一米长的行；auto-fit 让空轨道折叠，
+   只有一条内容的板块不再留半页空洞 */
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 440px));
+  justify-content: start;
+  gap: 18px;
+}
 .post-card {
   display: block; text-decoration: none; color: var(--text);
-  padding: 22px 24px;
+  /* 左内边距 16px = 标题色条 4px + 间距 12px，让卡片文字与区块标题对齐 */
+  padding: 22px 24px 22px 16px;
   /* 去掉卡片白色圆角底，直接铺在页面背景上 */
   background: transparent; border: none; border-radius: 0;
   box-shadow: none;
@@ -199,73 +180,36 @@ a { color: inherit; }
 .post-card .post-tag {
   display: inline-block; margin-top: 12px; padding: 3px 11px;
   font-size: 12px; border-radius: 20px;
-  background: rgba(95, 227, 245, 0.1); color: var(--cyan);
+  background: rgba(28, 23, 48, 0.055); color: var(--cyan);
 }
 .post-card .post-tag.deep {
   margin-left: 8px;
-  background: rgba(194, 24, 91, 0.1); color: var(--pink);
+  background: rgba(194, 24, 91, 0.07); color: var(--pink);
 }
 
-/* 首页歌词曲目迷你卡片：更紧凑，只保留歌手+曲名 */
-.song-mini { padding: 12px 16px; }
-.song-mini h3 { font-size: 18px; margin: 4px 0 0; }
-.song-mini .post-date { font-size: 12px; }
-#songList.post-list { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+/* 首页曲目索引：不当卡片当目录 —— 序号压低对比度，曲名是唯一重音。
+   column-gap 归零 + 每格右内边距，让上分隔线在整行连通 */
+#songList.post-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+#songList .song-mini {
+  padding: 16px 32px 20px 16px;
+  border-top: 1px solid var(--line2);
+  border-radius: 0; background: none; transition: color .2s;
+}
+#songList .song-mini:nth-child(3n) { padding-right: 0; }
+/* 歌手名长短不一，同一行三格的曲名会因此错位；锁两行高度把基线钉死 */
+#songList .song-mini .post-date {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden; min-height: 2.9em; line-height: 1.45;
+}
+#songList .song-mini h3 { font-size: 18px; margin: 6px 0 0; }
+#songList .song-mini:hover { background: none; transform: none; }
+#songList .song-mini:hover h3 { color: var(--pink); }
 
 /* ---------- 歌词专区卡片 ---------- */
-.lyrics-banner {
-  position: relative; overflow: hidden; padding: 32px 30px;
-  background: var(--card-bg);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  margin-bottom: 28px;
-}
-.lyrics-banner h2 { font-size: 30px; margin-bottom: 10px; letter-spacing: -.5px; }
 .lyrics-banner h2 .jp { color: var(--pink); }
-.lyrics-banner p { color: var(--muted); max-width: 640px; margin-bottom: 18px; }
-.lyrics-stats { display: flex; gap: 26px; flex-wrap: wrap; }
-.lyrics-stats .stat { display: flex; flex-direction: column; }
-.lyrics-stats .stat b {
-  font-size: 26px; background: linear-gradient(90deg, var(--cyan), var(--pink));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.lyrics-stats .stat span { font-size: 12.5px; color: var(--muted2); }
 
-.song-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.song-card {
-  display: flex; flex-direction: column; text-decoration: none; color: var(--text);
-  padding: 20px 20px 18px;
-}
-.song-card:hover { background: var(--card-hover); border-color: var(--line2); transform: translateY(-3px); }
-.song-card .song-seq { color: var(--muted2); font-size: 12px; font-weight: 600; letter-spacing: .08em; }
-.song-card .song-title { font-size: 17px; font-weight: 700; margin: 8px 0 4px; }
-.song-card .song-sub { color: var(--muted2); font-size: 12.5px; margin-bottom: 10px; }
-.song-card .song-artist { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
-.song-card .song-meta {
-  margin-top: auto; display: flex; gap: 12px; flex-wrap: wrap;
-  font-size: 12px; color: var(--muted2);
-}
-.song-card .song-meta b { color: var(--cyan); font-weight: 600; }
-.song-card .deep-badge {
-  display: inline-block; padding: 2px 8px; font-size: 11px; border-radius: 20px;
-  background: rgba(255, 111, 181, 0.12); color: var(--pink);
-}
 
 /* ---------- 关于我 ---------- */
-.about-card {
-  display: flex; gap: 22px; align-items: flex-start;
-  padding: 30px;
-}
-.about-avatar {
-  flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--line2);
-  box-shadow: 0 4px 16px rgba(107, 63, 184, 0.18);
-}
-.about-text p { color: var(--muted); margin-bottom: 10px; }
-.about-text p:last-child { margin-bottom: 0; }
-.about-text a { color: var(--cyan); text-decoration: none; }
-.about-text a:hover { text-decoration: underline; }
 
 /* ---------- 页脚 ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 30px 0; text-align: center; margin-top: 40px; }
@@ -277,9 +221,11 @@ a { color: inherit; }
 .article-header h1 { font-size: 38px; letter-spacing: -1px; margin: 10px 0 16px; font-weight: 700; }
 .article-header .post-tag {
   display: inline-block; padding: 4px 12px; font-size: 13px;
-  border-radius: 20px; background: rgba(95, 227, 245, 0.1); color: var(--cyan);
+  border-radius: 20px; background: rgba(28, 23, 48, 0.055); color: var(--cyan);
 }
 .article-body { padding: 20px 0 60px; max-width: 720px; }
+/* 文章页整列居中：720 正文 + 两侧 24 内边距 */
+.article-page { max-width: 768px; margin-inline: auto; }
 .article-body h2 { font-size: 24px; margin: 34px 0 14px; font-weight: 700; }
 .article-body h2::before {
   content: ""; display: inline-block; width: 4px; height: 18px;
@@ -289,12 +235,15 @@ a { color: inherit; }
 .article-body h3 { font-size: 19px; margin: 26px 0 10px; color: var(--cyan); }
 .article-body p { margin-bottom: 16px; color: var(--text); }
 .article-body code {
-  background: rgba(95, 227, 245, 0.1); color: var(--cyan);
-  padding: 2px 6px; border-radius: 5px; font-size: 14px;
+  background: rgba(28, 23, 48, 0.055); color: var(--cyan);
+  padding: 2px 6px; border-radius: 5px; font-size: 13.5px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Cascadia Mono", monospace;
 }
 .article-body pre {
   background: var(--panel); border: 1px solid var(--line);
   border-radius: 10px; padding: 18px; overflow-x: auto; margin: 16px 0;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Cascadia Mono", monospace;
+  font-size: 13.5px; line-height: 1.75;
 }
 .article-body pre code { background: none; color: var(--text); padding: 0; }
 .article-body ul, .article-body ol { margin: 0 0 16px 22px; }
@@ -327,21 +276,27 @@ a { color: inherit; }
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 900px) {
-  .song-grid { grid-template-columns: repeat(2, 1fr); }
-  .post-list { grid-template-columns: 1fr; }
-  #songList.post-list { grid-template-columns: repeat(2, 1fr); }
+  /* 曲目索引降为两列：右边缘的内边距要跟着换列数走 */
+  #songList.post-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #songList .song-mini:nth-child(3n) { padding-right: 32px; }
+  #songList .song-mini:nth-child(2n) { padding-right: 0; }
 }
 @media (max-width: 700px) {
   .hero { padding: 64px 0 48px; }
+  .logo { font-size: 17px; }
   .hero-title { font-size: 40px; }
-  .hero-with-image .hero-content { padding: 28px 0 0 20px; }
   .hero-with-image .hero-title { font-size: 40px; }
   .hero-brand .brand-avatar { width: 48px; height: 48px; }
-  .song-grid { grid-template-columns: 1fr; }
-  #songList.post-list { grid-template-columns: 1fr; }
-  .nav { gap: 14px; }
-  .nav a { font-size: 15px; }
+  /* minmax(0,1fr)：1fr 的下限是 min-content，长歌手名会把轨道撑破容器 */
+  #songList.post-list { grid-template-columns: minmax(0, 1fr); }
+  /* 单列时不需要为对齐预留两行，也没有右列要对齐 */
+  #songList .song-mini { padding: 14px 0 16px 16px; }
+  #songList .song-mini .post-date { min-height: 0; -webkit-line-clamp: unset; }
+  .nav {
+    gap: 12px; min-width: 0;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { font-size: 14px; white-space: nowrap; }
   .article-header h1 { font-size: 30px; }
-  .lyrics-stats { gap: 18px; }
-  .lyrics-stats .stat b { font-size: 22px; }
 }

@@ -4,21 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ウミユリ海底譚 · 深读篇 —— 结构 / 音韵 / 语法</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="紫荆情怀">
+<meta property="og:title" content="ウミユリ海底譚 · 深读篇 —— 结构 / 音韵 / 语法">
+<meta property="og:description" content="紫荆情怀的个人博客：技术笔记、作品记录，以及一个日语歌词逐句精讲专栏。">
+<meta property="og:url" content="https://suyihe1209.github.io/lyrics/海百合海底譚_深读篇.html">
+<meta property="og:image" content="https://suyihe1209.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ウミユリ海底譚 · 深读篇 —— 结构 / 音韵 / 语法">
+<meta name="twitter:description" content="紫荆情怀的个人博客：技术笔记、作品记录，以及一个日语歌词逐句精讲专栏。">
+<meta name="twitter:image" content="https://suyihe1209.github.io/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5efe6'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23c2185b' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%230a6d7d'/%3E%3C/svg%3E">
 <style>
   :root{
-    --bg:#08070d; --bg2:#0c0a14;
-    --panel:#131020; --panel2:#1a1529;
-    --line:#282040; --line2:#3a2e5c;
-    --text:#ece9f7; --muted:#918aa8; --muted2:#6f6889;
-    --cyan:#5fe3f5; --pink:#ff6fb5; --violet:#b78cff;
-    --amber:#ffc266; --green:#7ff0a8; --red:#ff8080;
+    --bg:#f5efe6; --bg2:#efe6d8;
+    --panel:#ffffff; --panel2:#f7f1e8;
+    --line:#efe6d8; --line2:#e0d3bf;
+    --text:#1c1730; --muted:#585170; --muted2:#6b6484;
+    --cyan:#0a6d7d; --pink:#c2185b; --violet:#6b3fb8;
+    --amber:#8a5a00; --green:#0f7a46; --red:#b3261e;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0; background:
-      radial-gradient(1100px 560px at 12% -8%, #2a1040 0%, transparent 58%),
-      radial-gradient(900px 520px at 92% 2%, #0d2a38 0%, transparent 55%),
+      radial-gradient(1100px 560px at 12% -8%, #efe7fb 0%, transparent 58%),
+      radial-gradient(900px 520px at 92% 2%, #e6f4fa 0%, transparent 55%),
       var(--bg);
     color:var(--text); line-height:1.78;
     font-family:"Source Han Serif CN","Noto Serif SC","Songti SC","SimSun","STSong",serif;
@@ -35,7 +48,7 @@
   .byline{color:var(--muted);font-size:13.5px;margin-top:16px;}
   .byline em{color:var(--cyan);font-style:normal;}
 
-  nav.toc{position:sticky;top:0;z-index:60;background:rgba(8,7,13,.9);backdrop-filter:blur(14px);
+  nav.toc{position:sticky;top:0;z-index:60;background:rgba(245,239,230,.92);backdrop-filter:blur(14px);
           border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -22px 26px;padding:9px 22px;}
   nav.toc .in{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;}
   nav.toc a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:5px 10px;border-radius:16px;
@@ -48,9 +61,9 @@
   .card h2::before{content:"";width:4px;height:16px;background:var(--pink);border-radius:2px;flex:none;}
   .card.cy h2{color:var(--cyan);} .card.cy h2::before{background:var(--cyan);}
   .card.vi h2{color:var(--violet);} .card.vi h2::before{background:var(--violet);}
-  .card.ok{border-color:#1e4a30;background:linear-gradient(180deg,#0b1c13,#0e0d18);}
+  .card.ok{border-color:#b9e2c8;background:linear-gradient(180deg,#f2fbf5,#ffffff);}
   .card.ok h2{color:var(--green);} .card.ok h2::before{background:var(--green);}
-  .card p{margin:9px 0;font-size:14.5px;color:#cfc9e2;}
+  .card p{margin:9px 0;font-size:14.5px;color:#4d4763;}
   .card p b{color:var(--text);}
   .card p em{color:var(--cyan);font-style:normal;}
 
@@ -69,21 +82,21 @@
 
   /* 骨架图 */
   .skwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;
-          background:linear-gradient(180deg,#0d0b17,#100c1c);padding:6px 4px;}
+          background:linear-gradient(180deg,#f8f5ff,#ffffff);padding:6px 4px;}
   svg.sk{display:block;min-width:660px;width:100%;height:auto;}
 
   /* 表格 */
   table{width:100%;border-collapse:collapse;font-size:13.5px;}
   th{text-align:left;color:var(--muted2);font-weight:600;font-size:11.5px;letter-spacing:.08em;
      padding:8px 10px;border-bottom:1px solid var(--line2);white-space:nowrap;}
-  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:#cfc9e2;}
-  tr:hover td{background:rgba(255,111,181,.045);}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:#4d4763;}
+  tr:hover td{background:rgba(194,24,91,.06);}
   .jp{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;}
   td.jp{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
         font-size:14.5px;color:var(--text);line-height:1.65;}
   td.k{color:var(--muted2);font-size:12px;white-space:nowrap;}
-  mark{background:rgba(255,111,181,.2);color:#ffd3e8;padding:0 4px;border-radius:4px;font-weight:600;}
-  mark.b{background:rgba(95,227,245,.18);color:#c8f6ff;}
+  mark{background:rgba(194,24,91,.12);color:#a81450;padding:0 4px;border-radius:4px;font-weight:600;}
+  mark.b{background:rgba(11,122,141,.10);color:#075f6e;}
   .df td:first-child{color:var(--muted2);font-size:12px;white-space:nowrap;width:34px;}
 
   /* 统计条 */
@@ -102,22 +115,22 @@
   .gcard .pat{font-size:16px;font-weight:700;color:var(--cyan);font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
   .gcard .lab{font-size:11px;letter-spacing:.1em;color:var(--muted2);border:1px solid var(--line2);
               padding:1px 7px;border-radius:10px;}
-  .gcard .ex{margin:11px 0 0;font-size:14px;color:#d9d3ea;font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
+  .gcard .ex{margin:11px 0 0;font-size:14px;color:#4d4763;font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
   .gcard .ex i{color:var(--muted2);font-style:normal;font-size:12.5px;font-family:-apple-system,"Noto Sans SC",sans-serif;margin-left:8px;}
-  .gcard .bd{margin-top:10px;padding:10px 13px;background:rgba(95,227,245,.055);border-left:3px solid var(--cyan);
-             border-radius:0 8px 8px 0;font-size:13.5px;color:#c3dde4;}
+  .gcard .bd{margin-top:10px;padding:10px 13px;background:rgba(11,122,141,.07);border-left:3px solid var(--cyan);
+             border-radius:0 8px 8px 0;font-size:13.5px;color:#4d4763;}
   .gcard .bd b{color:var(--cyan);}
   .gcard .me{margin-top:8px;font-size:13px;color:var(--muted);}
   .gcard .me em{color:var(--green);font-style:normal;font-family:"Yu Gothic","Noto Sans JP",sans-serif;}
 
   .note{margin:12px 0;padding:11px 14px;border-radius:9px;font-size:13.5px;
-        background:rgba(255,194,102,.07);border-left:3px solid var(--amber);color:#eadfc7;}
+        background:rgba(138,90,0,.08);border-left:3px solid var(--amber);color:#6b4700;}
   .note b{color:var(--amber);}
   .warn{margin:12px 0;padding:11px 14px;border-radius:9px;font-size:13.5px;
-        background:rgba(255,128,128,.07);border-left:3px solid var(--red);color:#eccaca;}
+        background:rgba(179,38,30,.07);border-left:3px solid var(--red);color:#8a2018;}
   .warn b{color:var(--red);}
   .good{margin:12px 0;padding:11px 14px;border-radius:9px;font-size:13.5px;
-        background:rgba(127,240,168,.07);border-left:3px solid var(--green);color:#cdeada;}
+        background:rgba(15,122,70,.08);border-left:3px solid var(--green);color:#0b5c35;}
   .good b{color:var(--green);}
 
   /* 折叠 */
@@ -126,7 +139,7 @@
   details.fold summary::-webkit-details-marker{display:none;}
   details.fold summary::before{content:"▸ ";color:var(--muted2);}
   details.fold[open] summary::before{content:"▾ ";}
-  details.fold .bd{padding:2px 0 13px;font-size:13.5px;color:#cfc9e2;border-top:1px dashed var(--line2);margin-top:2px;}
+  details.fold .bd{padding:2px 0 13px;font-size:13.5px;color:#4d4763;border-top:1px dashed var(--line2);margin-top:2px;}
   details.fold .bd p{margin:8px 0;}
 
   .q{margin:14px 0;padding:13px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:11px;}
@@ -202,7 +215,7 @@
 <section class="sec" id="s1">
   <div class="sec-h"><span class="n">01</span><h3>骨架：六段，三副骨</h3><span class="jp">構成</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 14px;">
+  <p style="font-size:14.5px;color:#4d4763;margin:0 0 14px;">
     A → B → A′ → D → C → F。乍看是六段新内容，实际是 <b>三对镜像</b>：A 与 A′、B 与 D、A 与 F。
     真正「只有一次」的段落只有 C（桥段），而它恰好是全曲最短、最狠的地方。
   </p>
@@ -211,13 +224,13 @@
     <svg class="sk" viewBox="0 0 900 400" role="img" aria-label="六段结构与深度走向">
       <defs>
         <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#5fe3f5"/><stop offset=".55" stop-color="#b78cff"/><stop offset="1" stop-color="#ff6fb5"/>
+          <stop offset="0" stop-color="#0a6d7d"/><stop offset=".55" stop-color="#6b3fb8"/><stop offset="1" stop-color="#c2185b"/>
         </linearGradient>
       </defs>
       <!-- 水面 -->
       <line x1="30" y1="204" x2="872" y2="204" stroke="#3a2e5c" stroke-dasharray="6 7" stroke-width="1.2"/>
-      <text x="34" y="194" fill="#7ff0a8" font-size="11.5" font-family="sans-serif" letter-spacing="1">↑ 空 ／ 生 ／ 对方所在</text>
-      <text x="34" y="226" fill="#918aa8" font-size="11.5" font-family="sans-serif" letter-spacing="1">↓ 海 ／ 梦 ／ 我所在</text>
+      <text x="34" y="194" fill="#0f7a46" font-size="11.5" font-family="sans-serif" letter-spacing="1">↑ 空 ／ 生 ／ 对方所在</text>
+      <text x="34" y="226" fill="#585170" font-size="11.5" font-family="sans-serif" letter-spacing="1">↓ 海 ／ 梦 ／ 我所在</text>
 
       <!-- 主线 -->
       <path d="M100,258 C150,300 185,312 232,312 C300,312 322,244 364,244
@@ -227,39 +240,39 @@
 
       <!-- 节点 -->
       <g font-family="sans-serif">
-        <circle cx="100" cy="258" r="7.5" fill="#5fe3f5"/>
-        <text x="100" y="238" fill="#5fe3f5" font-size="15" font-weight="700" text-anchor="middle">A</text>
-        <text x="100" y="288" fill="#918aa8" font-size="11" text-anchor="middle">主歌</text>
+        <circle cx="100" cy="258" r="7.5" fill="#0a6d7d"/>
+        <text x="100" y="238" fill="#0a6d7d" font-size="15" font-weight="700" text-anchor="middle">A</text>
+        <text x="100" y="288" fill="#585170" font-size="11" text-anchor="middle">主歌</text>
 
-        <circle cx="232" cy="312" r="7.5" fill="#6fd8ea"/>
-        <text x="232" y="342" fill="#6fd8ea" font-size="15" font-weight="700" text-anchor="middle">B</text>
-        <text x="232" y="360" fill="#918aa8" font-size="11" text-anchor="middle">副歌 1</text>
+        <circle cx="232" cy="312" r="7.5" fill="#0b7a8d"/>
+        <text x="232" y="342" fill="#0b7a8d" font-size="15" font-weight="700" text-anchor="middle">B</text>
+        <text x="232" y="360" fill="#585170" font-size="11" text-anchor="middle">副歌 1</text>
 
-        <circle cx="364" cy="244" r="7.5" fill="#9fb6ff"/>
-        <text x="364" y="226" fill="#9fb6ff" font-size="15" font-weight="700" text-anchor="middle">A′</text>
-        <text x="364" y="266" fill="#918aa8" font-size="11" text-anchor="middle">主歌 2</text>
+        <circle cx="364" cy="244" r="7.5" fill="#5b5bd6"/>
+        <text x="364" y="226" fill="#5b5bd6" font-size="15" font-weight="700" text-anchor="middle">A′</text>
+        <text x="364" y="266" fill="#585170" font-size="11" text-anchor="middle">主歌 2</text>
 
-        <circle cx="500" cy="278" r="7.5" fill="#b78cff"/>
-        <text x="500" y="261" fill="#b78cff" font-size="15" font-weight="700" text-anchor="middle">D</text>
-        <text x="500" y="300" fill="#918aa8" font-size="11" text-anchor="middle">副歌 2</text>
+        <circle cx="500" cy="278" r="7.5" fill="#6b3fb8"/>
+        <text x="500" y="261" fill="#6b3fb8" font-size="15" font-weight="700" text-anchor="middle">D</text>
+        <text x="500" y="300" fill="#585170" font-size="11" text-anchor="middle">副歌 2</text>
 
-        <circle cx="632" cy="330" r="7.5" fill="#d98cd8"/>
-        <text x="632" y="360" fill="#d98cd8" font-size="15" font-weight="700" text-anchor="middle">C</text>
-        <text x="632" y="378" fill="#918aa8" font-size="11" text-anchor="middle">桥段（最深）</text>
+        <circle cx="632" cy="330" r="7.5" fill="#a84fa8"/>
+        <text x="632" y="360" fill="#a84fa8" font-size="15" font-weight="700" text-anchor="middle">C</text>
+        <text x="632" y="378" fill="#585170" font-size="11" text-anchor="middle">桥段（最深）</text>
 
-        <circle cx="790" cy="158" r="7.5" fill="#ff6fb5"/>
-        <text x="790" y="140" fill="#ff6fb5" font-size="15" font-weight="700" text-anchor="middle">F</text>
-        <text x="790" y="182" fill="#918aa8" font-size="11" text-anchor="middle">末段</text>
+        <circle cx="790" cy="158" r="7.5" fill="#c2185b"/>
+        <text x="790" y="140" fill="#c2185b" font-size="15" font-weight="700" text-anchor="middle">F</text>
+        <text x="790" y="182" fill="#585170" font-size="11" text-anchor="middle">末段</text>
       </g>
 
       <!-- 注释 -->
-      <text x="700" y="112" fill="#ff6fb5" font-size="11.5" font-family="sans-serif" text-anchor="end">
+      <text x="700" y="112" fill="#c2185b" font-size="11.5" font-family="sans-serif" text-anchor="end">
         あの空に溺れていく ——「上浮」也是溺
       </text>
-      <path d="M700,118 L772,146" stroke="#ff6fb5" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
+      <path d="M700,118 L772,146" stroke="#c2185b" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
 
-      <text x="164" y="330" fill="#6f6889" font-size="10.5" font-family="sans-serif">被藍吞没</text>
-      <text x="560" y="350" fill="#6f6889" font-size="10.5" font-family="sans-serif">被期待的话杀死</text>
+      <text x="164" y="330" fill="#6b6484" font-size="10.5" font-family="sans-serif">被藍吞没</text>
+      <text x="560" y="350" fill="#6b6484" font-size="10.5" font-family="sans-serif">被期待的话杀死</text>
     </svg>
   </div>
 
@@ -289,7 +302,7 @@
 <section class="sec" id="s2">
   <div class="sec-h"><span class="n">02</span><h3>改词表：作者动手的地方</h3><span class="jp">差し替え</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 6px;">
+  <p style="font-size:14.5px;color:#4d4763;margin:0 0 6px;">
     三张表，把重复段落逐位对齐。左边是第一次，右边是第二次。<mark>粉色</mark>是被换掉的部分。
     这一节是全篇的核心——<b>作者在哪动手，就是他想说什么</b>。
   </p>
@@ -406,7 +419,7 @@
 <section class="sec" id="s3">
   <div class="sec-h"><span class="n">03</span><h3>音韵：只差一个辅音</h3><span class="jp">音の仕掛け</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 14px;">
+  <p style="font-size:14.5px;color:#4d4763;margin:0 0 14px;">
     日语的谐音不是文字游戏，是<b>听觉上的滑动</b>。这首歌最核心的一条音链只有三个词，全部出现在段落的最后一句、同一个句型里：
   </p>
 
@@ -462,7 +475,7 @@
 <section class="sec" id="s4">
   <div class="sec-h"><span class="n">04</span><h3>语法：六组能直接搬走的</h3><span class="jp">文法の骨</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 4px;">
+  <p style="font-size:14.5px;color:#4d4763;margin:0 0 4px;">
     这一节按「用得上」排序。每组给：曲中原句 → 结构拆解 → 你自己能造的一句。
     这些句型在 N4–N3 阅读里出现率极高，学会就能反查。
   </p>
@@ -544,7 +557,7 @@
 <section class="sec" id="s5">
   <div class="sec-h"><span class="n">05</span><h3>语气：把大事说小，把它推开</h3><span class="jp">語気</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;margin:0 0 10px;">
+  <p style="font-size:14.5px;color:#4d4763;margin:0 0 10px;">
     中文表达重感情靠「加重」：太痛了、真的受不了。日语相反，靠<b>缩小</b>和<b>推开</b>。
     这首歌把这两招用到了极致，看统计：
   </p>
@@ -569,13 +582,13 @@
     <tr><td class="jp">君が遠のいただけ</td><td>你只是走远了而已</td><td>你抛下了我——但我不敢这么讲</td></tr>
     <tr><td class="jp">君が手を振っただけ</td><td>你只是挥了挥手而已</td><td>那是永别——但我把它降级成「挥手」</td></tr>
   </table>
-  <p style="font-size:14px;color:#cfc9e2;">
+  <p style="font-size:14px;color:#4d4763;">
     两次「だけ」都出现在同一句位、同一个结构「君が＋动词＋だけ」。这不是巧合，是<b>同一种自我保护反复使用</b>。
     学日语时值得记住：<b>「だけ」除了限定数量，还能限定「事情的严重程度」</b>，这是教科书很少讲、但歌里到处都是的用法。
   </p>
 
   <h4 style="font-size:13px;letter-spacing:.14em;color:var(--violet);margin:24px 0 8px;">なんて：把不想面对的东西推开</h4>
-  <p style="font-size:14px;color:#cfc9e2;margin-top:0;">
+  <p style="font-size:14px;color:#4d4763;margin-top:0;">
     「涙なんて」「ハッピーエンドなんて」——「なんて」跟在名词后，等于说「那种东西」。
     它同时做两件事：<b>引用对方的说法</b>（把话摆出来），<b>再表示轻蔑或自嘲</b>（把它推到一边）。
     所以「涙なんて」不是「眼泪这种东西」，是「你跟我说眼泪？眼泪算什么」。
@@ -616,7 +629,7 @@
     <tr><td class="jp">泡沫の庭</td><td class="jp">泡沫の庭の隅</td><td>用泡沫做的庭院——一碰就没。整首歌的「家」是这个材质。</td></tr>
     <tr><td class="jp">空中散歩</td><td class="jp">空中散歩の SOS</td><td>在空中走路——同样不可能。与「海中」正好上下对称。</td></tr>
   </table>
-  <p style="font-size:14px;color:#cfc9e2;">
+  <p style="font-size:14px;color:#4d4763;">
     三个空间都「不成立」。这不是作者偷懒，是<b>明确告诉你：不要把这首歌当故事读</b>。
     一旦你不再追问「他到底在哪儿」，剩下的就只有两件事——<b>谁走了，谁还留着</b>。
   </p>
@@ -654,7 +667,7 @@
 <section class="sec" id="s7">
   <div class="sec-h"><span class="n">07</span><h3>跟读：它自己说了是四拍子</h3><span class="jp">読み方</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;">
+  <p style="font-size:14.5px;color:#4d4763;">
     第 21 句「空中散歩と<b>四拍子</b>」不只是歌词，是作者给的节奏提示。全曲基本可以按 4 拍一组切开。
   </p>
 
@@ -678,7 +691,7 @@
 <section class="sec" id="s8">
   <div class="sec-h"><span class="n">08</span><h3>改词练习：把骨架换成你自己的</h3><span class="jp">練習</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;">
+  <p style="font-size:14.5px;color:#4d4763;">
     最有效的记忆方式不是背原句，是<b>用同一个骨架造自己的句子</b>。十题，先自己写，再看答案。
     写不出来就回去看第 04 节对应的卡片。
   </p>
@@ -788,7 +801,7 @@
 <section class="sec" id="s9">
   <div class="sec-h"><span class="n">09</span><h3>可迁移清单：二十条，直接背</h3><span class="jp">持ち帰り</span></div>
 
-  <p style="font-size:14.5px;color:#cfc9e2;">
+  <p style="font-size:14.5px;color:#4d4763;">
     全部出自本曲。左边是句型，中间是你以后能套的场景，右边是曲中原句（方便回去对）。
   </p>
 
