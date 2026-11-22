@@ -1,5 +1,5 @@
 /* ============================================================
-   紫荆情怀 · 个人博客 全局样式
+   柳园最终兵器 · 展示站全局样式
    浅色霓虹主题（固定浅色，无深浅切换）
    ============================================================ */
 
@@ -70,7 +70,7 @@ a { color: inherit; }
   border-bottom: 1px solid var(--line);
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); gap: 16px; }
-.logo { font-size: 20px; font-weight: 700; text-decoration: none; color: var(--text); }
+.logo { font-size: 20px; font-weight: 700; text-decoration: none; color: var(--text); white-space: nowrap; }
 .logo .dot { color: var(--pink); }
 .nav { display: flex; gap: 20px; align-items: center; }
 .nav a {
@@ -94,50 +94,43 @@ a { color: inherit; }
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
-  gap: 56px; align-items: center;
-  padding: 56px 24px 44px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(28px, 5vw, 64px); align-items: center;
+  padding: 44px 24px 36px;
 }
-.hero-content { position: relative; z-index: 1; padding: 0; }
 .hero-kicker {
   font-size: 12px; font-weight: 700; letter-spacing: .26em;
-  text-transform: uppercase; color: var(--pink); margin-bottom: 20px;
-}
-.hero-brand { display: flex; align-items: center; gap: 18px; }
-.hero-brand .brand-avatar {
-  width: 68px; height: 68px; border-radius: 50%;
-  object-fit: cover; border: 2px solid #fff;
-  box-shadow: 0 4px 18px rgba(20, 16, 40, .18);
+  text-transform: uppercase; color: var(--pink); margin-bottom: 14px;
 }
 .hero-with-image .hero-title {
-  font-size: clamp(40px, 5.2vw, 64px);
-  letter-spacing: -.02em; line-height: 1.1;
+  font-size: clamp(36px, 5.2vw, 64px);
+  letter-spacing: -.035em; line-height: 1.16;
   margin: 0; font-weight: 700; color: var(--text);
 }
-.hero-quote {
-  margin: 26px 0 0; max-width: 22em;
-  font-size: 16px; line-height: 1.9; color: var(--muted);
+.hero-credit { margin-top: 13px; font-size: clamp(15px, 1.8vw, 19px); color: var(--muted); }
+.hero-link {
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-top: 22px; padding: 9px 15px;
+  border-radius: 7px; background: var(--text); color: var(--bg);
+  font-size: 14px; font-weight: 700; text-decoration: none;
 }
-.hero-quote cite {
-  display: block; margin-top: 8px;
-  font-style: normal; font-size: 12.5px;
-  letter-spacing: .04em; color: var(--muted2);
-}
+.hero-link:hover { background: var(--violet); }
+.hero-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
 .hero-photo {
-  margin: 0; aspect-ratio: 4 / 3; overflow: hidden;
+  margin: 0; aspect-ratio: 1.85; overflow: hidden;
   border: 1px solid var(--line2); border-radius: var(--r-md);
   box-shadow: 0 24px 60px -30px rgba(28, 23, 48, .45);
 }
 .hero-photo img {
   display: block; width: 100%; height: 100%;
-  object-fit: cover; object-position: center 42%;
+  object-fit: cover; object-position: center 70%;
 }
 @media (max-width: 760px) {
   .hero-grid {
-    grid-template-columns: 1fr; gap: 28px;
-    padding: 28px 24px 32px;
+    grid-template-columns: 1fr; gap: 22px;
+    padding: 28px 24px 24px;
   }
-  .hero-photo { order: -1; }
+  .hero-photo { aspect-ratio: 2.35; }
 }
 
 /* ---------- 区块 ---------- */
@@ -240,8 +233,6 @@ a { color: inherit; }
 .lyrics-banner h2 .jp { color: var(--pink); }
 
 
-/* ---------- 关于我 ---------- */
-
 /* ---------- 页脚 ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 30px 0; text-align: center; margin-top: 40px; }
 .site-footer p { color: var(--muted2); font-size: 13.5px; }
@@ -314,8 +305,7 @@ a { color: inherit; }
   .hero { padding: 64px 0 48px; }
   .logo { font-size: 17px; }
   .hero-title { font-size: 40px; }
-  .hero-with-image .hero-title { font-size: 40px; }
-  .hero-brand .brand-avatar { width: 48px; height: 48px; }
+  .hero-with-image .hero-title { font-size: clamp(36px, 8vw, 48px); }
   /* minmax(0,1fr)：1fr 的下限是 min-content，长歌手名会把轨道撑破容器 */
   #songList.post-list { grid-template-columns: minmax(0, 1fr); }
   /* 单列时不需要为对齐预留两行，也没有右列要对齐 */
@@ -328,4 +318,81 @@ a { color: inherit; }
   .nav::-webkit-scrollbar { display: none; }
   .nav a { font-size: 14px; white-space: nowrap; }
   .article-header h1 { font-size: 30px; }
+}
+@media (max-width: 400px) {
+  .header-inner { gap: 10px; padding-inline: 16px; }
+  .nav { gap: 10px; }
+  .nav a { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- 首屏桌宠提示与动作按钮 ---------- */
+.hero-pet {
+  margin-top: 26px;
+  max-width: 32em;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted2);
+}
+.hero-pet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.hero-pet-actions button {
+  border: 1px solid var(--line2);
+  border-radius: 3px;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  padding: 5px 10px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.hero-pet-actions button:hover,
+.hero-pet-actions button:focus-visible {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+.hero-pet-actions button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.hero-pet-more {
+  margin-left: 4px;
+  font-size: 13px;
+  color: var(--muted2);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.hero-pet-more:hover { color: var(--pink); }
+@media (max-width: 760px) {
+  .hero-pet { margin-top: 20px; }
+}
+
+/* 首屏的「召唤桌宠」：与旁边的动作按钮同排，但用青色描边区分主次 */
+.hero-pet-actions .pet-toggle.is-hero {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  font-weight: 700;
+  margin-right: 2px;
+}
+.hero-pet-actions .pet-toggle.is-hero:hover,
+.hero-pet-actions .pet-toggle.is-hero:focus-visible {
+  background: rgba(10, 109, 125, .07);
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+.hero-pet-actions .pet-toggle.is-hero[aria-expanded="true"] {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+.hero-pet + .hero-pet-actions + .pet-feedback:not(:empty) {
+  margin-top: 8px;
+  color: var(--red);
+  font-size: 13px;
 }

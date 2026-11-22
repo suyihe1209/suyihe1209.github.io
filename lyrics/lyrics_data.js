@@ -1,9 +1,9 @@
-// 首页与歌词精讲合集的曲目索引。
+// 由 lyrics_data.json 生成，供专区页在 file:// 协议下离线加载
 const LYRICS_DATA = {
-  "total": 20,
-  "total_lines": 859,
-  "total_words": 3005,
-  "total_grammar": 1419,
+  "total": 18,
+  "total_lines": 768,
+  "total_words": 2625,
+  "total_grammar": 1328,
   "songs": [
     {
       "seq": 1,
@@ -335,41 +335,6 @@ const LYRICS_DATA = {
         "n4": 2,
         "n2": 9,
         "rep": 2
-      }
-    },
-    {
-      "seq": 19,
-      "nav": "白金ディスコ",
-      "title": "白金ディスコ",
-      "subtitle": "ぷらちな ディスコ ／ Purachina Disuko",
-      "artist": "阿良々木月火（CV 井口裕香）",
-      "file": "白金ディスコ_歌词精讲.html",
-      "deep": "",
-      "lines": 54,
-      "words": 176,
-      "grammar": 54,
-      "levels": {
-        "n4": 21,
-        "n5": 27,
-        "advanced": 3,
-        "reading": 3
-      }
-    },
-    {
-      "seq": 20,
-      "nav": "星座になれたら",
-      "title": "星座になれたら",
-      "subtitle": "せいざ に なれたら ／ Seiza ni naretara",
-      "artist": "結束バンド",
-      "file": "星座になれたら_歌词精讲.html",
-      "deep": "",
-      "lines": 37,
-      "words": 204,
-      "grammar": 37,
-      "levels": {
-        "n5": 8,
-        "n4": 28,
-        "n3": 1
       }
     }
   ]

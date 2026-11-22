@@ -325,7 +325,7 @@ header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10
 @font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/SourceHanSerifCN-Regular.woff2") format("woff2");}
 @font-face{font-family:"Source Han Serif CN";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/SourceHanSerifCN-Bold.woff2") format("woff2");}
 
-/* ---------- 完整导航（与博客首页一致） ---------- */
+/* ---------- 完整导航（与展示首页一致） ---------- */
 .bar .mainnav{display:flex;align-items:center;gap:18px;}
 .bar .mainnav a{text-decoration:none;color:var(--muted);font-size:16.5px;font-weight:400;
   padding:4px 0;transition:color .2s;}
@@ -339,7 +339,6 @@ header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10
   .bar .mainnav a{font-size:15px;white-space:nowrap;}
 }
 </style>
-<link rel="stylesheet" href="study-reader.css">
 </head>
 <body>
 
@@ -347,26 +346,21 @@ header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10
 
 <div class="bar" id="bar">
   <div class="row">
-    <a class="logo" href="../index.html">紫荆情怀<span class="dot">.</span></a>
+    <a class="logo" href="../index.html">柳园最终兵器<span class="dot">.</span></a>
     <nav class="mainnav">
       <a href="../index.html">首页</a>
-      <a href="../index.html#posts">文章</a>
+      <a href="../index.html#tools">工具箱</a>
       <a href="../index.html#lyrics" class="active">歌词精讲</a>
-      <a href="../index.html#tools">小工具</a>
-      <a href="../about.html">关于</a>
     </nav>
   </div>
 </div>
 
-<main class="wrap study-reader" id="stage">
+<main class="wrap" id="stage">
 <header>
   <div class="kicker">Lyrics Breakdown · 逐句精讲 #08</div>
   <h1>あいつら全員同窓会<span class="sub">Aitsura Zenin Dousoukai ／ Inside Joke ／ PSO2:NGS 合作曲</span></h1>
   <div class="byline">ずっと真夜中でいいのに。（ずとまよ） ／ 作詞・作曲：<code>ACAね</code> ／ 2021-06-17 配信单曲（英题 <code>Inside Joke</code>）<br>PC 游戏《PSO2 ニュージェネシス》合作曲 ／ 目标水平：<code>JLPT N4–N5</code> ／ 全曲逐句拆词 + 句法 + 口语缩约标注</div>
 </header>
-<nav class="study-links" aria-label="本文内容">
-  <a href="#study-contents">段落目录</a><a href="#lyrics">逐句精讲</a><a href="#vocab">词汇索引</a><a href="#song-pager">换曲</a>
-</nav>
 
 <div class="card ok">
 <h2>先说实话：这首歌难在哪</h2>
@@ -407,27 +401,8 @@ header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10
 <div class="mini"><div class="t">骨が折れる</div><div class="d">惯用句：费力气、辛苦。<b>这首歌最后一行双关</b>——字面是「笑到肋骨折」，惯用是「竭尽全力」。</div><div class="ex">あばらの骨が折れるまで　→　到肋骨折为止</div></div>
 </div>
 </div>
-<section class="card cy" id="study-contents" aria-labelledby="toc-title">
-  <h2 id="toc-title">段落目录</h2>
-  <nav class="toc" id="study-toc" aria-label="歌词段落"></nav>
-</section>
-<section aria-labelledby="lyrics-title">
-  <h2 class="study-title" id="lyrics-title">逐句精讲</h2>
-  <div class="study-tools" id="tools" hidden>
-  <label class="search"><span class="sr">搜索歌词和解析</span><input id="search" type="search" placeholder="搜歌词、假名、罗马音、中文或解析…"></label>
-  <label><span class="sr">按学习难度筛选</span><select id="level" class="tg"><option value="">全部难度</option><option value="n5">N5</option><option value="n4">N4</option><option value="n3">N3</option><option value="n2">N2+</option><option value="rep">重复唱段</option></select></label>
-  <span class="count" id="count" role="status"></span>
-</div>
-  <div class="study-controls" id="controls" hidden>
-  <button type="button" class="tg on" data-layer="rd" aria-pressed="true">假名</button>
-  <button type="button" class="tg on" data-layer="ro" aria-pressed="true">罗马音</button>
-  <button type="button" class="tg on" data-layer="tr" aria-pressed="true">译文</button>
-  <button type="button" class="tg" id="open-all">展开全部</button>
-  <button type="button" class="tg" id="close-all">收起全部</button>
-</div>
-  <p class="empty" id="empty" role="status" hidden>没有匹配的歌词行。换个关键词，或清除难度筛选。</p>
-  <div id="lyrics"></div>
-</section>
+<div id="lyrics"></div>
+<div class="empty">没有匹配的句子，换个关键词试试。</div>
 <div class="card hot">
 <h2>四组替换：这首歌真正的修辞手法</h2>
 <table class="sx"><thead><tr><th>位置</th><th>第一次</th><th>第二次</th><th>作者想说什么</th></tr></thead><tbody>
@@ -453,16 +428,7 @@ header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10
 <div class="g"><b>⑥ 〜まで（到……为止）</b><br>あばらの骨が折れるまで → 「直到肋骨折」。<br>公式：<b>动词辞书形 + まで</b>＝直到……为止。<br>この曲的出现形式是夸张：笑的时间长度被夸张到身体出ダメージ为止。</div>
 </div>
 
-<section class="card cy vocab" id="vocab" aria-labelledby="vocab-title">
-  <h2 id="vocab-title">词汇索引</h2>
-  <p class="note">按假名顺序展示逐词拆解里的写法。点行号跳回歌词，搜索也会匹配词条备注里的原形和用法。</p>
-  <div class="study-tools" id="vocab-tools" hidden>
-    <label class="search"><span class="sr">搜索词汇索引</span><input type="search" id="vocab-search" placeholder="搜词、读音、释义或备注"></label>
-    <span class="count" id="vocab-count" role="status"></span>
-  </div>
-  <div class="table-wrap"><table class="sx"><thead><tr><th scope="col">词／表达</th><th scope="col">读音</th><th scope="col">释义</th><th scope="col">出现行</th></tr></thead><tbody></tbody></table></div>
-</section>
-<div class="pager" id="song-pager">
+<div class="pager">
   <a class="prev" href="緋色の空_歌词精讲.html" title="上一首：緋色の空"><span class="lab">← 上一首</span><span class="ttl">緋色の空</span></a>
   <a class="next" href="上海an_歌词精讲.html" title="下一首：上海an"><span class="lab">下一首 →</span><span class="ttl">上海an</span></a>
 </div>
@@ -471,8 +437,9 @@ header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10
 </footer>
 </main>
 
-<script type="application/json" id="song-data">
-[
+<script>
+/*==DATA-START==*/
+const S = [
  {
   "n": "01",
   "h": "主歌一：早晨的例行仪式",
@@ -4290,8 +4257,124 @@ header h1 .sub{font-size:15px;color:var(--muted2);font-weight:400;margin-left:10
    }
   ]
  }
-]
+];
+/*==DATA-END==*/
+
+/*==ENGINE-START==*/
+const lvName = {n5:"N5", n4:"N4", n3:"N3", n2:"N2+", lit:"文語", rep:"重复"};
+const box = document.getElementById("lyrics");
+const emptyEl = document.querySelector(".empty");
+const bar = document.getElementById("bar");
+const state = {rd:true, ro:true, tr:true};
+const SECS = Array.isArray(S) ? S : (S.sections || []);
+let all = 0;
+
+try { Object.assign(state, JSON.parse(localStorage.getItem("wbState") || "{}")); } catch (e) {}
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function stripTags(s){return String(s == null ? "" : s).replace(/<[^>]*>/g, " ");}
+
+(SECS).forEach(sec => {
+  const wrap = document.createElement("section");
+  wrap.className = "sec";
+  const nLines = (sec.lines || []).length;
+  wrap.innerHTML = '<div class="sec-h"><span class="n">' + esc(sec.n) +
+    "</span><h3>" + esc(sec.h) + '</h3><span class="jp">' + esc(sec.jp) +
+    '</span><span class="sp"></span><span class="sec-cnt">' + nLines + " 句</span>" +
+    '<button class="sec-tg" type="button">展开本节</button></div>';
+
+  const secTg = wrap.querySelector(".sec-tg");
+  secTg.addEventListener("click", () => {
+    const lines = [...wrap.querySelectorAll(".line")];
+    const anyClosed = lines.some(l => !l.classList.contains("open"));
+    lines.forEach(l => setOpen(l, anyClosed));
+    secTg.textContent = anyClosed ? "收起本节" : "展开本节";
+  });
+
+  (sec.lines || []).forEach(L => {
+    all++;
+    const d = document.createElement("div");
+    d.className = "line" + (L.lv === "rep" ? " repcard" : "");
+
+    let words = "";
+    if (L.w && L.w.length) {
+      words = '<h4>逐词拆解</h4><table class="sx"><thead><tr>' +
+        "<th>词 / 表达</th><th>读音</th><th>词性</th><th>释义</th><th>备注</th></tr></thead><tbody>" +
+        L.w.map(w => '<tr><td class="w" data-h="词">' + esc(w[0]) + '</td><td class="rd2" data-h="读音">' + esc(w[1]) +
+          '</td><td class="pos" data-h="词性">' + esc(w[2]) + '</td><td class="mn" data-h="释义">' + esc(w[3]) +
+          '</td><td class="nt" data-h="备注">' + esc(w[4] || "") + "</td></tr>").join("") +
+        "</tbody></table>";
+    }
+    const gram = (L.g && L.g.length)
+      ? "<h4>句法结构</h4>" + L.g.map(g => '<div class="g"><b>' + g[0] + "</b><br>" + g[1] + "</div>").join("")
+      : "";
+    const plain = L.p ? '<div class="plain"><b>大白话：</b>' + L.p + "</div>" : "";
+    const tip = L.tip ? '<div class="tip"><b>提示：</b>' + L.tip + "</div>" : "";
+
+    d.innerHTML =
+      '<div class="head" role="button" tabindex="0" aria-expanded="false">' +
+        '<div class="orig">' + esc(L.t) + "</div>" +
+        '<div class="rd">' + esc(L.r) + "</div>" +
+        '<div class="ro">' + esc(L.ro) + "</div>" +
+        '<div class="tr">' + L.tr + "</div>" +
+        '<div class="foot"><span class="lv ' + L.lv + '">' + (lvName[L.lv] || L.lv) + "</span></div>" +
+        '<span class="chev" aria-hidden="true">▾</span>' +
+      "</div>" +
+      '<div class="detail">' + words + gram + plain + tip + "</div>";
+
+    d.dataset.search = stripTags([L.t, L.r, L.ro, L.tr, L.p, L.tip]
+      .concat((L.w || []).map(w => w.join(" ")))
+      .concat((L.g || []).map(g => g.join(" ")))
+      .join(" ")).toLowerCase();
+
+    const head = d.querySelector(".head");
+    head.addEventListener("click", () => setOpen(d, !d.classList.contains("open")));
+    head.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(d, !d.classList.contains("open")); }
+    });
+
+    wrap.appendChild(d);
+  });
+  box.appendChild(wrap);
+});
+
+function setOpen(line, open) {
+  line.classList.toggle("open", !!open);
+  const h = line.querySelector(".head");
+  if (h) h.setAttribute("aria-expanded", open ? "true" : "false");
+  const sec = line.closest(".sec");
+  if (sec) syncSecTg(sec);
+}
+function syncSecTg(sec) {
+  const tg = sec.querySelector(".sec-tg");
+  if (!tg) return;
+  const lines = [...sec.querySelectorAll(".line")];
+  tg.textContent = lines.some(l => !l.classList.contains("open")) ? "展开本节" : "收起本节";
+}
+
+function apply() {
+  box.querySelectorAll(".line").forEach(l => {
+    l.querySelector(".rd").style.display = state.rd ? "block" : "none";
+    l.querySelector(".ro").style.display = state.ro ? "block" : "none";
+    l.querySelector(".tr").style.display = state.tr ? "block" : "none";
+  });
+}
+
+
+/* 导航高度写进 --nav-h，供锚点与深读版目录使用 */
+function syncNavH() {
+  const h = bar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-h", Math.round(h) + "px");
+}
+if (window.ResizeObserver) new ResizeObserver(syncNavH).observe(bar);
+else window.addEventListener("resize", syncNavH);
+window.addEventListener("load", syncNavH);
+
+/* 默认全部收起：进来先看到歌词本身，想看解析再点 */
+apply();
+
+syncNavH();
+/*==ENGINE-END==*/
 </script>
-<script src="study-reader.js" defer></script>
 </body>
 </html>

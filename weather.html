@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山水天气 · 工具箱 · 柳园最终兵器</title>
+<meta name="description" content="把天气放在手机桌面上。卡片的一侧留给你的照片，另一侧的河畔风景会随天气和昼夜变化。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5efe6'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23c2185b' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%230a6d7d'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tool-detail.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">柳园最终兵器<span class="dot">.</span></a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="index.html#tools">工具箱</a>
+      <a href="tools.html">桌宠</a>
+      <a href="index.html#lyrics">歌词精讲</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container article-page tool-detail">
+  <a class="back-link" href="index.html#tools">← 返回工具箱</a>
+  <header class="article-header">
+    <span class="post-date">v1.1 独立版 · 河畔天气小组件</span>
+    <h1>山水天气</h1>
+    <p class="tool-intro">把天气放在手机桌面上。卡片的一侧留给你的照片，另一侧的河畔风景会随天气和昼夜变化。</p>
+    <div class="download-row">
+      <!-- 安装包 175 MB，超出 GitHub 单文件 100 MB 限制，放在 Releases 外链。
+           换用网盘时只改下面这个 href 即可。 -->
+      <a class="tool-action" href="https://github.com/suyihe1209/suyihe1209.github.io/releases/download/showcase-v0.1/shanshui-weather.apk"
+         rel="noopener" download>下载安卓安装包（APK · 175 MB）↓</a>
+      <span class="download-requirement">Android 6.0 及以上 · 经 GitHub Releases 外链</span>
+      <p class="download-note">安装包体积较大，已从站点目录移出，走外链下载；离线演示时的本地副本不随本站发布。</p>
+    </div>
+  </header>
+  <article class="article-body" aria-label="使用说明">
+    <h2>第一次使用</h2>
+    <ol>
+      <li>用安卓手机下载上面的 APK，点开下载好的文件，按系统提示安装并打开「山水天气」。</li>
+      <li>准备自己的和风天气账号。在控制台的「设置」里复制专属服务地址（API Host），再到「项目管理」创建或打开项目，添加一个 <strong>API KEY</strong> 凭据。<a href="https://dev.qweather.com/docs/configuration/api-host/">查看地址说明</a> · <a href="https://dev.qweather.com/docs/configuration/project-and-key/">查看密钥说明</a></li>
+      <li>在应用的「小组件设置」里点「天气服务」，把专属域名填进 API Host，把密钥填进 API Key，然后点「保存天气服务」。联网后，在预览里查看温度。要换城市，再点「天气城市」搜索。</li>
+      <li>回到手机桌面，长按空白处，打开「小组件」或「窗口小工具」，找到「山水天气」，把卡片拖到桌面。</li>
+    </ol>
+    <h2>放一张自己的照片</h2>
+    <p>在应用里点「选择背景照片」，单指拖动照片，将想保留的人或风景对准左侧准星。双指可以缩放，点「保存照片」就会应用到桌面卡片。之后还能通过「调整照片位置」重新构图。</p>
+    <h2>看一段天气风景</h2>
+    <p>在应用里轻点天气卡片，就能全屏观看当前天气对应的山水短片。点「选景」可以在白天、夜晚之间切换，挑一场雨或一片晴空。看完再点「选景」，选择「返回当前天气」即可。</p>
+    <h2>桌面温度一直显示空白？</h2>
+    <p>先打开应用，确认手机能联网。「天气服务」里的地址和密钥需要来自同一个和风天气账号。重新填写后，回到预览确认天气，再查看桌面卡片。</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>柳园21栋526，604联合出品</p>
+  </div>
+</footer>
+</body>
+</html>

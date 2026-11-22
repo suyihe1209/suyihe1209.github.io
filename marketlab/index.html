@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MarketLab · AI 金融市场实验室 · 柳园最终兵器</title>
+<meta name="description" content="用真实历史行情做多市场观察、五日预测、量化回测、模拟交易和宏观推演，并将实验保存为研究报告。">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="lab.css"><link rel="stylesheet" href="suite.css">
+<link rel="stylesheet" href="observe/market.css"><link rel="stylesheet" href="quant/style.css"><link rel="stylesheet" href="replay/style.css">
+<script src="markets/local.js"></script>
+<script defer src="data/market.js"></script><script defer src="observe/assets.js"></script><script defer src="markets/context.js"></script>
+<script defer src="quant/engine.js"></script><script defer src="markets/catalog.js"></script><script defer src="markets/picker.js"></script>
+<script defer src="chart.js"></script><script defer src="records.js"></script><script defer src="app.js"></script>
+<script defer src="common.js"></script><script defer src="observe/market.js"></script>
+<script defer src="quant/lab.js"></script><script defer src="replay/lab.js"></script>
+<script defer src="scenario/model.js"></script><script defer src="scenario/lab.js"></script><script defer src="report/lab.js"></script>
+<script defer src="official.js"></script><script defer src="suite.js"></script></head>
+<body>
+<header class="site-header"><div class="container header-inner">
+<a class="logo" href="../index.html">柳园最终兵器<span class="dot">.</span></a>
+<nav class="nav" aria-label="主导航"><a href="../index.html">首页</a><a href="../index.html#tools" class="active">工具箱</a><a href="../tools.html">桌宠</a><a href="../index.html#lyrics">歌词精讲</a></nav>
+</div></header>
+<main class="container lab">
+<a class="back-link" href="../index.html#tools">← 返回工具箱</a>
+<header class="mast"><p class="hero-kicker">MARKETLAB</p><h1>AI 金融市场实验室</h1><p>用真实行情验证一个判断，比较策略，把每次实验留成可复核的研究记录。</p></header>
+<div class="market-picker"><label>研究市场<select id="market-picker" aria-label="研究市场">
+<option value="CSI:000300">中国大陆 · 沪深300</option><option value="SP:SPX">美国 · 标普500</option><option value="NASDAQ:IXIC">美国 · 纳斯达克综合</option></select></label>
+<span id="edition-info" class="fine">网页版资料截止 2026 年 11 月 18 日</span></div>
+<section id="missing-index" class="panel wide" hidden><h2>载入个人研究行情</h2><p>指数日线由本机行情源提供。你可以在此设备载入所选指数，或选择有权使用的 MarketLab 行情快照。公开政策消息和宏观指标可直接查阅。</p>
+<button id="acquire-index" type="button">从行情源载入所选指数</button> <label class="import-index">导入行情快照 <input id="import-index" type="file" accept=".json,application/json"></label><p id="index-status" role="status"></p></section>
+<nav class="ml-nav" aria-label="实验室工作区">
+<a href="#overview">总览</a><a href="#observe">市场观察</a><a href="#arena">预测擂台</a><a href="#quant">量化研究</a><a href="#replay">金融时光机</a><a href="#macro">宏观沙盘</a><a href="#reports">研究报告</a>
+</nav>
+<section data-page="overview" id="overview-module"></section>
+<section data-page="observe" id="observe-module" hidden></section>
+<section data-page="arena" id="arena-module" hidden><div id="load" class="notice" role="status">正在载入行情快照…</div><noscript><p>请开启 JavaScript 以查看行情和记录预测。</p></noscript>
+<div id="workbench" hidden>
+<div class="toolbar">
+<label>实验模式<select id="mode"><option value="practice">历史盲测练习</option><option value="latest">最新快照跟踪</option></select></label>
+<label>观察截止日<select id="cutoff"></select></label>
+<p id="mode-note" class="muted"></p>
+</div>
+<div class="desk">
+<section class="panel chart-panel" aria-labelledby="market-title">
+<header class="panel-head"><div><p class="eyebrow">市场观察</p><h2 id="market-title"></h2></div><span class="subtle" id="market-id"></span></header>
+<p id="market-basis" class="fine"></p>
+<div class="indicators"><div><span>截止日收盘</span><strong id="last"></strong></div><div><span>近 5 日收益</span><strong id="ret5"></strong></div><div><span>近 20 日收益</span><strong id="ret20"></strong></div></div>
+<div class="chart-tools"><strong>日 K 线</strong><div class="periods" aria-label="显示的交易日数量"><button data-range="5" aria-pressed="false">5 日</button><button data-range="20" aria-pressed="true">20 日</button><button data-range="60" aria-pressed="false">60 日</button></div></div>
+<canvas id="candles" tabindex="0" aria-label="交互式 K 线及成交量图。使用左右方向键切换交易日，或在下方选择日期查看数值。"></canvas>
+<div class="inspect"><label>查阅日线<select id="inspect-date"></select></label><p id="ohlcv"></p></div>
+<p id="chart-meta" class="fine"></p>
+<details class="source"><summary>数据来源与时效</summary><div id="data-source"></div>
+<p>有获准使用的指数日线？在 MarketLab 文件夹里选择对应的指数导入工具，选择 CSV，就能用指数点位重新训练并打开独立的研究快照。</p></details>
+</section>
+<section class="panel forecast" aria-labelledby="predict-title">
+<p class="eyebrow">人机预测擂台</p><h2 id="predict-title">你的预测</h2>
+<p id="question"></p>
+<form id="prediction-form">
+<label for="probability">上涨概率（0 至 100%）</label><div class="prob-input"><input id="probability" type="number" required min="0" max="100" step="any" inputmode="decimal" placeholder="0–100"><span>%</span></div>
+<label for="reason">判断理由 <small>选填</small></label><textarea id="reason" rows="3" maxlength="1200" placeholder="哪些行情或指标影响了你的判断？"></textarea>
+<button type="submit" id="lock" class="primary">锁定预测</button>
+</form>
+<p id="lock-message" role="status" class="fine"></p><p class="fine">匿名保存在当前浏览器。同一市场、截止日和周期只能提交一次。</p>
+<hr><h3>AI 分析师</h3><p id="ai-status" class="muted" role="status">检查服务中…</p><button id="ai-run" type="button" hidden>获取 AI 分析</button><button id="ai-retry" type="button" hidden>重新检查服务</button>
+<details><summary>如何接入 AI 服务</summary>
+<p>要启用分析，请在本机服务环境中设置 <code>MARKETLAB_AI_KEY</code> 与 <code>MARKETLAB_AI_MODEL</code>，再运行「打开实验室.command」。使用兼容服务时还可设置 <code>MARKETLAB_AI_BASE_URL</code>。密钥仅存于服务端。</p>
+<p>锁定预测后，点「获取 AI 分析」才会向已配置的服务商发送当时的行情和已公开的政策消息摘要。费用按服务商和账户设置计算。<a href="README.md">查看本机启动说明</a></p></details>
+</section>
+</div>
+
+<section id="results" class="panel wide" hidden>
+<div class="panel-head"><div><p class="eyebrow">同一截止日</p><h2>预测对照与结算</h2></div><button id="reveal" type="button">揭晓结果</button></div>
+<p id="outcome" class="note" role="status"></p>
+<div id="compare"></div><div id="ai-detail"></div><details><summary>预测凭据与计算方式</summary><div id="receipt"></div></details>
+</section>
+
+<section class="panel wide"><div class="panel-head"><div><p class="eyebrow">本机实验</p><h2>记录与排行榜</h2></div><label>成绩分组<select id="ranking-mode"><option value="practice">历史练习</option><option value="latest">最新快照跟踪</option></select></label></div>
+<p class="fine">两种模式分别计分。排行榜按已揭晓预测的平均 Brier 分从低到高排列，样本数会影响可比性。50% 及以上判断为上涨，平盘归入未涨。</p>
+<h3>排行榜</h3><div id="ranking"></div><h3>预测历史</h3><div id="history"></div>
+<details id="validation"><summary>量化模型的时间序列验证</summary><div id="experiment"></div></details>
+</section>
+</div>
+<section id="official-arena" class="panel wide"><h2>正式前瞻预测</h2><p class="fine">正在检查本机服务与所选指数行情…</p></section>
+</section>
+<section data-page="quant" id="quant-module" hidden></section>
+<section data-page="replay" id="replay-module" hidden></section>
+<section data-page="macro" id="macro-module" hidden></section>
+<section data-page="reports" id="reports-module" hidden></section>
+<section id="android-download" class="panel wide apk-download"><div><h2>MarketLab 安卓版</h2><p>安卓版每日更新中美指数行情与官方公告，可用 AI 生成带有原文链接的研究简报。</p></div>
+<a class="apk-action" href="downloads/MarketLab-Android.apk" download>下载安卓安装包（APK）</a></section>
+</main><footer class="site-footer"><div class="container"><p>柳园21栋526，604联合出品 · 仅供研究与学习，不构成投资建议。</p></div></footer>
+</body></html>

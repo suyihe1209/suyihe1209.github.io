@@ -1,0 +1,34 @@
+.tool-detail .article-header {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line2);
+}
+.tool-detail .tool-intro {
+  max-width: 37em;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.download-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 18px;
+  margin-top: 22px;
+}
+.download-row .tool-action {
+  margin: 0;
+  text-decoration: none;
+}
+.download-row .tool-action:hover { color: var(--pink); }
+.download-requirement { color: var(--muted2); font-size: 13px; }
+.tool-detail .article-body { padding-top: 0; }
+.tool-detail .article-body li { margin-bottom: 12px; }
+@media (max-width: 700px) {
+  .tool-detail .article-header { padding-top: 36px; }
+}
+.download-note {
+  flex-basis: 100%;
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.7;
+}

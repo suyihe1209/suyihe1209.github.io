@@ -28,61 +28,105 @@
     if (!nav) return;
     const links = nav.querySelectorAll("a[data-nav]");
 
-    // 首页参与滚动高亮的页内板块（按页面顺序）。
-    // 注意：不含 about —— 导航里的「关于」是跨页链接(about.html)，不是页内锚点，
-    // 若让 about section 触发高亮会造成「看着高亮、点了却跳页」的误导。
-    const sectionIds = ["lyrics", "posts", "tools"];
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    const header = nav.closest(".site-header");
+    const tools = document.getElementById("tools");
+    const lyrics = document.getElementById("lyrics");
 
-    if (sections.length === 0) return;
-
-    function setActive(key) {
+    function updateCurrentSection() {
+      const readingLine = header.getBoundingClientRect().bottom + 20;
+      let key = "home";
+      if (tools.getBoundingClientRect().top <= readingLine) key = "tools";
+      if (lyrics.getBoundingClientRect().top <= readingLine) key = "lyrics";
       links.forEach((a) => {
-        a.classList.toggle("active", a.getAttribute("data-nav") === key);
+        const active = a.dataset.nav === key;
+        a.classList.toggle("active", active);
+        if (active) a.setAttribute("aria-current", key === "home" ? "page" : "location");
+        else a.removeAttribute("aria-current");
       });
     }
 
-    // 页面顶部（hero 区）→ 高亮「首页」
-    function checkTop() {
-      const hero = document.querySelector(".hero");
-      if (!hero) return;
-      const r = hero.getBoundingClientRect();
-      // hero 底部还没完全滚出视口上沿时，视为「在顶部」
-      if (r.bottom > 80) setActive("home");
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // 取「最靠视口上方的可见 section」来高亮
-        let current = null;
-        let minTop = Infinity;
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const top = e.target.getBoundingClientRect().top;
-            if (top < minTop) {
-              minTop = top;
-              current = e.target.id;
-            }
-          }
-        });
-        if (current) {
-          setActive(current);
-        } else {
-          checkTop();
-        }
-      },
-      { rootMargin: "-80px 0px -40% 0px", threshold: 0 }
-    );
-
-    sections.forEach((s) => observer.observe(s));
-
-    // 初始状态 & 滚回顶部时恢复「首页」高亮
-    window.addEventListener("scroll", () => {
-      if (window.scrollY < 120) setActive("home");
-    }, { passive: true });
+    window.addEventListener("scroll", updateCurrentSection, { passive: true });
+    window.addEventListener("resize", updateCurrentSection);
+    updateCurrentSection();
   }
 
   document.addEventListener("DOMContentLoaded", initScrollSpy);
+})();
+
+// 按需加载首页桌宠，收起时释放模型和事件监听。
+// 顺带让首屏那排「挥手 / 出拳 / 低扫 / 闪避 / 整套连播」按钮也能指挥它。
+(function () {
+  const toggle = document.getElementById("petToggle");
+  const host = document.getElementById("homePet");
+  const feedback = document.getElementById("petFeedback");
+  const heroActions = document.getElementById("heroPetActions");
+  const petTag = "t800-companion";
+  let loading = false;
+
+  function setToggle(text, expanded) {
+    if (!toggle) return;
+    toggle.textContent = text;
+    toggle.setAttribute("aria-expanded", String(expanded));
+  }
+
+  async function loadPet() {
+    if (customElements.get(petTag)) return true;
+    if (loading) return false;
+    loading = true;
+    const script = document.createElement("script");
+    script.src = "tool-assets/t800-pet.js";
+    await new Promise((resolve) => {
+      script.addEventListener("load", resolve, { once: true });
+      script.addEventListener("error", resolve, { once: true });
+      document.head.append(script);
+    });
+    loading = false;
+    if (customElements.get(petTag)) return true;
+    script.remove();
+    return false;
+  }
+
+  // 已经召唤过就复用，没有就现场叫一只
+  async function ensurePet() {
+    const alive = host.firstElementChild;
+    if (alive) return alive;
+    if (feedback) feedback.textContent = "";
+    const ready = await loadPet();
+    if (!ready) {
+      setToggle("召唤桌宠", false);
+      if (feedback) feedback.textContent = "桌宠加载失败，请再试一次。";
+      return null;
+    }
+    const pet = document.createElement(petTag);
+    host.append(pet);
+    setToggle("收起桌宠", true);
+    return pet;
+  }
+
+  function dismissPet() {
+    if (host.firstElementChild) host.firstElementChild.remove();
+    setToggle("召唤桌宠", false);
+  }
+
+  if (toggle) {
+    toggle.hidden = false;
+    toggle.addEventListener("click", async () => {
+      if (host.firstElementChild) { dismissPet(); return; }
+      if (loading) return;
+      setToggle("召唤中…", false);
+      const pet = await ensurePet();
+      if (!pet) return;
+    });
+  }
+
+  // 首屏动作按钮：没有桌宠就先叫一只，再让它做指定动作
+  if (heroActions) {
+    heroActions.addEventListener("click", async (event) => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const pet = await ensurePet();
+      if (!pet || typeof pet.act !== "function") return;
+      pet.act(button.dataset.action);
+    });
+  }
 })();

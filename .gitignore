@@ -14,3 +14,6 @@ desktop.ini
 # 临时文件
 *.tmp
 *.log
+
+# Machine-specific link to locally supplied market history
+/marketlab/markets/file-cache.js

@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.zijing.marketlab.qa">
+<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33"/>
+<application android:label="MarketLab emulator checks"/>
+<instrumentation android:name=".Check" android:targetPackage="cn.zijing.marketlab" android:label="MarketLab emulator checks"/>
+<instrumentation android:name=".SettingsCheck" android:targetPackage="cn.zijing.marketlab" android:label="MarketLab settings checks"/>
+<instrumentation android:name=".ChatCheck" android:targetPackage="cn.zijing.marketlab" android:label="Chat upgrade checks"/>
+</manifest>

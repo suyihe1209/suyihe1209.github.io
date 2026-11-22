@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""把「日语歌词精讲」项目的成品页变成博客里能用的页。
+"""把「日语歌词精讲」项目的成品页变成展示站能用的页。
 
 项目那边（D:\\DSH-Workspace\\日语歌词精讲\\）生成的是**深色独立版**，
-博客这边是暖纸浅色、带站点导航的版本。每次新增/重建歌词页都要走一遍本脚本，
+展示站这边是暖纸浅色、带站点导航的版本。每次新增/重建歌词页都要走一遍本脚本，
 否则新页面会跟站内其它页长得不一样。
 
 用法（在站点根目录下）：
@@ -70,13 +70,11 @@ SITE_NAV_CSS = """
 """
 
 SITE_NAV_HTML = '''  <div class="row navrow">
-    <a class="logo" href="../index.html">紫荆情怀<span class="dot">.</span></a>
+    <a class="logo" href="../index.html">柳园最终兵器<span class="dot">.</span></a>
     <nav class="mainnav">
       <a href="../index.html">首页</a>
-      <a href="../index.html#posts">文章</a>
+      <a href="../index.html#tools">工具箱</a>
       <a href="../index.html#lyrics" class="active">歌词精讲</a>
-      <a href="../index.html#tools">小工具</a>
-      <a href="../about.html">关于</a>
     </nav>
   </div>
 '''

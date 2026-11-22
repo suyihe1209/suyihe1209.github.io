@@ -1,0 +1,62 @@
+[hidden]{display:none!important}
+.lab {padding-bottom:24px}
+.lab .mast {padding:34px 0 26px}
+.mast .hero-kicker,.eyebrow {margin:0 0 5px;color:var(--pink);font-size:12px;letter-spacing:.12em;font-weight:700}
+.mast h1 {font-size:clamp(30px,4.2vw,48px);line-height:1.4;letter-spacing:-.04em}
+.mast>p:last-child,.muted,.note {color:var(--muted)}
+.lab label {display:grid;gap:5px;font-size:13px;color:var(--muted)}
+.lab select,.lab input,.lab textarea,.lab button {font:inherit;color:var(--text)}
+.lab select,.lab textarea,.lab input {border-radius:6px;border:1px solid var(--line2);background:var(--panel);min-width:0;padding:7px 10px}
+.lab button {border:1px solid var(--line2);background:var(--panel);border-radius:6px;padding:7px 13px;cursor:pointer;line-height:1.55}
+.lab button:hover,.lab button[aria-pressed=true] {color:var(--cyan);border-color:var(--cyan);background:#edf4f1}
+.lab :focus-visible {outline:2px solid var(--cyan);outline-offset:3px}
+.lab button:disabled {cursor:default;opacity:.62}
+.toolbar,.panel {border:1px solid var(--line2);border-radius:var(--r-md);background:rgba(255,255,255,.53)}
+.toolbar {display:flex;align-items:center;gap:18px;padding:14px 20px;margin-bottom:16px}
+.toolbar p {flex:1;font-size:13px}
+.desk {display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);gap:16px;align-items:start}
+.panel {padding:22px;min-width:0}
+.wide {margin-top:16px}
+.panel-head,.chart-tools {display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lab h2 {font-size:clamp(20px,2.2vw,26px);line-height:1.45}
+.lab h3 {font-size:17px;margin:16px 0 6px}
+.subtle,.fine,.inspect p,.lab small {font-size:12px;color:var(--muted2)}
+.lab #market-id {font-variant-numeric:tabular-nums}
+.indicators {display:flex;flex-wrap:wrap;gap:12px 26px;margin:18px 0}
+.indicators span,.indicators strong {display:block}
+.indicators span {color:var(--muted);font-size:12px}
+.indicators strong {font-size:20px;font-variant-numeric:tabular-nums}
+.up {color:var(--red)}.down {color:var(--green)}
+.periods {display:flex;gap:4px}
+.periods button {font-size:12px;padding:4px 8px}
+#candles {display:block;width:100%;height:270px;margin:6px 0;touch-action:pan-y}
+.inspect {display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.inspect select {font-size:13px}
+.inspect p {color:var(--text);line-height:1.9}
+#chart-meta {margin-top:8px}
+.forecast form {display:grid;gap:8px;padding:12px 0}
+.forecast label {display:block;font-weight:700}
+.forecast #question,.forecast #ai-status,.note {font-size:14px;margin:10px 0}
+.forecast textarea {resize:vertical}
+.prob-input {display:flex;align-items:center;gap:8px}
+.prob-input input {width:9em}
+.lab button.primary {color:white;border-color:var(--cyan);background:var(--cyan);font-weight:bold;margin-top:3px}
+.lab hr,.lab details {border:0;border-top:1px solid var(--line2);margin-top:14px}
+.lab details {padding-top:10px}
+.lab summary {color:var(--cyan);font-size:14px;cursor:pointer;width:fit-content}
+.lab details p,.lab details ul {margin:8px 0;font-size:13px;color:var(--muted)}
+.lab a {text-underline-offset:4px}
+.lab .notice {padding:14px 16px;border-left:3px solid var(--pink);background:var(--panel2);margin-bottom:16px}
+.scroll-table {overflow:auto}
+.lab table {width:100%;border-collapse:collapse;font-size:14px;text-align:left;font-variant-numeric:tabular-nums}
+.lab th,.lab td {padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.lab th {font-weight:normal;color:var(--muted);font-size:12px}
+#receipt,#ai-detail {overflow-wrap:anywhere}#ai-detail ul {margin-left:20px}
+.lab #history button {padding:3px 8px;font-size:13px}
+@media(max-width:800px){.desk{grid-template-columns:1fr}.toolbar{flex-wrap:wrap}.toolbar p{flex-basis:100%}}
+@media(max-width:520px){.lab{padding-inline:16px}.panel{padding:15px}.toolbar{padding:12px;gap:10px}.toolbar label{flex:1}.panel-head{align-items:flex-start}.mast h1{font-size:29px}.lab .mast{padding:22px 0}.inspect{grid-template-columns:1fr}.inspect select{max-width:160px}.indicators{gap:12px 18px}.indicators strong{font-size:18px}#candles{height:226px}}
+.official-form {display:grid;max-width:580px;gap:9px;margin:12px 0}
+.official-form input[type=number]{max-width:175px}
+.official-form .official-confirm {display:flex;align-items:start;gap:8px}
+.official-form input[type=checkbox] {margin-top:5px;flex-shrink:0}
+.official-form button {justify-self:start}

@@ -1,0 +1,30 @@
+{
+  "market": {
+    "id": "TWSE:006207",
+    "name": "复华沪深300 ETF（006207）",
+    "currency": "TWD",
+    "timezone": "Asia/Taipei",
+    "priceUnit": "新台币/份",
+    "volumeUnit": "份",
+    "marketType": "ETF",
+    "exchange": "台湾证券交易所",
+    "priceBasis": "台交所原始成交价（未复权）",
+    "referenceIndex": "沪深300指数"
+  },
+  "source": {
+    "name": "台湾证券交易所 · 个股日成交资讯",
+    "url": "https://data.gov.tw/dataset/11549",
+    "license": "政府资料开放授权条款第1版（OGDL-Taiwan-1.0，须署名）",
+    "asOf": "2024-12-31",
+    "updatedAt": "2026-11-21T23:29:21+08:00",
+    "demo": true,
+    "licenseUrl": "https://data.gov.tw/license",
+    "officialQuery": "https://www.twse.com.tw/zh/trading/historical/stock-day.html",
+    "etfUrl": "https://www.twse.com.tw/zh/ETFortune/etfInfo/006207",
+    "from": "2023-01-03",
+    "rows": 481,
+    "sha256": "5d5c18ee0347dce9c059a4f61a6070281f675ebd293f6a23900989a4c22c82cd",
+    "attribution": "金融監督管理委員會證券期貨局／臺灣證券交易所，2023–2024，「盤後資訊 > 個股日成交資訊」（資料集 11549）。依政府資料開放授權條款第1版公開釋出，使用者得依條款利用。",
+    "basis": "台交所挂牌 ETF 的日线历史实值。台币价格和成交份额反映台湾市场交易；交易日历、汇率、ETF折溢价及费用均可能导致与沪深300指数表现不同。"
+  }
+}

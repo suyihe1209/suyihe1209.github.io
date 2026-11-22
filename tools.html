@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T800 桌宠 · 技术说明 · 柳园最终兵器</title>
+<meta name="description" content="T800 网页桌宠的实现说明：Three.js 自定义元素、点击才加载、拖拽与动作系统，以及它为什么有 6.3 MB。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5efe6'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23c2185b' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%230a6d7d'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tool-assets/collection.css">
+<script defer src="tool-assets/t800-pet.js"></script>
+<script defer src="tool-assets/collection.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">柳园最终兵器<span class="dot">.</span></a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="index.html#tools">工具箱</a>
+      <a href="tools.html" class="active" aria-current="page">桌宠</a>
+      <a href="index.html#lyrics">歌词精讲</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container spec-page">
+  <a class="back-link" href="index.html#tools">← 返回工具箱</a>
+
+  <header class="spec-head">
+    <p class="spec-kicker">Three.js r170 · WebGL · 自定义元素</p>
+    <h1 class="spec-title">T800 桌宠</h1>
+    <p class="spec-lede">网页上的一只 3D 陪练。点它出招，拖住它移动，松手看它落地；方向键也能推着走，鼠标靠近它会转头看你。整个实现是一个 6.3 MB 的自定义元素，不联网也能跑。</p>
+
+    <dl class="spec-facts">
+      <div><dt>渲染</dt><dd>three.js r170 / WebGL</dd></div>
+      <div><dt>体积</dt><dd>6.3 MB 单文件（含引擎）</dd></div>
+      <div><dt>首屏占用</dt><dd>0，点击才注入</dd></div>
+      <div><dt>动作</dt><dd>9 组 + 2 种组合</dd></div>
+      <div><dt>降级</dt><dd>无 WebGL 时转静态立绘</dd></div>
+    </dl>
+  </header>
+
+  <section class="pet-stage" aria-labelledby="stage-title">
+    <div class="pet-stage-head">
+      <h2 id="stage-title">试一试</h2>
+      <p class="pet-status" role="status">当前动作 · 待机</p>
+    </div>
+    <div class="pet-dock" aria-hidden="true"></div>
+    <div class="pet-actions" role="group" aria-label="桌宠动作">
+      <button type="button" data-action="sequence">整套连播</button>
+      <button type="button" data-action="wave">挥手致意</button>
+      <button type="button" data-action="flurry">刺拳直拳勾拳</button>
+      <button type="button" data-action="bound">闪避反击</button>
+      <button type="button" data-action="turn">后腿低扫</button>
+      <button type="button" data-action="step">进退步法</button>
+      <button type="button" data-action="scan">回身巡视</button>
+      <button type="button" data-action="idle">待机</button>
+      <button type="button" data-action="reset">回到原位</button>
+    </div>
+    <p class="pet-hint">点一下 T800 看它出招，也可以拖住它，松手看它落地。</p>
+    <noscript><p class="pet-hint">开启 JavaScript 即可与桌宠互动。</p></noscript>
+  </section>
+
+  <article class="spec-body">
+    <h2>01 · 页面里只有一行标签</h2>
+    <p>整个桌宠是 <code>&lt;t800-companion&gt;</code> 一个自定义元素。它用 Shadow DOM 把样式、设备像素比和内部结构锁在元素里：外部 CSS 改不动它的形状，它也不会把 3D 画布的样式泄漏给站点。换页面复用时只复制一行标签。</p>
+    <p>元素内部只有三块东西：一张 <code>poster</code> 立绘（首帧渲染前和降级时显示）、一个 <code>canvas</code>、一个铺满全图的透明 <code>button</code>。那个按钮不是装饰 —— 它承接指针拖拽和键盘焦点，所以桌宠可以被 Tab 聚焦、被方向键推着走，读屏软件也能读到它的说明。</p>
+
+    <h2>02 · 点击才加载</h2>
+    <p>首页不会在首屏拉这 6.3 MB。点了「召唤桌宠」之后，才创建 script 标签注入 <code>tool-assets/t800-pet.js</code>，并等待它的加载事件；加载失败会移除标签、把按钮文案复位，不会卡在「召唤中…」。</p>
+    <p>是否已注册用 <code>customElements.get()</code> 判断，反复点不会重复注入。收起时直接 <code>remove()</code>：<code>disconnectedCallback</code> 里中止 AbortController、取消 <code>requestAnimationFrame</code>、释放 GPU 资源，再点一次是干净重建。</p>
+
+    <h2>03 · 渲染与省电</h2>
+    <ul>
+      <li>每帧时间步长上限 80 ms，切到后台直接返回；<code>visibilitychange</code> 时恢复循环。</li>
+      <li><code>ResizeObserver</code> 跟随容器尺寸，窗口缩放时重算落点，不会飘出屏幕。</li>
+      <li>系统开启「减少动态效果」时命中 <code>prefers-reduced-motion</code>：冻结时间戳、跳过出场动画、关掉视线跟随 —— 动效不靠 JS 硬撑。</li>
+    </ul>
+
+    <h2>04 · 一套指针就能玩</h2>
+    <ul>
+      <li><strong>拖动</strong>：<code>pointerdown</code> 后用 <code>setPointerCapture</code> 接管指针，移动只改 translate 位置，不触发重排。</li>
+      <li><strong>松手</strong>：按最后几帧的速度换算冲击强度，播放落地缓冲；拖得越快，落地越沉。</li>
+      <li><strong>点击</strong>：在四个招式之间轮换，连点像在打一套连段。</li>
+      <li><strong>键盘</strong>：方向键微调，按住 Shift 一次推 40 px。</li>
+      <li><strong>视线</strong>：指针进入 230 px 半径才转头看你，离开自动回正。</li>
+    </ul>
+
+    <h2>05 · 动作是队列，不是一堆 if</h2>
+    <p>外部只有一个入口 <code>act(name)</code>，合法值包括 idle、opening、wave、flurry、turn、bound、step、scan、land。<code>sequence</code> 会把六个动作塞进 <code>remaining</code> 队列逐个播放；<code>arena</code> 每次点击轮换四个招式。每组动作的时长由模型数据里的 <code>performances[name].duration</code> 决定，播完自动回到待机 —— 新增动作只要补一条模型数据，不用改循环。</p>
+
+    <h2>06 · 已知限制</h2>
+    <ul>
+      <li>6.3 MB 对移动网络仍然偏重，下一步可把引擎与模型拆开、按需加载。</li>
+      <li>没有物理碰撞，只有视口边界钳制；桌宠之间也不会互相推挤。</li>
+      <li>动作手感依赖模型里的关键帧，改动作要同时改数据与时长表。</li>
+    </ul>
+  </article>
+</main>
+
+<t800-companion></t800-companion>
+
+<footer class="site-footer">
+  <div class="container"><p>柳园21栋526，604联合出品</p></div>
+</footer>
+</body>
+</html>

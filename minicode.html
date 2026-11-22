@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniCode 代码编辑器 · 工具箱 · 柳园最终兵器</title>
+<meta name="description" content="在手机上新建和编辑代码文件，查找替换、跳转到行，也可以导入已有文件，或把整个工作区备份带走。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5efe6'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23c2185b' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%230a6d7d'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tool-detail.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">柳园最终兵器<span class="dot">.</span></a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="index.html#tools">工具箱</a>
+      <a href="tools.html">桌宠</a>
+      <a href="index.html#lyrics">歌词精讲</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container article-page tool-detail">
+  <a class="back-link" href="index.html#tools">← 返回工具箱</a>
+  <header class="article-header">
+    <span class="post-date">v2.3.0 · 移动代码编辑器</span>
+    <h1>MiniCode 代码编辑器</h1>
+    <p class="tool-intro">在手机上新建和编辑代码文件，查找替换、跳转到行，也可以导入已有文件，或把整个工作区备份带走。</p>
+    <div class="download-row">
+      <a class="tool-action" href="minicode/mini-code-editor.html#ai-sim">在线打开 AI 试运行 →</a>
+      <a class="tool-action" href="downloads/MiniCode-2.3.0.apk" download>下载安卓安装包（APK）↓</a>
+      <span class="download-requirement">Android 7.0 及以上</span>
+    </div>
+  </header>
+  <article class="article-body" aria-label="使用说明">
+    <h2>让 AI 试运行一段代码</h2>
+    <ol>
+      <li>点「在线打开 AI 试运行」，或在安卓版编辑器中打开「AI 试运行」。想先写代码，可以先<a href="minicode/mini-code-editor.html">打开网页编辑器</a>。</li>
+      <li>在编辑器设置里填写自己模型服务的 API Key。默认连接 DeepSeek。使用其他兼容服务时，先填接口地址和模型名，再填该服务的密钥。</li>
+      <li>对话框默认选中当前文件。代码还用到头文件或其他模块时，一并勾选。输入想测的数据，例如「给空数组，预计输出什么，为什么？」再点发送。</li>
+      <li>AI 会根据发送的代码和输入推演结果，你可以继续追问是哪一行造成的。运行时间、外部文件和平台差异等，仍需在真实环境验证。</li>
+    </ol>
+    <p>网页由浏览器直接连接你选的模型服务。密钥只在当前标签页使用，刷新或关闭后需要重新填写。安卓配置信息保存在本机。两端都在你发送时才提交所选代码，模型用量由你的服务商计费。</p>
+    <h2>写下第一个文件</h2>
+    <ol>
+      <li>在安卓手机上下载安装包。已有 MiniCode 2.1.0 或 2.2.0 时，直接点开新版覆盖安装即可。</li>
+      <li>打开「资源管理器」，点加号，输入文件名，例如 <code>hello.c</code>。点编辑区输入代码，编辑器会按照文件后缀显示语法颜色。</li>
+      <li>在「命令面板」里输入文件名可以切换文件。搜索「转到行」并输入行号，可以直接跳到指定位置。点左侧「符号大纲」里的函数名或 Markdown 标题，也能跳到它所在的行。</li>
+    </ol>
+    <h2>让文件跟你走</h2>
+    <p>编辑内容自动保存在 App 内。要把文件交给其他应用，打开「设置」里的「导出当前文件」，在系统文件选择器里指定位置。要继续编辑手机上已有的代码，用「导入文件」选择一份或多份。</p>
+    <p>换手机前，可以用「导出全部备份」把工作区保存为 JSON 文件。到另一台手机，用「导入文件」打开这份备份，并在确认框里核对恢复操作。模型密钥留在原设备。</p>
+    <h2>用 AI 接着写</h2>
+    <p>在「设置」里开启「AI 功能」，填写自己的 API Key 和模型名称。默认连接 DeepSeek，也支持提供兼容接口的服务。把光标放到要续写的位置，点「AI 续写」，核对建议后再插入。生成建议时，光标附近的代码会发送到你配置的服务。</p>
+    <p>编辑、查找和本地保存都可离线使用。要编译 C、执行 Python 或调试程序，请把文件导出到对应的运行环境。</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>柳园21栋526，604联合出品</p>
+  </div>
+</footer>
+</body>
+</html>

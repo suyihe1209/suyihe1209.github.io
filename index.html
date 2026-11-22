@@ -2,120 +2,137 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>紫荆情怀 · 个人博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>柳园最终兵器 · 小组作业展示</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5efe6'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23c2185b' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%230a6d7d'/%3E%3C/svg%3E">
-<meta name="description" content="紫荆情怀的个人博客：技术笔记、作品记录，以及一个日语歌词逐句精讲专栏。">
+<meta name="description" content="柳园21栋526，604联合出品的小组作业展示。体验工具箱中的五款工具，浏览日语歌词逐句精讲。">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="紫荆情怀">
-<meta property="og:title" content="紫荆情怀 · 个人博客">
-<meta property="og:description" content="紫荆情怀的个人博客：技术笔记、作品记录，以及一个日语歌词逐句精讲专栏。">
-<meta property="og:url" content="https://suyihe1209.github.io/">
-<meta property="og:image" content="https://suyihe1209.github.io/og.jpg">
+<meta property="og:site_name" content="柳园最终兵器">
+<meta property="og:title" content="柳园最终兵器 · 小组作业展示">
+<meta property="og:description" content="柳园21栋526，604联合出品的小组作业展示。体验工具箱中的五款工具，浏览日语歌词逐句精讲。">
+<meta property="og:image" content="og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="紫荆情怀 · 个人博客">
-<meta name="twitter:description" content="紫荆情怀的个人博客：技术笔记、作品记录，以及一个日语歌词逐句精讲专栏。">
-<meta name="twitter:image" content="https://suyihe1209.github.io/og.jpg">
+<meta name="twitter:title" content="柳园最终兵器 · 小组作业展示">
+<meta name="twitter:description" content="柳园21栋526，604联合出品的小组作业展示。体验工具箱中的五款工具，浏览日语歌词逐句精讲。">
+<meta name="twitter:image" content="og.jpg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tool-assets/collection.css">
+<script defer src="lyrics/lyrics_data.js"></script>
+<script defer src="home.js"></script>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href="index.html">紫荆情怀<span class="dot">.</span></a>
-    <nav class="nav" id="siteNav">
-      <a href="index.html" class="active" data-nav="home">首页</a>
-      <a href="#posts" data-nav="posts">文章</a>
+    <a class="logo" href="index.html">柳园最终兵器<span class="dot">.</span></a>
+    <nav class="nav" id="siteNav" aria-label="主导航">
+      <a href="index.html" class="active" data-nav="home" aria-current="page">首页</a>
+      <a href="#tools" data-nav="tools">工具箱</a>
+      <a href="tools.html">桌宠</a>
       <a href="#lyrics" data-nav="lyrics">歌词精讲</a>
-      <a href="#tools" data-nav="tools">小工具</a>
-      <a href="about.html" data-nav="about">关于</a>
     </nav>
   </div>
 </header>
 
-<section class="hero hero-with-image">
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <p class="hero-kicker">个人博客 · 2026</p>
-      <div class="hero-brand">
-        <img class="brand-avatar" src="avatar.jpg" alt="紫荆情怀的头像">
-        <h1 class="hero-title">紫荆情怀</h1>
-      </div>
-      <p class="hero-quote">永远为自己和他人，做正确的事<cite>——《Tomorrow I'm Dead》Būn Yom</cite></p>
-    </div>
-    <figure class="hero-photo">
-      <picture>
-        <source srcset="hero.webp" type="image/webp">
-        <img src="hero.jpg" alt="黄昏时分屋顶上的猫耳手办" width="1920" height="1440"
-             fetchpriority="high" decoding="async">
-      </picture>
-    </figure>
-  </div>
-</section>
+<main>
+  <section class="hero hero-with-image" aria-labelledby="showcase-title">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-title" id="showcase-title">柳园最终兵器</h1>
+        <p class="hero-credit">柳园21栋526，604联合出品</p>
+        <a class="hero-link" href="#tools">打开工具箱 <span aria-hidden="true">↓</span></a>
 
-<main class="container">
-  <section id="lyrics" class="section">
-    <div class="section-head">
-      <h2 class="section-title">歌词精讲</h2>
-    </div>
-    <div class="post-list" id="songList">
-      <!-- 由 home.js 从 lyrics_data.js 渲染 -->
-    </div>
-  </section>
-
-  <section id="posts" class="section">
-    <div class="section-head">
-      <h2 class="section-title">文章</h2>
-    </div>
-    <div class="post-list" id="postList">
-      <!-- 由 posts.js 渲染 -->
-    </div>
-  </section>
-
-  <section id="tools" class="section">
-    <div class="section-head">
-      <h2 class="section-title">小工具</h2>
-    </div>
-    <div class="tool-list">
-      <a class="tool-feature" href="matcher.html">
-        <div class="tool-copy">
-          <span class="post-date">CS2 · 本地离线工具</span>
-          <h3>CS2 打法匹配器</h3>
-          <p>粘贴完美 / 5E 战绩页文本，和 IEM Cologne Major 2026 的 160 名参赛选手比一比，看打法最像谁。</p>
-          <span class="tool-action">试试我的打法</span>
+        <p class="hero-pet">右下角有个 T800。点「召唤桌宠」把它叫出来，也可以直接指挥它：</p>
+        <div class="hero-pet-actions" id="heroPetActions" role="group" aria-label="指挥 T800 桌宠">
+          <button type="button" class="pet-toggle is-hero" id="petToggle" aria-controls="homePet" aria-expanded="false" hidden>召唤桌宠</button>
+          <button type="button" data-action="wave">挥手</button>
+          <button type="button" data-action="flurry">出拳</button>
+          <button type="button" data-action="turn">低扫</button>
+          <button type="button" data-action="bound">闪避</button>
+          <button type="button" data-action="sequence">整套连播</button>
+          <a class="hero-pet-more" href="tools.html">它是怎么做的 →</a>
         </div>
-        <figure class="tool-preview">
-          <img src="matcher-preview.png" alt="匹配器示例结果中的金色六维战力雷达图" width="640" height="640" loading="lazy" decoding="async">
-          <figcaption>战力六边形 · 示例预览</figcaption>
-        </figure>
-      </a>
+        <p class="pet-feedback" id="petFeedback" role="status"></p>
+      </div>
+      <figure class="hero-photo">
+        <picture>
+          <source srcset="hero.webp" type="image/webp">
+          <img src="hero.jpg" alt="黄昏时分屋顶上的猫耳手办" width="1920" height="1440"
+               fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <div class="section-head">
-      <h2 class="section-title">关于</h2>
-    </div>
-    <div class="post-list">
-      <a class="post-card card" href="about.html">
-        <span class="post-date">紫荆情怀</span>
-        <h3>关于我</h3>
-        <p class="post-excerpt">一个喜欢折腾的普通人。这里是我的网上自留地，用来放文章、作品，以及那些没地方放的碎碎念。</p>
-        <span class="post-tag">关于</span>
-      </a>
-    </div>
-  </section>
+  <div class="container">
+    <section id="tools" class="section showcase-tools" aria-labelledby="tools-title">
+      <div class="section-head">
+        <h2 class="section-title" id="tools-title">工具箱</h2>
+      </div>
+      <div class="collection-list">
+        <a class="tool-feature collection-card is-featured" href="marketlab/index.html">
+          <div class="tool-icon market-icon" aria-hidden="true">ƒ</div>
+          <div class="tool-copy">
+            <span class="post-date">MarketLab · 金融研究</span>
+            <h3>AI 金融市场实验室</h3>
+            <p>查看市场关联，验证预测与策略，回放交易并生成报告。</p>
+            <span class="tool-action">进入实验室</span>
+          </div>
+        </a>
+        <a class="tool-feature collection-card is-featured" href="matcher.html">
+          <img class="tool-icon matcher-icon" src="matcher-preview.png" alt="" width="80" height="80">
+          <div class="tool-copy">
+            <span class="post-date">CS2 · 本地离线工具</span>
+            <h3>CS2 打法匹配器</h3>
+            <p>粘贴完美或 5E 战绩，看看自己的打法最像哪位 Major 选手。</p>
+            <span class="tool-action">试试我的打法</span>
+          </div>
+        </a>
+        <a class="tool-feature collection-card" href="minicode.html">
+          <img class="tool-icon" src="tool-assets/minicode-icon.png" alt="" width="80" height="80">
+          <div class="tool-copy">
+            <span class="post-date">Android 7.0 及以上</span>
+            <h3>MiniCode 代码编辑器</h3>
+            <p>在手机或网页上编辑代码，选择文件交给 AI 试运行、查看预计输出。</p>
+            <span class="tool-action">用法与下载</span>
+          </div>
+        </a>
+        <a class="tool-feature collection-card" href="weather.html">
+          <img class="tool-icon" src="tool-assets/weather-icon.png" alt="" width="80" height="80">
+          <div class="tool-copy">
+            <span class="post-date">Android 6.0 及以上</span>
+            <h3>山水天气</h3>
+            <p>在手机桌面看天气，山水画面随晴雨和昼夜变化。</p>
+            <span class="tool-action">用法与下载</span>
+          </div>
+        </a>
+        <a class="tool-feature collection-card" href="todo.html">
+          <img class="tool-icon" src="tool-assets/todo-icon.png" alt="" width="80" height="80">
+          <div class="tool-copy">
+            <span class="post-date">Android 10 及以上</span>
+            <h3>待办</h3>
+            <p>记下要做的事，完成一件就勾掉一件。</p>
+            <span class="tool-action">用法与下载</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="lyrics" class="section" aria-labelledby="lyrics-title">
+      <div class="section-head">
+        <h2 class="section-title" id="lyrics-title">歌词精讲</h2>
+      </div>
+      <div class="post-list" id="songList">
+        <noscript><a href="lyrics/合集.html">浏览歌词合集</a></noscript>
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <p>© 2026 紫荆情怀 · 用爱发电</p>
-  </div>
+  <div class="container"><p>柳园21栋526，604联合出品</p></div>
 </footer>
-
-<script src="lyrics/lyrics_data.js"></script>
-<script src="posts.js"></script>
-<script src="home.js"></script>
+<div id="homePet"></div>
 </body>
 </html>
