@@ -187,23 +187,54 @@ a { color: inherit; }
   background: rgba(194, 24, 91, 0.07); color: var(--pink);
 }
 
-/* 首页曲目索引：不当卡片当目录 —— 序号压低对比度，曲名是唯一重音。
-   column-gap 归零 + 每格右内边距，让上分隔线在整行连通 */
+/* 首页曲目目录 */
 #songList.post-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
-#songList .song-mini {
-  padding: 16px 32px 20px 16px;
-  border-top: 1px solid var(--line2);
-  border-radius: 0; background: none; transition: color .2s;
+.song-entry { position: relative; min-width: 0; border-top: 1px solid var(--line2); }
+#songList .song-mini { padding: 22px 24px 24px 16px; }
+#songList .song-mini h3 {
+  display: flex; align-items: baseline; gap: 12px;
+  font-size: 18px; line-height: 1.6; margin: 0 0 8px;
 }
-#songList .song-mini:nth-child(3n) { padding-right: 0; }
-/* 歌手名长短不一，同一行三格的曲名会因此错位；锁两行高度把基线钉死 */
+.song-number { flex-shrink: 0; font-size: 12px; font-weight: 400; color: var(--muted2); font-variant-numeric: tabular-nums; }
 #songList .song-mini .post-date {
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
-  overflow: hidden; min-height: 2.9em; line-height: 1.45;
+  display: block; margin-left: 27px; font-size: 13px; line-height: 1.7;
+  overflow-wrap: anywhere;
 }
-#songList .song-mini h3 { font-size: 18px; margin: 6px 0 0; }
 #songList .song-mini:hover { background: none; transform: none; }
 #songList .song-mini:hover h3 { color: var(--pink); }
+.song-entry:has(.song-deep) .song-mini { padding-bottom: 12px; }
+.song-deep {
+  display: inline-block; margin: 0 0 20px 43px;
+  color: var(--cyan); font-size: 13px; text-underline-offset: 4px;
+}
+.song-mini:focus-visible, .song-deep:focus-visible, .tool-feature:focus-visible {
+  outline: 2px solid var(--cyan); outline-offset: 4px;
+}
+
+/* 小工具入口：说明与实际结果预览 */
+.tool-feature {
+  display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 36px;
+  align-items: center; padding: 28px 36px;
+  border: 1px solid var(--line2); border-radius: var(--r-md);
+  background: rgba(255,255,255,.35); text-decoration: none;
+  transition: border-color .2s, background .2s;
+}
+.tool-feature:hover { border-color: #b08a3e; background: rgba(255,255,255,.6); }
+.tool-copy .post-date { color: var(--muted2); font-size: 13px; }
+.tool-copy h3 { margin: 12px 0 14px; font-size: 28px; line-height: 1.4; }
+.tool-copy p { max-width: 30em; color: var(--muted); font-size: 16px; line-height: 1.9; }
+.tool-action { display: inline-block; margin-top: 24px; color: var(--cyan); font-size: 15px; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.tool-preview { margin: 0; text-align: center; }
+.tool-preview img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.tool-preview figcaption { color: var(--muted2); font-size: 12px; margin-top: 0; }
+@media (max-width: 700px) {
+  .tool-feature { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 24px; }
+  .tool-copy h3 { font-size: 24px; }
+  .tool-preview { width: min(100%, 250px); justify-self: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tool-feature { transition: none; }
+}
 
 /* ---------- 歌词专区卡片 ---------- */
 .lyrics-banner h2 .jp { color: var(--pink); }
@@ -278,8 +309,6 @@ a { color: inherit; }
 @media (max-width: 900px) {
   /* 曲目索引降为两列：右边缘的内边距要跟着换列数走 */
   #songList.post-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #songList .song-mini:nth-child(3n) { padding-right: 32px; }
-  #songList .song-mini:nth-child(2n) { padding-right: 0; }
 }
 @media (max-width: 700px) {
   .hero { padding: 64px 0 48px; }
@@ -290,8 +319,8 @@ a { color: inherit; }
   /* minmax(0,1fr)：1fr 的下限是 min-content，长歌手名会把轨道撑破容器 */
   #songList.post-list { grid-template-columns: minmax(0, 1fr); }
   /* 单列时不需要为对齐预留两行，也没有右列要对齐 */
-  #songList .song-mini { padding: 14px 0 16px 16px; }
-  #songList .song-mini .post-date { min-height: 0; -webkit-line-clamp: unset; }
+  #songList .song-mini { padding: 18px 8px 20px 16px; }
+
   .nav {
     gap: 12px; min-width: 0;
     overflow-x: auto; scrollbar-width: none;

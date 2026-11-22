@@ -1,4 +1,4 @@
-// 首页歌词精讲曲目列表：从内联的 LYRICS_DATA 渲染，仅保留歌手 + 曲名，15 首全展示
+// 首页曲目目录：曲名优先，歌手次之，有深读篇时提供独立入口。
 (function () {
   function renderSongs() {
     const list = document.getElementById("songList");
@@ -8,10 +8,13 @@
       return;
     }
     list.innerHTML = LYRICS_DATA.songs.map(s => `
-      <a class="post-card card song-mini" href="lyrics/${s.file}">
-        <span class="post-date">#${String(s.seq).padStart(2, "0")} · ${s.artist}</span>
-        <h3>${s.title}</h3>
-      </a>
+      <div class="song-entry">
+        <a class="post-card card song-mini" href="lyrics/${s.file}">
+          <h3><span class="song-number">${String(s.seq).padStart(2, "0")}</span><span>${s.title}</span></h3>
+          <span class="post-date">${s.artist}</span>
+        </a>
+        ${s.deep ? `<a class="song-deep" href="lyrics/${s.deep}" aria-label="${s.title} 深读篇">深读篇</a>` : ""}
+      </div>
     `).join("");
   }
 
